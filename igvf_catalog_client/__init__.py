@@ -29,7 +29,6 @@ __all__ = [
     "ApiAttributeError",
     "ApiException",
     "AllCodingVariantsFromGenes200ResponseInner",
-    "Autocomplete200ResponseInner",
     "BiosamplesFromGenomicElements200ResponseInner",
     "BiosamplesFromGenomicElements200ResponseInnerGenomicElement",
     "BiosamplesFromVariants200ResponseInner",
@@ -98,7 +97,6 @@ __all__ = [
     "GoTermsFromAnnotations200ResponseInnerAnyOf",
     "Grn200ResponseInner",
     "Grn200ResponseInnerGenomicElement",
-    "Health200Response",
     "InlineObject",
     "InlineObjectIssuesInner",
     "MotifsFromProteins200ResponseInner",
@@ -200,7 +198,6 @@ from igvf_catalog_client.exceptions import ApiException as ApiException
 
 # import models into sdk package
 from igvf_catalog_client.models.all_coding_variants_from_genes200_response_inner import AllCodingVariantsFromGenes200ResponseInner as AllCodingVariantsFromGenes200ResponseInner
-from igvf_catalog_client.models.autocomplete200_response_inner import Autocomplete200ResponseInner as Autocomplete200ResponseInner
 from igvf_catalog_client.models.biosamples_from_genomic_elements200_response_inner import BiosamplesFromGenomicElements200ResponseInner as BiosamplesFromGenomicElements200ResponseInner
 from igvf_catalog_client.models.biosamples_from_genomic_elements200_response_inner_genomic_element import BiosamplesFromGenomicElements200ResponseInnerGenomicElement as BiosamplesFromGenomicElements200ResponseInnerGenomicElement
 from igvf_catalog_client.models.biosamples_from_variants200_response_inner import BiosamplesFromVariants200ResponseInner as BiosamplesFromVariants200ResponseInner
@@ -269,7 +266,6 @@ from igvf_catalog_client.models.go_terms_from_annotations200_response_inner impo
 from igvf_catalog_client.models.go_terms_from_annotations200_response_inner_any_of import GoTermsFromAnnotations200ResponseInnerAnyOf as GoTermsFromAnnotations200ResponseInnerAnyOf
 from igvf_catalog_client.models.grn200_response_inner import Grn200ResponseInner as Grn200ResponseInner
 from igvf_catalog_client.models.grn200_response_inner_genomic_element import Grn200ResponseInnerGenomicElement as Grn200ResponseInnerGenomicElement
-from igvf_catalog_client.models.health200_response import Health200Response as Health200Response
 from igvf_catalog_client.models.inline_object import InlineObject as InlineObject
 from igvf_catalog_client.models.inline_object_issues_inner import InlineObjectIssuesInner as InlineObjectIssuesInner
 from igvf_catalog_client.models.motifs_from_proteins200_response_inner import MotifsFromProteins200ResponseInner as MotifsFromProteins200ResponseInner

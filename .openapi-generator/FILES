@@ -4,7 +4,6 @@
 .travis.yml
 README.md
 docs/AllCodingVariantsFromGenes200ResponseInner.md
-docs/Autocomplete200ResponseInner.md
 docs/BiosamplesFromGenomicElements200ResponseInner.md
 docs/BiosamplesFromGenomicElements200ResponseInnerGenomicElement.md
 docs/BiosamplesFromVariants200ResponseInner.md
@@ -73,7 +72,6 @@ docs/GoTermsFromAnnotations200ResponseInner.md
 docs/GoTermsFromAnnotations200ResponseInnerAnyOf.md
 docs/Grn200ResponseInner.md
 docs/Grn200ResponseInnerGenomicElement.md
-docs/Health200Response.md
 docs/IgvfCatalogApi.md
 docs/InlineObject.md
 docs/InlineObjectIssuesInner.md
@@ -168,7 +166,6 @@ igvf_catalog_client/configuration.py
 igvf_catalog_client/exceptions.py
 igvf_catalog_client/models/__init__.py
 igvf_catalog_client/models/all_coding_variants_from_genes200_response_inner.py
-igvf_catalog_client/models/autocomplete200_response_inner.py
 igvf_catalog_client/models/biosamples_from_genomic_elements200_response_inner.py
 igvf_catalog_client/models/biosamples_from_genomic_elements200_response_inner_genomic_element.py
 igvf_catalog_client/models/biosamples_from_variants200_response_inner.py
@@ -237,7 +234,6 @@ igvf_catalog_client/models/go_terms_from_annotations200_response_inner.py
 igvf_catalog_client/models/go_terms_from_annotations200_response_inner_any_of.py
 igvf_catalog_client/models/grn200_response_inner.py
 igvf_catalog_client/models/grn200_response_inner_genomic_element.py
-igvf_catalog_client/models/health200_response.py
 igvf_catalog_client/models/inline_object.py
 igvf_catalog_client/models/inline_object_issues_inner.py
 igvf_catalog_client/models/motifs_from_proteins200_response_inner.py

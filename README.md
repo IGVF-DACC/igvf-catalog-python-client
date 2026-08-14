@@ -91,96 +91,94 @@ All URIs are relative to *https://api.catalogkg.igvf.org/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*IgvfCatalogApi* | [**variants**](docs/IgvfCatalogApi.md#variants) | **GET** /variants | 
-*IgvfCatalogApi* | [**coding_variants**](docs/IgvfCatalogApi.md#coding_variants) | **GET** /coding-variants | 
-*IgvfCatalogApi* | [**genomic_elements**](docs/IgvfCatalogApi.md#genomic_elements) | **GET** /genomic-elements | 
-*IgvfCatalogApi* | [**genes**](docs/IgvfCatalogApi.md#genes) | **GET** /genes | 
-*IgvfCatalogApi* | [**genes_structure**](docs/IgvfCatalogApi.md#genes_structure) | **GET** /genes-structure | 
-*IgvfCatalogApi* | [**transcripts**](docs/IgvfCatalogApi.md#transcripts) | **GET** /transcripts | 
-*IgvfCatalogApi* | [**proteins**](docs/IgvfCatalogApi.md#proteins) | **GET** /proteins | 
-*IgvfCatalogApi* | [**complexes**](docs/IgvfCatalogApi.md#complexes) | **GET** /complexes | 
-*IgvfCatalogApi* | [**pathways**](docs/IgvfCatalogApi.md#pathways) | **GET** /pathways | 
-*IgvfCatalogApi* | [**motifs**](docs/IgvfCatalogApi.md#motifs) | **GET** /motifs | 
-*IgvfCatalogApi* | [**drugs**](docs/IgvfCatalogApi.md#drugs) | **GET** /drugs | 
-*IgvfCatalogApi* | [**ontology_term**](docs/IgvfCatalogApi.md#ontology_term) | **GET** /ontology-terms | 
-*IgvfCatalogApi* | [**studies**](docs/IgvfCatalogApi.md#studies) | **GET** /studies | 
-*IgvfCatalogApi* | [**genomic_elements_from_variants**](docs/IgvfCatalogApi.md#genomic_elements_from_variants) | **GET** /variants/genomic-elements | 
-*IgvfCatalogApi* | [**genes_from_variants**](docs/IgvfCatalogApi.md#genes_from_variants) | **GET** /variants/genes | 
-*IgvfCatalogApi* | [**proteins_from_variants**](docs/IgvfCatalogApi.md#proteins_from_variants) | **GET** /variants/proteins | 
-*IgvfCatalogApi* | [**phenotypes_from_variants**](docs/IgvfCatalogApi.md#phenotypes_from_variants) | **GET** /variants/phenotypes | 
-*IgvfCatalogApi* | [**biosamples_from_variants**](docs/IgvfCatalogApi.md#biosamples_from_variants) | **GET** /variants/biosamples | 
-*IgvfCatalogApi* | [**variants_from_proteins**](docs/IgvfCatalogApi.md#variants_from_proteins) | **GET** /proteins/variants | 
-*IgvfCatalogApi* | [**proteins_proteins**](docs/IgvfCatalogApi.md#proteins_proteins) | **GET** /proteins/proteins | 
-*IgvfCatalogApi* | [**variants_from_phenotypes**](docs/IgvfCatalogApi.md#variants_from_phenotypes) | **GET** /phenotypes/variants | 
-*IgvfCatalogApi* | [**coding_variants_from_phenotypes**](docs/IgvfCatalogApi.md#coding_variants_from_phenotypes) | **GET** /phenotypes/coding-variants | 
-*IgvfCatalogApi* | [**genomic_elements_from_phenotypes**](docs/IgvfCatalogApi.md#genomic_elements_from_phenotypes) | **GET** /phenotypes/genomic-elements | 
-*IgvfCatalogApi* | [**variants_from_genomic_elements**](docs/IgvfCatalogApi.md#variants_from_genomic_elements) | **GET** /genomic-elements/variants | 
-*IgvfCatalogApi* | [**genes_from_genomic_elements**](docs/IgvfCatalogApi.md#genes_from_genomic_elements) | **GET** /genomic-elements/genes | 
-*IgvfCatalogApi* | [**phenotypes_from_genomic_elements**](docs/IgvfCatalogApi.md#phenotypes_from_genomic_elements) | **GET** /genomic-elements/phenotypes | 
-*IgvfCatalogApi* | [**biosamples_from_genomic_elements**](docs/IgvfCatalogApi.md#biosamples_from_genomic_elements) | **GET** /genomic-elements/biosamples | 
-*IgvfCatalogApi* | [**variants_from_genes**](docs/IgvfCatalogApi.md#variants_from_genes) | **GET** /genes/variants | 
-*IgvfCatalogApi* | [**genomic_elements_from_genes**](docs/IgvfCatalogApi.md#genomic_elements_from_genes) | **GET** /genes/genomic-elements | 
-*IgvfCatalogApi* | [**phenotypes_from_coding_variants**](docs/IgvfCatalogApi.md#phenotypes_from_coding_variants) | **GET** /coding-variants/phenotypes | 
-*IgvfCatalogApi* | [**variants_from_biosamples**](docs/IgvfCatalogApi.md#variants_from_biosamples) | **GET** /biosamples/variants | 
-*IgvfCatalogApi* | [**genomic_elements_from_biosamples**](docs/IgvfCatalogApi.md#genomic_elements_from_biosamples) | **GET** /biosamples/genomic-elements | 
-*IgvfCatalogApi* | [**variant_by_frequency_source**](docs/IgvfCatalogApi.md#variant_by_frequency_source) | **GET** /variants/freq | 
-*IgvfCatalogApi* | [**grn**](docs/IgvfCatalogApi.md#grn) | **GET** /gene-regulatory-network | 
-*IgvfCatalogApi* | [**enhancer_gene_predictions**](docs/IgvfCatalogApi.md#enhancer_gene_predictions) | **GET** /enhancer-gene-predictions | 
-*IgvfCatalogApi* | [**qtls**](docs/IgvfCatalogApi.md#qtls) | **GET** /qtls | 
-*IgvfCatalogApi* | [**variant_summary**](docs/IgvfCatalogApi.md#variant_summary) | **GET** /variants/summary | 
-*IgvfCatalogApi* | [**variants_from_variant_id_summary**](docs/IgvfCatalogApi.md#variants_from_variant_id_summary) | **GET** /variants/variant-ld/summary | 
-*IgvfCatalogApi* | [**variants_region_summary**](docs/IgvfCatalogApi.md#variants_region_summary) | **GET** /variants/region-summary | 
-*IgvfCatalogApi* | [**qtl_summary_endpoint**](docs/IgvfCatalogApi.md#qtl_summary_endpoint) | **GET** /variants/genes/summary | 
-*IgvfCatalogApi* | [**genomic_elements_from_variants_count**](docs/IgvfCatalogApi.md#genomic_elements_from_variants_count) | **GET** /variants/predictions-count | 
-*IgvfCatalogApi* | [**predictions_from_variants**](docs/IgvfCatalogApi.md#predictions_from_variants) | **GET** /variants/predictions | 
-*IgvfCatalogApi* | [**deprecated_coding_variants_summary**](docs/IgvfCatalogApi.md#deprecated_coding_variants_summary) | **GET** /variants/phenotypes/score-summary | 
-*IgvfCatalogApi* | [**nearest_genes**](docs/IgvfCatalogApi.md#nearest_genes) | **GET** /variants/nearest-genes | 
-*IgvfCatalogApi* | [**variants_alleles**](docs/IgvfCatalogApi.md#variants_alleles) | **GET** /variants/gnomad-alleles | 
-*IgvfCatalogApi* | [**variants_genomic_elements_genes**](docs/IgvfCatalogApi.md#variants_genomic_elements_genes) | **GET** /variants/genomic-elements/genes | 
-*IgvfCatalogApi* | [**genomic_elements_predictions_from_variant**](docs/IgvfCatalogApi.md#genomic_elements_predictions_from_variant) | **GET** /variants/genomic-elements/cell-gene-predictions | 
-*IgvfCatalogApi* | [**genes_proteins_from_variants**](docs/IgvfCatalogApi.md#genes_proteins_from_variants) | **GET** /variants/genes-proteins | 
-*IgvfCatalogApi* | [**coding_variants_from_genes**](docs/IgvfCatalogApi.md#coding_variants_from_genes) | **GET** /genes/coding-variants/scores | 
 *IgvfCatalogApi* | [**all_coding_variants_from_genes**](docs/IgvfCatalogApi.md#all_coding_variants_from_genes) | **GET** /genes/coding-variants/all-scores | 
-*IgvfCatalogApi* | [**variants_from_gene_proteins**](docs/IgvfCatalogApi.md#variants_from_gene_proteins) | **GET** /genes-proteins/variants | 
-*IgvfCatalogApi* | [**genes_proteins_genes_proteins**](docs/IgvfCatalogApi.md#genes_proteins_genes_proteins) | **GET** /genes-proteins/genes-proteins | 
-*IgvfCatalogApi* | [**coding_variants_summary**](docs/IgvfCatalogApi.md#coding_variants_summary) | **GET** /coding-variants/phenotypes/score-summary | 
-*IgvfCatalogApi* | [**coding_variants_count_from_gene**](docs/IgvfCatalogApi.md#coding_variants_count_from_gene) | **GET** /coding-variants/phenotypes-count | 
-*IgvfCatalogApi* | [**ontology_term_parents**](docs/IgvfCatalogApi.md#ontology_term_parents) | **GET** /ontology-terms/{ontology_term_id}/parents | 
-*IgvfCatalogApi* | [**ontology_term_children**](docs/IgvfCatalogApi.md#ontology_term_children) | **GET** /ontology-terms/{ontology_term_id}/children | 
-*IgvfCatalogApi* | [**ontology_term_transitive_closure**](docs/IgvfCatalogApi.md#ontology_term_transitive_closure) | **GET** /ontology-terms/{ontology_term_id_start}/transitive-closure/{ontology_term_id_end} | 
-*IgvfCatalogApi* | [**variants_from_variant_id**](docs/IgvfCatalogApi.md#variants_from_variant_id) | **GET** /variants/variant-ld | 
-*IgvfCatalogApi* | [**coding_variants_from_variants**](docs/IgvfCatalogApi.md#coding_variants_from_variants) | **GET** /variants/coding-variants | 
-*IgvfCatalogApi* | [**drugs_from_variants**](docs/IgvfCatalogApi.md#drugs_from_variants) | **GET** /variants/drugs | 
-*IgvfCatalogApi* | [**disease_from_variants**](docs/IgvfCatalogApi.md#disease_from_variants) | **GET** /variants/diseases | 
-*IgvfCatalogApi* | [**variants_from_coding_variants**](docs/IgvfCatalogApi.md#variants_from_coding_variants) | **GET** /coding-variants/variants | 
-*IgvfCatalogApi* | [**transcripts_from_genes**](docs/IgvfCatalogApi.md#transcripts_from_genes) | **GET** /genes/transcripts | 
-*IgvfCatalogApi* | [**proteins_from_genes**](docs/IgvfCatalogApi.md#proteins_from_genes) | **GET** /genes/proteins | 
-*IgvfCatalogApi* | [**pathways_from_genes**](docs/IgvfCatalogApi.md#pathways_from_genes) | **GET** /genes/pathways | 
-*IgvfCatalogApi* | [**genes_genes**](docs/IgvfCatalogApi.md#genes_genes) | **GET** /genes/genes | 
-*IgvfCatalogApi* | [**diseases_from_genes**](docs/IgvfCatalogApi.md#diseases_from_genes) | **GET** /genes/diseases | 
-*IgvfCatalogApi* | [**genes_from_transcripts**](docs/IgvfCatalogApi.md#genes_from_transcripts) | **GET** /transcripts/genes | 
-*IgvfCatalogApi* | [**proteins_from_transcripts**](docs/IgvfCatalogApi.md#proteins_from_transcripts) | **GET** /transcripts/proteins | 
-*IgvfCatalogApi* | [**transcripts_from_proteins**](docs/IgvfCatalogApi.md#transcripts_from_proteins) | **GET** /proteins/transcripts | 
-*IgvfCatalogApi* | [**genes_from_proteins**](docs/IgvfCatalogApi.md#genes_from_proteins) | **GET** /proteins/genes | 
-*IgvfCatalogApi* | [**complexes_from_proteins**](docs/IgvfCatalogApi.md#complexes_from_proteins) | **GET** /proteins/complexes | 
-*IgvfCatalogApi* | [**proteins_from_complexes**](docs/IgvfCatalogApi.md#proteins_from_complexes) | **GET** /complexes/proteins | 
-*IgvfCatalogApi* | [**motifs_from_proteins**](docs/IgvfCatalogApi.md#motifs_from_proteins) | **GET** /proteins/motifs | 
-*IgvfCatalogApi* | [**proteins_from_motifs**](docs/IgvfCatalogApi.md#proteins_from_motifs) | **GET** /motifs/proteins | 
-*IgvfCatalogApi* | [**genes_from_pathways**](docs/IgvfCatalogApi.md#genes_from_pathways) | **GET** /pathways/genes | 
-*IgvfCatalogApi* | [**pathways_from_pathways**](docs/IgvfCatalogApi.md#pathways_from_pathways) | **GET** /pathways/pathways | 
 *IgvfCatalogApi* | [**annotations_from_go_terms**](docs/IgvfCatalogApi.md#annotations_from_go_terms) | **GET** /go-terms/gene-products | 
-*IgvfCatalogApi* | [**go_terms_from_annotations**](docs/IgvfCatalogApi.md#go_terms_from_annotations) | **GET** /gene-products/go-terms | 
-*IgvfCatalogApi* | [**variants_from_diseases**](docs/IgvfCatalogApi.md#variants_from_diseases) | **GET** /diseases/variants | 
-*IgvfCatalogApi* | [**genes_from_diseases**](docs/IgvfCatalogApi.md#genes_from_diseases) | **GET** /diseases/genes | 
-*IgvfCatalogApi* | [**variants_from_drugs**](docs/IgvfCatalogApi.md#variants_from_drugs) | **GET** /drugs/variants | 
+*IgvfCatalogApi* | [**biosamples_from_genomic_elements**](docs/IgvfCatalogApi.md#biosamples_from_genomic_elements) | **GET** /genomic-elements/biosamples | 
+*IgvfCatalogApi* | [**biosamples_from_variants**](docs/IgvfCatalogApi.md#biosamples_from_variants) | **GET** /variants/biosamples | 
+*IgvfCatalogApi* | [**coding_variants**](docs/IgvfCatalogApi.md#coding_variants) | **GET** /coding-variants | 
+*IgvfCatalogApi* | [**coding_variants_count_from_gene**](docs/IgvfCatalogApi.md#coding_variants_count_from_gene) | **GET** /coding-variants/phenotypes-count | 
+*IgvfCatalogApi* | [**coding_variants_from_genes**](docs/IgvfCatalogApi.md#coding_variants_from_genes) | **GET** /genes/coding-variants/scores | 
+*IgvfCatalogApi* | [**coding_variants_from_phenotypes**](docs/IgvfCatalogApi.md#coding_variants_from_phenotypes) | **GET** /phenotypes/coding-variants | 
+*IgvfCatalogApi* | [**coding_variants_from_variants**](docs/IgvfCatalogApi.md#coding_variants_from_variants) | **GET** /variants/coding-variants | 
+*IgvfCatalogApi* | [**coding_variants_summary**](docs/IgvfCatalogApi.md#coding_variants_summary) | **GET** /coding-variants/phenotypes/score-summary | 
+*IgvfCatalogApi* | [**complexes**](docs/IgvfCatalogApi.md#complexes) | **GET** /complexes | 
+*IgvfCatalogApi* | [**complexes_from_proteins**](docs/IgvfCatalogApi.md#complexes_from_proteins) | **GET** /proteins/complexes | 
+*IgvfCatalogApi* | [**deprecated_coding_variants_summary**](docs/IgvfCatalogApi.md#deprecated_coding_variants_summary) | **GET** /variants/phenotypes/score-summary | 
+*IgvfCatalogApi* | [**disease_from_variants**](docs/IgvfCatalogApi.md#disease_from_variants) | **GET** /variants/diseases | 
+*IgvfCatalogApi* | [**diseases_from_genes**](docs/IgvfCatalogApi.md#diseases_from_genes) | **GET** /genes/diseases | 
+*IgvfCatalogApi* | [**drugs**](docs/IgvfCatalogApi.md#drugs) | **GET** /drugs | 
+*IgvfCatalogApi* | [**drugs_from_variants**](docs/IgvfCatalogApi.md#drugs_from_variants) | **GET** /variants/drugs | 
+*IgvfCatalogApi* | [**enhancer_gene_predictions**](docs/IgvfCatalogApi.md#enhancer_gene_predictions) | **GET** /enhancer-gene-predictions | 
 *IgvfCatalogApi* | [**files_filesets**](docs/IgvfCatalogApi.md#files_filesets) | **GET** /files-filesets | 
-*IgvfCatalogApi* | [**autocomplete**](docs/IgvfCatalogApi.md#autocomplete) | **GET** /autocomplete | 
-*IgvfCatalogApi* | [**health**](docs/IgvfCatalogApi.md#health) | **GET** /health | 
+*IgvfCatalogApi* | [**genes**](docs/IgvfCatalogApi.md#genes) | **GET** /genes | 
+*IgvfCatalogApi* | [**genes_from_diseases**](docs/IgvfCatalogApi.md#genes_from_diseases) | **GET** /diseases/genes | 
+*IgvfCatalogApi* | [**genes_from_genomic_elements**](docs/IgvfCatalogApi.md#genes_from_genomic_elements) | **GET** /genomic-elements/genes | 
+*IgvfCatalogApi* | [**genes_from_pathways**](docs/IgvfCatalogApi.md#genes_from_pathways) | **GET** /pathways/genes | 
+*IgvfCatalogApi* | [**genes_from_proteins**](docs/IgvfCatalogApi.md#genes_from_proteins) | **GET** /proteins/genes | 
+*IgvfCatalogApi* | [**genes_from_transcripts**](docs/IgvfCatalogApi.md#genes_from_transcripts) | **GET** /transcripts/genes | 
+*IgvfCatalogApi* | [**genes_from_variants**](docs/IgvfCatalogApi.md#genes_from_variants) | **GET** /variants/genes | 
+*IgvfCatalogApi* | [**genes_genes**](docs/IgvfCatalogApi.md#genes_genes) | **GET** /genes/genes | 
+*IgvfCatalogApi* | [**genes_proteins_from_variants**](docs/IgvfCatalogApi.md#genes_proteins_from_variants) | **GET** /variants/genes-proteins | 
+*IgvfCatalogApi* | [**genes_proteins_genes_proteins**](docs/IgvfCatalogApi.md#genes_proteins_genes_proteins) | **GET** /genes-proteins/genes-proteins | 
+*IgvfCatalogApi* | [**genes_structure**](docs/IgvfCatalogApi.md#genes_structure) | **GET** /genes-structure | 
+*IgvfCatalogApi* | [**genomic_elements**](docs/IgvfCatalogApi.md#genomic_elements) | **GET** /genomic-elements | 
+*IgvfCatalogApi* | [**genomic_elements_from_biosamples**](docs/IgvfCatalogApi.md#genomic_elements_from_biosamples) | **GET** /biosamples/genomic-elements | 
+*IgvfCatalogApi* | [**genomic_elements_from_genes**](docs/IgvfCatalogApi.md#genomic_elements_from_genes) | **GET** /genes/genomic-elements | 
+*IgvfCatalogApi* | [**genomic_elements_from_phenotypes**](docs/IgvfCatalogApi.md#genomic_elements_from_phenotypes) | **GET** /phenotypes/genomic-elements | 
+*IgvfCatalogApi* | [**genomic_elements_from_variants**](docs/IgvfCatalogApi.md#genomic_elements_from_variants) | **GET** /variants/genomic-elements | 
+*IgvfCatalogApi* | [**genomic_elements_from_variants_count**](docs/IgvfCatalogApi.md#genomic_elements_from_variants_count) | **GET** /variants/predictions-count | 
+*IgvfCatalogApi* | [**genomic_elements_predictions_from_variant**](docs/IgvfCatalogApi.md#genomic_elements_predictions_from_variant) | **GET** /variants/genomic-elements/cell-gene-predictions | 
+*IgvfCatalogApi* | [**go_terms_from_annotations**](docs/IgvfCatalogApi.md#go_terms_from_annotations) | **GET** /gene-products/go-terms | 
+*IgvfCatalogApi* | [**grn**](docs/IgvfCatalogApi.md#grn) | **GET** /gene-regulatory-network | 
+*IgvfCatalogApi* | [**motifs**](docs/IgvfCatalogApi.md#motifs) | **GET** /motifs | 
+*IgvfCatalogApi* | [**motifs_from_proteins**](docs/IgvfCatalogApi.md#motifs_from_proteins) | **GET** /proteins/motifs | 
+*IgvfCatalogApi* | [**nearest_genes**](docs/IgvfCatalogApi.md#nearest_genes) | **GET** /variants/nearest-genes | 
+*IgvfCatalogApi* | [**ontology_term**](docs/IgvfCatalogApi.md#ontology_term) | **GET** /ontology-terms | 
+*IgvfCatalogApi* | [**ontology_term_children**](docs/IgvfCatalogApi.md#ontology_term_children) | **GET** /ontology-terms/{ontology_term_id}/children | 
+*IgvfCatalogApi* | [**ontology_term_parents**](docs/IgvfCatalogApi.md#ontology_term_parents) | **GET** /ontology-terms/{ontology_term_id}/parents | 
+*IgvfCatalogApi* | [**ontology_term_transitive_closure**](docs/IgvfCatalogApi.md#ontology_term_transitive_closure) | **GET** /ontology-terms/{ontology_term_id_start}/transitive-closure/{ontology_term_id_end} | 
+*IgvfCatalogApi* | [**pathways**](docs/IgvfCatalogApi.md#pathways) | **GET** /pathways | 
+*IgvfCatalogApi* | [**pathways_from_genes**](docs/IgvfCatalogApi.md#pathways_from_genes) | **GET** /genes/pathways | 
+*IgvfCatalogApi* | [**pathways_from_pathways**](docs/IgvfCatalogApi.md#pathways_from_pathways) | **GET** /pathways/pathways | 
+*IgvfCatalogApi* | [**phenotypes_from_coding_variants**](docs/IgvfCatalogApi.md#phenotypes_from_coding_variants) | **GET** /coding-variants/phenotypes | 
+*IgvfCatalogApi* | [**phenotypes_from_genomic_elements**](docs/IgvfCatalogApi.md#phenotypes_from_genomic_elements) | **GET** /genomic-elements/phenotypes | 
+*IgvfCatalogApi* | [**phenotypes_from_variants**](docs/IgvfCatalogApi.md#phenotypes_from_variants) | **GET** /variants/phenotypes | 
+*IgvfCatalogApi* | [**predictions_from_variants**](docs/IgvfCatalogApi.md#predictions_from_variants) | **GET** /variants/predictions | 
+*IgvfCatalogApi* | [**proteins**](docs/IgvfCatalogApi.md#proteins) | **GET** /proteins | 
+*IgvfCatalogApi* | [**proteins_from_complexes**](docs/IgvfCatalogApi.md#proteins_from_complexes) | **GET** /complexes/proteins | 
+*IgvfCatalogApi* | [**proteins_from_genes**](docs/IgvfCatalogApi.md#proteins_from_genes) | **GET** /genes/proteins | 
+*IgvfCatalogApi* | [**proteins_from_motifs**](docs/IgvfCatalogApi.md#proteins_from_motifs) | **GET** /motifs/proteins | 
+*IgvfCatalogApi* | [**proteins_from_transcripts**](docs/IgvfCatalogApi.md#proteins_from_transcripts) | **GET** /transcripts/proteins | 
+*IgvfCatalogApi* | [**proteins_from_variants**](docs/IgvfCatalogApi.md#proteins_from_variants) | **GET** /variants/proteins | 
+*IgvfCatalogApi* | [**proteins_proteins**](docs/IgvfCatalogApi.md#proteins_proteins) | **GET** /proteins/proteins | 
+*IgvfCatalogApi* | [**qtl_summary_endpoint**](docs/IgvfCatalogApi.md#qtl_summary_endpoint) | **GET** /variants/genes/summary | 
+*IgvfCatalogApi* | [**qtls**](docs/IgvfCatalogApi.md#qtls) | **GET** /qtls | 
+*IgvfCatalogApi* | [**studies**](docs/IgvfCatalogApi.md#studies) | **GET** /studies | 
+*IgvfCatalogApi* | [**transcripts**](docs/IgvfCatalogApi.md#transcripts) | **GET** /transcripts | 
+*IgvfCatalogApi* | [**transcripts_from_genes**](docs/IgvfCatalogApi.md#transcripts_from_genes) | **GET** /genes/transcripts | 
+*IgvfCatalogApi* | [**transcripts_from_proteins**](docs/IgvfCatalogApi.md#transcripts_from_proteins) | **GET** /proteins/transcripts | 
+*IgvfCatalogApi* | [**variant_by_frequency_source**](docs/IgvfCatalogApi.md#variant_by_frequency_source) | **GET** /variants/freq | 
+*IgvfCatalogApi* | [**variant_summary**](docs/IgvfCatalogApi.md#variant_summary) | **GET** /variants/summary | 
+*IgvfCatalogApi* | [**variants**](docs/IgvfCatalogApi.md#variants) | **GET** /variants | 
+*IgvfCatalogApi* | [**variants_alleles**](docs/IgvfCatalogApi.md#variants_alleles) | **GET** /variants/gnomad-alleles | 
+*IgvfCatalogApi* | [**variants_from_biosamples**](docs/IgvfCatalogApi.md#variants_from_biosamples) | **GET** /biosamples/variants | 
+*IgvfCatalogApi* | [**variants_from_coding_variants**](docs/IgvfCatalogApi.md#variants_from_coding_variants) | **GET** /coding-variants/variants | 
+*IgvfCatalogApi* | [**variants_from_diseases**](docs/IgvfCatalogApi.md#variants_from_diseases) | **GET** /diseases/variants | 
+*IgvfCatalogApi* | [**variants_from_drugs**](docs/IgvfCatalogApi.md#variants_from_drugs) | **GET** /drugs/variants | 
+*IgvfCatalogApi* | [**variants_from_gene_proteins**](docs/IgvfCatalogApi.md#variants_from_gene_proteins) | **GET** /genes-proteins/variants | 
+*IgvfCatalogApi* | [**variants_from_genes**](docs/IgvfCatalogApi.md#variants_from_genes) | **GET** /genes/variants | 
+*IgvfCatalogApi* | [**variants_from_genomic_elements**](docs/IgvfCatalogApi.md#variants_from_genomic_elements) | **GET** /genomic-elements/variants | 
+*IgvfCatalogApi* | [**variants_from_phenotypes**](docs/IgvfCatalogApi.md#variants_from_phenotypes) | **GET** /phenotypes/variants | 
+*IgvfCatalogApi* | [**variants_from_proteins**](docs/IgvfCatalogApi.md#variants_from_proteins) | **GET** /proteins/variants | 
+*IgvfCatalogApi* | [**variants_from_variant_id**](docs/IgvfCatalogApi.md#variants_from_variant_id) | **GET** /variants/variant-ld | 
+*IgvfCatalogApi* | [**variants_from_variant_id_summary**](docs/IgvfCatalogApi.md#variants_from_variant_id_summary) | **GET** /variants/variant-ld/summary | 
+*IgvfCatalogApi* | [**variants_genomic_elements_genes**](docs/IgvfCatalogApi.md#variants_genomic_elements_genes) | **GET** /variants/genomic-elements/genes | 
+*IgvfCatalogApi* | [**variants_region_summary**](docs/IgvfCatalogApi.md#variants_region_summary) | **GET** /variants/region-summary | 
+
 
 ## Documentation For Models
 
  - [AllCodingVariantsFromGenes200ResponseInner](docs/AllCodingVariantsFromGenes200ResponseInner.md)
- - [Autocomplete200ResponseInner](docs/Autocomplete200ResponseInner.md)
  - [BiosamplesFromGenomicElements200ResponseInner](docs/BiosamplesFromGenomicElements200ResponseInner.md)
  - [BiosamplesFromGenomicElements200ResponseInnerGenomicElement](docs/BiosamplesFromGenomicElements200ResponseInnerGenomicElement.md)
  - [BiosamplesFromVariants200ResponseInner](docs/BiosamplesFromVariants200ResponseInner.md)
@@ -249,7 +247,6 @@ Class | Method | HTTP request | Description
  - [GoTermsFromAnnotations200ResponseInnerAnyOf](docs/GoTermsFromAnnotations200ResponseInnerAnyOf.md)
  - [Grn200ResponseInner](docs/Grn200ResponseInner.md)
  - [Grn200ResponseInnerGenomicElement](docs/Grn200ResponseInnerGenomicElement.md)
- - [Health200Response](docs/Health200Response.md)
  - [InlineObject](docs/InlineObject.md)
  - [InlineObjectIssuesInner](docs/InlineObjectIssuesInner.md)
  - [MotifsFromProteins200ResponseInner](docs/MotifsFromProteins200ResponseInner.md)

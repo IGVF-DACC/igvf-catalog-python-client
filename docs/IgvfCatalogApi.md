@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**all_coding_variants_from_genes**](IgvfCatalogApi.md#all_coding_variants_from_genes) | **GET** /genes/coding-variants/all-scores | 
 [**annotations_from_go_terms**](IgvfCatalogApi.md#annotations_from_go_terms) | **GET** /go-terms/gene-products | 
-[**autocomplete**](IgvfCatalogApi.md#autocomplete) | **GET** /autocomplete | 
 [**biosamples_from_genomic_elements**](IgvfCatalogApi.md#biosamples_from_genomic_elements) | **GET** /genomic-elements/biosamples | 
 [**biosamples_from_variants**](IgvfCatalogApi.md#biosamples_from_variants) | **GET** /variants/biosamples | 
 [**coding_variants**](IgvfCatalogApi.md#coding_variants) | **GET** /coding-variants | 
@@ -44,7 +43,6 @@ Method | HTTP request | Description
 [**genomic_elements_predictions_from_variant**](IgvfCatalogApi.md#genomic_elements_predictions_from_variant) | **GET** /variants/genomic-elements/cell-gene-predictions | 
 [**go_terms_from_annotations**](IgvfCatalogApi.md#go_terms_from_annotations) | **GET** /gene-products/go-terms | 
 [**grn**](IgvfCatalogApi.md#grn) | **GET** /gene-regulatory-network | 
-[**health**](IgvfCatalogApi.md#health) | **GET** /health | 
 [**motifs**](IgvfCatalogApi.md#motifs) | **GET** /motifs | 
 [**motifs_from_proteins**](IgvfCatalogApi.md#motifs_from_proteins) | **GET** /proteins/motifs | 
 [**nearest_genes**](IgvfCatalogApi.md#nearest_genes) | **GET** /variants/nearest-genes | 
@@ -216,74 +214,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List[GoTermsFromAnnotations200ResponseInner]**](GoTermsFromAnnotations200ResponseInner.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-**0** | Error response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **autocomplete**
-> List[Autocomplete200ResponseInner] autocomplete(term, page=page)
-
-Autocomplete names for genes and proteins based on prefix search.<br>   Example: term = TP53, <br>   Pagination is 0-based.
-
-### Example
-
-
-```python
-import igvf_catalog_client
-from igvf_catalog_client.models.autocomplete200_response_inner import Autocomplete200ResponseInner
-from igvf_catalog_client.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://api.catalogkg.igvf.org/api
-# See configuration.py for a list of all supported configuration parameters.
-configuration = igvf_catalog_client.Configuration(
-    host = "https://api.catalogkg.igvf.org/api"
-)
-
-
-# Enter a context with an instance of the API client
-with igvf_catalog_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = igvf_catalog_client.IgvfCatalogApi(api_client)
-    term = 'term_example' # str | 
-    page = 0 # float |  (optional) (default to 0)
-
-    try:
-        api_response = api_instance.autocomplete(term, page=page)
-        print("The response of IgvfCatalogApi->autocomplete:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling IgvfCatalogApi->autocomplete: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **term** | **str**|  | 
- **page** | **float**|  | [optional] [default to 0]
-
-### Return type
-
-[**List[Autocomplete200ResponseInner]**](Autocomplete200ResponseInner.md)
 
 ### Authorization
 
@@ -3323,68 +3253,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List[Grn200ResponseInner]**](Grn200ResponseInner.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-**0** | Error response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **health**
-> Health200Response health()
-
-Health check endpoint for the API service
-
-### Example
-
-
-```python
-import igvf_catalog_client
-from igvf_catalog_client.models.health200_response import Health200Response
-from igvf_catalog_client.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://api.catalogkg.igvf.org/api
-# See configuration.py for a list of all supported configuration parameters.
-configuration = igvf_catalog_client.Configuration(
-    host = "https://api.catalogkg.igvf.org/api"
-)
-
-
-# Enter a context with an instance of the API client
-with igvf_catalog_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = igvf_catalog_client.IgvfCatalogApi(api_client)
-
-    try:
-        api_response = api_instance.health()
-        print("The response of IgvfCatalogApi->health:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling IgvfCatalogApi->health: %s\n" % e)
-```
-
-
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**Health200Response**](Health200Response.md)
 
 ### Authorization
 
