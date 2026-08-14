@@ -1,0 +1,39 @@
+# ProteinsFromVariants200ResponseInnerBiosampleTerm
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**uri** | **str** |  | 
+**term_id** | **str** |  | 
+**name** | **str** |  | 
+**synonyms** | **List[str]** |  | [optional] 
+**description** | **str** |  | [optional] 
+**source** | **str** |  | [optional] 
+**subontology** | **str** |  | [optional] 
+**source_url** | **str** |  | [optional] 
+**var_class** | **str** |  | [optional] 
+**method** | **str** |  | [optional] 
+**files_filesets** | **str** |  | [optional] 
+
+## Example
+
+```python
+from igvf_catalog_client.models.proteins_from_variants200_response_inner_biosample_term import ProteinsFromVariants200ResponseInnerBiosampleTerm
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of ProteinsFromVariants200ResponseInnerBiosampleTerm from a JSON string
+proteins_from_variants200_response_inner_biosample_term_instance = ProteinsFromVariants200ResponseInnerBiosampleTerm.from_json(json)
+# print the JSON string representation of the object
+print(ProteinsFromVariants200ResponseInnerBiosampleTerm.to_json())
+
+# convert the object into a dict
+proteins_from_variants200_response_inner_biosample_term_dict = proteins_from_variants200_response_inner_biosample_term_instance.to_dict()
+# create an instance of ProteinsFromVariants200ResponseInnerBiosampleTerm from a dict
+proteins_from_variants200_response_inner_biosample_term_from_dict = ProteinsFromVariants200ResponseInnerBiosampleTerm.from_dict(proteins_from_variants200_response_inner_biosample_term_dict)
+```
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
