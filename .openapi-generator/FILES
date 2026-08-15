@@ -75,6 +75,8 @@ docs/Grn200ResponseInnerGenomicElement.md
 docs/IgvfCatalogApi.md
 docs/InlineObject.md
 docs/InlineObjectIssuesInner.md
+docs/LlmQuery200Response.md
+docs/LlmQueryRequest.md
 docs/MotifsFromProteins200ResponseInner.md
 docs/MotifsFromProteins200ResponseInnerComplex.md
 docs/MotifsFromProteins200ResponseInnerMotif.md
@@ -236,6 +238,8 @@ igvf_catalog_client/models/grn200_response_inner.py
 igvf_catalog_client/models/grn200_response_inner_genomic_element.py
 igvf_catalog_client/models/inline_object.py
 igvf_catalog_client/models/inline_object_issues_inner.py
+igvf_catalog_client/models/llm_query200_response.py
+igvf_catalog_client/models/llm_query_request.py
 igvf_catalog_client/models/motifs_from_proteins200_response_inner.py
 igvf_catalog_client/models/motifs_from_proteins200_response_inner_complex.py
 igvf_catalog_client/models/motifs_from_proteins200_response_inner_motif.py
@@ -325,4 +329,6 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_llm_query200_response.py
+test/test_llm_query_request.py
 tox.ini

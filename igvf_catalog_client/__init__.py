@@ -99,6 +99,8 @@ __all__ = [
     "Grn200ResponseInnerGenomicElement",
     "InlineObject",
     "InlineObjectIssuesInner",
+    "LlmQuery200Response",
+    "LlmQueryRequest",
     "MotifsFromProteins200ResponseInner",
     "MotifsFromProteins200ResponseInnerComplex",
     "MotifsFromProteins200ResponseInnerMotif",
@@ -268,6 +270,8 @@ from igvf_catalog_client.models.grn200_response_inner import Grn200ResponseInner
 from igvf_catalog_client.models.grn200_response_inner_genomic_element import Grn200ResponseInnerGenomicElement as Grn200ResponseInnerGenomicElement
 from igvf_catalog_client.models.inline_object import InlineObject as InlineObject
 from igvf_catalog_client.models.inline_object_issues_inner import InlineObjectIssuesInner as InlineObjectIssuesInner
+from igvf_catalog_client.models.llm_query200_response import LlmQuery200Response as LlmQuery200Response
+from igvf_catalog_client.models.llm_query_request import LlmQueryRequest as LlmQueryRequest
 from igvf_catalog_client.models.motifs_from_proteins200_response_inner import MotifsFromProteins200ResponseInner as MotifsFromProteins200ResponseInner
 from igvf_catalog_client.models.motifs_from_proteins200_response_inner_complex import MotifsFromProteins200ResponseInnerComplex as MotifsFromProteins200ResponseInnerComplex
 from igvf_catalog_client.models.motifs_from_proteins200_response_inner_motif import MotifsFromProteins200ResponseInnerMotif as MotifsFromProteins200ResponseInnerMotif

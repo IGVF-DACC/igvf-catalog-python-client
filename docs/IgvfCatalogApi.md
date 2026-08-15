@@ -43,6 +43,7 @@ Method | HTTP request | Description
 [**genomic_elements_predictions_from_variant**](IgvfCatalogApi.md#genomic_elements_predictions_from_variant) | **GET** /variants/genomic-elements/cell-gene-predictions | 
 [**go_terms_from_annotations**](IgvfCatalogApi.md#go_terms_from_annotations) | **GET** /gene-products/go-terms | 
 [**grn**](IgvfCatalogApi.md#grn) | **GET** /gene-regulatory-network | 
+[**llm_query**](IgvfCatalogApi.md#llm_query) | **POST** /llm-query | 
 [**motifs**](IgvfCatalogApi.md#motifs) | **GET** /motifs | 
 [**motifs_from_proteins**](IgvfCatalogApi.md#motifs_from_proteins) | **GET** /proteins/motifs | 
 [**nearest_genes**](IgvfCatalogApi.md#nearest_genes) | **GET** /variants/nearest-genes | 
@@ -3261,6 +3262,73 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **llm_query**
+> LlmQuery200Response llm_query(llm_query_request)
+
+Ask a question that interests you. This API is password protected.<br>   Set verbose = true to retrieve AQL and AQL results.<br>   Example: query = Tell me about the gene SAMD11.
+
+### Example
+
+
+```python
+import igvf_catalog_client
+from igvf_catalog_client.models.llm_query200_response import LlmQuery200Response
+from igvf_catalog_client.models.llm_query_request import LlmQueryRequest
+from igvf_catalog_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.catalogkg.igvf.org/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = igvf_catalog_client.Configuration(
+    host = "https://api.catalogkg.igvf.org/api"
+)
+
+
+# Enter a context with an instance of the API client
+with igvf_catalog_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = igvf_catalog_client.IgvfCatalogApi(api_client)
+    llm_query_request = igvf_catalog_client.LlmQueryRequest() # LlmQueryRequest | 
+
+    try:
+        api_response = api_instance.llm_query(llm_query_request)
+        print("The response of IgvfCatalogApi->llm_query:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IgvfCatalogApi->llm_query: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **llm_query_request** | [**LlmQueryRequest**](LlmQueryRequest.md)|  | 
+
+### Return type
+
+[**LlmQuery200Response**](LlmQuery200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

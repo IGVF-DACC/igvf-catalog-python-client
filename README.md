@@ -174,6 +174,7 @@ Class | Method | HTTP request | Description
 *IgvfCatalogApi* | [**genes_from_diseases**](docs/IgvfCatalogApi.md#genes_from_diseases) | **GET** /diseases/genes | 
 *IgvfCatalogApi* | [**variants_from_drugs**](docs/IgvfCatalogApi.md#variants_from_drugs) | **GET** /drugs/variants | 
 *IgvfCatalogApi* | [**files_filesets**](docs/IgvfCatalogApi.md#files_filesets) | **GET** /files-filesets | 
+*IgvfCatalogApi* | [**llm_query**](docs/IgvfCatalogApi.md#llm_query) | **POST** /llm-query | 
 
 ## Documentation For Models
 
@@ -248,6 +249,8 @@ Class | Method | HTTP request | Description
  - [Grn200ResponseInnerGenomicElement](docs/Grn200ResponseInnerGenomicElement.md)
  - [InlineObject](docs/InlineObject.md)
  - [InlineObjectIssuesInner](docs/InlineObjectIssuesInner.md)
+ - [LlmQuery200Response](docs/LlmQuery200Response.md)
+ - [LlmQueryRequest](docs/LlmQueryRequest.md)
  - [MotifsFromProteins200ResponseInner](docs/MotifsFromProteins200ResponseInner.md)
  - [MotifsFromProteins200ResponseInnerComplex](docs/MotifsFromProteins200ResponseInnerComplex.md)
  - [MotifsFromProteins200ResponseInnerMotif](docs/MotifsFromProteins200ResponseInnerMotif.md)
