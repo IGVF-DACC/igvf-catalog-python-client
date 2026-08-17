@@ -21,9 +21,9 @@ from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from igvf_catalog_client.models.genomic_element5 import GenomicElement5
 from igvf_catalog_client.models.id_name import IdName
+from igvf_catalog_client.models.qtls_intron_start import QtlsIntronStart
 from igvf_catalog_client.models.study2 import Study2
 from igvf_catalog_client.models.variant import Variant
-from igvf_catalog_client.models.variants_alleles200_response_inner_inner_any_of import VariantsAlleles200ResponseInnerInnerAnyOf
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -44,8 +44,8 @@ class Qtls(BaseModel):
     effect_size: Optional[Union[StrictFloat, StrictInt]] = None
     posterior_inclusion_probability: Optional[Union[StrictFloat, StrictInt]] = None
     intron_chr: Optional[StrictStr] = None
-    intron_start: Optional[VariantsAlleles200ResponseInnerInnerAnyOf] = None
-    intron_end: Optional[VariantsAlleles200ResponseInnerInnerAnyOf] = None
+    intron_start: Optional[QtlsIntronStart] = None
+    intron_end: Optional[QtlsIntronStart] = None
     study: Optional[Study2] = None
     files_filesets: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["variant", "gene", "protein_complex", "genomic_element", "source", "method", "regulatory_type", "gene_consequence", "biological_context", "neg_log10_pvalue", "effect_size", "posterior_inclusion_probability", "intron_chr", "intron_start", "intron_end", "study", "files_filesets"]
@@ -195,8 +195,8 @@ class Qtls(BaseModel):
             "effect_size": obj.get("effect_size"),
             "posterior_inclusion_probability": obj.get("posterior_inclusion_probability"),
             "intron_chr": obj.get("intron_chr"),
-            "intron_start": VariantsAlleles200ResponseInnerInnerAnyOf.from_dict(obj["intron_start"]) if obj.get("intron_start") is not None else None,
-            "intron_end": VariantsAlleles200ResponseInnerInnerAnyOf.from_dict(obj["intron_end"]) if obj.get("intron_end") is not None else None,
+            "intron_start": QtlsIntronStart.from_dict(obj["intron_start"]) if obj.get("intron_start") is not None else None,
+            "intron_end": QtlsIntronStart.from_dict(obj["intron_end"]) if obj.get("intron_end") is not None else None,
             "study": Study2.from_dict(obj["study"]) if obj.get("study") is not None else None,
             "files_filesets": obj.get("files_filesets")
         })

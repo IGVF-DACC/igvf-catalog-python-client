@@ -14,10 +14,10 @@
 
 import unittest
 
-from igvf_catalog_client.models.all_coding_variants_from_genes200_response_inner import AllCodingVariantsFromGenes200ResponseInner
+from igvf_catalog_client.models.llm_query import LlmQuery
 
-class TestAllCodingVariantsFromGenes200ResponseInner(unittest.TestCase):
-    """AllCodingVariantsFromGenes200ResponseInner unit test stubs"""
+class TestLlmQuery(unittest.TestCase):
+    """LlmQuery unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,24 +25,32 @@ class TestAllCodingVariantsFromGenes200ResponseInner(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> AllCodingVariantsFromGenes200ResponseInner:
-        """Test AllCodingVariantsFromGenes200ResponseInner
+    def make_instance(self, include_optional) -> LlmQuery:
+        """Test LlmQuery
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `AllCodingVariantsFromGenes200ResponseInner`
+        # uncomment below to create an instance of `LlmQuery`
         """
-        model = AllCodingVariantsFromGenes200ResponseInner()
+        model = LlmQuery()
         if include_optional:
-            return AllCodingVariantsFromGenes200ResponseInner(
+            return LlmQuery(
+                query = '',
+                aql = '',
+                aql_result = [
+                    null
+                    ],
+                answer = ''
             )
         else:
-            return AllCodingVariantsFromGenes200ResponseInner(
+            return LlmQuery(
+                query = '',
+                answer = '',
         )
         """
 
-    def testAllCodingVariantsFromGenes200ResponseInner(self):
-        """Test AllCodingVariantsFromGenes200ResponseInner"""
+    def testLlmQuery(self):
+        """Test LlmQuery"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

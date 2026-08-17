@@ -299,6 +299,169 @@ def extract_bottom_up(spec, groups, names):
     return components
 
 
+def collect_wrapper_schemas(spec):
+    """Find non-object schemas that generate verbose inline model names.
+
+    Targets two patterns after object schemas have been extracted:
+    1. Response array items that are anyOf wrappers or nested arrays
+    2. Nested anyOf inside component schema properties
+    """
+    wrappers = []
+
+    for api_path in sorted(spec.get("paths", {})):
+        methods = spec["paths"][api_path]
+        for method_name in ("get", "post", "put", "patch", "delete"):
+            if method_name not in methods:
+                continue
+            op = methods[method_name]
+            op_id = op.get("operationId", api_path)
+            resp_schema = (
+                op.get("responses", {})
+                .get("200", {})
+                .get("content", {})
+                .get("application/json", {})
+                .get("schema")
+            )
+            if not resp_schema:
+                continue
+            items = resp_schema.get("items")
+            if not items or not isinstance(items, dict) or "$ref" in items:
+                continue
+
+            base = ["paths", api_path, method_name, "responses", "200",
+                    "content", "application/json", "schema", "items"]
+            wrappers.append({
+                "json_path": base,
+                "op_id": op_id,
+                "fingerprint": fingerprint(items),
+                "context": "items",
+                "field_name": None,
+            })
+
+            if items.get("type") == "array":
+                inner = items.get("items")
+                if inner and isinstance(inner, dict) and "$ref" not in inner:
+                    inner_path = base + ["items"]
+                    wrappers.append({
+                        "json_path": inner_path,
+                        "op_id": op_id,
+                        "fingerprint": fingerprint(inner),
+                        "context": "items_inner",
+                        "field_name": None,
+                    })
+                    if "anyOf" in inner:
+                        for i, entry in enumerate(inner["anyOf"]):
+                            if (isinstance(entry, dict) and "anyOf" in entry
+                                    and "$ref" not in entry):
+                                wrappers.append({
+                                    "json_path": inner_path + ["anyOf", i],
+                                    "op_id": op_id,
+                                    "fingerprint": fingerprint(entry),
+                                    "context": "nested_anyof",
+                                    "field_name": None,
+                                })
+
+    for schema_name in sorted(
+        spec.get("components", {}).get("schemas", {})
+    ):
+        schema = spec["components"]["schemas"][schema_name]
+        for prop_name in sorted(schema.get("properties", {})):
+            prop = schema["properties"][prop_name]
+            if "anyOf" in prop:
+                for i, entry in enumerate(prop["anyOf"]):
+                    if (isinstance(entry, dict) and "anyOf" in entry
+                            and "$ref" not in entry):
+                        wrappers.append({
+                            "json_path": ["components", "schemas", schema_name,
+                                          "properties", prop_name, "anyOf", i],
+                            "op_id": schema_name,
+                            "fingerprint": fingerprint(entry),
+                            "context": "nested_anyof",
+                            "field_name": prop_name,
+                        })
+            if prop.get("type") == "array":
+                items = prop.get("items")
+                if not items or not isinstance(items, dict) or "$ref" in items:
+                    continue
+                if "anyOf" in items or items.get("type") == "array":
+                    path = ["components", "schemas", schema_name,
+                            "properties", prop_name, "items"]
+                    wrappers.append({
+                        "json_path": path,
+                        "op_id": schema_name,
+                        "fingerprint": fingerprint(items),
+                        "context": "items",
+                        "field_name": prop_name,
+                    })
+                    if items.get("type") == "array":
+                        inner = items.get("items")
+                        if (inner and isinstance(inner, dict)
+                                and "$ref" not in inner):
+                            wrappers.append({
+                                "json_path": path + ["items"],
+                                "op_id": schema_name,
+                                "fingerprint": fingerprint(inner),
+                                "context": "items_inner",
+                                "field_name": prop_name,
+                            })
+
+    return wrappers
+
+
+def extract_wrapper_schemas(spec):
+    """Extract wrapper schemas (anyOf wrappers, nested arrays) as components."""
+    wrappers = collect_wrapper_schemas(spec)
+    if not wrappers:
+        return {}
+
+    groups = defaultdict(list)
+    for w in wrappers:
+        groups[w["fingerprint"]].append(w)
+
+    existing = set(spec.get("components", {}).get("schemas", {}).keys())
+    components = {}
+
+    sorted_fps = sorted(
+        groups.keys(),
+        key=lambda fp: max(len(w["json_path"]) for w in groups[fp]),
+        reverse=True,
+    )
+
+    for fp in sorted_fps:
+        locs = groups[fp]
+        loc = locs[0]
+
+        if loc["context"] == "items":
+            if loc.get("field_name"):
+                name = to_pascal_case(loc["field_name"]) + "Item"
+            else:
+                name = camel_to_pascal(loc["op_id"]) + "Item"
+        elif loc["context"] == "items_inner":
+            if loc.get("field_name"):
+                name = to_pascal_case(loc["field_name"]) + "Element"
+            else:
+                name = camel_to_pascal(loc["op_id"]) + "Element"
+        elif loc["context"] == "nested_anyof" and loc.get("field_name"):
+            name = to_pascal_case(loc["field_name"]) + "Option"
+        else:
+            name = camel_to_pascal(loc["op_id"]) + "Value"
+
+        base_name = name
+        suffix = 2
+        while name in existing or name in components:
+            name = f"{base_name}{suffix}"
+            suffix += 1
+
+        canonical = copy.deepcopy(resolve_path(spec, locs[0]["json_path"]))
+        components[name] = canonical
+
+        ref = {"$ref": f"#/components/schemas/{name}"}
+        for loc in locs:
+            set_at_path(spec, loc["json_path"], ref)
+
+    return components
+
+
 def validate(spec, components):
     """Check all $refs resolve and no inline object schemas remain."""
     errors = []
@@ -376,6 +539,14 @@ def main():
         sorted(components.items())
     )
 
+    wrapper_components = extract_wrapper_schemas(spec)
+    if wrapper_components:
+        components.update(wrapper_components)
+        spec["components"]["schemas"].update(wrapper_components)
+        spec["components"]["schemas"] = dict(
+            sorted(spec["components"]["schemas"].items())
+        )
+
     print("\nValidating...")
     ok = validate(spec, spec["components"]["schemas"])
     if ok:
@@ -385,14 +556,23 @@ def main():
         json.dump(spec, f, indent=2)
         f.write("\n")
 
-    print(f"\nExtracted {len(components)} component schemas:")
+    obj_count = len(components) - len(wrapper_components)
+    print(f"\nExtracted {obj_count} object schemas:")
     for name in sorted(components):
+        if name in wrapper_components:
+            continue
         fp = next(fp for fp, n in names.items() if n == name)
         count = len(groups[fp])
         props = len(components[name].get("properties", {}))
         print(f"  {name}: {props} props, {count}x")
 
-    print(f"\nWritten to {SPEC_OUTPUT}")
+    if wrapper_components:
+        print(f"\nExtracted {len(wrapper_components)} wrapper schemas:")
+        for name in sorted(wrapper_components):
+            print(f"  {name}")
+
+    print(f"\nTotal: {len(components)} component schemas")
+    print(f"Written to {SPEC_OUTPUT}")
 
 
 if __name__ == "__main__":

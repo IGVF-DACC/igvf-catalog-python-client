@@ -28,7 +28,6 @@ __all__ = [
     "ApiKeyError",
     "ApiAttributeError",
     "ApiException",
-    "AllCodingVariantsFromGenes200ResponseInner",
     "AnnotationsFromGoTerms",
     "BiosamplesFromGenomicElements",
     "BiosamplesFromGenomicElementsBiosample",
@@ -85,7 +84,6 @@ __all__ = [
     "GenesGenesGene1",
     "GenesProteinsFromVariants",
     "GenesProteinsGenesProteins",
-    "GenesProteinsGenesProteinsRelatedInner",
     "GenesStructure",
     "GenomicElement",
     "GenomicElement4",
@@ -98,15 +96,15 @@ __all__ = [
     "GenomicElementsFromPhenotypesPhenotype",
     "GenomicElementsFromVariants",
     "GenomicElementsPredictionsFromVariant",
-    "GoTermsFromAnnotations200ResponseInner",
     "Grn",
     "IdName",
     "InlineObject",
     "InlineObjectIssuesInner",
     "LinkedFeature",
+    "LlmQuery",
+    "LlmQueryRequest",
     "MethodCount",
     "Motif",
-    "MotifPwmInnerInner",
     "MotifsFromProteins",
     "MotifsFromProteinsMotif",
     "NearestGene",
@@ -114,7 +112,6 @@ __all__ = [
     "OntologyTerm",
     "OntologyTermBasic",
     "OntologyTermChildren",
-    "OntologyTermParents200ResponseInner",
     "OntologyTermTransitiveClosure",
     "Paths",
     "Pathway",
@@ -122,7 +119,6 @@ __all__ = [
     "Phenotype",
     "PhenotypeRef",
     "PhenotypesFromVariants",
-    "PhenotypesFromVariants200ResponseInner",
     "PhenotypesFromVariants23",
     "PhenotypesFromVariantsStudy",
     "PhenotypesFromVariantsVariant",
@@ -133,19 +129,21 @@ __all__ = [
     "ProteinBasic",
     "ProteinChange",
     "ProteinCompact",
+    "ProteinComplexOption",
     "ProteinsFromTranscripts",
     "ProteinsFromTranscriptsProtein",
     "ProteinsFromVariants",
     "ProteinsFromVariantsBiosampleTerm",
     "ProteinsFromVariantsProteinComplex",
-    "ProteinsFromVariantsProteinComplexAnyOf",
     "ProteinsProteins",
     "ProteinsProteinsProtein1",
     "QtlSummaryEndpoint",
     "Qtls",
     "Qtls3",
+    "QtlsIntronStart",
     "Related",
     "RelatedGene",
+    "RelatedItem",
     "RelatedSources",
     "Scores",
     "SequenceVariant",
@@ -166,9 +164,9 @@ __all__ = [
     "VariantRef",
     "VariantSummary",
     "Variants",
-    "VariantsAlleles200ResponseInnerInner",
-    "VariantsAlleles200ResponseInnerInnerAnyOf",
+    "VariantsAllelesValue",
     "VariantsFromDrugs",
+    "VariantsFromPhenotypesItem",
     "VariantsFromVariantID",
     "VariantsFromVariantIDSequenceVariant",
     "VariantsFromVariantIDSummary",
@@ -191,7 +189,6 @@ from igvf_catalog_client.exceptions import ApiAttributeError as ApiAttributeErro
 from igvf_catalog_client.exceptions import ApiException as ApiException
 
 # import models into sdk package
-from igvf_catalog_client.models.all_coding_variants_from_genes200_response_inner import AllCodingVariantsFromGenes200ResponseInner as AllCodingVariantsFromGenes200ResponseInner
 from igvf_catalog_client.models.annotations_from_go_terms import AnnotationsFromGoTerms as AnnotationsFromGoTerms
 from igvf_catalog_client.models.biosamples_from_genomic_elements import BiosamplesFromGenomicElements as BiosamplesFromGenomicElements
 from igvf_catalog_client.models.biosamples_from_genomic_elements_biosample import BiosamplesFromGenomicElementsBiosample as BiosamplesFromGenomicElementsBiosample
@@ -248,7 +245,6 @@ from igvf_catalog_client.models.genes_genes import GenesGenes as GenesGenes
 from igvf_catalog_client.models.genes_genes_gene1 import GenesGenesGene1 as GenesGenesGene1
 from igvf_catalog_client.models.genes_proteins_from_variants import GenesProteinsFromVariants as GenesProteinsFromVariants
 from igvf_catalog_client.models.genes_proteins_genes_proteins import GenesProteinsGenesProteins as GenesProteinsGenesProteins
-from igvf_catalog_client.models.genes_proteins_genes_proteins_related_inner import GenesProteinsGenesProteinsRelatedInner as GenesProteinsGenesProteinsRelatedInner
 from igvf_catalog_client.models.genes_structure import GenesStructure as GenesStructure
 from igvf_catalog_client.models.genomic_element import GenomicElement as GenomicElement
 from igvf_catalog_client.models.genomic_element4 import GenomicElement4 as GenomicElement4
@@ -261,15 +257,15 @@ from igvf_catalog_client.models.genomic_elements_from_phenotypes import GenomicE
 from igvf_catalog_client.models.genomic_elements_from_phenotypes_phenotype import GenomicElementsFromPhenotypesPhenotype as GenomicElementsFromPhenotypesPhenotype
 from igvf_catalog_client.models.genomic_elements_from_variants import GenomicElementsFromVariants as GenomicElementsFromVariants
 from igvf_catalog_client.models.genomic_elements_predictions_from_variant import GenomicElementsPredictionsFromVariant as GenomicElementsPredictionsFromVariant
-from igvf_catalog_client.models.go_terms_from_annotations200_response_inner import GoTermsFromAnnotations200ResponseInner as GoTermsFromAnnotations200ResponseInner
 from igvf_catalog_client.models.grn import Grn as Grn
 from igvf_catalog_client.models.id_name import IdName as IdName
 from igvf_catalog_client.models.inline_object import InlineObject as InlineObject
 from igvf_catalog_client.models.inline_object_issues_inner import InlineObjectIssuesInner as InlineObjectIssuesInner
 from igvf_catalog_client.models.linked_feature import LinkedFeature as LinkedFeature
+from igvf_catalog_client.models.llm_query import LlmQuery as LlmQuery
+from igvf_catalog_client.models.llm_query_request import LlmQueryRequest as LlmQueryRequest
 from igvf_catalog_client.models.method_count import MethodCount as MethodCount
 from igvf_catalog_client.models.motif import Motif as Motif
-from igvf_catalog_client.models.motif_pwm_inner_inner import MotifPwmInnerInner as MotifPwmInnerInner
 from igvf_catalog_client.models.motifs_from_proteins import MotifsFromProteins as MotifsFromProteins
 from igvf_catalog_client.models.motifs_from_proteins_motif import MotifsFromProteinsMotif as MotifsFromProteinsMotif
 from igvf_catalog_client.models.nearest_gene import NearestGene as NearestGene
@@ -277,7 +273,6 @@ from igvf_catalog_client.models.nearest_genes import NearestGenes as NearestGene
 from igvf_catalog_client.models.ontology_term import OntologyTerm as OntologyTerm
 from igvf_catalog_client.models.ontology_term_basic import OntologyTermBasic as OntologyTermBasic
 from igvf_catalog_client.models.ontology_term_children import OntologyTermChildren as OntologyTermChildren
-from igvf_catalog_client.models.ontology_term_parents200_response_inner import OntologyTermParents200ResponseInner as OntologyTermParents200ResponseInner
 from igvf_catalog_client.models.ontology_term_transitive_closure import OntologyTermTransitiveClosure as OntologyTermTransitiveClosure
 from igvf_catalog_client.models.paths import Paths as Paths
 from igvf_catalog_client.models.pathway import Pathway as Pathway
@@ -285,7 +280,6 @@ from igvf_catalog_client.models.pathways_from_pathways import PathwaysFromPathwa
 from igvf_catalog_client.models.phenotype import Phenotype as Phenotype
 from igvf_catalog_client.models.phenotype_ref import PhenotypeRef as PhenotypeRef
 from igvf_catalog_client.models.phenotypes_from_variants import PhenotypesFromVariants as PhenotypesFromVariants
-from igvf_catalog_client.models.phenotypes_from_variants200_response_inner import PhenotypesFromVariants200ResponseInner as PhenotypesFromVariants200ResponseInner
 from igvf_catalog_client.models.phenotypes_from_variants23 import PhenotypesFromVariants23 as PhenotypesFromVariants23
 from igvf_catalog_client.models.phenotypes_from_variants_study import PhenotypesFromVariantsStudy as PhenotypesFromVariantsStudy
 from igvf_catalog_client.models.phenotypes_from_variants_variant import PhenotypesFromVariantsVariant as PhenotypesFromVariantsVariant
@@ -296,19 +290,21 @@ from igvf_catalog_client.models.protein import Protein as Protein
 from igvf_catalog_client.models.protein_basic import ProteinBasic as ProteinBasic
 from igvf_catalog_client.models.protein_change import ProteinChange as ProteinChange
 from igvf_catalog_client.models.protein_compact import ProteinCompact as ProteinCompact
+from igvf_catalog_client.models.protein_complex_option import ProteinComplexOption as ProteinComplexOption
 from igvf_catalog_client.models.proteins_from_transcripts import ProteinsFromTranscripts as ProteinsFromTranscripts
 from igvf_catalog_client.models.proteins_from_transcripts_protein import ProteinsFromTranscriptsProtein as ProteinsFromTranscriptsProtein
 from igvf_catalog_client.models.proteins_from_variants import ProteinsFromVariants as ProteinsFromVariants
 from igvf_catalog_client.models.proteins_from_variants_biosample_term import ProteinsFromVariantsBiosampleTerm as ProteinsFromVariantsBiosampleTerm
 from igvf_catalog_client.models.proteins_from_variants_protein_complex import ProteinsFromVariantsProteinComplex as ProteinsFromVariantsProteinComplex
-from igvf_catalog_client.models.proteins_from_variants_protein_complex_any_of import ProteinsFromVariantsProteinComplexAnyOf as ProteinsFromVariantsProteinComplexAnyOf
 from igvf_catalog_client.models.proteins_proteins import ProteinsProteins as ProteinsProteins
 from igvf_catalog_client.models.proteins_proteins_protein1 import ProteinsProteinsProtein1 as ProteinsProteinsProtein1
 from igvf_catalog_client.models.qtl_summary_endpoint import QtlSummaryEndpoint as QtlSummaryEndpoint
 from igvf_catalog_client.models.qtls import Qtls as Qtls
 from igvf_catalog_client.models.qtls3 import Qtls3 as Qtls3
+from igvf_catalog_client.models.qtls_intron_start import QtlsIntronStart as QtlsIntronStart
 from igvf_catalog_client.models.related import Related as Related
 from igvf_catalog_client.models.related_gene import RelatedGene as RelatedGene
+from igvf_catalog_client.models.related_item import RelatedItem as RelatedItem
 from igvf_catalog_client.models.related_sources import RelatedSources as RelatedSources
 from igvf_catalog_client.models.scores import Scores as Scores
 from igvf_catalog_client.models.sequence_variant import SequenceVariant as SequenceVariant
@@ -329,9 +325,9 @@ from igvf_catalog_client.models.variant_minimal import VariantMinimal as Variant
 from igvf_catalog_client.models.variant_ref import VariantRef as VariantRef
 from igvf_catalog_client.models.variant_summary import VariantSummary as VariantSummary
 from igvf_catalog_client.models.variants import Variants as Variants
-from igvf_catalog_client.models.variants_alleles200_response_inner_inner import VariantsAlleles200ResponseInnerInner as VariantsAlleles200ResponseInnerInner
-from igvf_catalog_client.models.variants_alleles200_response_inner_inner_any_of import VariantsAlleles200ResponseInnerInnerAnyOf as VariantsAlleles200ResponseInnerInnerAnyOf
+from igvf_catalog_client.models.variants_alleles_value import VariantsAllelesValue as VariantsAllelesValue
 from igvf_catalog_client.models.variants_from_drugs import VariantsFromDrugs as VariantsFromDrugs
+from igvf_catalog_client.models.variants_from_phenotypes_item import VariantsFromPhenotypesItem as VariantsFromPhenotypesItem
 from igvf_catalog_client.models.variants_from_variant_id import VariantsFromVariantID as VariantsFromVariantID
 from igvf_catalog_client.models.variants_from_variant_id_sequence_variant import VariantsFromVariantIDSequenceVariant as VariantsFromVariantIDSequenceVariant
 from igvf_catalog_client.models.variants_from_variant_id_summary import VariantsFromVariantIDSummary as VariantsFromVariantIDSummary

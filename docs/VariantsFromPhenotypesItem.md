@@ -1,4 +1,4 @@
-# PhenotypesFromVariants200ResponseInner
+# VariantsFromPhenotypesItem
 
 
 ## Properties
@@ -45,19 +45,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from igvf_catalog_client.models.phenotypes_from_variants200_response_inner import PhenotypesFromVariants200ResponseInner
+from igvf_catalog_client.models.variants_from_phenotypes_item import VariantsFromPhenotypesItem
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of PhenotypesFromVariants200ResponseInner from a JSON string
-phenotypes_from_variants200_response_inner_instance = PhenotypesFromVariants200ResponseInner.from_json(json)
+# create an instance of VariantsFromPhenotypesItem from a JSON string
+variants_from_phenotypes_item_instance = VariantsFromPhenotypesItem.from_json(json)
 # print the JSON string representation of the object
-print(PhenotypesFromVariants200ResponseInner.to_json())
+print(VariantsFromPhenotypesItem.to_json())
 
 # convert the object into a dict
-phenotypes_from_variants200_response_inner_dict = phenotypes_from_variants200_response_inner_instance.to_dict()
-# create an instance of PhenotypesFromVariants200ResponseInner from a dict
-phenotypes_from_variants200_response_inner_from_dict = PhenotypesFromVariants200ResponseInner.from_dict(phenotypes_from_variants200_response_inner_dict)
+variants_from_phenotypes_item_dict = variants_from_phenotypes_item_instance.to_dict()
+# create an instance of VariantsFromPhenotypesItem from a dict
+variants_from_phenotypes_item_from_dict = VariantsFromPhenotypesItem.from_dict(variants_from_phenotypes_item_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

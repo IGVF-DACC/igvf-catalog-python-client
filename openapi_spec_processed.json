@@ -1384,14 +1384,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "anyOf": [
-                      {
-                        "$ref": "#/components/schemas/PhenotypesFromVariants"
-                      },
-                      {
-                        "$ref": "#/components/schemas/PhenotypesFromVariants23"
-                      }
-                    ]
+                    "$ref": "#/components/schemas/VariantsFromPhenotypesItem"
                   }
                 }
               }
@@ -1909,25 +1902,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "array",
-                    "items": {
-                      "anyOf": [
-                        {
-                          "not": {}
-                        },
-                        {
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "number"
-                            }
-                          ],
-                          "nullable": true
-                        }
-                      ]
-                    }
+                    "$ref": "#/components/schemas/VariantsAllelesItem"
                   }
                 }
               }
@@ -4656,14 +4631,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "anyOf": [
-                      {
-                        "not": {}
-                      },
-                      {
-                        "type": "number"
-                      }
-                    ]
+                    "$ref": "#/components/schemas/AllCodingVariantsFromGenesItem"
                   }
                 }
               }
@@ -4727,14 +4695,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "anyOf": [
-                      {
-                        "not": {}
-                      },
-                      {
-                        "$ref": "#/components/schemas/AnnotationsFromGoTerms"
-                      }
-                    ]
+                    "$ref": "#/components/schemas/GoTermsFromAnnotationsItem"
                   }
                 }
               }
@@ -7572,14 +7533,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "anyOf": [
-                      {
-                        "$ref": "#/components/schemas/PhenotypesFromVariants"
-                      },
-                      {
-                        "$ref": "#/components/schemas/PhenotypesFromVariants23"
-                      }
-                    ]
+                    "$ref": "#/components/schemas/VariantsFromPhenotypesItem"
                   }
                 }
               }
@@ -7938,14 +7892,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "anyOf": [
-                      {
-                        "not": {}
-                      },
-                      {
-                        "$ref": "#/components/schemas/OntologyTermChildren"
-                      }
-                    ]
+                    "$ref": "#/components/schemas/OntologyTermChildrenItem"
                   }
                 }
               }
@@ -7996,14 +7943,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "anyOf": [
-                      {
-                        "not": {}
-                      },
-                      {
-                        "$ref": "#/components/schemas/OntologyTermChildren"
-                      }
-                    ]
+                    "$ref": "#/components/schemas/OntologyTermChildrenItem"
                   }
                 }
               }
@@ -8106,14 +8046,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "anyOf": [
-                      {
-                        "not": {}
-                      },
-                      {
-                        "$ref": "#/components/schemas/AnnotationsFromGoTerms"
-                      }
-                    ]
+                    "$ref": "#/components/schemas/GoTermsFromAnnotationsItem"
                   }
                 }
               }
@@ -8954,6 +8887,60 @@
                   "items": {
                     "$ref": "#/components/schemas/Pathway"
                   }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/llm-query": {
+      "post": {
+        "operationId": "llmQuery",
+        "description": "Ask a question that interests you. This API is password protected.<br>   Set verbose = true to retrieve AQL and AQL results.<br>   Example: query = Tell me about the gene SAMD11.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "query": {
+                    "type": "string",
+                    "maxLength": 5000
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "verbose": {
+                    "type": "string",
+                    "enum": [
+                      "true",
+                      "false"
+                    ],
+                    "default": "false"
+                  }
+                },
+                "required": [
+                  "query",
+                  "password"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LlmQuery"
                 }
               }
             }
@@ -10041,6 +10028,16 @@
       }
     },
     "schemas": {
+      "AllCodingVariantsFromGenesItem": {
+        "anyOf": [
+          {
+            "not": {}
+          },
+          {
+            "type": "number"
+          }
+        ]
+      },
       "AnnotationsFromGoTerms": {
         "type": "object",
         "properties": {
@@ -11557,6 +11554,27 @@
         ],
         "additionalProperties": false
       },
+      "GeneOption": {
+        "anyOf": [
+          {
+            "not": {}
+          },
+          {
+            "$ref": "#/components/schemas/GeneCompact"
+          }
+        ]
+      },
+      "GeneOption2": {
+        "anyOf": [
+          {
+            "not": {}
+          },
+          {
+            "type": "string",
+            "nullable": true
+          }
+        ]
+      },
       "GeneRef": {
         "type": "object",
         "properties": {
@@ -12192,14 +12210,7 @@
           "related": {
             "type": "array",
             "items": {
-              "anyOf": [
-                {
-                  "$ref": "#/components/schemas/ProteinCompact"
-                },
-                {
-                  "$ref": "#/components/schemas/GeneCompact"
-                }
-              ]
+              "$ref": "#/components/schemas/RelatedItem"
             },
             "nullable": true
           }
@@ -12737,6 +12748,16 @@
         ],
         "additionalProperties": false
       },
+      "GoTermsFromAnnotationsItem": {
+        "anyOf": [
+          {
+            "not": {}
+          },
+          {
+            "$ref": "#/components/schemas/AnnotationsFromGoTerms"
+          }
+        ]
+      },
       "Grn": {
         "type": "object",
         "properties": {
@@ -12872,6 +12893,31 @@
         ],
         "additionalProperties": false
       },
+      "LlmQuery": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "aql": {
+            "type": "string",
+            "maxLength": 5000
+          },
+          "aql_result": {
+            "type": "array",
+            "maxItems": 5,
+            "items": {}
+          },
+          "answer": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "query",
+          "answer"
+        ],
+        "additionalProperties": false
+      },
       "MethodCount": {
         "type": "object",
         "properties": {
@@ -12903,17 +12949,7 @@
           "pwm": {
             "type": "array",
             "items": {
-              "type": "array",
-              "items": {
-                "anyOf": [
-                  {
-                    "not": {}
-                  },
-                  {
-                    "type": "string"
-                  }
-                ]
-              }
+              "$ref": "#/components/schemas/PwmItem"
             }
           },
           "source": {
@@ -13168,6 +13204,16 @@
         ],
         "additionalProperties": false
       },
+      "OntologyTermChildrenItem": {
+        "anyOf": [
+          {
+            "not": {}
+          },
+          {
+            "$ref": "#/components/schemas/OntologyTermChildren"
+          }
+        ]
+      },
       "OntologyTermTransitiveClosure": {
         "type": "object",
         "properties": {
@@ -13180,10 +13226,7 @@
           "paths": {
             "type": "array",
             "items": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Paths"
-              }
+              "$ref": "#/components/schemas/PathsItem"
             }
           }
         },
@@ -13212,6 +13255,12 @@
           "name"
         ],
         "additionalProperties": false
+      },
+      "PathsItem": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Paths"
+        }
       },
       "Pathway": {
         "type": "object",
@@ -13910,6 +13959,16 @@
         "additionalProperties": false,
         "nullable": true
       },
+      "ProteinComplexOption": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "$ref": "#/components/schemas/ProteinBasic"
+          }
+        ]
+      },
       "ProteinsFromTranscripts": {
         "type": "object",
         "properties": {
@@ -13967,14 +14026,7 @@
           "protein_complex": {
             "anyOf": [
               {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/components/schemas/ProteinBasic"
-                  }
-                ]
+                "$ref": "#/components/schemas/ProteinComplexOption"
               },
               {
                 "$ref": "#/components/schemas/Complex"
@@ -14267,6 +14319,22 @@
         ],
         "additionalProperties": false
       },
+      "PwmElement": {
+        "anyOf": [
+          {
+            "not": {}
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "PwmItem": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/PwmElement"
+        }
+      },
       "QtlSummaryEndpoint": {
         "type": "object",
         "properties": {
@@ -14427,25 +14495,10 @@
           "gene": {
             "anyOf": [
               {
-                "anyOf": [
-                  {
-                    "not": {}
-                  },
-                  {
-                    "$ref": "#/components/schemas/GeneCompact"
-                  }
-                ]
+                "$ref": "#/components/schemas/GeneOption"
               },
               {
-                "anyOf": [
-                  {
-                    "not": {}
-                  },
-                  {
-                    "type": "string",
-                    "nullable": true
-                  }
-                ]
+                "$ref": "#/components/schemas/GeneOption2"
               }
             ]
           },
@@ -14473,6 +14526,16 @@
           "sources"
         ],
         "additionalProperties": false
+      },
+      "RelatedItem": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ProteinCompact"
+          },
+          {
+            "$ref": "#/components/schemas/GeneCompact"
+          }
+        ]
       },
       "Scores": {
         "type": "object",
@@ -15325,6 +15388,33 @@
         ],
         "additionalProperties": false
       },
+      "VariantsAllelesElement": {
+        "anyOf": [
+          {
+            "not": {}
+          },
+          {
+            "$ref": "#/components/schemas/VariantsAllelesValue"
+          }
+        ]
+      },
+      "VariantsAllelesItem": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/VariantsAllelesElement"
+        }
+      },
+      "VariantsAllelesValue": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          }
+        ],
+        "nullable": true
+      },
       "VariantsFromDrugs": {
         "type": "object",
         "properties": {
@@ -15391,6 +15481,16 @@
           "name"
         ],
         "additionalProperties": false
+      },
+      "VariantsFromPhenotypesItem": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/PhenotypesFromVariants"
+          },
+          {
+            "$ref": "#/components/schemas/PhenotypesFromVariants23"
+          }
+        ]
       },
       "VariantsFromVariantID": {
         "type": "object",

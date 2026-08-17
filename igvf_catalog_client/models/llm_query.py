@@ -17,25 +17,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional, Union
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Motif(BaseModel):
+class LlmQuery(BaseModel):
     """
-    Motif
+    LlmQuery
     """ # noqa: E501
-    name: StrictStr
-    tf_name: StrictStr
-    length: Union[StrictFloat, StrictInt]
-    pwm: List[List[Optional[StrictStr]]]
-    source: StrictStr
-    source_url: StrictStr
-    var_class: Optional[StrictStr] = Field(default=None, alias="class")
-    method: Optional[StrictStr] = None
-    files_filesets: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["name", "tf_name", "length", "pwm", "source", "source_url", "class", "method", "files_filesets"]
+    query: StrictStr
+    aql: Optional[Annotated[str, Field(strict=True, max_length=5000)]] = None
+    aql_result: Optional[Annotated[List[Any], Field(max_length=5)]] = None
+    answer: StrictStr
+    __properties: ClassVar[List[str]] = ["query", "aql", "aql_result", "answer"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -55,7 +51,7 @@ class Motif(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Motif from a JSON string"""
+        """Create an instance of LlmQuery from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -76,26 +72,11 @@ class Motif(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if var_class (nullable) is None
-        # and model_fields_set contains the field
-        if self.var_class is None and "var_class" in self.model_fields_set:
-            _dict['class'] = None
-
-        # set to None if method (nullable) is None
-        # and model_fields_set contains the field
-        if self.method is None and "method" in self.model_fields_set:
-            _dict['method'] = None
-
-        # set to None if files_filesets (nullable) is None
-        # and model_fields_set contains the field
-        if self.files_filesets is None and "files_filesets" in self.model_fields_set:
-            _dict['files_filesets'] = None
-
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Motif from a dict"""
+        """Create an instance of LlmQuery from a dict"""
         if obj is None:
             return None
 
@@ -103,15 +84,10 @@ class Motif(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "tf_name": obj.get("tf_name"),
-            "length": obj.get("length"),
-            "pwm": obj.get("pwm"),
-            "source": obj.get("source"),
-            "source_url": obj.get("source_url"),
-            "class": obj.get("class"),
-            "method": obj.get("method"),
-            "files_filesets": obj.get("files_filesets")
+            "query": obj.get("query"),
+            "aql": obj.get("aql"),
+            "aql_result": obj.get("aql_result"),
+            "answer": obj.get("answer")
         })
         return _obj
 

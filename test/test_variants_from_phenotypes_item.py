@@ -14,10 +14,10 @@
 
 import unittest
 
-from igvf_catalog_client.models.phenotypes_from_variants200_response_inner import PhenotypesFromVariants200ResponseInner
+from igvf_catalog_client.models.variants_from_phenotypes_item import VariantsFromPhenotypesItem
 
-class TestPhenotypesFromVariants200ResponseInner(unittest.TestCase):
-    """PhenotypesFromVariants200ResponseInner unit test stubs"""
+class TestVariantsFromPhenotypesItem(unittest.TestCase):
+    """VariantsFromPhenotypesItem unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,16 +25,16 @@ class TestPhenotypesFromVariants200ResponseInner(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> PhenotypesFromVariants200ResponseInner:
-        """Test PhenotypesFromVariants200ResponseInner
+    def make_instance(self, include_optional) -> VariantsFromPhenotypesItem:
+        """Test VariantsFromPhenotypesItem
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `PhenotypesFromVariants200ResponseInner`
+        # uncomment below to create an instance of `VariantsFromPhenotypesItem`
         """
-        model = PhenotypesFromVariants200ResponseInner()
+        model = VariantsFromPhenotypesItem()
         if include_optional:
-            return PhenotypesFromVariants200ResponseInner(
+            return VariantsFromPhenotypesItem(
                 rsid = [
                     ''
                     ],
@@ -75,7 +75,7 @@ class TestPhenotypesFromVariants200ResponseInner(unittest.TestCase):
                 biosample_term = ''
             )
         else:
-            return PhenotypesFromVariants200ResponseInner(
+            return VariantsFromPhenotypesItem(
                 phenotype_id = '',
                 phenotype_term = '',
                 p_value = 1.337,
@@ -98,8 +98,8 @@ class TestPhenotypesFromVariants200ResponseInner(unittest.TestCase):
         )
         """
 
-    def testPhenotypesFromVariants200ResponseInner(self):
-        """Test PhenotypesFromVariants200ResponseInner"""
+    def testVariantsFromPhenotypesItem(self):
+        """Test VariantsFromPhenotypesItem"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

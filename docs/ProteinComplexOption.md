@@ -1,4 +1,4 @@
-# ProteinsFromVariantsProteinComplexAnyOf
+# ProteinComplexOption
 
 
 ## Properties
@@ -18,19 +18,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from igvf_catalog_client.models.proteins_from_variants_protein_complex_any_of import ProteinsFromVariantsProteinComplexAnyOf
+from igvf_catalog_client.models.protein_complex_option import ProteinComplexOption
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of ProteinsFromVariantsProteinComplexAnyOf from a JSON string
-proteins_from_variants_protein_complex_any_of_instance = ProteinsFromVariantsProteinComplexAnyOf.from_json(json)
+# create an instance of ProteinComplexOption from a JSON string
+protein_complex_option_instance = ProteinComplexOption.from_json(json)
 # print the JSON string representation of the object
-print(ProteinsFromVariantsProteinComplexAnyOf.to_json())
+print(ProteinComplexOption.to_json())
 
 # convert the object into a dict
-proteins_from_variants_protein_complex_any_of_dict = proteins_from_variants_protein_complex_any_of_instance.to_dict()
-# create an instance of ProteinsFromVariantsProteinComplexAnyOf from a dict
-proteins_from_variants_protein_complex_any_of_from_dict = ProteinsFromVariantsProteinComplexAnyOf.from_dict(proteins_from_variants_protein_complex_any_of_dict)
+protein_complex_option_dict = protein_complex_option_instance.to_dict()
+# create an instance of ProteinComplexOption from a dict
+protein_complex_option_from_dict = ProteinComplexOption.from_dict(protein_complex_option_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

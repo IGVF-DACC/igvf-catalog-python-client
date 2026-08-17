@@ -14,10 +14,10 @@
 
 import unittest
 
-from igvf_catalog_client.models.variants_alleles200_response_inner_inner import VariantsAlleles200ResponseInnerInner
+from igvf_catalog_client.models.variants_alleles_value import VariantsAllelesValue
 
-class TestVariantsAlleles200ResponseInnerInner(unittest.TestCase):
-    """VariantsAlleles200ResponseInnerInner unit test stubs"""
+class TestVariantsAllelesValue(unittest.TestCase):
+    """VariantsAllelesValue unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,24 +25,24 @@ class TestVariantsAlleles200ResponseInnerInner(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> VariantsAlleles200ResponseInnerInner:
-        """Test VariantsAlleles200ResponseInnerInner
+    def make_instance(self, include_optional) -> VariantsAllelesValue:
+        """Test VariantsAllelesValue
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `VariantsAlleles200ResponseInnerInner`
+        # uncomment below to create an instance of `VariantsAllelesValue`
         """
-        model = VariantsAlleles200ResponseInnerInner()
+        model = VariantsAllelesValue()
         if include_optional:
-            return VariantsAlleles200ResponseInnerInner(
+            return VariantsAllelesValue(
             )
         else:
-            return VariantsAlleles200ResponseInnerInner(
+            return VariantsAllelesValue(
         )
         """
 
-    def testVariantsAlleles200ResponseInnerInner(self):
-        """Test VariantsAlleles200ResponseInnerInner"""
+    def testVariantsAllelesValue(self):
+        """Test VariantsAllelesValue"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

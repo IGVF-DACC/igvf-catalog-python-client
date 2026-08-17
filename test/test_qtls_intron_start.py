@@ -14,10 +14,10 @@
 
 import unittest
 
-from igvf_catalog_client.models.motif_pwm_inner_inner import MotifPwmInnerInner
+from igvf_catalog_client.models.qtls_intron_start import QtlsIntronStart
 
-class TestMotifPwmInnerInner(unittest.TestCase):
-    """MotifPwmInnerInner unit test stubs"""
+class TestQtlsIntronStart(unittest.TestCase):
+    """QtlsIntronStart unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,24 +25,24 @@ class TestMotifPwmInnerInner(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> MotifPwmInnerInner:
-        """Test MotifPwmInnerInner
+    def make_instance(self, include_optional) -> QtlsIntronStart:
+        """Test QtlsIntronStart
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `MotifPwmInnerInner`
+        # uncomment below to create an instance of `QtlsIntronStart`
         """
-        model = MotifPwmInnerInner()
+        model = QtlsIntronStart()
         if include_optional:
-            return MotifPwmInnerInner(
+            return QtlsIntronStart(
             )
         else:
-            return MotifPwmInnerInner(
+            return QtlsIntronStart(
         )
         """
 
-    def testMotifPwmInnerInner(self):
-        """Test MotifPwmInnerInner"""
+    def testQtlsIntronStart(self):
+        """Test QtlsIntronStart"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

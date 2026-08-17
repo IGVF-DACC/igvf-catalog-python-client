@@ -18,7 +18,7 @@ from typing_extensions import Annotated
 
 from pydantic import StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
 from typing import Any, List, Optional, Union
-from igvf_catalog_client.models.all_coding_variants_from_genes200_response_inner import AllCodingVariantsFromGenes200ResponseInner
+from igvf_catalog_client.models.annotations_from_go_terms import AnnotationsFromGoTerms
 from igvf_catalog_client.models.biosamples_from_genomic_elements import BiosamplesFromGenomicElements
 from igvf_catalog_client.models.biosamples_from_variants import BiosamplesFromVariants
 from igvf_catalog_client.models.coding_variants import CodingVariants
@@ -47,17 +47,17 @@ from igvf_catalog_client.models.genomic_element_full import GenomicElementFull
 from igvf_catalog_client.models.genomic_elements_from_phenotypes import GenomicElementsFromPhenotypes
 from igvf_catalog_client.models.genomic_elements_from_variants import GenomicElementsFromVariants
 from igvf_catalog_client.models.genomic_elements_predictions_from_variant import GenomicElementsPredictionsFromVariant
-from igvf_catalog_client.models.go_terms_from_annotations200_response_inner import GoTermsFromAnnotations200ResponseInner
 from igvf_catalog_client.models.grn import Grn
+from igvf_catalog_client.models.llm_query import LlmQuery
+from igvf_catalog_client.models.llm_query_request import LlmQueryRequest
 from igvf_catalog_client.models.method_count import MethodCount
 from igvf_catalog_client.models.motif import Motif
 from igvf_catalog_client.models.motifs_from_proteins import MotifsFromProteins
 from igvf_catalog_client.models.ontology_term import OntologyTerm
-from igvf_catalog_client.models.ontology_term_parents200_response_inner import OntologyTermParents200ResponseInner
+from igvf_catalog_client.models.ontology_term_children import OntologyTermChildren
 from igvf_catalog_client.models.ontology_term_transitive_closure import OntologyTermTransitiveClosure
 from igvf_catalog_client.models.pathway import Pathway
 from igvf_catalog_client.models.pathways_from_pathways import PathwaysFromPathways
-from igvf_catalog_client.models.phenotypes_from_variants200_response_inner import PhenotypesFromVariants200ResponseInner
 from igvf_catalog_client.models.predictions_from_variants import PredictionsFromVariants
 from igvf_catalog_client.models.protein import Protein
 from igvf_catalog_client.models.proteins_from_transcripts import ProteinsFromTranscripts
@@ -70,8 +70,9 @@ from igvf_catalog_client.models.study import Study
 from igvf_catalog_client.models.transcript import Transcript
 from igvf_catalog_client.models.variant_basic import VariantBasic
 from igvf_catalog_client.models.variant_summary import VariantSummary
-from igvf_catalog_client.models.variants_alleles200_response_inner_inner import VariantsAlleles200ResponseInnerInner
+from igvf_catalog_client.models.variants_alleles_value import VariantsAllelesValue
 from igvf_catalog_client.models.variants_from_drugs import VariantsFromDrugs
+from igvf_catalog_client.models.variants_from_phenotypes_item import VariantsFromPhenotypesItem
 from igvf_catalog_client.models.variants_from_variant_id import VariantsFromVariantID
 from igvf_catalog_client.models.variants_from_variant_id_summary import VariantsFromVariantIDSummary
 from igvf_catalog_client.models.variants_genomic_elements_genes import VariantsGenomicElementsGenes
@@ -114,7 +115,7 @@ class IgvfApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[AllCodingVariantsFromGenes200ResponseInner]:
+    ) -> List[float]:
         """all_coding_variants_from_genes
 
         Retrieve a list of all numeric scores of associated coding variants for a gene and a dataset.<br>   Example: gene_id = ENSG00000165841, <br>   dataset = VAMP-seq
@@ -161,7 +162,7 @@ class IgvfApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[AllCodingVariantsFromGenes200ResponseInner]",
+            '200': "List[float]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -193,7 +194,7 @@ class IgvfApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[AllCodingVariantsFromGenes200ResponseInner]]:
+    ) -> ApiResponse[List[float]]:
         """all_coding_variants_from_genes
 
         Retrieve a list of all numeric scores of associated coding variants for a gene and a dataset.<br>   Example: gene_id = ENSG00000165841, <br>   dataset = VAMP-seq
@@ -240,7 +241,7 @@ class IgvfApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[AllCodingVariantsFromGenes200ResponseInner]",
+            '200': "List[float]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -319,7 +320,7 @@ class IgvfApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[AllCodingVariantsFromGenes200ResponseInner]",
+            '200': "List[float]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -427,7 +428,7 @@ class IgvfApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[GoTermsFromAnnotations200ResponseInner]:
+    ) -> List[AnnotationsFromGoTerms]:
         """annotations_from_go_terms
 
         Retrieve annotations associated with a GO term. <br>   Example: go_term_id = GO_1990590, <br>   name = has component<br>   The limit parameter controls the page size and can not exceed 100. <br>   Pagination is 0-based.
@@ -474,7 +475,7 @@ class IgvfApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GoTermsFromAnnotations200ResponseInner]",
+            '200': "List[AnnotationsFromGoTerms]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -506,7 +507,7 @@ class IgvfApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[GoTermsFromAnnotations200ResponseInner]]:
+    ) -> ApiResponse[List[AnnotationsFromGoTerms]]:
         """annotations_from_go_terms
 
         Retrieve annotations associated with a GO term. <br>   Example: go_term_id = GO_1990590, <br>   name = has component<br>   The limit parameter controls the page size and can not exceed 100. <br>   Pagination is 0-based.
@@ -553,7 +554,7 @@ class IgvfApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GoTermsFromAnnotations200ResponseInner]",
+            '200': "List[AnnotationsFromGoTerms]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -632,7 +633,7 @@ class IgvfApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GoTermsFromAnnotations200ResponseInner]",
+            '200': "List[AnnotationsFromGoTerms]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -14687,7 +14688,7 @@ class IgvfApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[GoTermsFromAnnotations200ResponseInner]:
+    ) -> List[AnnotationsFromGoTerms]:
         """go_terms_from_annotations
 
         Retrieve GO terms from either proteins or transcripts. <br>   Example: query = ENSP00000384707, <br>   name = involved in<br>   The limit parameter controls the page size and can not exceed 100. <br>   Pagination is 0-based.
@@ -14734,7 +14735,7 @@ class IgvfApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GoTermsFromAnnotations200ResponseInner]",
+            '200': "List[AnnotationsFromGoTerms]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -14766,7 +14767,7 @@ class IgvfApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[GoTermsFromAnnotations200ResponseInner]]:
+    ) -> ApiResponse[List[AnnotationsFromGoTerms]]:
         """go_terms_from_annotations
 
         Retrieve GO terms from either proteins or transcripts. <br>   Example: query = ENSP00000384707, <br>   name = involved in<br>   The limit parameter controls the page size and can not exceed 100. <br>   Pagination is 0-based.
@@ -14813,7 +14814,7 @@ class IgvfApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GoTermsFromAnnotations200ResponseInner]",
+            '200': "List[AnnotationsFromGoTerms]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -14892,7 +14893,7 @@ class IgvfApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GoTermsFromAnnotations200ResponseInner]",
+            '200': "List[AnnotationsFromGoTerms]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -15483,6 +15484,279 @@ class IgvfApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/gene-regulatory-network',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def llm_query(
+        self,
+        llm_query_request: LlmQueryRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> LlmQuery:
+        """llm_query
+
+        Ask a question that interests you. This API is password protected.<br>   Set verbose = true to retrieve AQL and AQL results.<br>   Example: query = Tell me about the gene SAMD11.
+
+        :param llm_query_request: (required)
+        :type llm_query_request: LlmQueryRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._llm_query_serialize(
+            llm_query_request=llm_query_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "LlmQuery",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def llm_query_with_http_info(
+        self,
+        llm_query_request: LlmQueryRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[LlmQuery]:
+        """llm_query
+
+        Ask a question that interests you. This API is password protected.<br>   Set verbose = true to retrieve AQL and AQL results.<br>   Example: query = Tell me about the gene SAMD11.
+
+        :param llm_query_request: (required)
+        :type llm_query_request: LlmQueryRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._llm_query_serialize(
+            llm_query_request=llm_query_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "LlmQuery",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def llm_query_without_preload_content(
+        self,
+        llm_query_request: LlmQueryRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """llm_query
+
+        Ask a question that interests you. This API is password protected.<br>   Set verbose = true to retrieve AQL and AQL results.<br>   Example: query = Tell me about the gene SAMD11.
+
+        :param llm_query_request: (required)
+        :type llm_query_request: LlmQueryRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._llm_query_serialize(
+            llm_query_request=llm_query_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "LlmQuery",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _llm_query_serialize(
+        self,
+        llm_query_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if llm_query_request is not None:
+            _body_params = llm_query_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/llm-query',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -16955,7 +17229,7 @@ class IgvfApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[OntologyTermParents200ResponseInner]:
+    ) -> List[OntologyTermChildren]:
         """ontology_term_children
 
         Retrieve all child nodes of an ontology term.<br>   Example: ontology_term_id = CHEBI_20857. <br>   The limit parameter controls the page size and can not exceed 500. <br>   Pagination is 0-based.
@@ -16999,7 +17273,7 @@ class IgvfApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[OntologyTermParents200ResponseInner]",
+            '200': "List[OntologyTermChildren]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -17030,7 +17304,7 @@ class IgvfApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[OntologyTermParents200ResponseInner]]:
+    ) -> ApiResponse[List[OntologyTermChildren]]:
         """ontology_term_children
 
         Retrieve all child nodes of an ontology term.<br>   Example: ontology_term_id = CHEBI_20857. <br>   The limit parameter controls the page size and can not exceed 500. <br>   Pagination is 0-based.
@@ -17074,7 +17348,7 @@ class IgvfApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[OntologyTermParents200ResponseInner]",
+            '200': "List[OntologyTermChildren]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -17149,7 +17423,7 @@ class IgvfApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[OntologyTermParents200ResponseInner]",
+            '200': "List[OntologyTermChildren]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -17249,7 +17523,7 @@ class IgvfApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[OntologyTermParents200ResponseInner]:
+    ) -> List[OntologyTermChildren]:
         """ontology_term_parents
 
         Retrieve all parent nodes of an ontology term.<br>   Example: ontology_term_id = CHEBI_100001. <br>   The limit parameter controls the page size and can not exceed 500. <br>   Pagination is 0-based.
@@ -17293,7 +17567,7 @@ class IgvfApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[OntologyTermParents200ResponseInner]",
+            '200': "List[OntologyTermChildren]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -17324,7 +17598,7 @@ class IgvfApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[OntologyTermParents200ResponseInner]]:
+    ) -> ApiResponse[List[OntologyTermChildren]]:
         """ontology_term_parents
 
         Retrieve all parent nodes of an ontology term.<br>   Example: ontology_term_id = CHEBI_100001. <br>   The limit parameter controls the page size and can not exceed 500. <br>   Pagination is 0-based.
@@ -17368,7 +17642,7 @@ class IgvfApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[OntologyTermParents200ResponseInner]",
+            '200': "List[OntologyTermChildren]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -17443,7 +17717,7 @@ class IgvfApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[OntologyTermParents200ResponseInner]",
+            '200': "List[OntologyTermChildren]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -19838,7 +20112,7 @@ class IgvfApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[PhenotypesFromVariants200ResponseInner]:
+    ) -> List[VariantsFromPhenotypesItem]:
         """phenotypes_from_variants
 
         Retrieve variant-trait pairs from GWAS, SGE, cV2F, and CRISPR screens by variants.<br>     Filters on phenotype ontology id can be used together.<br>     The following parameters can be used to set thresholds on -log10 p_value: gt (>), gte (>=), lt (<), lte (<=).<br>     Set verbose = true to retrieve full info on the studies.<br>     At least one of these fields is required: variant_id, spdi, hgvs, rsid, ca_id, region, method, or files_fileset. <br>     The limit parameter controls the page size and can not exceed 100. <br>     Pagination is 0-based. <br> <br>     <div class=\"method-examples\"> <strong>Examples by method</strong> <p class=\"method-example-description\">These examples are grouped by method; use the <code>method</code> filter to return data from a specific method.</p> <div class=\"method-example-tabs\"> <button class=\"method-example-tab is-active\" data-method-example-tab=\"gwas\">GWAS</button> <button class=\"method-example-tab\" data-method-example-tab=\"sge\">SGE</button> <button class=\"method-example-tab\" data-method-example-tab=\"cv2f\">cV2F</button> <button class=\"method-example-tab\" data-method-example-tab=\"crispr-screen\">CRISPR screen</button> </div> <div class=\"method-example-panel is-active\" data-method-example-panel=\"gwas\"> <strong>GWAS:</strong> <div class=\"method-query-example\"> <strong>query by variant identifier</strong>  <ul> <li>spdi = NC_000001.11:5277210:G:A</li> <li>neg_log10_pvalue = gte:5</li> <li>method = GWAS</li> </ul> </div> <div class=\"method-query-example\"> <strong>query by region</strong>  <ul> <li>region = chr1:5270008-5277214</li> <li>method = GWAS</li> </ul> </div> </div> <div class=\"method-example-panel\" data-method-example-panel=\"sge\"> <strong>SGE:</strong> <div class=\"method-query-example\"> <strong>query by variant identifier</strong>  <ul> <li>spdi = NC_000007.14:152660654:T:A</li> <li>method = SGE</li> </ul> </div> <div class=\"method-query-example\"> <strong>query by region</strong>  <ul> <li>region = chr7:152655654-152664654</li> <li>method = SGE</li> </ul> </div> </div> <div class=\"method-example-panel\" data-method-example-panel=\"cv2f\"> <strong>cV2F:</strong> <div class=\"method-query-example\"> <strong>query by variant identifier</strong>  <ul> <li>spdi = NC_000001.11:91420:T:C</li> <li>method = cV2F</li> </ul> </div> <div class=\"method-query-example\"> <strong>query by region</strong>  <ul> <li>region = chr1:91418-91424</li> <li>method = cV2F</li> </ul> </div> </div> <div class=\"method-example-panel\" data-method-example-panel=\"crispr-screen\"> <strong>CRISPR screen:</strong> <div class=\"method-query-example\"> <strong>query by variant identifier</strong>  <ul> <li>spdi = NC_000019.10:11105332:TGC:CGG</li> <li>method = CRISPR screen</li> </ul> </div> <div class=\"method-query-example\"> <strong>query by region</strong>  <ul> <li>region = chr19:11105000-11106000</li> <li>method = CRISPR screen</li> </ul> </div> <div class=\"method-query-example\"> <strong>query by files_fileset</strong> <p class=\"method-query-example-note\">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI2014OOZP</li> <li>method = CRISPR screen</li> </ul> </div> </div> </div>
@@ -19921,7 +20195,7 @@ class IgvfApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[PhenotypesFromVariants200ResponseInner]",
+            '200': "List[VariantsFromPhenotypesItem]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -19965,7 +20239,7 @@ class IgvfApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[PhenotypesFromVariants200ResponseInner]]:
+    ) -> ApiResponse[List[VariantsFromPhenotypesItem]]:
         """phenotypes_from_variants
 
         Retrieve variant-trait pairs from GWAS, SGE, cV2F, and CRISPR screens by variants.<br>     Filters on phenotype ontology id can be used together.<br>     The following parameters can be used to set thresholds on -log10 p_value: gt (>), gte (>=), lt (<), lte (<=).<br>     Set verbose = true to retrieve full info on the studies.<br>     At least one of these fields is required: variant_id, spdi, hgvs, rsid, ca_id, region, method, or files_fileset. <br>     The limit parameter controls the page size and can not exceed 100. <br>     Pagination is 0-based. <br> <br>     <div class=\"method-examples\"> <strong>Examples by method</strong> <p class=\"method-example-description\">These examples are grouped by method; use the <code>method</code> filter to return data from a specific method.</p> <div class=\"method-example-tabs\"> <button class=\"method-example-tab is-active\" data-method-example-tab=\"gwas\">GWAS</button> <button class=\"method-example-tab\" data-method-example-tab=\"sge\">SGE</button> <button class=\"method-example-tab\" data-method-example-tab=\"cv2f\">cV2F</button> <button class=\"method-example-tab\" data-method-example-tab=\"crispr-screen\">CRISPR screen</button> </div> <div class=\"method-example-panel is-active\" data-method-example-panel=\"gwas\"> <strong>GWAS:</strong> <div class=\"method-query-example\"> <strong>query by variant identifier</strong>  <ul> <li>spdi = NC_000001.11:5277210:G:A</li> <li>neg_log10_pvalue = gte:5</li> <li>method = GWAS</li> </ul> </div> <div class=\"method-query-example\"> <strong>query by region</strong>  <ul> <li>region = chr1:5270008-5277214</li> <li>method = GWAS</li> </ul> </div> </div> <div class=\"method-example-panel\" data-method-example-panel=\"sge\"> <strong>SGE:</strong> <div class=\"method-query-example\"> <strong>query by variant identifier</strong>  <ul> <li>spdi = NC_000007.14:152660654:T:A</li> <li>method = SGE</li> </ul> </div> <div class=\"method-query-example\"> <strong>query by region</strong>  <ul> <li>region = chr7:152655654-152664654</li> <li>method = SGE</li> </ul> </div> </div> <div class=\"method-example-panel\" data-method-example-panel=\"cv2f\"> <strong>cV2F:</strong> <div class=\"method-query-example\"> <strong>query by variant identifier</strong>  <ul> <li>spdi = NC_000001.11:91420:T:C</li> <li>method = cV2F</li> </ul> </div> <div class=\"method-query-example\"> <strong>query by region</strong>  <ul> <li>region = chr1:91418-91424</li> <li>method = cV2F</li> </ul> </div> </div> <div class=\"method-example-panel\" data-method-example-panel=\"crispr-screen\"> <strong>CRISPR screen:</strong> <div class=\"method-query-example\"> <strong>query by variant identifier</strong>  <ul> <li>spdi = NC_000019.10:11105332:TGC:CGG</li> <li>method = CRISPR screen</li> </ul> </div> <div class=\"method-query-example\"> <strong>query by region</strong>  <ul> <li>region = chr19:11105000-11106000</li> <li>method = CRISPR screen</li> </ul> </div> <div class=\"method-query-example\"> <strong>query by files_fileset</strong> <p class=\"method-query-example-note\">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI2014OOZP</li> <li>method = CRISPR screen</li> </ul> </div> </div> </div>
@@ -20048,7 +20322,7 @@ class IgvfApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[PhenotypesFromVariants200ResponseInner]",
+            '200': "List[VariantsFromPhenotypesItem]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -20175,7 +20449,7 @@ class IgvfApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[PhenotypesFromVariants200ResponseInner]",
+            '200': "List[VariantsFromPhenotypesItem]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -27208,7 +27482,7 @@ class IgvfApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[List[VariantsAlleles200ResponseInnerInner]]:
+    ) -> List[List[VariantsAllelesValue]]:
         """variants_alleles
 
         Retrieve GNOMAD alleles for variants in a given region.<br>    Example: region = chr1:1157520-1158520 (maximum length: 10kb).<br>    Region limit: 1kb pairs.
@@ -27246,7 +27520,7 @@ class IgvfApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[List[VariantsAlleles200ResponseInnerInner]]",
+            '200': "List[List[VariantsAllelesValue]]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -27275,7 +27549,7 @@ class IgvfApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[List[VariantsAlleles200ResponseInnerInner]]]:
+    ) -> ApiResponse[List[List[VariantsAllelesValue]]]:
         """variants_alleles
 
         Retrieve GNOMAD alleles for variants in a given region.<br>    Example: region = chr1:1157520-1158520 (maximum length: 10kb).<br>    Region limit: 1kb pairs.
@@ -27313,7 +27587,7 @@ class IgvfApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[List[VariantsAlleles200ResponseInnerInner]]",
+            '200': "List[List[VariantsAllelesValue]]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -27380,7 +27654,7 @@ class IgvfApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[List[VariantsAlleles200ResponseInnerInner]]",
+            '200': "List[List[VariantsAllelesValue]]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -30335,7 +30609,7 @@ class IgvfApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[PhenotypesFromVariants200ResponseInner]:
+    ) -> List[VariantsFromPhenotypesItem]:
         """variants_from_phenotypes
 
         Retrieve variant-trait pairs from GWAS, SGE, cV2F, and CRISPR screens by phenotypes.<br>     The following parameters can be used to set thresholds on -log10 p_value: gt (>), gte (>=), lt (<), lte (<=).<br>     Set verbose = true to retrieve full info on the studies.<br>     At least one of these fields is required: phenotype_id, phenotype_name, method, or files_fileset. <br>     The limit parameter controls the page size and can not exceed 100. <br>     Pagination is 0-based. <br> <br>     <div class=\"method-examples\"> <strong>Examples by method</strong> <p class=\"method-example-description\">These examples are grouped by method; use the <code>method</code> filter to return data from a specific method.</p> <div class=\"method-example-tabs\"> <button class=\"method-example-tab is-active\" data-method-example-tab=\"gwas\">GWAS</button> <button class=\"method-example-tab\" data-method-example-tab=\"sge\">SGE</button> <button class=\"method-example-tab\" data-method-example-tab=\"cv2f\">cV2F</button> <button class=\"method-example-tab\" data-method-example-tab=\"crispr-screen\">CRISPR screen</button> </div> <div class=\"method-example-panel is-active\" data-method-example-panel=\"gwas\"> <strong>GWAS:</strong> <div class=\"method-query-example\"> <strong>Single result</strong>  <ul> <li>phenotype_id = EFO_0010325</li> <li>method = GWAS</li> </ul> </div> <div class=\"method-query-example\"> <strong>Group results</strong>  <ul> <li>neg_log10_pvalue = gte:5</li> <li>method = GWAS</li> </ul> </div> </div> <div class=\"method-example-panel\" data-method-example-panel=\"sge\"> <strong>SGE:</strong> <div class=\"method-query-example\"> <strong>Query by phenotype identifier</strong>  <ul> <li>phenotype_id = NCIT_C16407</li> <li>method = SGE</li> </ul> </div> <div class=\"method-query-example\"> <strong>Query by files_fileset</strong> <p class=\"method-query-example-note\">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI3125FMNW</li> <li>method = SGE</li> </ul> </div> </div> <div class=\"method-example-panel\" data-method-example-panel=\"cv2f\"> <strong>cV2F:</strong> <div class=\"method-query-example\"> <strong>query by phenotype identifier</strong>  <ul> <li>phenotype_id = GO_0003674</li> <li>method = cV2F</li> </ul> </div> <div class=\"method-query-example\"> <strong>query by files_fileset</strong> <p class=\"method-query-example-note\">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI3063JRLI</li> <li>method = cV2F</li> </ul> </div> </div> <div class=\"method-example-panel\" data-method-example-panel=\"crispr-screen\"> <strong>CRISPR screen:</strong> <div class=\"method-query-example\"> <strong>Query by phenotype identifier</strong>  <ul> <li>phenotype_id = NTR_0001118</li> <li>method = CRISPR screen</li> </ul> </div> <div class=\"method-query-example\"> <strong>Query by files_fileset</strong> <p class=\"method-query-example-note\">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI2014OOZP</li> <li>method = CRISPR screen</li> </ul> </div> </div> </div>
@@ -30406,7 +30680,7 @@ class IgvfApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[PhenotypesFromVariants200ResponseInner]",
+            '200': "List[VariantsFromPhenotypesItem]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -30446,7 +30720,7 @@ class IgvfApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[PhenotypesFromVariants200ResponseInner]]:
+    ) -> ApiResponse[List[VariantsFromPhenotypesItem]]:
         """variants_from_phenotypes
 
         Retrieve variant-trait pairs from GWAS, SGE, cV2F, and CRISPR screens by phenotypes.<br>     The following parameters can be used to set thresholds on -log10 p_value: gt (>), gte (>=), lt (<), lte (<=).<br>     Set verbose = true to retrieve full info on the studies.<br>     At least one of these fields is required: phenotype_id, phenotype_name, method, or files_fileset. <br>     The limit parameter controls the page size and can not exceed 100. <br>     Pagination is 0-based. <br> <br>     <div class=\"method-examples\"> <strong>Examples by method</strong> <p class=\"method-example-description\">These examples are grouped by method; use the <code>method</code> filter to return data from a specific method.</p> <div class=\"method-example-tabs\"> <button class=\"method-example-tab is-active\" data-method-example-tab=\"gwas\">GWAS</button> <button class=\"method-example-tab\" data-method-example-tab=\"sge\">SGE</button> <button class=\"method-example-tab\" data-method-example-tab=\"cv2f\">cV2F</button> <button class=\"method-example-tab\" data-method-example-tab=\"crispr-screen\">CRISPR screen</button> </div> <div class=\"method-example-panel is-active\" data-method-example-panel=\"gwas\"> <strong>GWAS:</strong> <div class=\"method-query-example\"> <strong>Single result</strong>  <ul> <li>phenotype_id = EFO_0010325</li> <li>method = GWAS</li> </ul> </div> <div class=\"method-query-example\"> <strong>Group results</strong>  <ul> <li>neg_log10_pvalue = gte:5</li> <li>method = GWAS</li> </ul> </div> </div> <div class=\"method-example-panel\" data-method-example-panel=\"sge\"> <strong>SGE:</strong> <div class=\"method-query-example\"> <strong>Query by phenotype identifier</strong>  <ul> <li>phenotype_id = NCIT_C16407</li> <li>method = SGE</li> </ul> </div> <div class=\"method-query-example\"> <strong>Query by files_fileset</strong> <p class=\"method-query-example-note\">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI3125FMNW</li> <li>method = SGE</li> </ul> </div> </div> <div class=\"method-example-panel\" data-method-example-panel=\"cv2f\"> <strong>cV2F:</strong> <div class=\"method-query-example\"> <strong>query by phenotype identifier</strong>  <ul> <li>phenotype_id = GO_0003674</li> <li>method = cV2F</li> </ul> </div> <div class=\"method-query-example\"> <strong>query by files_fileset</strong> <p class=\"method-query-example-note\">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI3063JRLI</li> <li>method = cV2F</li> </ul> </div> </div> <div class=\"method-example-panel\" data-method-example-panel=\"crispr-screen\"> <strong>CRISPR screen:</strong> <div class=\"method-query-example\"> <strong>Query by phenotype identifier</strong>  <ul> <li>phenotype_id = NTR_0001118</li> <li>method = CRISPR screen</li> </ul> </div> <div class=\"method-query-example\"> <strong>Query by files_fileset</strong> <p class=\"method-query-example-note\">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI2014OOZP</li> <li>method = CRISPR screen</li> </ul> </div> </div> </div>
@@ -30517,7 +30791,7 @@ class IgvfApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[PhenotypesFromVariants200ResponseInner]",
+            '200': "List[VariantsFromPhenotypesItem]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -30628,7 +30902,7 @@ class IgvfApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[PhenotypesFromVariants200ResponseInner]",
+            '200': "List[VariantsFromPhenotypesItem]",
         }
         response_data = self.api_client.call_api(
             *_param,

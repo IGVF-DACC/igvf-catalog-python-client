@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **protein** | [**ProteinCompact**](ProteinCompact.md) |  | [optional] 
 **gene** | [**GeneCompact**](GeneCompact.md) |  | [optional] 
-**related** | [**List[GenesProteinsGenesProteinsRelatedInner]**](GenesProteinsGenesProteinsRelatedInner.md) |  | [optional] 
+**related** | [**List[RelatedItem]**](RelatedItem.md) |  | [optional] 
 
 ## Example
 

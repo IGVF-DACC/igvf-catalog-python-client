@@ -23,11 +23,11 @@ from typing import Union, Any, List, Set, TYPE_CHECKING, Optional, Dict
 from typing_extensions import Literal, Self
 from pydantic import Field
 
-VARIANTSALLELES200RESPONSEINNERINNERANYOF_ANY_OF_SCHEMAS = ["float", "str"]
+QTLSINTRONSTART_ANY_OF_SCHEMAS = ["float", "str"]
 
-class VariantsAlleles200ResponseInnerInnerAnyOf(BaseModel):
+class QtlsIntronStart(BaseModel):
     """
-    VariantsAlleles200ResponseInnerInnerAnyOf
+    QtlsIntronStart
     """
 
     # data type: str
@@ -60,7 +60,7 @@ class VariantsAlleles200ResponseInnerInnerAnyOf(BaseModel):
         if v is None:
             return v
 
-        instance = VariantsAlleles200ResponseInnerInnerAnyOf.model_construct()
+        instance = QtlsIntronStart.model_construct()
         error_messages = []
         # validate data type: str
         try:
@@ -76,7 +76,7 @@ class VariantsAlleles200ResponseInnerInnerAnyOf(BaseModel):
             error_messages.append(str(e))
         if error_messages:
             # no match
-            raise ValueError("No match found when setting the actual_instance in VariantsAlleles200ResponseInnerInnerAnyOf with anyOf schemas: float, str. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting the actual_instance in QtlsIntronStart with anyOf schemas: float, str. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -113,7 +113,7 @@ class VariantsAlleles200ResponseInnerInnerAnyOf(BaseModel):
 
         if error_messages:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into VariantsAlleles200ResponseInnerInnerAnyOf with anyOf schemas: float, str. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into QtlsIntronStart with anyOf schemas: float, str. Details: " + ", ".join(error_messages))
         else:
             return instance
 

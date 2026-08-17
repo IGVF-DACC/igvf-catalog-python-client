@@ -24,11 +24,11 @@ from typing import Union, Any, List, Set, TYPE_CHECKING, Optional, Dict
 from typing_extensions import Literal, Self
 from pydantic import Field
 
-PROTEINSFROMVARIANTSPROTEINCOMPLEXANYOF_ANY_OF_SCHEMAS = ["ProteinBasic", "str"]
+PROTEINCOMPLEXOPTION_ANY_OF_SCHEMAS = ["ProteinBasic", "str"]
 
-class ProteinsFromVariantsProteinComplexAnyOf(BaseModel):
+class ProteinComplexOption(BaseModel):
     """
-    ProteinsFromVariantsProteinComplexAnyOf
+    ProteinComplexOption
     """
 
     # data type: str
@@ -58,7 +58,7 @@ class ProteinsFromVariantsProteinComplexAnyOf(BaseModel):
 
     @field_validator('actual_instance')
     def actual_instance_must_validate_anyof(cls, v):
-        instance = ProteinsFromVariantsProteinComplexAnyOf.model_construct()
+        instance = ProteinComplexOption.model_construct()
         error_messages = []
         # validate data type: str
         try:
@@ -74,7 +74,7 @@ class ProteinsFromVariantsProteinComplexAnyOf(BaseModel):
 
         if error_messages:
             # no match
-            raise ValueError("No match found when setting the actual_instance in ProteinsFromVariantsProteinComplexAnyOf with anyOf schemas: ProteinBasic, str. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting the actual_instance in ProteinComplexOption with anyOf schemas: ProteinBasic, str. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -105,7 +105,7 @@ class ProteinsFromVariantsProteinComplexAnyOf(BaseModel):
 
         if error_messages:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into ProteinsFromVariantsProteinComplexAnyOf with anyOf schemas: ProteinBasic, str. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into ProteinComplexOption with anyOf schemas: ProteinBasic, str. Details: " + ", ".join(error_messages))
         else:
             return instance
 

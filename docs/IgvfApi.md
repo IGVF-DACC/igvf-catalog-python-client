@@ -43,6 +43,7 @@ Method | HTTP request | Description
 [**genomic_elements_predictions_from_variant**](IgvfApi.md#genomic_elements_predictions_from_variant) | **GET** /variants/genomic-elements/cell-gene-predictions | 
 [**go_terms_from_annotations**](IgvfApi.md#go_terms_from_annotations) | **GET** /gene-products/go-terms | 
 [**grn**](IgvfApi.md#grn) | **GET** /gene-regulatory-network | 
+[**llm_query**](IgvfApi.md#llm_query) | **POST** /llm-query | 
 [**motifs**](IgvfApi.md#motifs) | **GET** /motifs | 
 [**motifs_from_proteins**](IgvfApi.md#motifs_from_proteins) | **GET** /proteins/motifs | 
 [**nearest_genes**](IgvfApi.md#nearest_genes) | **GET** /variants/nearest-genes | 
@@ -90,7 +91,7 @@ Method | HTTP request | Description
 
 
 # **all_coding_variants_from_genes**
-> List[AllCodingVariantsFromGenes200ResponseInner] all_coding_variants_from_genes(gene_id, dataset, page=page, limit=limit)
+> List[float] all_coding_variants_from_genes(gene_id, dataset, page=page, limit=limit)
 
 Retrieve a list of all numeric scores of associated coding variants for a gene and a dataset.<br>   Example: gene_id = ENSG00000165841, <br>   dataset = VAMP-seq
 
@@ -99,7 +100,6 @@ Retrieve a list of all numeric scores of associated coding variants for a gene a
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.all_coding_variants_from_genes200_response_inner import AllCodingVariantsFromGenes200ResponseInner
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[AllCodingVariantsFromGenes200ResponseInner]**](AllCodingVariantsFromGenes200ResponseInner.md)
+**List[float]**
 
 ### Authorization
 
@@ -162,7 +162,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **annotations_from_go_terms**
-> List[GoTermsFromAnnotations200ResponseInner] annotations_from_go_terms(go_term_id, name=name, page=page, limit=limit)
+> List[AnnotationsFromGoTerms] annotations_from_go_terms(go_term_id, name=name, page=page, limit=limit)
 
 Retrieve annotations associated with a GO term. <br>   Example: go_term_id = GO_1990590, <br>   name = has component<br>   The limit parameter controls the page size and can not exceed 100. <br>   Pagination is 0-based.
 
@@ -171,7 +171,7 @@ Retrieve annotations associated with a GO term. <br>   Example: go_term_id = GO_
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.go_terms_from_annotations200_response_inner import GoTermsFromAnnotations200ResponseInner
+from igvf_catalog_client.models.annotations_from_go_terms import AnnotationsFromGoTerms
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[GoTermsFromAnnotations200ResponseInner]**](GoTermsFromAnnotations200ResponseInner.md)
+[**List[AnnotationsFromGoTerms]**](AnnotationsFromGoTerms.md)
 
 ### Authorization
 
@@ -3105,7 +3105,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **go_terms_from_annotations**
-> List[GoTermsFromAnnotations200ResponseInner] go_terms_from_annotations(query, name=name, page=page, limit=limit)
+> List[AnnotationsFromGoTerms] go_terms_from_annotations(query, name=name, page=page, limit=limit)
 
 Retrieve GO terms from either proteins or transcripts. <br>   Example: query = ENSP00000384707, <br>   name = involved in<br>   The limit parameter controls the page size and can not exceed 100. <br>   Pagination is 0-based.
 
@@ -3114,7 +3114,7 @@ Retrieve GO terms from either proteins or transcripts. <br>   Example: query = E
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.go_terms_from_annotations200_response_inner import GoTermsFromAnnotations200ResponseInner
+from igvf_catalog_client.models.annotations_from_go_terms import AnnotationsFromGoTerms
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -3156,7 +3156,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[GoTermsFromAnnotations200ResponseInner]**](GoTermsFromAnnotations200ResponseInner.md)
+[**List[AnnotationsFromGoTerms]**](AnnotationsFromGoTerms.md)
 
 ### Authorization
 
@@ -3261,6 +3261,73 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **llm_query**
+> LlmQuery llm_query(llm_query_request)
+
+Ask a question that interests you. This API is password protected.<br>   Set verbose = true to retrieve AQL and AQL results.<br>   Example: query = Tell me about the gene SAMD11.
+
+### Example
+
+
+```python
+import igvf_catalog_client
+from igvf_catalog_client.models.llm_query import LlmQuery
+from igvf_catalog_client.models.llm_query_request import LlmQueryRequest
+from igvf_catalog_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.catalogkg.igvf.org/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = igvf_catalog_client.Configuration(
+    host = "https://api.catalogkg.igvf.org/api"
+)
+
+
+# Enter a context with an instance of the API client
+with igvf_catalog_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = igvf_catalog_client.IgvfApi(api_client)
+    llm_query_request = igvf_catalog_client.LlmQueryRequest() # LlmQueryRequest | 
+
+    try:
+        api_response = api_instance.llm_query(llm_query_request)
+        print("The response of IgvfApi->llm_query:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IgvfApi->llm_query: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **llm_query_request** | [**LlmQueryRequest**](LlmQueryRequest.md)|  | 
+
+### Return type
+
+[**LlmQuery**](LlmQuery.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -3583,7 +3650,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ontology_term_children**
-> List[OntologyTermParents200ResponseInner] ontology_term_children(ontology_term_id, page=page, limit=limit)
+> List[OntologyTermChildren] ontology_term_children(ontology_term_id, page=page, limit=limit)
 
 Retrieve all child nodes of an ontology term.<br>   Example: ontology_term_id = CHEBI_20857. <br>   The limit parameter controls the page size and can not exceed 500. <br>   Pagination is 0-based.
 
@@ -3592,7 +3659,7 @@ Retrieve all child nodes of an ontology term.<br>   Example: ontology_term_id = 
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.ontology_term_parents200_response_inner import OntologyTermParents200ResponseInner
+from igvf_catalog_client.models.ontology_term_children import OntologyTermChildren
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -3632,7 +3699,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[OntologyTermParents200ResponseInner]**](OntologyTermParents200ResponseInner.md)
+[**List[OntologyTermChildren]**](OntologyTermChildren.md)
 
 ### Authorization
 
@@ -3653,7 +3720,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ontology_term_parents**
-> List[OntologyTermParents200ResponseInner] ontology_term_parents(ontology_term_id, page=page, limit=limit)
+> List[OntologyTermChildren] ontology_term_parents(ontology_term_id, page=page, limit=limit)
 
 Retrieve all parent nodes of an ontology term.<br>   Example: ontology_term_id = CHEBI_100001. <br>   The limit parameter controls the page size and can not exceed 500. <br>   Pagination is 0-based.
 
@@ -3662,7 +3729,7 @@ Retrieve all parent nodes of an ontology term.<br>   Example: ontology_term_id =
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.ontology_term_parents200_response_inner import OntologyTermParents200ResponseInner
+from igvf_catalog_client.models.ontology_term_children import OntologyTermChildren
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -3702,7 +3769,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[OntologyTermParents200ResponseInner]**](OntologyTermParents200ResponseInner.md)
+[**List[OntologyTermChildren]**](OntologyTermChildren.md)
 
 ### Authorization
 
@@ -4203,7 +4270,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **phenotypes_from_variants**
-> List[PhenotypesFromVariants200ResponseInner] phenotypes_from_variants(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region, phenotype_id=phenotype_id, neg_log10_pvalue=neg_log10_pvalue, method=method, label=label, var_class=var_class, organism=organism, verbose=verbose, page=page, limit=limit, files_fileset=files_fileset)
+> List[VariantsFromPhenotypesItem] phenotypes_from_variants(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region, phenotype_id=phenotype_id, neg_log10_pvalue=neg_log10_pvalue, method=method, label=label, var_class=var_class, organism=organism, verbose=verbose, page=page, limit=limit, files_fileset=files_fileset)
 
 Retrieve variant-trait pairs from GWAS, SGE, cV2F, and CRISPR screens by variants.<br>     Filters on phenotype ontology id can be used together.<br>     The following parameters can be used to set thresholds on -log10 p_value: gt (>), gte (>=), lt (<), lte (<=).<br>     Set verbose = true to retrieve full info on the studies.<br>     At least one of these fields is required: variant_id, spdi, hgvs, rsid, ca_id, region, method, or files_fileset. <br>     The limit parameter controls the page size and can not exceed 100. <br>     Pagination is 0-based. <br> <br>     <div class="method-examples"> <strong>Examples by method</strong> <p class="method-example-description">These examples are grouped by method; use the <code>method</code> filter to return data from a specific method.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="gwas">GWAS</button> <button class="method-example-tab" data-method-example-tab="sge">SGE</button> <button class="method-example-tab" data-method-example-tab="cv2f">cV2F</button> <button class="method-example-tab" data-method-example-tab="crispr-screen">CRISPR screen</button> </div> <div class="method-example-panel is-active" data-method-example-panel="gwas"> <strong>GWAS:</strong> <div class="method-query-example"> <strong>query by variant identifier</strong>  <ul> <li>spdi = NC_000001.11:5277210:G:A</li> <li>neg_log10_pvalue = gte:5</li> <li>method = GWAS</li> </ul> </div> <div class="method-query-example"> <strong>query by region</strong>  <ul> <li>region = chr1:5270008-5277214</li> <li>method = GWAS</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="sge"> <strong>SGE:</strong> <div class="method-query-example"> <strong>query by variant identifier</strong>  <ul> <li>spdi = NC_000007.14:152660654:T:A</li> <li>method = SGE</li> </ul> </div> <div class="method-query-example"> <strong>query by region</strong>  <ul> <li>region = chr7:152655654-152664654</li> <li>method = SGE</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="cv2f"> <strong>cV2F:</strong> <div class="method-query-example"> <strong>query by variant identifier</strong>  <ul> <li>spdi = NC_000001.11:91420:T:C</li> <li>method = cV2F</li> </ul> </div> <div class="method-query-example"> <strong>query by region</strong>  <ul> <li>region = chr1:91418-91424</li> <li>method = cV2F</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="crispr-screen"> <strong>CRISPR screen:</strong> <div class="method-query-example"> <strong>query by variant identifier</strong>  <ul> <li>spdi = NC_000019.10:11105332:TGC:CGG</li> <li>method = CRISPR screen</li> </ul> </div> <div class="method-query-example"> <strong>query by region</strong>  <ul> <li>region = chr19:11105000-11106000</li> <li>method = CRISPR screen</li> </ul> </div> <div class="method-query-example"> <strong>query by files_fileset</strong> <p class="method-query-example-note">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI2014OOZP</li> <li>method = CRISPR screen</li> </ul> </div> </div> </div>
 
@@ -4212,7 +4279,7 @@ Retrieve variant-trait pairs from GWAS, SGE, cV2F, and CRISPR screens by variant
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.phenotypes_from_variants200_response_inner import PhenotypesFromVariants200ResponseInner
+from igvf_catalog_client.models.variants_from_phenotypes_item import VariantsFromPhenotypesItem
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -4278,7 +4345,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[PhenotypesFromVariants200ResponseInner]**](PhenotypesFromVariants200ResponseInner.md)
+[**List[VariantsFromPhenotypesItem]**](VariantsFromPhenotypesItem.md)
 
 ### Authorization
 
@@ -5705,7 +5772,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **variants_alleles**
-> List[List[VariantsAlleles200ResponseInnerInner]] variants_alleles(region)
+> List[List[VariantsAllelesValue]] variants_alleles(region)
 
 Retrieve GNOMAD alleles for variants in a given region.<br>    Example: region = chr1:1157520-1158520 (maximum length: 10kb).<br>    Region limit: 1kb pairs.
 
@@ -5714,7 +5781,7 @@ Retrieve GNOMAD alleles for variants in a given region.<br>    Example: region =
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.variants_alleles200_response_inner_inner import VariantsAlleles200ResponseInnerInner
+from igvf_catalog_client.models.variants_alleles_value import VariantsAllelesValue
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -5750,7 +5817,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**List[List[VariantsAlleles200ResponseInnerInner]]**
+**List[List[VariantsAllelesValue]]**
 
 ### Authorization
 
@@ -6353,7 +6420,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **variants_from_phenotypes**
-> List[PhenotypesFromVariants200ResponseInner] variants_from_phenotypes(phenotype_id=phenotype_id, phenotype_name=phenotype_name, neg_log10_pvalue=neg_log10_pvalue, method=method, label=label, var_class=var_class, files_fileset=files_fileset, source=source, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[VariantsFromPhenotypesItem] variants_from_phenotypes(phenotype_id=phenotype_id, phenotype_name=phenotype_name, neg_log10_pvalue=neg_log10_pvalue, method=method, label=label, var_class=var_class, files_fileset=files_fileset, source=source, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve variant-trait pairs from GWAS, SGE, cV2F, and CRISPR screens by phenotypes.<br>     The following parameters can be used to set thresholds on -log10 p_value: gt (>), gte (>=), lt (<), lte (<=).<br>     Set verbose = true to retrieve full info on the studies.<br>     At least one of these fields is required: phenotype_id, phenotype_name, method, or files_fileset. <br>     The limit parameter controls the page size and can not exceed 100. <br>     Pagination is 0-based. <br> <br>     <div class="method-examples"> <strong>Examples by method</strong> <p class="method-example-description">These examples are grouped by method; use the <code>method</code> filter to return data from a specific method.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="gwas">GWAS</button> <button class="method-example-tab" data-method-example-tab="sge">SGE</button> <button class="method-example-tab" data-method-example-tab="cv2f">cV2F</button> <button class="method-example-tab" data-method-example-tab="crispr-screen">CRISPR screen</button> </div> <div class="method-example-panel is-active" data-method-example-panel="gwas"> <strong>GWAS:</strong> <div class="method-query-example"> <strong>Single result</strong>  <ul> <li>phenotype_id = EFO_0010325</li> <li>method = GWAS</li> </ul> </div> <div class="method-query-example"> <strong>Group results</strong>  <ul> <li>neg_log10_pvalue = gte:5</li> <li>method = GWAS</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="sge"> <strong>SGE:</strong> <div class="method-query-example"> <strong>Query by phenotype identifier</strong>  <ul> <li>phenotype_id = NCIT_C16407</li> <li>method = SGE</li> </ul> </div> <div class="method-query-example"> <strong>Query by files_fileset</strong> <p class="method-query-example-note">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI3125FMNW</li> <li>method = SGE</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="cv2f"> <strong>cV2F:</strong> <div class="method-query-example"> <strong>query by phenotype identifier</strong>  <ul> <li>phenotype_id = GO_0003674</li> <li>method = cV2F</li> </ul> </div> <div class="method-query-example"> <strong>query by files_fileset</strong> <p class="method-query-example-note">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI3063JRLI</li> <li>method = cV2F</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="crispr-screen"> <strong>CRISPR screen:</strong> <div class="method-query-example"> <strong>Query by phenotype identifier</strong>  <ul> <li>phenotype_id = NTR_0001118</li> <li>method = CRISPR screen</li> </ul> </div> <div class="method-query-example"> <strong>Query by files_fileset</strong> <p class="method-query-example-note">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI2014OOZP</li> <li>method = CRISPR screen</li> </ul> </div> </div> </div>
 
@@ -6362,7 +6429,7 @@ Retrieve variant-trait pairs from GWAS, SGE, cV2F, and CRISPR screens by phenoty
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.phenotypes_from_variants200_response_inner import PhenotypesFromVariants200ResponseInner
+from igvf_catalog_client.models.variants_from_phenotypes_item import VariantsFromPhenotypesItem
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -6420,7 +6487,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[PhenotypesFromVariants200ResponseInner]**](PhenotypesFromVariants200ResponseInner.md)
+[**List[VariantsFromPhenotypesItem]**](VariantsFromPhenotypesItem.md)
 
 ### Authorization
 

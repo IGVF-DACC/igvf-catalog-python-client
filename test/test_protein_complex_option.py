@@ -14,10 +14,10 @@
 
 import unittest
 
-from igvf_catalog_client.models.genes_proteins_genes_proteins_related_inner import GenesProteinsGenesProteinsRelatedInner
+from igvf_catalog_client.models.protein_complex_option import ProteinComplexOption
 
-class TestGenesProteinsGenesProteinsRelatedInner(unittest.TestCase):
-    """GenesProteinsGenesProteinsRelatedInner unit test stubs"""
+class TestProteinComplexOption(unittest.TestCase):
+    """ProteinComplexOption unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,42 +25,43 @@ class TestGenesProteinsGenesProteinsRelatedInner(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> GenesProteinsGenesProteinsRelatedInner:
-        """Test GenesProteinsGenesProteinsRelatedInner
+    def make_instance(self, include_optional) -> ProteinComplexOption:
+        """Test ProteinComplexOption
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `GenesProteinsGenesProteinsRelatedInner`
+        # uncomment below to create an instance of `ProteinComplexOption`
         """
-        model = GenesProteinsGenesProteinsRelatedInner()
+        model = ProteinComplexOption()
         if include_optional:
-            return GenesProteinsGenesProteinsRelatedInner(
+            return ProteinComplexOption(
                 id = '',
                 name = '',
                 uniprot_names = [
                     ''
                     ],
-                files_filesets = '',
-                chr = '',
-                gene_id = '',
-                hgnc = '',
-                organism = ''
+                uniprot_full_names = [
+                    ''
+                    ],
+                uniprot_ids = [
+                    ''
+                    ],
+                mane_select = True,
+                organism = '',
+                source = '',
+                source_url = ''
             )
         else:
-            return GenesProteinsGenesProteinsRelatedInner(
+            return ProteinComplexOption(
                 id = '',
-                name = '',
-                uniprot_names = [
-                    ''
-                    ],
-                chr = '',
-                gene_id = '',
                 organism = '',
+                source = '',
+                source_url = '',
         )
         """
 
-    def testGenesProteinsGenesProteinsRelatedInner(self):
-        """Test GenesProteinsGenesProteinsRelatedInner"""
+    def testProteinComplexOption(self):
+        """Test ProteinComplexOption"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

@@ -40,7 +40,7 @@ class TestMotifsFromProteinsMotif(unittest.TestCase):
                 length = 1.337,
                 pwm = [
                     [
-                        null
+                        ''
                         ]
                     ],
                 source = '',
@@ -56,7 +56,7 @@ class TestMotifsFromProteinsMotif(unittest.TestCase):
                 length = 1.337,
                 pwm = [
                     [
-                        null
+                        ''
                         ]
                     ],
                 source = '',

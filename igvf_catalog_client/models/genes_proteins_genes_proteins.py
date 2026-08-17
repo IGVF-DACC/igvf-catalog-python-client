@@ -20,8 +20,8 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from igvf_catalog_client.models.gene_compact import GeneCompact
-from igvf_catalog_client.models.genes_proteins_genes_proteins_related_inner import GenesProteinsGenesProteinsRelatedInner
 from igvf_catalog_client.models.protein_compact import ProteinCompact
+from igvf_catalog_client.models.related_item import RelatedItem
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,7 +31,7 @@ class GenesProteinsGenesProteins(BaseModel):
     """ # noqa: E501
     protein: Optional[ProteinCompact] = None
     gene: Optional[GeneCompact] = None
-    related: Optional[List[GenesProteinsGenesProteinsRelatedInner]] = None
+    related: Optional[List[RelatedItem]] = None
     __properties: ClassVar[List[str]] = ["protein", "gene", "related"]
 
     model_config = ConfigDict(
@@ -115,7 +115,7 @@ class GenesProteinsGenesProteins(BaseModel):
         _obj = cls.model_validate({
             "protein": ProteinCompact.from_dict(obj["protein"]) if obj.get("protein") is not None else None,
             "gene": GeneCompact.from_dict(obj["gene"]) if obj.get("gene") is not None else None,
-            "related": [GenesProteinsGenesProteinsRelatedInner.from_dict(_item) for _item in obj["related"]] if obj.get("related") is not None else None
+            "related": [RelatedItem.from_dict(_item) for _item in obj["related"]] if obj.get("related") is not None else None
         })
         return _obj
 

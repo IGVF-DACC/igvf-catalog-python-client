@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **name** | **str** |  | 
 **tf_name** | **str** |  | 
 **length** | **float** |  | 
-**pwm** | **List[List[MotifPwmInnerInner]]** |  | 
+**pwm** | **List[List[str]]** |  | 
 **source** | **str** |  | 
 **source_url** | **str** |  | 
 **var_class** | **str** |  | [optional] 

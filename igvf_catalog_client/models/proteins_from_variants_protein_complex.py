@@ -20,27 +20,27 @@ import re  # noqa: F401
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Optional
 from igvf_catalog_client.models.complex import Complex
-from igvf_catalog_client.models.proteins_from_variants_protein_complex_any_of import ProteinsFromVariantsProteinComplexAnyOf
+from igvf_catalog_client.models.protein_complex_option import ProteinComplexOption
 from typing import Union, Any, List, Set, TYPE_CHECKING, Optional, Dict
 from typing_extensions import Literal, Self
 from pydantic import Field
 
-PROTEINSFROMVARIANTSPROTEINCOMPLEX_ANY_OF_SCHEMAS = ["Complex", "ProteinsFromVariantsProteinComplexAnyOf"]
+PROTEINSFROMVARIANTSPROTEINCOMPLEX_ANY_OF_SCHEMAS = ["Complex", "ProteinComplexOption"]
 
 class ProteinsFromVariantsProteinComplex(BaseModel):
     """
     ProteinsFromVariantsProteinComplex
     """
 
-    # data type: ProteinsFromVariantsProteinComplexAnyOf
-    anyof_schema_1_validator: Optional[ProteinsFromVariantsProteinComplexAnyOf] = None
+    # data type: ProteinComplexOption
+    anyof_schema_1_validator: Optional[ProteinComplexOption] = None
     # data type: Complex
     anyof_schema_2_validator: Optional[Complex] = None
     if TYPE_CHECKING:
-        actual_instance: Optional[Union[Complex, ProteinsFromVariantsProteinComplexAnyOf]] = None
+        actual_instance: Optional[Union[Complex, ProteinComplexOption]] = None
     else:
         actual_instance: Any = None
-    any_of_schemas: Set[str] = { "Complex", "ProteinsFromVariantsProteinComplexAnyOf" }
+    any_of_schemas: Set[str] = { "Complex", "ProteinComplexOption" }
 
     model_config = {
         "validate_assignment": True,
@@ -61,9 +61,9 @@ class ProteinsFromVariantsProteinComplex(BaseModel):
     def actual_instance_must_validate_anyof(cls, v):
         instance = ProteinsFromVariantsProteinComplex.model_construct()
         error_messages = []
-        # validate data type: ProteinsFromVariantsProteinComplexAnyOf
-        if not isinstance(v, ProteinsFromVariantsProteinComplexAnyOf):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProteinsFromVariantsProteinComplexAnyOf`")
+        # validate data type: ProteinComplexOption
+        if not isinstance(v, ProteinComplexOption):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ProteinComplexOption`")
         else:
             return v
 
@@ -75,7 +75,7 @@ class ProteinsFromVariantsProteinComplex(BaseModel):
 
         if error_messages:
             # no match
-            raise ValueError("No match found when setting the actual_instance in ProteinsFromVariantsProteinComplex with anyOf schemas: Complex, ProteinsFromVariantsProteinComplexAnyOf. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting the actual_instance in ProteinsFromVariantsProteinComplex with anyOf schemas: Complex, ProteinComplexOption. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -88,9 +88,9 @@ class ProteinsFromVariantsProteinComplex(BaseModel):
         """Returns the object represented by the json string"""
         instance = cls.model_construct()
         error_messages = []
-        # anyof_schema_1_validator: Optional[ProteinsFromVariantsProteinComplexAnyOf] = None
+        # anyof_schema_1_validator: Optional[ProteinComplexOption] = None
         try:
-            instance.actual_instance = ProteinsFromVariantsProteinComplexAnyOf.from_json(json_str)
+            instance.actual_instance = ProteinComplexOption.from_json(json_str)
             return instance
         except (ValidationError, ValueError) as e:
              error_messages.append(str(e))
@@ -103,7 +103,7 @@ class ProteinsFromVariantsProteinComplex(BaseModel):
 
         if error_messages:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into ProteinsFromVariantsProteinComplex with anyOf schemas: Complex, ProteinsFromVariantsProteinComplexAnyOf. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into ProteinsFromVariantsProteinComplex with anyOf schemas: Complex, ProteinComplexOption. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -117,7 +117,7 @@ class ProteinsFromVariantsProteinComplex(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], Complex, ProteinsFromVariantsProteinComplexAnyOf]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], Complex, ProteinComplexOption]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

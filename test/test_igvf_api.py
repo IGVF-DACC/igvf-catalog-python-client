@@ -260,6 +260,12 @@ class TestIgvfApi(unittest.TestCase):
         """
         pass
 
+    def test_llm_query(self) -> None:
+        """Test case for llm_query
+
+        """
+        pass
+
     def test_motifs(self) -> None:
         """Test case for motifs
 

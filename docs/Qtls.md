@@ -18,8 +18,8 @@ Name | Type | Description | Notes
 **effect_size** | **float** |  | [optional] 
 **posterior_inclusion_probability** | **float** |  | [optional] 
 **intron_chr** | **str** |  | [optional] 
-**intron_start** | [**VariantsAlleles200ResponseInnerInnerAnyOf**](VariantsAlleles200ResponseInnerInnerAnyOf.md) |  | [optional] 
-**intron_end** | [**VariantsAlleles200ResponseInnerInnerAnyOf**](VariantsAlleles200ResponseInnerInnerAnyOf.md) |  | [optional] 
+**intron_start** | [**QtlsIntronStart**](QtlsIntronStart.md) |  | [optional] 
+**intron_end** | [**QtlsIntronStart**](QtlsIntronStart.md) |  | [optional] 
 **study** | [**Study2**](Study2.md) |  | [optional] 
 **files_filesets** | **str** |  | [optional] 
 

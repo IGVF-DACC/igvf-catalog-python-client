@@ -17,26 +17,30 @@ from inspect import getfullargspec
 import json
 import pprint
 import re  # noqa: F401
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, ValidationError, field_validator
-from typing import Optional, Union
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
+from typing import Optional
+from igvf_catalog_client.models.phenotypes_from_variants import PhenotypesFromVariants
+from igvf_catalog_client.models.phenotypes_from_variants23 import PhenotypesFromVariants23
 from typing import Union, Any, List, Set, TYPE_CHECKING, Optional, Dict
 from typing_extensions import Literal, Self
 from pydantic import Field
 
-ALLCODINGVARIANTSFROMGENES200RESPONSEINNER_ANY_OF_SCHEMAS = ["float"]
+VARIANTSFROMPHENOTYPESITEM_ANY_OF_SCHEMAS = ["PhenotypesFromVariants", "PhenotypesFromVariants23"]
 
-class AllCodingVariantsFromGenes200ResponseInner(BaseModel):
+class VariantsFromPhenotypesItem(BaseModel):
     """
-    AllCodingVariantsFromGenes200ResponseInner
+    VariantsFromPhenotypesItem
     """
 
-    # data type: float
-    anyof_schema_1_validator: Optional[Union[StrictFloat, StrictInt]] = None
+    # data type: PhenotypesFromVariants
+    anyof_schema_1_validator: Optional[PhenotypesFromVariants] = None
+    # data type: PhenotypesFromVariants23
+    anyof_schema_2_validator: Optional[PhenotypesFromVariants23] = None
     if TYPE_CHECKING:
-        actual_instance: Optional[Union[float]] = None
+        actual_instance: Optional[Union[PhenotypesFromVariants, PhenotypesFromVariants23]] = None
     else:
         actual_instance: Any = None
-    any_of_schemas: Set[str] = { "float" }
+    any_of_schemas: Set[str] = { "PhenotypesFromVariants", "PhenotypesFromVariants23" }
 
     model_config = {
         "validate_assignment": True,
@@ -55,20 +59,23 @@ class AllCodingVariantsFromGenes200ResponseInner(BaseModel):
 
     @field_validator('actual_instance')
     def actual_instance_must_validate_anyof(cls, v):
-        if v is None:
+        instance = VariantsFromPhenotypesItem.model_construct()
+        error_messages = []
+        # validate data type: PhenotypesFromVariants
+        if not isinstance(v, PhenotypesFromVariants):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `PhenotypesFromVariants`")
+        else:
             return v
 
-        instance = AllCodingVariantsFromGenes200ResponseInner.model_construct()
-        error_messages = []
-        # validate data type: float
-        try:
-            instance.anyof_schema_1_validator = v
+        # validate data type: PhenotypesFromVariants23
+        if not isinstance(v, PhenotypesFromVariants23):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `PhenotypesFromVariants23`")
+        else:
             return v
-        except (ValidationError, ValueError) as e:
-            error_messages.append(str(e))
+
         if error_messages:
             # no match
-            raise ValueError("No match found when setting the actual_instance in AllCodingVariantsFromGenes200ResponseInner with anyOf schemas: float. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting the actual_instance in VariantsFromPhenotypesItem with anyOf schemas: PhenotypesFromVariants, PhenotypesFromVariants23. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -80,23 +87,23 @@ class AllCodingVariantsFromGenes200ResponseInner(BaseModel):
     def from_json(cls, json_str: str) -> Self:
         """Returns the object represented by the json string"""
         instance = cls.model_construct()
-        if json_str is None:
-            return instance
-
         error_messages = []
-        # deserialize data into float
+        # anyof_schema_1_validator: Optional[PhenotypesFromVariants] = None
         try:
-            # validation
-            instance.anyof_schema_1_validator = json.loads(json_str)
-            # assign value to actual_instance
-            instance.actual_instance = instance.anyof_schema_1_validator
+            instance.actual_instance = PhenotypesFromVariants.from_json(json_str)
             return instance
         except (ValidationError, ValueError) as e:
-            error_messages.append(str(e))
+             error_messages.append(str(e))
+        # anyof_schema_2_validator: Optional[PhenotypesFromVariants23] = None
+        try:
+            instance.actual_instance = PhenotypesFromVariants23.from_json(json_str)
+            return instance
+        except (ValidationError, ValueError) as e:
+             error_messages.append(str(e))
 
         if error_messages:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into AllCodingVariantsFromGenes200ResponseInner with anyOf schemas: float. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into VariantsFromPhenotypesItem with anyOf schemas: PhenotypesFromVariants, PhenotypesFromVariants23. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -110,7 +117,7 @@ class AllCodingVariantsFromGenes200ResponseInner(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], float]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], PhenotypesFromVariants, PhenotypesFromVariants23]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

@@ -19,25 +19,28 @@ import pprint
 import re  # noqa: F401
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Optional
-from igvf_catalog_client.models.ontology_term_children import OntologyTermChildren
+from igvf_catalog_client.models.gene_compact import GeneCompact
+from igvf_catalog_client.models.protein_compact import ProteinCompact
 from typing import Union, Any, List, Set, TYPE_CHECKING, Optional, Dict
 from typing_extensions import Literal, Self
 from pydantic import Field
 
-ONTOLOGYTERMPARENTS200RESPONSEINNER_ANY_OF_SCHEMAS = ["OntologyTermChildren"]
+RELATEDITEM_ANY_OF_SCHEMAS = ["GeneCompact", "ProteinCompact"]
 
-class OntologyTermParents200ResponseInner(BaseModel):
+class RelatedItem(BaseModel):
     """
-    OntologyTermParents200ResponseInner
+    RelatedItem
     """
 
-    # data type: OntologyTermChildren
-    anyof_schema_1_validator: Optional[OntologyTermChildren] = None
+    # data type: ProteinCompact
+    anyof_schema_1_validator: Optional[ProteinCompact] = None
+    # data type: GeneCompact
+    anyof_schema_2_validator: Optional[GeneCompact] = None
     if TYPE_CHECKING:
-        actual_instance: Optional[Union[OntologyTermChildren]] = None
+        actual_instance: Optional[Union[GeneCompact, ProteinCompact]] = None
     else:
         actual_instance: Any = None
-    any_of_schemas: Set[str] = { "OntologyTermChildren" }
+    any_of_schemas: Set[str] = { "GeneCompact", "ProteinCompact" }
 
     model_config = {
         "validate_assignment": True,
@@ -56,20 +59,23 @@ class OntologyTermParents200ResponseInner(BaseModel):
 
     @field_validator('actual_instance')
     def actual_instance_must_validate_anyof(cls, v):
-        if v is None:
+        instance = RelatedItem.model_construct()
+        error_messages = []
+        # validate data type: ProteinCompact
+        if not isinstance(v, ProteinCompact):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ProteinCompact`")
+        else:
             return v
 
-        instance = OntologyTermParents200ResponseInner.model_construct()
-        error_messages = []
-        # validate data type: OntologyTermChildren
-        if not isinstance(v, OntologyTermChildren):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `OntologyTermChildren`")
+        # validate data type: GeneCompact
+        if not isinstance(v, GeneCompact):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `GeneCompact`")
         else:
             return v
 
         if error_messages:
             # no match
-            raise ValueError("No match found when setting the actual_instance in OntologyTermParents200ResponseInner with anyOf schemas: OntologyTermChildren. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting the actual_instance in RelatedItem with anyOf schemas: GeneCompact, ProteinCompact. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -81,20 +87,23 @@ class OntologyTermParents200ResponseInner(BaseModel):
     def from_json(cls, json_str: str) -> Self:
         """Returns the object represented by the json string"""
         instance = cls.model_construct()
-        if json_str is None:
-            return instance
-
         error_messages = []
-        # anyof_schema_1_validator: Optional[OntologyTermChildren] = None
+        # anyof_schema_1_validator: Optional[ProteinCompact] = None
         try:
-            instance.actual_instance = OntologyTermChildren.from_json(json_str)
+            instance.actual_instance = ProteinCompact.from_json(json_str)
+            return instance
+        except (ValidationError, ValueError) as e:
+             error_messages.append(str(e))
+        # anyof_schema_2_validator: Optional[GeneCompact] = None
+        try:
+            instance.actual_instance = GeneCompact.from_json(json_str)
             return instance
         except (ValidationError, ValueError) as e:
              error_messages.append(str(e))
 
         if error_messages:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into OntologyTermParents200ResponseInner with anyOf schemas: OntologyTermChildren. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into RelatedItem with anyOf schemas: GeneCompact, ProteinCompact. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -108,7 +117,7 @@ class OntologyTermParents200ResponseInner(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], OntologyTermChildren]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], GeneCompact, ProteinCompact]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None
