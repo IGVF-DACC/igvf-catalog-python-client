@@ -19,25 +19,25 @@ import pprint
 import re  # noqa: F401
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Optional
-from igvf_catalog_client.models.ontology_term_parents200_response_inner_any_of import OntologyTermParents200ResponseInnerAnyOf
+from igvf_catalog_client.models.ontology_term_children import OntologyTermChildren
 from typing import Union, Any, List, Set, TYPE_CHECKING, Optional, Dict
 from typing_extensions import Literal, Self
 from pydantic import Field
 
-ONTOLOGYTERMPARENTS200RESPONSEINNER_ANY_OF_SCHEMAS = ["OntologyTermParents200ResponseInnerAnyOf"]
+ONTOLOGYTERMPARENTS200RESPONSEINNER_ANY_OF_SCHEMAS = ["OntologyTermChildren"]
 
 class OntologyTermParents200ResponseInner(BaseModel):
     """
     OntologyTermParents200ResponseInner
     """
 
-    # data type: OntologyTermParents200ResponseInnerAnyOf
-    anyof_schema_1_validator: Optional[OntologyTermParents200ResponseInnerAnyOf] = None
+    # data type: OntologyTermChildren
+    anyof_schema_1_validator: Optional[OntologyTermChildren] = None
     if TYPE_CHECKING:
-        actual_instance: Optional[Union[OntologyTermParents200ResponseInnerAnyOf]] = None
+        actual_instance: Optional[Union[OntologyTermChildren]] = None
     else:
         actual_instance: Any = None
-    any_of_schemas: Set[str] = { "OntologyTermParents200ResponseInnerAnyOf" }
+    any_of_schemas: Set[str] = { "OntologyTermChildren" }
 
     model_config = {
         "validate_assignment": True,
@@ -61,15 +61,15 @@ class OntologyTermParents200ResponseInner(BaseModel):
 
         instance = OntologyTermParents200ResponseInner.model_construct()
         error_messages = []
-        # validate data type: OntologyTermParents200ResponseInnerAnyOf
-        if not isinstance(v, OntologyTermParents200ResponseInnerAnyOf):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `OntologyTermParents200ResponseInnerAnyOf`")
+        # validate data type: OntologyTermChildren
+        if not isinstance(v, OntologyTermChildren):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `OntologyTermChildren`")
         else:
             return v
 
         if error_messages:
             # no match
-            raise ValueError("No match found when setting the actual_instance in OntologyTermParents200ResponseInner with anyOf schemas: OntologyTermParents200ResponseInnerAnyOf. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting the actual_instance in OntologyTermParents200ResponseInner with anyOf schemas: OntologyTermChildren. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -85,16 +85,16 @@ class OntologyTermParents200ResponseInner(BaseModel):
             return instance
 
         error_messages = []
-        # anyof_schema_1_validator: Optional[OntologyTermParents200ResponseInnerAnyOf] = None
+        # anyof_schema_1_validator: Optional[OntologyTermChildren] = None
         try:
-            instance.actual_instance = OntologyTermParents200ResponseInnerAnyOf.from_json(json_str)
+            instance.actual_instance = OntologyTermChildren.from_json(json_str)
             return instance
         except (ValidationError, ValueError) as e:
              error_messages.append(str(e))
 
         if error_messages:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into OntologyTermParents200ResponseInner with anyOf schemas: OntologyTermParents200ResponseInnerAnyOf. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into OntologyTermParents200ResponseInner with anyOf schemas: OntologyTermChildren. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -108,7 +108,7 @@ class OntologyTermParents200ResponseInner(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], OntologyTermParents200ResponseInnerAnyOf]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], OntologyTermChildren]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**all_coding_variants_from_genes**](IgvfApi.md#all_coding_variants_from_genes) | **GET** /genes/coding-variants/all-scores | 
 [**annotations_from_go_terms**](IgvfApi.md#annotations_from_go_terms) | **GET** /go-terms/gene-products | 
-[**autocomplete**](IgvfApi.md#autocomplete) | **GET** /autocomplete | 
 [**biosamples_from_genomic_elements**](IgvfApi.md#biosamples_from_genomic_elements) | **GET** /genomic-elements/biosamples | 
 [**biosamples_from_variants**](IgvfApi.md#biosamples_from_variants) | **GET** /variants/biosamples | 
 [**coding_variants**](IgvfApi.md#coding_variants) | **GET** /coding-variants | 
@@ -44,7 +43,6 @@ Method | HTTP request | Description
 [**genomic_elements_predictions_from_variant**](IgvfApi.md#genomic_elements_predictions_from_variant) | **GET** /variants/genomic-elements/cell-gene-predictions | 
 [**go_terms_from_annotations**](IgvfApi.md#go_terms_from_annotations) | **GET** /gene-products/go-terms | 
 [**grn**](IgvfApi.md#grn) | **GET** /gene-regulatory-network | 
-[**health**](IgvfApi.md#health) | **GET** /health | 
 [**motifs**](IgvfApi.md#motifs) | **GET** /motifs | 
 [**motifs_from_proteins**](IgvfApi.md#motifs_from_proteins) | **GET** /proteins/motifs | 
 [**nearest_genes**](IgvfApi.md#nearest_genes) | **GET** /variants/nearest-genes | 
@@ -235,76 +233,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **autocomplete**
-> List[Autocomplete200ResponseInner] autocomplete(term, page=page)
-
-Autocomplete names for genes and proteins based on prefix search.<br>   Example: term = TP53, <br>   Pagination is 0-based.
-
-### Example
-
-
-```python
-import igvf_catalog_client
-from igvf_catalog_client.models.autocomplete200_response_inner import Autocomplete200ResponseInner
-from igvf_catalog_client.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://api.catalogkg.igvf.org/api
-# See configuration.py for a list of all supported configuration parameters.
-configuration = igvf_catalog_client.Configuration(
-    host = "https://api.catalogkg.igvf.org/api"
-)
-
-
-# Enter a context with an instance of the API client
-with igvf_catalog_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = igvf_catalog_client.IgvfApi(api_client)
-    term = 'term_example' # str | 
-    page = 0 # float |  (optional) (default to 0)
-
-    try:
-        api_response = api_instance.autocomplete(term, page=page)
-        print("The response of IgvfApi->autocomplete:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling IgvfApi->autocomplete: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **term** | **str**|  | 
- **page** | **float**|  | [optional] [default to 0]
-
-### Return type
-
-[**List[Autocomplete200ResponseInner]**](Autocomplete200ResponseInner.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-**0** | Error response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **biosamples_from_genomic_elements**
-> List[BiosamplesFromGenomicElements200ResponseInner] biosamples_from_genomic_elements(region=region, region_type=region_type, source=source, method=method, files_fileset=files_fileset, verbose=verbose, page=page, limit=limit)
+> List[BiosamplesFromGenomicElements] biosamples_from_genomic_elements(region=region, region_type=region_type, source=source, method=method, files_fileset=files_fileset, verbose=verbose, page=page, limit=limit)
 
 Retrieve MPRA experiments by querying positions of genomic elements. <br>   Set verbose = true to retrieve full info on the cell ontology terms. <br>   Example: region_type = tested elements, <br>   region = chr10:100038743-100038963. <br>   files_fileset = ENCFF475FKV,<br>   method = MPRA,<br>   source = IGVF. <br>   The limit parameter controls the page size and can not exceed 50. <br>   Pagination is 0-based.
 
@@ -313,7 +243,7 @@ Retrieve MPRA experiments by querying positions of genomic elements. <br>   Set 
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.biosamples_from_genomic_elements200_response_inner import BiosamplesFromGenomicElements200ResponseInner
+from igvf_catalog_client.models.biosamples_from_genomic_elements import BiosamplesFromGenomicElements
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -363,7 +293,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[BiosamplesFromGenomicElements200ResponseInner]**](BiosamplesFromGenomicElements200ResponseInner.md)
+[**List[BiosamplesFromGenomicElements]**](BiosamplesFromGenomicElements.md)
 
 ### Authorization
 
@@ -384,7 +314,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **biosamples_from_variants**
-> List[BiosamplesFromVariants200ResponseInner] biosamples_from_variants(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region, files_fileset=files_fileset, method=method, element_id=element_id, significant=significant, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[BiosamplesFromVariants] biosamples_from_variants(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region, files_fileset=files_fileset, method=method, element_id=element_id, significant=significant, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve data from STARR-seq, BlueSTARR, and MPRA for a given variant.<br>     At least one of these fields is required: variant_id, spdi, hgvs, rsid, ca_id, region, method, or files_fileset. <br>     The limit parameter controls the page size and can not exceed 100. <br>     Pagination is 0-based. <br> <br>     <div class="method-examples"> <strong>Examples by method</strong> <p class="method-example-description">These examples are grouped by method; use the <code>method</code> filter to return data from a specific method.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="mpra">MPRA</button> <button class="method-example-tab" data-method-example-tab="starr-seq">STARR-seq</button> <button class="method-example-tab" data-method-example-tab="bluestarr">BlueSTARR</button> </div> <div class="method-example-panel is-active" data-method-example-panel="mpra"> <strong>MPRA:</strong> <div class="method-query-example"> <strong>query by variant identifier</strong>  <ul> <li>spdi = NC_000001.11:1000161:C:A</li> <li>method = MPRA</li> </ul> </div> <div class="method-query-example"> <strong>query by region</strong>  <ul> <li>region = chr1:1000160-1000163 (maximum length: 10kb)</li> <li>method = MPRA</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="starr-seq"> <strong>STARR-seq:</strong> <div class="method-query-example"> <strong>query by variant identifier</strong>  <ul> <li>spdi = NC_000001.11:14772:C:T</li> <li>method = STARR-seq</li> </ul> </div> <div class="method-query-example"> <strong>query by region</strong>  <ul> <li>region = chr1:14771-14775 (maximum length: 10kb)</li> <li>method = STARR-seq</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="bluestarr"> <strong>BlueSTARR:</strong> <div class="method-query-example"> <strong>query by variant identifier</strong>  <ul> <li>spdi = NC_000001.11:100003415:C:A</li> <li>method = BlueSTARR</li> </ul> </div> <div class="method-query-example"> <strong>query by region</strong>  <ul> <li>region = chr1:100003414-100003418 (maximum length: 10kb)</li> <li>method = BlueSTARR</li> </ul> </div> </div> </div>
 
@@ -393,7 +323,7 @@ Retrieve data from STARR-seq, BlueSTARR, and MPRA for a given variant.<br>     A
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.biosamples_from_variants200_response_inner import BiosamplesFromVariants200ResponseInner
+from igvf_catalog_client.models.biosamples_from_variants import BiosamplesFromVariants
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -455,7 +385,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[BiosamplesFromVariants200ResponseInner]**](BiosamplesFromVariants200ResponseInner.md)
+[**List[BiosamplesFromVariants]**](BiosamplesFromVariants.md)
 
 ### Authorization
 
@@ -476,7 +406,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **coding_variants**
-> List[CodingVariantsFromVariants200ResponseInner] coding_variants(id=id, name=name, hgvsp=hgvsp, protein_id=protein_id, uniprot_name=uniprot_name, gene_name=gene_name, amino_acid_position=amino_acid_position, alt_amino_acid=alt_amino_acid, transcript_id=transcript_id, page=page, limit=limit)
+> List[CodingVariants] coding_variants(id=id, name=name, hgvsp=hgvsp, protein_id=protein_id, uniprot_name=uniprot_name, gene_name=gene_name, amino_acid_position=amino_acid_position, alt_amino_acid=alt_amino_acid, transcript_id=transcript_id, page=page, limit=limit)
 
 Retrieve coding variants annotations. <br>   At least one of these fields is required: id, name, hgvsp, protein_id, uniprot_name, gene_name, transcript_id. <br>   alt_amino_acid filters by the alternate amino acid at the given position (single-letter code, use * for stop codon). <br>   Example: name = SAMD7_ENST00000335556_p.Gly253Asp_c.758_759delinsAC <br>   id = SAMD7_ENST00000335556_p.Gly253Asp_c.758_759delinsAC, <br>   hgvsp = p.Gly253Asp, <br>   gene_name = SAMD7, <br>   protein_id = ENSP00000334668, <br>   uniprot_name = SAMD7_HUMAN, <br>   amino_acid_position = 253 (range values are also available, e.g: range:0-2), <br>   alt_amino_acid = D, <br>   transcript_id = ENST00000335556.<br>   The limit parameter controls the page size and can not exceed 25. <br>   Pagination is 0-based.
 
@@ -485,7 +415,7 @@ Retrieve coding variants annotations. <br>   At least one of these fields is req
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.coding_variants_from_variants200_response_inner import CodingVariantsFromVariants200ResponseInner
+from igvf_catalog_client.models.coding_variants import CodingVariants
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -541,7 +471,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[CodingVariantsFromVariants200ResponseInner]**](CodingVariantsFromVariants200ResponseInner.md)
+[**List[CodingVariants]**](CodingVariants.md)
 
 ### Authorization
 
@@ -562,7 +492,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **coding_variants_count_from_gene**
-> List[VariantsRegionSummary200ResponseByMethodInner] coding_variants_count_from_gene(gene_id, files_fileset=files_fileset)
+> List[MethodCount] coding_variants_count_from_gene(gene_id, files_fileset=files_fileset)
 
 Retrieve counts of coding variants associated with phenotypes.<br>     Example: gene_id = ENSG00000165841, <br>     files_fileset = IGVFFI6893ZOAA.
 
@@ -571,7 +501,7 @@ Retrieve counts of coding variants associated with phenotypes.<br>     Example: 
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.variants_region_summary200_response_by_method_inner import VariantsRegionSummary200ResponseByMethodInner
+from igvf_catalog_client.models.method_count import MethodCount
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -609,7 +539,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[VariantsRegionSummary200ResponseByMethodInner]**](VariantsRegionSummary200ResponseByMethodInner.md)
+[**List[MethodCount]**](MethodCount.md)
 
 ### Authorization
 
@@ -630,7 +560,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **coding_variants_from_genes**
-> List[CodingVariantsFromGenes200ResponseInner] coding_variants_from_genes(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, method=method, files_fileset=files_fileset, page=page, limit=limit)
+> List[CodingVariantsFromGenes] coding_variants_from_genes(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, method=method, files_fileset=files_fileset, page=page, limit=limit)
 
 Retrieve scores and predictions of associated coding variants for one specific gene.<br>     At least one of these fields is required: gene_id, hgnc_id, gene_name, synonym. <br>     The limit parameter controls the page size and can not exceed 500. <br>     Pagination is 0-based. <br> <br>     <div class="method-examples"> <strong>Examples by method</strong> <p class="method-example-description">These examples are grouped by method; use the <code>method</code> filter to return data from a specific method.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="dual-ipa">DUAL-IPA</button> <button class="method-example-tab" data-method-example-tab="esm-1v">ESM-1v</button> <button class="method-example-tab" data-method-example-tab="mutpred2">MutPred2</button> <button class="method-example-tab" data-method-example-tab="sge">SGE</button> <button class="method-example-tab" data-method-example-tab="vamp-seq">VAMP-seq</button> <button class="method-example-tab" data-method-example-tab="painting">Variant painting with fluorescence</button> </div> <div class="method-example-panel is-active" data-method-example-panel="dual-ipa"> <strong>DUAL-IPA:</strong> <div class="method-query-example"> <strong>query by gene identifier</strong>  <ul> <li>gene_name = ACSF3</li> <li>method = DUAL-IPA</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="esm-1v"> <strong>ESM-1v:</strong> <div class="method-query-example"> <strong>query by gene identifier</strong>  <ul> <li>gene_id = ENSG00000121410</li> <li>method = ESM-1v</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="mutpred2"> <strong>MutPred2:</strong> <div class="method-query-example"> <strong>query by gene identifier</strong>  <ul> <li>gene_id = ENSG00000196584</li> <li>method = MutPred2</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="sge"> <strong>SGE:</strong> <div class="method-query-example"> <strong>query by gene identifier</strong>  <ul> <li>gene_id = ENSG00000139618</li> <li>method = SGE</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="vamp-seq"> <strong>VAMP-seq:</strong> <div class="method-query-example"> <strong>query by gene identifier</strong>  <ul> <li>gene_id = ENSG00000165841</li> <li>method = VAMP-seq</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="painting"> <strong>Variant painting with fluorescence:</strong> <div class="method-query-example"> <strong>query by gene identifier</strong>  <ul> <li>gene_id = ENSG00000133703</li> <li>method = Variant painting with fluorescence</li> </ul> </div> </div> </div>
 
@@ -639,7 +569,7 @@ Retrieve scores and predictions of associated coding variants for one specific g
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.coding_variants_from_genes200_response_inner import CodingVariantsFromGenes200ResponseInner
+from igvf_catalog_client.models.coding_variants_from_genes import CodingVariantsFromGenes
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -689,7 +619,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[CodingVariantsFromGenes200ResponseInner]**](CodingVariantsFromGenes200ResponseInner.md)
+[**List[CodingVariantsFromGenes]**](CodingVariantsFromGenes.md)
 
 ### Authorization
 
@@ -710,7 +640,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **coding_variants_from_phenotypes**
-> List[PhenotypesFromCodingVariants200ResponseInner] coding_variants_from_phenotypes(phenotype_id=phenotype_id, phenotype_name=phenotype_name, method=method, files_fileset=files_fileset, page=page, limit=limit)
+> List[CodingVariantsFromPhenotypes] coding_variants_from_phenotypes(phenotype_id=phenotype_id, phenotype_name=phenotype_name, method=method, files_fileset=files_fileset, page=page, limit=limit)
 
 Retrieve coding variants associated with the query phenotype.<br>     The limit parameter controls the page size and can not exceed 100. <br>     Pagination is 0-based. <br> <br>     <div class="method-examples"> <strong>Examples by method</strong> <p class="method-example-description">These examples are grouped by method; use the <code>method</code> filter to return data from a specific method.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="dual-ipa">DUAL-IPA</button> <button class="method-example-tab" data-method-example-tab="esm-1v">ESM-1v</button> <button class="method-example-tab" data-method-example-tab="mutpred2">MutPred2</button> <button class="method-example-tab" data-method-example-tab="sge">SGE</button> <button class="method-example-tab" data-method-example-tab="vamp-seq">VAMP-seq</button> <button class="method-example-tab" data-method-example-tab="variant-painting">Variant painting via fluorescence</button> </div> <div class="method-example-panel is-active" data-method-example-panel="dual-ipa"> <strong>DUAL-IPA:</strong> <div class="method-query-example"> <strong>query by phenotype identifier</strong>  <ul> <li>phenotype_id = BAO_0040014</li> <li>method = DUAL-IPA</li> </ul> </div> <div class="method-query-example"> <strong>query by files_fileset</strong> <p class="method-query-example-note">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI6224HZMG</li> <li>method = DUAL-IPA</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="esm-1v"> <strong>ESM-1v:</strong> <div class="method-query-example"> <strong>query by phenotype identifier</strong>  <ul> <li>phenotype_id = GO_0003674</li> <li>method = ESM-1v</li> </ul> </div> <div class="method-query-example"> <strong>query by files_fileset</strong> <p class="method-query-example-note">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI8105TNNO</li> <li>method = ESM-1v</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="mutpred2"> <strong>MutPred2:</strong> <div class="method-query-example"> <strong>query by phenotype identifier</strong>  <ul> <li>phenotype_id = GO_0003674</li> <li>method = MutPred2</li> </ul> </div> <div class="method-query-example"> <strong>query by files_fileset</strong> <p class="method-query-example-note">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI6893ZOAA</li> <li>method = MutPred2</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="sge"> <strong>SGE:</strong> <div class="method-query-example"> <strong>query by phenotype identifier</strong>  <ul> <li>phenotype_id = NCIT_C16407</li> <li>method = SGE</li> </ul> </div> <div class="method-query-example"> <strong>query by files_fileset</strong> <p class="method-query-example-note">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI2810SLAX</li> <li>method = SGE</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="vamp-seq"> <strong>VAMP-seq:</strong> <div class="method-query-example"> <strong>query by phenotype identifier</strong>  <ul> <li>phenotype_id = OBA_0000128</li> <li>method = VAMP-seq</li> </ul> </div> <div class="method-query-example"> <strong>query by files_fileset</strong> <p class="method-query-example-note">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI0629IIQU</li> <li>method = VAMP-seq</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="variant-painting"> <strong>Variant painting via fluorescence:</strong> <div class="method-query-example"> <strong>query by phenotype identifier</strong>  <ul> <li>phenotype_id = GO_0008104</li> <li>method = Variant painting via fluorescence</li> </ul> </div> <div class="method-query-example"> <strong>query by files_fileset</strong> <p class="method-query-example-note">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI9499PJFU</li> <li>method = Variant painting via fluorescence</li> </ul> </div> </div> </div>
 
@@ -719,7 +649,7 @@ Retrieve coding variants associated with the query phenotype.<br>     The limit 
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.phenotypes_from_coding_variants200_response_inner import PhenotypesFromCodingVariants200ResponseInner
+from igvf_catalog_client.models.coding_variants_from_phenotypes import CodingVariantsFromPhenotypes
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -765,7 +695,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[PhenotypesFromCodingVariants200ResponseInner]**](PhenotypesFromCodingVariants200ResponseInner.md)
+[**List[CodingVariantsFromPhenotypes]**](CodingVariantsFromPhenotypes.md)
 
 ### Authorization
 
@@ -786,7 +716,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **coding_variants_from_variants**
-> List[CodingVariantsFromVariants200ResponseInner] coding_variants_from_variants(spdi=spdi, hgvs=hgvs, ca_id=ca_id, variant_id=variant_id, page=page, limit=limit)
+> List[CodingVariants] coding_variants_from_variants(spdi=spdi, hgvs=hgvs, ca_id=ca_id, variant_id=variant_id, page=page, limit=limit)
 
 Retrieve coding variants from dbSNFP associated with a variant.<br>     Example: variant_id = NC_000001.11:65564:A:T, <br>     spdi = NC_000001.11:65564:A:T, <br>     hgvs = NC_000001.11:g.65565A>T, <br>     ca_id = CA337806511, <br>     The limit parameter controls the page size and can not exceed 500.
 
@@ -795,7 +725,7 @@ Retrieve coding variants from dbSNFP associated with a variant.<br>     Example:
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.coding_variants_from_variants200_response_inner import CodingVariantsFromVariants200ResponseInner
+from igvf_catalog_client.models.coding_variants import CodingVariants
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -841,7 +771,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[CodingVariantsFromVariants200ResponseInner]**](CodingVariantsFromVariants200ResponseInner.md)
+[**List[CodingVariants]**](CodingVariants.md)
 
 ### Authorization
 
@@ -862,7 +792,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **coding_variants_summary**
-> List[DeprecatedCodingVariantsSummary200ResponseInner] coding_variants_summary(variant_id=variant_id, coding_variant_id=coding_variant_id, files_fileset=files_fileset)
+> List[CodingVariantsSummary] coding_variants_summary(variant_id=variant_id, coding_variant_id=coding_variant_id, files_fileset=files_fileset)
 
 Retrieve scores of variants or coding_variants associated with phenotypes. Via coding variants edges.<br>     Either variant_id or coding_variant_name are required. <br>     Example: variant_id = NC_000018.10:31546002:CA:GT, <br>     coding_variant_name = DSG2_ENST00000261590_p.Gln873Val_c.2617_2618delinsGT, <br>     files_fileset = IGVFFI6893ZOAA.
 
@@ -871,7 +801,7 @@ Retrieve scores of variants or coding_variants associated with phenotypes. Via c
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.deprecated_coding_variants_summary200_response_inner import DeprecatedCodingVariantsSummary200ResponseInner
+from igvf_catalog_client.models.coding_variants_summary import CodingVariantsSummary
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -911,7 +841,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[DeprecatedCodingVariantsSummary200ResponseInner]**](DeprecatedCodingVariantsSummary200ResponseInner.md)
+[**List[CodingVariantsSummary]**](CodingVariantsSummary.md)
 
 ### Authorization
 
@@ -932,7 +862,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **complexes**
-> List[ProteinsFromVariants200ResponseInnerProteinComplexAnyOf1] complexes(complex_id=complex_id, name=name, description=description, page=page)
+> List[Complex] complexes(complex_id=complex_id, name=name, description=description, page=page)
 
 Retrieve complexes.<br>   Example: complex_id = CPX-11, <br>   name = SMAD2, <br>   description = phosphorylation. <br>   Pagination is 0-based.
 
@@ -941,7 +871,7 @@ Retrieve complexes.<br>   Example: complex_id = CPX-11, <br>   name = SMAD2, <br
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.proteins_from_variants200_response_inner_protein_complex_any_of1 import ProteinsFromVariants200ResponseInnerProteinComplexAnyOf1
+from igvf_catalog_client.models.complex import Complex
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -983,7 +913,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[ProteinsFromVariants200ResponseInnerProteinComplexAnyOf1]**](ProteinsFromVariants200ResponseInnerProteinComplexAnyOf1.md)
+[**List[Complex]**](Complex.md)
 
 ### Authorization
 
@@ -1004,7 +934,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **complexes_from_proteins**
-> List[ComplexesFromProteins200ResponseInner] complexes_from_proteins(protein_id=protein_id, protein_name=protein_name, uniprot_name=uniprot_name, uniprot_full_name=uniprot_full_name, dbxrefs=dbxrefs, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[ComplexesFromProteins] complexes_from_proteins(protein_id=protein_id, protein_name=protein_name, uniprot_name=uniprot_name, uniprot_full_name=uniprot_full_name, dbxrefs=dbxrefs, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve complexes by querying from protein participants. Each record includes protein and complex.<br>   Set verbose = true to retrieve full info on the complexes.<br>   Protein IDs support the following formats: ENSP00000411322.1 or ENSP00000411322 (Ensembl IDs) or P67870 (Uniprot ids)<br>   Example: protein_id = ENSP00000411322.1, <br>   protein_name = CSNK2B, <br>   uniprot_name = CSK2B_HUMAN, <br>   uniprot_full_name = Casein kinase II subunit beta, <br>   dbxrefs = P67870. <br>   Pagination is 0-based.
 
@@ -1013,7 +943,7 @@ Retrieve complexes by querying from protein participants. Each record includes p
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.complexes_from_proteins200_response_inner import ComplexesFromProteins200ResponseInner
+from igvf_catalog_client.models.complexes_from_proteins import ComplexesFromProteins
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -1065,7 +995,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[ComplexesFromProteins200ResponseInner]**](ComplexesFromProteins200ResponseInner.md)
+[**List[ComplexesFromProteins]**](ComplexesFromProteins.md)
 
 ### Authorization
 
@@ -1086,7 +1016,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deprecated_coding_variants_summary**
-> List[DeprecatedCodingVariantsSummary200ResponseInner] deprecated_coding_variants_summary(variant_id=variant_id, coding_variant_id=coding_variant_id, files_fileset=files_fileset)
+> List[CodingVariantsSummary] deprecated_coding_variants_summary(variant_id=variant_id, coding_variant_id=coding_variant_id, files_fileset=files_fileset)
 
 DEPRECATED. Please use coding-variants/phenotypes/summary.<br>     Retrieve scores of variants associated with phenotypes. Via coding variants edges.<br>     Either variant_id or coding_variant_name are required. <br>     Example: variant_id = NC_000018.10:31546002:CA:GT, <br>     coding_variant_name = DSG2_ENST00000261590_p.Gln873Val_c.2617_2618delinsGT, <br>     files_fileset = IGVFFI6893ZOAA.
 
@@ -1095,7 +1025,7 @@ DEPRECATED. Please use coding-variants/phenotypes/summary.<br>     Retrieve scor
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.deprecated_coding_variants_summary200_response_inner import DeprecatedCodingVariantsSummary200ResponseInner
+from igvf_catalog_client.models.coding_variants_summary import CodingVariantsSummary
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -1135,7 +1065,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[DeprecatedCodingVariantsSummary200ResponseInner]**](DeprecatedCodingVariantsSummary200ResponseInner.md)
+[**List[CodingVariantsSummary]**](CodingVariantsSummary.md)
 
 ### Authorization
 
@@ -1156,7 +1086,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **disease_from_variants**
-> List[DiseaseFromVariants200ResponseInner] disease_from_variants(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region, assertion=assertion, pmid=pmid, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[DiseaseFromVariants] disease_from_variants(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region, assertion=assertion, pmid=pmid, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve diseases and genes associated with the query variant from ClinGen. <br>   At least one of these fields is required: variant_id, spdi, hgvs, rsid, ca_id, or region. <br>   Example: variant_id = NC_000012.12:102917129:T:C <br>   spdi = NC_000012.12:102917129:T:C, <br>   hgvs = NC_000012.12:g.102917130T>C, <br>   rsid = rs62514891, <br>   ca_id = CA114360, <br>   chr = chr12, <br>   region = chr12:102866500-102866700 (maximum length: 10kb), <br>   assertion = Pathogenic, <br>   pmid = 2574002. <br>   The limit parameter controls the page size and can not exceed 100. <br>   Pagination is 0-based.
 
@@ -1165,7 +1095,7 @@ Retrieve diseases and genes associated with the query variant from ClinGen. <br>
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.disease_from_variants200_response_inner import DiseaseFromVariants200ResponseInner
+from igvf_catalog_client.models.disease_from_variants import DiseaseFromVariants
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -1223,7 +1153,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[DiseaseFromVariants200ResponseInner]**](DiseaseFromVariants200ResponseInner.md)
+[**List[DiseaseFromVariants]**](DiseaseFromVariants.md)
 
 ### Authorization
 
@@ -1244,7 +1174,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **diseases_from_genes**
-> List[DiseasesFromGenes200ResponseInner] diseases_from_genes(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, source=source, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[DiseasesFromGenes] diseases_from_genes(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, source=source, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve disease-gene pairs from Orphanet, GenCC and ClinGen by genes.<br>     Set verbose = true to retrieve full info on the disease terms, and the variants associated with the disease from ClinGen. <br>     At least one of these fields is required: gene_id, hgnc_id, gene_name, synonym. <br>     Example: gene_id = ENSG00000171759, <br>     gene_name = PAH, <br>     synonym = PKU1, <br>     source = ClinGen, <br>     hgnc_id = HGNC:8582. <br>     The limit parameter controls the page size and can not exceed 25. <br>     Pagination is 0-based.
 
@@ -1253,7 +1183,7 @@ Retrieve disease-gene pairs from Orphanet, GenCC and ClinGen by genes.<br>     S
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.diseases_from_genes200_response_inner import DiseasesFromGenes200ResponseInner
+from igvf_catalog_client.models.diseases_from_genes import DiseasesFromGenes
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -1305,7 +1235,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[DiseasesFromGenes200ResponseInner]**](DiseasesFromGenes200ResponseInner.md)
+[**List[DiseasesFromGenes]**](DiseasesFromGenes.md)
 
 ### Authorization
 
@@ -1326,7 +1256,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **drugs**
-> List[DrugsFromVariants200ResponseInnerDrugAnyOf] drugs(drug_id=drug_id, name=name, page=page, limit=limit)
+> List[Drug] drugs(drug_id=drug_id, name=name, page=page, limit=limit)
 
 Retrieve drugs (chemicals). <br>   Example: drug_id = PA448497 (chemical ids from pharmGKB), <br>   name = aspirin.<br>   The limit parameter controls the page size and can not exceed 1000. <br>   Pagination is 0-based.
 
@@ -1335,7 +1265,7 @@ Retrieve drugs (chemicals). <br>   Example: drug_id = PA448497 (chemical ids fro
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.drugs_from_variants200_response_inner_drug_any_of import DrugsFromVariants200ResponseInnerDrugAnyOf
+from igvf_catalog_client.models.drug import Drug
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -1377,7 +1307,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[DrugsFromVariants200ResponseInnerDrugAnyOf]**](DrugsFromVariants200ResponseInnerDrugAnyOf.md)
+[**List[Drug]**](Drug.md)
 
 ### Authorization
 
@@ -1398,7 +1328,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **drugs_from_variants**
-> List[DrugsFromVariants200ResponseInner] drugs_from_variants(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region, phenotype_categories=phenotype_categories, pmid=pmid, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[DrugsFromVariants] drugs_from_variants(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region, phenotype_categories=phenotype_categories, pmid=pmid, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve drugs associated with the query variants from pharmGKB.<br>   Set verbose = true to retrieve full info on the drugs.<br>   At least one of these fields is required: variant_id, spdi, hgvs, rsid, ca_id, or region. <br>   Example: variant_id = NC_000001.11:230714139:T:G, <br>   spdi = NC_000001.11:230714139:T:G, <br>   hgvs = NC_000001.11:g.230714140T>G, <br>   rsid = rs5050 (at least one of the variant fields needs to be specified), <br>   ca_id = CA10610220, <br>   region = chr3:186741137-186742238 (maximum length: 10kb), <br>   the following filters on variants-drugs association can be combined for query: <br>   pmid = 20824505, <br>   phenotype_categories = Toxicity. <br>   The limit parameter controls the page size and can not exceed 100. <br>   Pagination is 0-based.
 
@@ -1407,7 +1337,7 @@ Retrieve drugs associated with the query variants from pharmGKB.<br>   Set verbo
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.drugs_from_variants200_response_inner import DrugsFromVariants200ResponseInner
+from igvf_catalog_client.models.drugs_from_variants import DrugsFromVariants
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -1465,7 +1395,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[DrugsFromVariants200ResponseInner]**](DrugsFromVariants200ResponseInner.md)
+[**List[DrugsFromVariants]**](DrugsFromVariants.md)
 
 ### Authorization
 
@@ -1486,7 +1416,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **enhancer_gene_predictions**
-> List[EnhancerGenePredictions200ResponseInner] enhancer_gene_predictions(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, method=method, files_fileset=files_fileset, page=page, limit=limit)
+> List[EnhancerGenePredictions] enhancer_gene_predictions(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, method=method, files_fileset=files_fileset, page=page, limit=limit)
 
 Retrieve genomic elements and gene pairs by querying genomic elements.<br>     Set verbose = true to retrieve full info on the genes, genomic element and biosamples.<br>     method can be either ENCODE-rE2G or scE2G; if not provided, both methods are searched. <br>     The limit parameter controls the page size and can not exceed 500. <br>     Pagination is 0-based. <br>     <div class="method-examples"> <strong>Examples by method</strong> <p class="method-example-description">These examples are grouped by method; use the <code>method</code> filter to return data from a specific method.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="encode-re2g">ENCODE-rE2G</button> <button class="method-example-tab" data-method-example-tab="sce2g">scE2G</button> </div> <div class="method-example-panel is-active" data-method-example-panel="encode-re2g"> <strong>ENCODE-rE2G:</strong> <div class="method-query-example"> <strong>query by gene identifier</strong>  <ul> <li>gene_id = ENSG00000055950</li> <li>method = ENCODE-rE2G</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="sce2g"> <strong>scE2G:</strong> <div class="method-query-example"> <strong>query by gene identifier</strong>  <ul> <li>gene_id = ENSG00000055950</li> <li>method = scE2G</li> </ul> </div> </div> </div>
 
@@ -1495,7 +1425,7 @@ Retrieve genomic elements and gene pairs by querying genomic elements.<br>     S
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.enhancer_gene_predictions200_response_inner import EnhancerGenePredictions200ResponseInner
+from igvf_catalog_client.models.enhancer_gene_predictions import EnhancerGenePredictions
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -1545,7 +1475,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[EnhancerGenePredictions200ResponseInner]**](EnhancerGenePredictions200ResponseInner.md)
+[**List[EnhancerGenePredictions]**](EnhancerGenePredictions.md)
 
 ### Authorization
 
@@ -1566,7 +1496,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **files_filesets**
-> List[FilesFilesets200ResponseInner] files_filesets(file_fileset_id=file_fileset_id, fileset_id=fileset_id, lab=lab, preferred_assay_title=preferred_assay_title, method=method, crispr_modality=crispr_modality, donor_id=donor_id, sample_term=sample_term, sample_summary=sample_summary, software=software, cell_annotation=cell_annotation, cell_annotation_term=cell_annotation_term, has_genome_browser_link=has_genome_browser_link, source=source, var_class=var_class, page=page, limit=limit)
+> List[FilesFilesets] files_filesets(file_fileset_id=file_fileset_id, fileset_id=fileset_id, lab=lab, preferred_assay_title=preferred_assay_title, method=method, crispr_modality=crispr_modality, donor_id=donor_id, sample_term=sample_term, sample_summary=sample_summary, software=software, cell_annotation=cell_annotation, cell_annotation_term=cell_annotation_term, has_genome_browser_link=has_genome_browser_link, source=source, var_class=var_class, page=page, limit=limit)
 
 Retrieve data about a specific dataset.<br>   Example: file_fileset_id = ENCFF004PFU,<br>  fileset_id = ENCSR359DFW,<br>  lab = jesse-engreitz,<br>  preferred_assay_title = DNase-seq,<br>  method = MPRA,<br>  donor_id = ENCDO000AAK,<br>  sample_term = EFO_0002784,<br>  sample_summary = GM12878,<br>  software = Distal regulation ENCODE-rE2G,<br>  cell_annotation = mesodermal cell, <br>  cell_annotation_term = CL_0000352, <br>  class = prediction,<br>  source = ENCODE.<br>  The limit parameter controls the page size and can not exceed 500. <br>   Pagination is 0-based.
 
@@ -1575,7 +1505,7 @@ Retrieve data about a specific dataset.<br>   Example: file_fileset_id = ENCFF00
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.files_filesets200_response_inner import FilesFilesets200ResponseInner
+from igvf_catalog_client.models.files_filesets import FilesFilesets
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -1643,7 +1573,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[FilesFilesets200ResponseInner]**](FilesFilesets200ResponseInner.md)
+[**List[FilesFilesets]**](FilesFilesets.md)
 
 ### Authorization
 
@@ -1664,7 +1594,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **genes**
-> List[GenesFromVariants200ResponseInnerGeneAnyOf] genes(gene_id=gene_id, hgnc_id=hgnc_id, entrez=entrez, name=name, region=region, synonym=synonym, collection=collection, study_set=study_set, gene_type=gene_type, organism=organism, page=page, limit=limit)
+> List[Gene] genes(gene_id=gene_id, hgnc_id=hgnc_id, entrez=entrez, name=name, region=region, synonym=synonym, collection=collection, study_set=study_set, gene_type=gene_type, organism=organism, page=page, limit=limit)
 
 Retrieve genes.<br>   Example: organism = Homo sapiens, <br>   name = SAMD1, <br>   region = chr1:212565300-212620800, <br>   synonym = CKLF, <br>   collection = ACMG73, <br>   study_set = MorPhiC, <br>   gene_id = ENSG00000187642 (Ensembl ids), <br>   gene_type = protein_coding, <br>   hgnc_id = HGNC:28208, <br>   entrez = ENTREZ:84808. <br>   The limit parameter controls the page size and can not exceed 500. <br>   Pagination is 0-based.
 
@@ -1673,7 +1603,7 @@ Retrieve genes.<br>   Example: organism = Homo sapiens, <br>   name = SAMD1, <br
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.genes_from_variants200_response_inner_gene_any_of import GenesFromVariants200ResponseInnerGeneAnyOf
+from igvf_catalog_client.models.gene import Gene
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -1731,7 +1661,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[GenesFromVariants200ResponseInnerGeneAnyOf]**](GenesFromVariants200ResponseInnerGeneAnyOf.md)
+[**List[Gene]**](Gene.md)
 
 ### Authorization
 
@@ -1752,7 +1682,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **genes_from_diseases**
-> List[DiseasesFromGenes200ResponseInner] genes_from_diseases(disease_id=disease_id, disease_name=disease_name, source=source, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[DiseasesFromGenes] genes_from_diseases(disease_id=disease_id, disease_name=disease_name, source=source, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve disease-gene pairs from Orphanet and GenCC by diseases.<br>     Set verbose = true to retrieve full info on the genes and diseases. <br>     Example: disease_name = fibrosis, <br>     disease_id = Orphanet_586, <br>     source = Orphanet. <br>     Either disease_name or disease_id are required. <br>     The limit parameter controls the page size and can not exceed 100. <br>     Pagination is 0-based.
 
@@ -1761,7 +1691,7 @@ Retrieve disease-gene pairs from Orphanet and GenCC by diseases.<br>     Set ver
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.diseases_from_genes200_response_inner import DiseasesFromGenes200ResponseInner
+from igvf_catalog_client.models.diseases_from_genes import DiseasesFromGenes
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -1809,7 +1739,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[DiseasesFromGenes200ResponseInner]**](DiseasesFromGenes200ResponseInner.md)
+[**List[DiseasesFromGenes]**](DiseasesFromGenes.md)
 
 ### Authorization
 
@@ -1830,7 +1760,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **genes_from_genomic_elements**
-> List[GenomicElementsFromGenes200ResponseInner] genes_from_genomic_elements(region=region, source_annotation=source_annotation, region_type=region_type, method=method, files_fileset=files_fileset, biosample_term=biosample_term, biological_context=biological_context, cell_annotation=cell_annotation, cell_annotation_term=cell_annotation_term, source=source, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[GenesFromGenomicElements] genes_from_genomic_elements(region=region, source_annotation=source_annotation, region_type=region_type, method=method, files_fileset=files_fileset, biosample_term=biosample_term, biological_context=biological_context, cell_annotation=cell_annotation, cell_annotation_term=cell_annotation_term, source=source, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve genomic elements and gene pairs by querying genomic elements.<br>     At least one of these properties must be defined: region, files_fileset, or method. <br>     Set verbose = true to retrieve full info on the genes and genomic element.<br>     The limit parameter controls the page size and can not exceed 500. <br>     Pagination is 0-based. <br> <br>     <div class="method-examples"> <strong>Examples by method</strong> <p class="method-example-description">These examples are grouped by method; use the <code>method</code> filter to return data from a specific method.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="crispr-screen">CRISPR screen</button> <button class="method-example-tab" data-method-example-tab="encode-re2g">ENCODE-rE2G</button> <button class="method-example-tab" data-method-example-tab="perturb-seq">Perturb-seq</button> <button class="method-example-tab" data-method-example-tab="sce2g">scE2G</button> </div> <div class="method-example-panel is-active" data-method-example-panel="crispr-screen"> <strong>CRISPR screen:</strong> <div class="method-query-example"> <strong>Single result</strong>  <ul> <li>region = chr1:4126791-4126792 (maximum length: 10kb)</li> <li>method = CRISPR screen</li> </ul> </div> <div class="method-query-example"> <strong>Group results</strong>  <ul> <li>files_fileset = ENCFF968BZL</li> <li>method = CRISPR screen</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="encode-re2g"> <strong>ENCODE-rE2G:</strong> <div class="method-query-example"> <strong>Single result</strong>  <ul> <li>region = chr1:920016-920017 (maximum length: 10kb)</li> <li>method = ENCODE-rE2G</li> <li>files_fileset = ENCFF666WIM</li> </ul> </div> <div class="method-query-example"> <strong>Group results</strong>  <ul> <li>files_fileset = ENCFF666WIM</li> <li>method = ENCODE-rE2G</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="perturb-seq"> <strong>Perturb-seq:</strong> <div class="method-query-example"> <strong>Query by region</strong>  <ul> <li>region = chr1:212699339-212700840 (maximum length: 10kb)</li> <li>method = Perturb-seq</li> </ul> </div> <div class="method-query-example"> <strong>Query by files_fileset</strong> <p class="method-query-example-note">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI3069QCRA</li> <li>method = Perturb-seq</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="sce2g"> <strong>scE2G:</strong> <div class="method-query-example"> <strong>Query by region</strong>  <ul> <li>region = chr1:169893055-169894554 (maximum length: 10kb)</li> <li>method = scE2G</li> </ul> </div> <div class="method-query-example"> <strong>Query by files_fileset</strong> <p class="method-query-example-note">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI4235YTNW</li> <li>method = scE2G</li> </ul> </div> </div> </div>
 
@@ -1839,7 +1769,7 @@ Retrieve genomic elements and gene pairs by querying genomic elements.<br>     A
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.genomic_elements_from_genes200_response_inner import GenomicElementsFromGenes200ResponseInner
+from igvf_catalog_client.models.genes_from_genomic_elements import GenesFromGenomicElements
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -1901,7 +1831,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[GenomicElementsFromGenes200ResponseInner]**](GenomicElementsFromGenes200ResponseInner.md)
+[**List[GenesFromGenomicElements]**](GenesFromGenomicElements.md)
 
 ### Authorization
 
@@ -1922,7 +1852,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **genes_from_pathways**
-> List[PathwaysFromGenes200ResponseInner] genes_from_pathways(pathway_id=pathway_id, pathway_name=pathway_name, name_aliases=name_aliases, disease_ontology_terms=disease_ontology_terms, go_biological_process=go_biological_process, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[GenesFromPathways] genes_from_pathways(pathway_id=pathway_id, pathway_name=pathway_name, name_aliases=name_aliases, disease_ontology_terms=disease_ontology_terms, go_biological_process=go_biological_process, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve genes from pathways.<br>   Set verbose = true to retrieve full info on the genes. <br>   At least one of these fields is required: pathway_id, pathway_name, or name_aliases <br>   Example: pathway_id = R-HSA-164843, <br>   pathway_name = 2-LTR circle formation, <br>   name_aliases = 2-LTR circle formation, <br>   disease_ontology_terms = DOID_526, <br>   go_biological_process = GO_0006015. <br>   The limit parameter controls the page size and can not exceed 500. <br>   Pagination is 0-based.
 
@@ -1931,7 +1861,7 @@ Retrieve genes from pathways.<br>   Set verbose = true to retrieve full info on 
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.pathways_from_genes200_response_inner import PathwaysFromGenes200ResponseInner
+from igvf_catalog_client.models.genes_from_pathways import GenesFromPathways
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -1983,7 +1913,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[PathwaysFromGenes200ResponseInner]**](PathwaysFromGenes200ResponseInner.md)
+[**List[GenesFromPathways]**](GenesFromPathways.md)
 
 ### Authorization
 
@@ -2004,7 +1934,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **genes_from_proteins**
-> List[ProteinsFromGenes200ResponseInner] genes_from_proteins(protein_id=protein_id, protein_name=protein_name, uniprot_name=uniprot_name, uniprot_full_name=uniprot_full_name, dbxrefs=dbxrefs, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[GenesFromProteins] genes_from_proteins(protein_id=protein_id, protein_name=protein_name, uniprot_name=uniprot_name, uniprot_full_name=uniprot_full_name, dbxrefs=dbxrefs, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve genes from proteins.<br>   Set verbose = true to retrieve full info on the genes.<br>   Protein IDs support the following formats: ENSP00000384707.1 or ENSP00000384707 (Ensembl IDs) or P49711-2 (Uniprot ids)<br>   Example: protein_id = ENSP00000384707, <br>   protein_name = CTCF, <br>   uniprot_name = CTCF_HUMAN, <br>   uniprot_full_name = Transcriptional repressor CTCF, <br>   dbxrefs = P49711, <br>   organism = Homo sapiens. <br>   The limit parameter controls the page size and can not exceed 100. <br>   Pagination is 0-based.
 
@@ -2013,7 +1943,7 @@ Retrieve genes from proteins.<br>   Set verbose = true to retrieve full info on 
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.proteins_from_genes200_response_inner import ProteinsFromGenes200ResponseInner
+from igvf_catalog_client.models.genes_from_proteins import GenesFromProteins
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -2065,7 +1995,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[ProteinsFromGenes200ResponseInner]**](ProteinsFromGenes200ResponseInner.md)
+[**List[GenesFromProteins]**](GenesFromProteins.md)
 
 ### Authorization
 
@@ -2086,7 +2016,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **genes_from_transcripts**
-> List[TranscriptsFromGenes200ResponseInner] genes_from_transcripts(transcript_id=transcript_id, region=region, transcript_type=transcript_type, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[GenesFromTranscripts] genes_from_transcripts(transcript_id=transcript_id, region=region, transcript_type=transcript_type, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve genes from transcripts.<br>     Set verbose = true to retrieve full info on the genes.<br>     At least one of these fields is required: transcript_id, region or transcript_type. <br>     Example: transcript_id = ENST00000440782, <br>     region = chr1:711800-740000, <br>     transcript_type = protein_coding,<br>     organism = Homo sapiens, <br>     transcript_id = ENST00000443707 (Ensembl ID). <br>     The limit parameter controls the page size and can not exceed 100. <br>     Pagination is 0-based.
 
@@ -2095,7 +2025,7 @@ Retrieve genes from transcripts.<br>     Set verbose = true to retrieve full inf
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.transcripts_from_genes200_response_inner import TranscriptsFromGenes200ResponseInner
+from igvf_catalog_client.models.genes_from_transcripts import GenesFromTranscripts
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -2143,7 +2073,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[TranscriptsFromGenes200ResponseInner]**](TranscriptsFromGenes200ResponseInner.md)
+[**List[GenesFromTranscripts]**](GenesFromTranscripts.md)
 
 ### Authorization
 
@@ -2164,7 +2094,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **genes_from_variants**
-> List[GenesFromVariants200ResponseInner] genes_from_variants(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region, neg_log10_pvalue=neg_log10_pvalue, effect_size=effect_size, posterior_inclusion_probability=posterior_inclusion_probability, log2_fc=log2_fc, significant=significant, biosample_term=biosample_term, biological_context=biological_context, label=label, method=method, files_fileset=files_fileset, source=source, name=name, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[GenesFromVariants] genes_from_variants(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region, neg_log10_pvalue=neg_log10_pvalue, effect_size=effect_size, posterior_inclusion_probability=posterior_inclusion_probability, log2_fc=log2_fc, significant=significant, biosample_term=biosample_term, biological_context=biological_context, label=label, method=method, files_fileset=files_fileset, source=source, name=name, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve variant-gene pairs including eQTLs & splice QTLs from AFGR and eQTL Catalogue, and CRISPR screen and Variant-EFFECTS from IGVF, by variants.<br>     The following parameters can be used to set thresholds on -log10 p_value: gt (>), gte (>=), lt (<), lte (<=).<br>     posterior_inclusion_probability and log2FC also accept plain numbers (exact match) or the same gt/gte/lt/lte range syntax. significant only accepts true (omit the parameter to not filter on it).<br>     Set verbose = true to retrieve full info on the corresponding variants and genes.<br>     At least one of these properties must be defined: spdi, hgvs, rsid, ca_id, variant_id, region, method, or files_filesets. <br>     The limit parameter controls the page size and can not exceed 500. <br>     Pagination is 0-based. <br> <br>     <div class="method-examples"> <strong>Examples by method</strong> <p class="method-example-description">These examples are grouped by method; use the <code>method</code> filter to return data from a specific method.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="eqtl">eQTL</button> <button class="method-example-tab" data-method-example-tab="spliceqtl">spliceQTL</button> <button class="method-example-tab" data-method-example-tab="variant-effects">Variant-EFFECTS</button> <button class="method-example-tab" data-method-example-tab="crispr-screen">CRISPR screen</button> </div> <div class="method-example-panel is-active" data-method-example-panel="eqtl"> <strong>eQTL:</strong> <div class="method-query-example"> <strong>Single result</strong>  <ul> <li>spdi = NC_000001.11:40241653:TGAA:TGAAATTGAA</li> <li>effect_size = gte:0.3</li> <li>method = eQTL</li> </ul> </div> <div class="method-query-example"> <strong>Group results</strong>  <ul> <li>region = chr1:40241650-40241759 (maximum length: 10kb)</li> <li>method = eQTL</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="spliceqtl"> <strong>spliceQTL:</strong> <div class="method-query-example"> <strong>Single result</strong>  <ul> <li>spdi = NC_000001.11:898757:AAAAAA:AAAAAAA</li> <li>effect_size = gte:0.3</li> <li>method = spliceQTL</li> </ul> </div> <div class="method-query-example"> <strong>Group results</strong>  <ul> <li>region = chr1:898750-898759 (maximum length: 10kb)</li> <li>method = spliceQTL</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="variant-effects"> <strong>Variant-EFFECTS:</strong> <div class="method-query-example"> <strong>Single result</strong>  <ul> <li>spdi = NC_000010.11:79347741:AGGT:TCAG</li> <li>effect_size = lt:-0.6</li> <li>method = Variant-EFFECTS</li> </ul> </div> <div class="method-query-example"> <strong>Group results</strong>  <ul> <li>region = chr10:79347740-79347749 (maximum length: 10kb)</li> <li>method = Variant-EFFECTS</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="crispr-screen"> <strong>CRISPR screen:</strong> <div class="method-query-example"> <strong>query by variant identifier</strong>  <ul> <li>spdi = NC_000016.10:28930710:G:A</li> <li>method = CRISPR screen</li> </ul> </div> <div class="method-query-example"> <strong>query by region</strong>  <ul> <li>region = chr16:28930700-28930800 (maximum length: 10kb)</li> <li>method = CRISPR screen</li> </ul> </div> <div class="method-query-example"> <strong>query by significance thresholds</strong>  <ul> <li>region = chr16:28930700-28930800 (maximum length: 10kb)</li> <li>posterior_inclusion_probability = gte:0.1</li> <li>log2FC = lt:-0.5</li> <li>significant = true</li> <li>method = CRISPR screen</li> </ul> </div> </div> </div>
 
@@ -2173,7 +2103,7 @@ Retrieve variant-gene pairs including eQTLs & splice QTLs from AFGR and eQTL Cat
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.genes_from_variants200_response_inner import GenesFromVariants200ResponseInner
+from igvf_catalog_client.models.genes_from_variants import GenesFromVariants
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -2251,7 +2181,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[GenesFromVariants200ResponseInner]**](GenesFromVariants200ResponseInner.md)
+[**List[GenesFromVariants]**](GenesFromVariants.md)
 
 ### Authorization
 
@@ -2272,7 +2202,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **genes_genes**
-> List[GenesGenes200ResponseInner] genes_genes(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, associated_gene_id=associated_gene_id, associated_hgnc_id=associated_hgnc_id, associated_gene_name=associated_gene_name, associated_synonym=associated_synonym, z_score=z_score, interaction_type=interaction_type, label=label, method=method, source=source, name=name, files_fileset=files_fileset, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[GenesGenes] genes_genes(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, associated_gene_id=associated_gene_id, associated_hgnc_id=associated_hgnc_id, associated_gene_name=associated_gene_name, associated_synonym=associated_synonym, z_score=z_score, interaction_type=interaction_type, label=label, method=method, source=source, name=name, files_fileset=files_fileset, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve coexpressed gene pairs from CoXPresdb and genetic interactions from BioGRID. <br>     The following parameters can be used to set thresholds on z_score from CoXPresdb: gt (>), gte (>=), lt (<), lte (<=).<br>     At least one of these fields is required: gene_id, hgnc_id, gene_name, synonym. <br>     The limit parameter controls the page size and can not exceed 100. <br>     Pagination is 0-based. <br> <br>     <div class="method-examples"> <strong>Examples by source</strong> <p class="method-example-description">These examples are grouped by source; use the <code>source</code> filter to return data from a specific source.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="biogrid">BioGRID</button> <button class="method-example-tab" data-method-example-tab="coxpresdb">COXPRESdb</button> </div> <div class="method-example-panel is-active" data-method-example-panel="biogrid"> <strong>BioGRID:</strong> <div class="method-query-example"> <strong>Single result</strong>  <ul> <li>gene_id = ENSG00000112592</li> <li>associated_gene_id = ENSG00000163132</li> <li>source = BioGRID</li> <li>files_fileset = IGVFFI4317VDGK</li> </ul> </div> <div class="method-query-example"> <strong>Group results</strong>  <ul> <li>gene_id = ENSG00000112592</li> <li>source = BioGRID</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="coxpresdb"> <strong>COXPRESdb:</strong> <div class="method-query-example"> <strong>Single result</strong>  <ul> <li>gene_id = ENSG00000153048</li> <li>associated_gene_id = ENSG00000233369</li> <li>source = COXPRESdb</li> </ul> </div> <div class="method-query-example"> <strong>Group results</strong>  <ul> <li>gene_id = ENSG00000153048</li> <li>source = COXPRESdb</li> </ul> </div> </div> </div>
 
@@ -2281,7 +2211,7 @@ Retrieve coexpressed gene pairs from CoXPresdb and genetic interactions from Bio
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.genes_genes200_response_inner import GenesGenes200ResponseInner
+from igvf_catalog_client.models.genes_genes import GenesGenes
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -2353,7 +2283,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[GenesGenes200ResponseInner]**](GenesGenes200ResponseInner.md)
+[**List[GenesGenes]**](GenesGenes.md)
 
 ### Authorization
 
@@ -2374,7 +2304,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **genes_proteins_from_variants**
-> List[GenesProteinsFromVariants200ResponseInner] genes_proteins_from_variants(variant_id, page=page, limit=limit)
+> List[GenesProteinsFromVariants] genes_proteins_from_variants(variant_id, page=page, limit=limit)
 
 Retrieve genes and proteins associated with a variant matched by ID. <br>   Example: variant_id = NC_000001.11:630556:T:C<br>   The limit parameter controls the page size and can not exceed 100. <br>   Pagination is 0-based.
 
@@ -2383,7 +2313,7 @@ Retrieve genes and proteins associated with a variant matched by ID. <br>   Exam
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.genes_proteins_from_variants200_response_inner import GenesProteinsFromVariants200ResponseInner
+from igvf_catalog_client.models.genes_proteins_from_variants import GenesProteinsFromVariants
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -2423,7 +2353,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[GenesProteinsFromVariants200ResponseInner]**](GenesProteinsFromVariants200ResponseInner.md)
+[**List[GenesProteinsFromVariants]**](GenesProteinsFromVariants.md)
 
 ### Authorization
 
@@ -2444,7 +2374,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **genes_proteins_genes_proteins**
-> List[GenesProteinsGenesProteins200ResponseInner] genes_proteins_genes_proteins(query, page=page, limit=limit)
+> List[GenesProteinsGenesProteins] genes_proteins_genes_proteins(query, page=page, limit=limit)
 
 Retrieve genes or proteins associated with either genes or proteins that match a query. <br>   Example: query = ATF1.<br>   The limit parameter controls the page size of related items and can not exceed 100. <br>   Pagination is 0-based.
 
@@ -2453,7 +2383,7 @@ Retrieve genes or proteins associated with either genes or proteins that match a
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.genes_proteins_genes_proteins200_response_inner import GenesProteinsGenesProteins200ResponseInner
+from igvf_catalog_client.models.genes_proteins_genes_proteins import GenesProteinsGenesProteins
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -2493,7 +2423,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[GenesProteinsGenesProteins200ResponseInner]**](GenesProteinsGenesProteins200ResponseInner.md)
+[**List[GenesProteinsGenesProteins]**](GenesProteinsGenesProteins.md)
 
 ### Authorization
 
@@ -2514,7 +2444,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **genes_structure**
-> List[GenesStructure200ResponseInner] genes_structure(gene_id=gene_id, gene_name=gene_name, transcript_id=transcript_id, transcript_name=transcript_name, protein_id=protein_id, protein_name=protein_name, region=region, type=type, organism=organism, page=page, limit=limit)
+> List[GenesStructure] genes_structure(gene_id=gene_id, gene_name=gene_name, transcript_id=transcript_id, transcript_name=transcript_name, protein_id=protein_id, protein_name=protein_name, region=region, type=type, organism=organism, page=page, limit=limit)
 
 Retrieve genes structure.<br>   you can filter by one of the four categories: gene, transcript, protein or region. <br>   Example: organism = Homo sapiens, <br>   region = chr1:212565300-212620800, <br>   gene_id = ENSG00000187642 (Ensembl ids), <br>   gene_name = ATF3, <br>   transcript_id = ENST00000443707 (Ensembl ids), <br>   type = exon, <br>   protein_id = ENSP00000305769, <br>   protein_name = SMAD1. <br>   The limit parameter controls the page size and can not exceed 500. <br>   Pagination is 0-based.
 
@@ -2523,7 +2453,7 @@ Retrieve genes structure.<br>   you can filter by one of the four categories: ge
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.genes_structure200_response_inner import GenesStructure200ResponseInner
+from igvf_catalog_client.models.genes_structure import GenesStructure
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -2579,7 +2509,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[GenesStructure200ResponseInner]**](GenesStructure200ResponseInner.md)
+[**List[GenesStructure]**](GenesStructure.md)
 
 ### Authorization
 
@@ -2600,7 +2530,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **genomic_elements**
-> List[GenomicElements200ResponseInner] genomic_elements(region=region, source_annotation=source_annotation, type=type, method=method, source=source, organism=organism, page=page, limit=limit, files_fileset=files_fileset)
+> List[GenomicElementFull] genomic_elements(region=region, source_annotation=source_annotation, type=type, method=method, source=source, organism=organism, page=page, limit=limit, files_fileset=files_fileset)
 
 Retrieve genomic elements.<br>   Example: region = chr1:1157520-1158189, <br>   source_annotation = dELS: distal Enhancer-like signal, <br>   type = candidate cis regulatory element, <br>   files_fileset = IGVFFI5749WPVK, <br>   source = ENCODE. <br>   The limit parameter controls the page size and can not exceed 1000. <br>   Pagination is 0-based.
 
@@ -2609,7 +2539,7 @@ Retrieve genomic elements.<br>   Example: region = chr1:1157520-1158189, <br>   
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.genomic_elements200_response_inner import GenomicElements200ResponseInner
+from igvf_catalog_client.models.genomic_element_full import GenomicElementFull
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -2661,7 +2591,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[GenomicElements200ResponseInner]**](GenomicElements200ResponseInner.md)
+[**List[GenomicElementFull]**](GenomicElementFull.md)
 
 ### Authorization
 
@@ -2682,7 +2612,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **genomic_elements_from_biosamples**
-> List[BiosamplesFromGenomicElements200ResponseInner] genomic_elements_from_biosamples(biosample_name=biosample_name, method=method, source=source, files_fileset=files_fileset, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[BiosamplesFromGenomicElements] genomic_elements_from_biosamples(biosample_name=biosample_name, method=method, source=source, files_fileset=files_fileset, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve MPRA expriments by querying cell ontology terms. <br>   Set verbose = true to retrieve full info on the tested genomic elements. <br>   Example: biosample_name = hepg2, <br>   method = MPRA, <br>   source = IGVF, <br>   files_fileset = ENCFF475FKV. <br>   The limit parameter controls the page size and can not exceed 50. <br>   Pagination is 0-based.
 
@@ -2691,7 +2621,7 @@ Retrieve MPRA expriments by querying cell ontology terms. <br>   Set verbose = t
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.biosamples_from_genomic_elements200_response_inner import BiosamplesFromGenomicElements200ResponseInner
+from igvf_catalog_client.models.biosamples_from_genomic_elements import BiosamplesFromGenomicElements
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -2741,7 +2671,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[BiosamplesFromGenomicElements200ResponseInner]**](BiosamplesFromGenomicElements200ResponseInner.md)
+[**List[BiosamplesFromGenomicElements]**](BiosamplesFromGenomicElements.md)
 
 ### Authorization
 
@@ -2762,7 +2692,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **genomic_elements_from_genes**
-> List[GenomicElementsFromGenes200ResponseInner] genomic_elements_from_genes(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, method=method, files_fileset=files_fileset, biosample_term=biosample_term, biological_context=biological_context, cell_annotation=cell_annotation, cell_annotation_term=cell_annotation_term, source=source, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[GenesFromGenomicElements] genomic_elements_from_genes(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, method=method, files_fileset=files_fileset, biosample_term=biosample_term, biological_context=biological_context, cell_annotation=cell_annotation, cell_annotation_term=cell_annotation_term, source=source, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve genomic elements and gene pairs by querying genes.<br>     One of these fields is required: gene_id, hgnc_id, gene_name, synonym, method, or files_fileset. <br>     Set verbose = true to retrieve full info on the genes and genomic element.<br>     The limit parameter controls the page size and can not exceed 500. <br>     Pagination is 0-based. <br> <br>     <div class="method-examples"> <strong>Examples by method</strong> <p class="method-example-description">These examples are grouped by method; use the <code>method</code> filter to return data from a specific method.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="crispr-screen">CRISPR screen</button> <button class="method-example-tab" data-method-example-tab="encode-re2g">ENCODE-rE2G</button> <button class="method-example-tab" data-method-example-tab="perturb-seq">Perturb-seq</button> <button class="method-example-tab" data-method-example-tab="sce2g">scE2G</button> </div> <div class="method-example-panel is-active" data-method-example-panel="crispr-screen"> <strong>CRISPR screen:</strong> <div class="method-query-example"> <strong>Single result</strong>  <ul> <li>gene_id = ENSG00000116198</li> <li>method = CRISPR screen</li> </ul> </div> <div class="method-query-example"> <strong>Group results</strong>  <ul> <li>method = CRISPR screen</li> <li>files_fileset = ENCFF968BZL</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="encode-re2g"> <strong>ENCODE-rE2G:</strong> <div class="method-query-example"> <strong>query by gene identifier</strong>  <ul> <li>gene_id = ENSG00000225880</li> <li>biosample_term = EFO_0002330</li> <li>method = ENCODE-rE2G</li> </ul> </div> <div class="method-query-example"> <strong>query by files_fileset</strong> <p class="method-query-example-note">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = ENCFF425TLX</li> <li>method = ENCODE-rE2G</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="perturb-seq"> <strong>Perturb-seq:</strong> <div class="method-query-example"> <strong>query by gene identifier</strong>  <ul> <li>gene_id = ENSG00000123685</li> <li>method = Perturb-seq</li> </ul> </div> <div class="method-query-example"> <strong>query by files_fileset</strong> <p class="method-query-example-note">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI3069QCRA</li> <li>method = Perturb-seq</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="sce2g"> <strong>scE2G:</strong> <div class="method-query-example"> <strong>query by gene identifier</strong>  <ul> <li>gene_id = ENSG00000156875</li> <li>method = scE2G</li> </ul> </div> <div class="method-query-example"> <strong>query by files_fileset</strong> <p class="method-query-example-note">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI4235YTNW</li> <li>method = scE2G</li> </ul> </div> </div> </div>
 
@@ -2771,7 +2701,7 @@ Retrieve genomic elements and gene pairs by querying genes.<br>     One of these
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.genomic_elements_from_genes200_response_inner import GenomicElementsFromGenes200ResponseInner
+from igvf_catalog_client.models.genes_from_genomic_elements import GenesFromGenomicElements
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -2835,7 +2765,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[GenomicElementsFromGenes200ResponseInner]**](GenomicElementsFromGenes200ResponseInner.md)
+[**List[GenesFromGenomicElements]**](GenesFromGenomicElements.md)
 
 ### Authorization
 
@@ -2856,7 +2786,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **genomic_elements_from_phenotypes**
-> List[PhenotypesFromGenomicElements200ResponseInner] genomic_elements_from_phenotypes(files_fileset=files_fileset, phenotype_id=phenotype_id, phenotype_name=phenotype_name, significant=significant, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[GenomicElementsFromPhenotypes] genomic_elements_from_phenotypes(files_fileset=files_fileset, phenotype_id=phenotype_id, phenotype_name=phenotype_name, significant=significant, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve genomic elements associated with phenotypes.<br>     At least one of these properties must be defined: phenotype_id, phenotype_name, or files_fileset. <br>     Set significant = true to return only significant associations.<br>     Set verbose = true to retrieve full info on the genomic element.<br>     Example: phenotype_id = GO_0008283, <br>     phenotype_name = cell population proliferation, <br>     significant = true, <br>     files_fileset = IGVFFI9584UDAS. <br>     The limit parameter controls the page size and can not exceed 500. <br>     Pagination is 0-based.
 
@@ -2865,7 +2795,7 @@ Retrieve genomic elements associated with phenotypes.<br>     At least one of th
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.phenotypes_from_genomic_elements200_response_inner import PhenotypesFromGenomicElements200ResponseInner
+from igvf_catalog_client.models.genomic_elements_from_phenotypes import GenomicElementsFromPhenotypes
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -2915,7 +2845,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[PhenotypesFromGenomicElements200ResponseInner]**](PhenotypesFromGenomicElements200ResponseInner.md)
+[**List[GenomicElementsFromPhenotypes]**](GenomicElementsFromPhenotypes.md)
 
 ### Authorization
 
@@ -2936,7 +2866,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **genomic_elements_from_variants**
-> List[GenomicElementsFromVariants200ResponseInner] genomic_elements_from_variants(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region, biosample_term=biosample_term, biological_context=biological_context, method=method, files_fileset=files_fileset, page=page, limit=limit)
+> List[GenomicElementsFromVariants] genomic_elements_from_variants(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region, biosample_term=biosample_term, biological_context=biological_context, method=method, files_fileset=files_fileset, page=page, limit=limit)
 
 Retrieve genomic elements associated with a given variant.<br>   Example: variant_id = NC_000001.11:976214:A:G, <br>   hgvs = NC_000001.11:g.976215A>G,<br>   spdi = NC_000001.11:976214:A:G, <br>   rsid = rs7417106, <br>   ca_id = CA507079, <br>   region = chr1:766254-766554, <br>   biosample_term = EFO_0002067, <br>   biological_context = K562, <br>   method = caQTL, <br>   files_fileset = ENCFF103XRK, <br>   The limit parameter controls the page size and can not exceed 300. <br>   Pagination is 0-based.
 
@@ -2945,7 +2875,7 @@ Retrieve genomic elements associated with a given variant.<br>   Example: varian
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.genomic_elements_from_variants200_response_inner import GenomicElementsFromVariants200ResponseInner
+from igvf_catalog_client.models.genomic_elements_from_variants import GenomicElementsFromVariants
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -3003,7 +2933,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[GenomicElementsFromVariants200ResponseInner]**](GenomicElementsFromVariants200ResponseInner.md)
+[**List[GenomicElementsFromVariants]**](GenomicElementsFromVariants.md)
 
 ### Authorization
 
@@ -3099,7 +3029,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **genomic_elements_predictions_from_variant**
-> GenomicElementsPredictionsFromVariant200Response genomic_elements_predictions_from_variant(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region)
+> GenomicElementsPredictionsFromVariant genomic_elements_predictions_from_variant(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region)
 
 Retrieve predicted associated genes and cell types for a given variant. <br>   Example: variant_id = NC_000012.12:69248967:C:T,<br>   spdi = NC_000012.12:69248967:C:T, <br>   hgvs = NC_000012.12:g.69248968C>T,<br>   rsid = rs544450198,<br>   ca_id = CA10655063,<br>   region = chr1:1157520-1158189 (maximum length: 10kb).
 
@@ -3108,7 +3038,7 @@ Retrieve predicted associated genes and cell types for a given variant. <br>   E
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.genomic_elements_predictions_from_variant200_response import GenomicElementsPredictionsFromVariant200Response
+from igvf_catalog_client.models.genomic_elements_predictions_from_variant import GenomicElementsPredictionsFromVariant
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -3154,7 +3084,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GenomicElementsPredictionsFromVariant200Response**](GenomicElementsPredictionsFromVariant200Response.md)
+[**GenomicElementsPredictionsFromVariant**](GenomicElementsPredictionsFromVariant.md)
 
 ### Authorization
 
@@ -3247,7 +3177,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **grn**
-> List[Grn200ResponseInner] grn(regulator_gene_id=regulator_gene_id, regulator_hgnc_id=regulator_hgnc_id, regulator_gene_name=regulator_gene_name, regulator_synonym=regulator_synonym, response_gene_id=response_gene_id, response_hgnc_id=response_hgnc_id, response_gene_name=response_gene_name, response_synonym=response_synonym, neg_log10_pvalue=neg_log10_pvalue, neg_log10_pvalue_adj=neg_log10_pvalue_adj, method=method, files_fileset=files_fileset, significant=significant, crispr_modality=crispr_modality, page=page, limit=limit)
+> List[Grn] grn(regulator_gene_id=regulator_gene_id, regulator_hgnc_id=regulator_hgnc_id, regulator_gene_name=regulator_gene_name, regulator_synonym=regulator_synonym, response_gene_id=response_gene_id, response_hgnc_id=response_hgnc_id, response_gene_name=response_gene_name, response_synonym=response_synonym, neg_log10_pvalue=neg_log10_pvalue, neg_log10_pvalue_adj=neg_log10_pvalue_adj, method=method, files_fileset=files_fileset, significant=significant, crispr_modality=crispr_modality, page=page, limit=limit)
 
 Retrieve regulatory or response genes for a given regulatory gene. The network is modeled as: (regulators) -> (responses).<br>     files_fileset filters results to a single files_fileset accession (e.g. files_fileset = IGVFFI3069QCRA). significant only accepts true (omit the parameter to not filter on it).<br>     crispr_modality accepts knockout, interference, or activation.<br>     The limit parameter controls the page size and can not exceed 100. <br>     Pagination is 0-based. <br> <br>     <div class="method-examples"> <strong>Examples by method</strong> <p class="method-example-description">These examples are grouped by method; use the <code>method</code> filter to return data from a specific method.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="crispr-screen">CRISPR screen</button> <button class="method-example-tab" data-method-example-tab="perturb-seq">Perturb-seq</button> </div> <div class="method-example-panel is-active" data-method-example-panel="crispr-screen"> <strong>CRISPR screen:</strong> <div class="method-query-example"> <strong>Single result</strong>  <ul> <li>regulator_gene_id = ENSG00000143190</li> <li>p_value = gte:0.9</li> <li>method = CRISPR screen</li> <li>crispr_modality = interference</li> <li>files_fileset = IGVFFI1336XWXJ</li> </ul> </div> <div class="method-query-example"> <strong>Group results</strong>  <ul> <li>regulator_gene_name = POU2F1</li> <li>method = CRISPR screen</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="perturb-seq"> <strong>Perturb-seq:</strong> <div class="method-query-example"> <strong>Query by regulator gene</strong>  <ul> <li>regulator_gene_id = ENSG00000143190</li> <li>method = Perturb-seq</li> </ul> </div> <div class="method-query-example"> <strong>Query by response gene</strong>  <ul> <li>response_gene_name = TSPAN6</li> <li>method = Perturb-seq</li> </ul> </div> </div> </div>
 
@@ -3256,7 +3186,7 @@ Retrieve regulatory or response genes for a given regulatory gene. The network i
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.grn200_response_inner import Grn200ResponseInner
+from igvf_catalog_client.models.grn import Grn
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -3322,69 +3252,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[Grn200ResponseInner]**](Grn200ResponseInner.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-**0** | Error response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **health**
-> Health200Response health()
-
-Health check endpoint for the API service
-
-### Example
-
-
-```python
-import igvf_catalog_client
-from igvf_catalog_client.models.health200_response import Health200Response
-from igvf_catalog_client.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://api.catalogkg.igvf.org/api
-# See configuration.py for a list of all supported configuration parameters.
-configuration = igvf_catalog_client.Configuration(
-    host = "https://api.catalogkg.igvf.org/api"
-)
-
-
-# Enter a context with an instance of the API client
-with igvf_catalog_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = igvf_catalog_client.IgvfApi(api_client)
-
-    try:
-        api_response = api_instance.health()
-        print("The response of IgvfApi->health:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling IgvfApi->health: %s\n" % e)
-```
-
-
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**Health200Response**](Health200Response.md)
+[**List[Grn]**](Grn.md)
 
 ### Authorization
 
@@ -3405,7 +3273,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **motifs**
-> List[MotifsFromProteins200ResponseInnerMotifAnyOf] motifs(tf_name=tf_name, source=source, files_fileset=files_fileset, method=method, organism=organism, page=page, limit=limit)
+> List[Motif] motifs(tf_name=tf_name, source=source, files_fileset=files_fileset, method=method, organism=organism, page=page, limit=limit)
 
 Retrieve transcription factor binding motifs from HOCOMOCO and SEMpl.<br>     method can be either HOCOMOCO or SEMpl; if not provided, both methods are searched. <br>     The limit parameter controls the page size and can not exceed 500. <br>     Pagination is 0-based. <br>     <div class="method-examples"> <strong>Examples by method</strong> <p class="method-example-description">These examples are grouped by method; use the <code>method</code> filter to return data from a specific method.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="hocomoco">HOCOMOCO</button> <button class="method-example-tab" data-method-example-tab="sempl">SEMpl</button> </div> <div class="method-example-panel is-active" data-method-example-panel="hocomoco"> <strong>HOCOMOCO:</strong> <div class="method-query-example"> <strong>query by tf_name</strong>  <ul> <li>tf_name = STAT3_HUMAN</li> <li>source = HOCOMOCOv11</li> <li>method = HOCOMOCO</li> </ul> </div> <div class="method-query-example"> <strong>query by files_fileset</strong> <p class="method-query-example-note">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI1626MMBD</li> <li>method = HOCOMOCO</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="sempl"> <strong>SEMpl:</strong> <div class="method-query-example"> <strong>query by tf_name</strong>  <ul> <li>tf_name = AHR</li> <li>method = SEMpl</li> </ul> </div> <div class="method-query-example"> <strong>query by files_fileset</strong> <p class="method-query-example-note">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI5279OTVZ</li> <li>method = SEMpl</li> </ul> </div> </div> </div>
 
@@ -3414,7 +3282,7 @@ Retrieve transcription factor binding motifs from HOCOMOCO and SEMpl.<br>     me
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.motifs_from_proteins200_response_inner_motif_any_of import MotifsFromProteins200ResponseInnerMotifAnyOf
+from igvf_catalog_client.models.motif import Motif
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -3462,7 +3330,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[MotifsFromProteins200ResponseInnerMotifAnyOf]**](MotifsFromProteins200ResponseInnerMotifAnyOf.md)
+[**List[Motif]**](Motif.md)
 
 ### Authorization
 
@@ -3483,7 +3351,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **motifs_from_proteins**
-> List[MotifsFromProteins200ResponseInner] motifs_from_proteins(protein_id=protein_id, protein_name=protein_name, uniprot_name=uniprot_name, uniprot_full_name=uniprot_full_name, dbxrefs=dbxrefs, files_fileset=files_fileset, method=method, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[MotifsFromProteins] motifs_from_proteins(protein_id=protein_id, protein_name=protein_name, uniprot_name=uniprot_name, uniprot_full_name=uniprot_full_name, dbxrefs=dbxrefs, files_fileset=files_fileset, method=method, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve motifs for proteins.<br>     Set verbose = true to retrieve full info on the motifs.<br>     Protein IDs support the following formats: ENSP00000384707.1 or ENSP00000384707 (Ensembl IDs) or P49711-2 (Uniprot ids)<br>     method can be either HOCOMOCO or SEMpl; if not provided, both methods are searched. <br>     The limit parameter controls the page size and can not exceed 1000. <br>     Pagination is 0-based. <br>     <div class="method-examples"> <strong>Examples by method</strong> <p class="method-example-description">These examples are grouped by method; use the <code>method</code> filter to return data from a specific method.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="hocomoco">HOCOMOCO</button> <button class="method-example-tab" data-method-example-tab="sempl">SEMpl</button> </div> <div class="method-example-panel is-active" data-method-example-panel="hocomoco"> <strong>HOCOMOCO:</strong> <div class="method-query-example"> <strong>query by protein identifier</strong>  <ul> <li>protein_id = ENSP00000384707</li> <li>method = HOCOMOCO</li> </ul> </div> <div class="method-query-example"> <strong>query by files_fileset</strong> <p class="method-query-example-note">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI1626MMBD</li> <li>method = HOCOMOCO</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="sempl"> <strong>SEMpl:</strong> <div class="method-query-example"> <strong>query by protein identifier</strong>  <ul> <li>protein_id = ENSP00000384707</li> <li>method = SEMpl</li> </ul> </div> <div class="method-query-example"> <strong>query by files_fileset</strong> <p class="method-query-example-note">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI5279OTVZ</li> <li>method = SEMpl</li> </ul> </div> </div> </div>
 
@@ -3492,7 +3360,7 @@ Retrieve motifs for proteins.<br>     Set verbose = true to retrieve full info o
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.motifs_from_proteins200_response_inner import MotifsFromProteins200ResponseInner
+from igvf_catalog_client.models.motifs_from_proteins import MotifsFromProteins
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -3548,7 +3416,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[MotifsFromProteins200ResponseInner]**](MotifsFromProteins200ResponseInner.md)
+[**List[MotifsFromProteins]**](MotifsFromProteins.md)
 
 ### Authorization
 
@@ -3569,7 +3437,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **nearest_genes**
-> List[GenesFromVariants200ResponseInnerGeneAnyOf] nearest_genes(region)
+> List[Gene] nearest_genes(region)
 
 Retrieve a list of human genes if region is in a coding variant. Otherwise, it returns the nearest human genes on each side. <br>   Example: region = chr1:1157520-1158189 (maximum length: 10kb).
 
@@ -3578,7 +3446,7 @@ Retrieve a list of human genes if region is in a coding variant. Otherwise, it r
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.genes_from_variants200_response_inner_gene_any_of import GenesFromVariants200ResponseInnerGeneAnyOf
+from igvf_catalog_client.models.gene import Gene
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -3614,7 +3482,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[GenesFromVariants200ResponseInnerGeneAnyOf]**](GenesFromVariants200ResponseInnerGeneAnyOf.md)
+[**List[Gene]**](Gene.md)
 
 ### Authorization
 
@@ -3635,7 +3503,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ontology_term**
-> List[ProteinsFromVariants200ResponseInnerBiosampleTermAnyOf] ontology_term(term_id=term_id, name=name, synonyms=synonyms, source=source, subontology=subontology, files_fileset=files_fileset, page=page, limit=limit)
+> List[OntologyTerm] ontology_term(term_id=term_id, name=name, synonyms=synonyms, source=source, subontology=subontology, files_fileset=files_fileset, page=page, limit=limit)
 
 Retrieve ontology terms.<br>   Example: term_id = Orphanet_101435, <br>   name = Rare genetic eye disease, <br>   synonyms = WTC11, <br>   source = EFO, <br>   subontology = molecular_function, <br>   files_fileset = IGVFFI7407XTPX. <br>   The limit parameter controls the page size and can not exceed 1000. <br>   Pagination is 0-based.
 
@@ -3644,7 +3512,7 @@ Retrieve ontology terms.<br>   Example: term_id = Orphanet_101435, <br>   name =
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.proteins_from_variants200_response_inner_biosample_term_any_of import ProteinsFromVariants200ResponseInnerBiosampleTermAnyOf
+from igvf_catalog_client.models.ontology_term import OntologyTerm
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -3694,7 +3562,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[ProteinsFromVariants200ResponseInnerBiosampleTermAnyOf]**](ProteinsFromVariants200ResponseInnerBiosampleTermAnyOf.md)
+[**List[OntologyTerm]**](OntologyTerm.md)
 
 ### Authorization
 
@@ -3855,7 +3723,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ontology_term_transitive_closure**
-> OntologyTermTransitiveClosure200Response ontology_term_transitive_closure(ontology_term_id_start, ontology_term_id_end)
+> OntologyTermTransitiveClosure ontology_term_transitive_closure(ontology_term_id_start, ontology_term_id_end)
 
 Retrieve all paths between two ontology terms (i.e. transitive closure).<br>   Example: ontology_term_id_start = UBERON_0003663, <br>   ontology_term_id_end = UBERON_0014892
 
@@ -3864,7 +3732,7 @@ Retrieve all paths between two ontology terms (i.e. transitive closure).<br>   E
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.ontology_term_transitive_closure200_response import OntologyTermTransitiveClosure200Response
+from igvf_catalog_client.models.ontology_term_transitive_closure import OntologyTermTransitiveClosure
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -3902,7 +3770,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OntologyTermTransitiveClosure200Response**](OntologyTermTransitiveClosure200Response.md)
+[**OntologyTermTransitiveClosure**](OntologyTermTransitiveClosure.md)
 
 ### Authorization
 
@@ -3923,7 +3791,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **pathways**
-> List[PathwaysFromGenes200ResponseInnerPathwayAnyOf] pathways(id=id, name=name, is_in_disease=is_in_disease, name_aliases=name_aliases, is_top_level_pathway=is_top_level_pathway, disease_ontology_terms=disease_ontology_terms, go_biological_process=go_biological_process, organism=organism, page=page, limit=limit)
+> List[Pathway] pathways(id=id, name=name, is_in_disease=is_in_disease, name_aliases=name_aliases, is_top_level_pathway=is_top_level_pathway, disease_ontology_terms=disease_ontology_terms, go_biological_process=go_biological_process, organism=organism, page=page, limit=limit)
 
 Retrieve pathways from Reactome.<br>   Example: id = R-HSA-164843, <br>   name = 2-LTR circle formation, <br>   is_in_disease = true. <br>   name_aliases = 2-LTR circle formation, <br>   is_top_level_pathway = true. <br>   disease_ontology_terms = DOID_526, <br>   go_biological_process = GO_0006015. <br>   The limit parameter controls the page size and can not exceed 500. <br>   Pagination is 0-based.
 
@@ -3932,7 +3800,7 @@ Retrieve pathways from Reactome.<br>   Example: id = R-HSA-164843, <br>   name =
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.pathways_from_genes200_response_inner_pathway_any_of import PathwaysFromGenes200ResponseInnerPathwayAnyOf
+from igvf_catalog_client.models.pathway import Pathway
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -3986,7 +3854,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[PathwaysFromGenes200ResponseInnerPathwayAnyOf]**](PathwaysFromGenes200ResponseInnerPathwayAnyOf.md)
+[**List[Pathway]**](Pathway.md)
 
 ### Authorization
 
@@ -4007,7 +3875,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **pathways_from_genes**
-> List[PathwaysFromGenes200ResponseInner] pathways_from_genes(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[GenesFromPathways] pathways_from_genes(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve pathways from genes.<br>   Set verbose = true to retrieve full info on the pathways and genes. <br>   At least one of these fields is required: gene_id, hgnc_id, gene_name, synonym. <br>   Example: gene_id = ENSG00000183840, <br>   hgnc_id = HGNC:4496, <br>   gene_name = GPR39, <br>   synonym = ZnR. <br>   The limit parameter controls the page size and can not exceed 500. <br>   Pagination is 0-based.
 
@@ -4016,7 +3884,7 @@ Retrieve pathways from genes.<br>   Set verbose = true to retrieve full info on 
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.pathways_from_genes200_response_inner import PathwaysFromGenes200ResponseInner
+from igvf_catalog_client.models.genes_from_pathways import GenesFromPathways
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -4066,7 +3934,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[PathwaysFromGenes200ResponseInner]**](PathwaysFromGenes200ResponseInner.md)
+[**List[GenesFromPathways]**](GenesFromPathways.md)
 
 ### Authorization
 
@@ -4087,7 +3955,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **pathways_from_pathways**
-> List[PathwaysFromPathways200ResponseInner] pathways_from_pathways(pathway_id=pathway_id, pathway_name=pathway_name, name_aliases=name_aliases, disease_ontology_terms=disease_ontology_terms, go_biological_process=go_biological_process, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[PathwaysFromPathways] pathways_from_pathways(pathway_id=pathway_id, pathway_name=pathway_name, name_aliases=name_aliases, disease_ontology_terms=disease_ontology_terms, go_biological_process=go_biological_process, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve related pathway pairs from Reactome. <br>   Set verbose = true to retrieve full info on the pathway pairs. <br>   At least one of these fields is required: pathway_id, pathway_name, or name_aliases. <br>   Example: pathway_id = R-HSA-164843, <br>   pathway_name = 2-LTR circle formation, <br>   name_aliases = 2-LTR circle formation, <br>   disease_ontology_terms = DOID_526, <br>   go_biological_process = GO_0006015. <br>   The limit parameter controls the page size and can not exceed 500. <br>   Pagination is 0-based.
 
@@ -4096,7 +3964,7 @@ Retrieve related pathway pairs from Reactome. <br>   Set verbose = true to retri
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.pathways_from_pathways200_response_inner import PathwaysFromPathways200ResponseInner
+from igvf_catalog_client.models.pathways_from_pathways import PathwaysFromPathways
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -4148,7 +4016,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[PathwaysFromPathways200ResponseInner]**](PathwaysFromPathways200ResponseInner.md)
+[**List[PathwaysFromPathways]**](PathwaysFromPathways.md)
 
 ### Authorization
 
@@ -4169,7 +4037,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **phenotypes_from_coding_variants**
-> List[PhenotypesFromCodingVariants200ResponseInner] phenotypes_from_coding_variants(coding_variant_name=coding_variant_name, hgvsp=hgvsp, uniprot_name=uniprot_name, gene_name=gene_name, amino_acid_position=amino_acid_position, transcript_id=transcript_id, method=method, files_fileset=files_fileset, page=page, limit=limit)
+> List[CodingVariantsFromPhenotypes] phenotypes_from_coding_variants(coding_variant_name=coding_variant_name, hgvsp=hgvsp, uniprot_name=uniprot_name, gene_name=gene_name, amino_acid_position=amino_acid_position, transcript_id=transcript_id, method=method, files_fileset=files_fileset, page=page, limit=limit)
 
 Retrieve phenotypes associated with the query coding variant.<br>     At least one of these fields is required: coding_variant_name, hgvsp, uniprot_name, gene_name, amino_acid_position, transcript_id, method, files_fileset. <br>     The limit parameter controls the page size and can not exceed 100. <br>     Pagination is 0-based. <br> <br>     <div class="method-examples"> <strong>Examples by method</strong> <p class="method-example-description">These examples are grouped by method; use the <code>method</code> filter to return data from a specific method.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="dual-ipa">DUAL-IPA</button> <button class="method-example-tab" data-method-example-tab="esm-1v">ESM-1v</button> <button class="method-example-tab" data-method-example-tab="mutpred2">MutPred2</button> <button class="method-example-tab" data-method-example-tab="sge">SGE</button> <button class="method-example-tab" data-method-example-tab="vamp-seq">VAMP-seq</button> <button class="method-example-tab" data-method-example-tab="variant-painting">Variant painting via fluorescence</button> </div> <div class="method-example-panel is-active" data-method-example-panel="dual-ipa"> <strong>DUAL-IPA:</strong> <div class="method-query-example"> <strong>Single result</strong>  <ul> <li>coding_variant_name = ACSF3_ENST00000317447_p.Ala17Pro_c.49G-C</li> <li>method = DUAL-IPA</li> </ul> </div> <div class="method-query-example"> <strong>Group results</strong>  <ul> <li>gene_name = ACSF3</li> <li>method = DUAL-IPA</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="esm-1v"> <strong>ESM-1v:</strong> <div class="method-query-example"> <strong>Single result</strong>  <ul> <li>coding_variant_name = A1BG_ENST00000263100_p.Ala118Asn_c.352_353delinsAA</li> <li>method = ESM-1v</li> </ul> </div> <div class="method-query-example"> <strong>Group results</strong>  <ul> <li>gene_name = A1BG</li> <li>method = ESM-1v</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="mutpred2"> <strong>MutPred2:</strong> <div class="method-query-example"> <strong>Single result</strong>  <ul> <li>coding_variant_name = A1BG_ENST00000263100_p.Ala118Arg_c.352_353delinsCG</li> <li>method = MutPred2</li> </ul> </div> <div class="method-query-example"> <strong>Group results</strong>  <ul> <li>gene_name = A1BG</li> <li>method = MutPred2</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="sge"> <strong>SGE:</strong> <div class="method-query-example"> <strong>Single result</strong>  <ul> <li>coding_variant_name = BRCA2_ENST00000380152__NC_000013.11:g.32319075A-C_splicing</li> <li>method = SGE</li> </ul> </div> <div class="method-query-example"> <strong>Group results</strong>  <ul> <li>gene_name = BRCA2</li> <li>method = SGE</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="vamp-seq"> <strong>VAMP-seq:</strong> <div class="method-query-example"> <strong>Single result</strong>  <ul> <li>coding_variant_name = CYP2C19_ENST00000371321_p.Ala103=_c.309T-G</li> <li>method = VAMP-seq</li> </ul> </div> <div class="method-query-example"> <strong>Group results</strong>  <ul> <li>gene_name = CYP2C19</li> <li>method = VAMP-seq</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="variant-painting"> <strong>Variant painting via fluorescence:</strong> <div class="method-query-example"> <strong>Single result</strong>  <ul> <li>coding_variant_name = LITAF_ENST00000622633_p.Pro135Thr_c.403C-A</li> <li>method = Variant painting via fluorescence</li> </ul> </div> <div class="method-query-example"> <strong>Group results</strong>  <ul> <li>gene_name = LITAF</li> <li>method = Variant painting via fluorescence</li> </ul> </div> </div> </div>
 
@@ -4178,7 +4046,7 @@ Retrieve phenotypes associated with the query coding variant.<br>     At least o
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.phenotypes_from_coding_variants200_response_inner import PhenotypesFromCodingVariants200ResponseInner
+from igvf_catalog_client.models.coding_variants_from_phenotypes import CodingVariantsFromPhenotypes
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -4232,7 +4100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[PhenotypesFromCodingVariants200ResponseInner]**](PhenotypesFromCodingVariants200ResponseInner.md)
+[**List[CodingVariantsFromPhenotypes]**](CodingVariantsFromPhenotypes.md)
 
 ### Authorization
 
@@ -4253,7 +4121,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **phenotypes_from_genomic_elements**
-> List[PhenotypesFromGenomicElements200ResponseInner] phenotypes_from_genomic_elements(region=region, files_fileset=files_fileset, phenotype_id=phenotype_id, phenotype_name=phenotype_name, significant=significant, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[GenomicElementsFromPhenotypes] phenotypes_from_genomic_elements(region=region, files_fileset=files_fileset, phenotype_id=phenotype_id, phenotype_name=phenotype_name, significant=significant, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve genomic element to phenotype associations by querying genomic elements.<br>     At least one of these properties must be defined: region, files_fileset, phenotype_id, or phenotype_name. <br>     Set significant = true to return only significant associations.<br>     Set verbose = true to retrieve full info on the genomic element.<br>     Example: phenotype_id = GO_0016477, <br>     phenotype_name = cell migration, <br>     significant = true, <br>     files_fileset = IGVFFI5135QZCS, <br>     region = chr1:101174581-101175330 (maximum length: 10kb). <br>     The limit parameter controls the page size and can not exceed 500. <br>     Pagination is 0-based.
 
@@ -4262,7 +4130,7 @@ Retrieve genomic element to phenotype associations by querying genomic elements.
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.phenotypes_from_genomic_elements200_response_inner import PhenotypesFromGenomicElements200ResponseInner
+from igvf_catalog_client.models.genomic_elements_from_phenotypes import GenomicElementsFromPhenotypes
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -4314,7 +4182,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[PhenotypesFromGenomicElements200ResponseInner]**](PhenotypesFromGenomicElements200ResponseInner.md)
+[**List[GenomicElementsFromPhenotypes]**](GenomicElementsFromPhenotypes.md)
 
 ### Authorization
 
@@ -4431,7 +4299,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **predictions_from_variants**
-> List[PredictionsFromVariants200ResponseInner] predictions_from_variants(spdi=spdi, hgvs=hgvs, ca_id=ca_id, variant_id=variant_id, organism=organism, files_fileset=files_fileset, method=method, limit=limit, page=page)
+> List[PredictionsFromVariants] predictions_from_variants(spdi=spdi, hgvs=hgvs, ca_id=ca_id, variant_id=variant_id, organism=organism, files_fileset=files_fileset, method=method, limit=limit, page=page)
 
 Retrieve element gene predictions associated with a given variant.<br>   At least one of these fields is required: variant_id, spdi, hgvs, rsid, ca_id, or files_filesets. <br>   Example: variant_id = NC_000001.11:976214:A:G, <br>   hgvs = NC_000001.11:g.976215A>G,<br>   spdi = NC_000001.11:976214:A:G, <br>   rsid = rs7417106, <br>   ca_id = CA507079, <br>   files_filesets = ENCFF103XRK. <br>   The limit parameter controls the page size and can not exceed 300. <br>   Pagination is 0-based.
 
@@ -4440,7 +4308,7 @@ Retrieve element gene predictions associated with a given variant.<br>   At leas
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.predictions_from_variants200_response_inner import PredictionsFromVariants200ResponseInner
+from igvf_catalog_client.models.predictions_from_variants import PredictionsFromVariants
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -4492,7 +4360,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[PredictionsFromVariants200ResponseInner]**](PredictionsFromVariants200ResponseInner.md)
+[**List[PredictionsFromVariants]**](PredictionsFromVariants.md)
 
 ### Authorization
 
@@ -4513,7 +4381,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **proteins**
-> List[ProteinsFromGenes200ResponseInnerProteinAnyOf] proteins(protein_id=protein_id, name=name, uniprot_name=uniprot_name, uniprot_full_name=uniprot_full_name, dbxrefs=dbxrefs, organism=organism, page=page, limit=limit)
+> List[Protein] proteins(protein_id=protein_id, name=name, uniprot_name=uniprot_name, uniprot_full_name=uniprot_full_name, dbxrefs=dbxrefs, organism=organism, page=page, limit=limit)
 
 Retrieve proteins.<br>   Protein IDs support the following formats: ENSP00000384707.1 or ENSP00000384707 (Ensembl IDs) or P49711-2 (Uniprot ids)<br>   Example: protein_id = ENSP00000384707, <br>   name = CTCF, <br>   uniprot_name = CTCF_HUMAN, <br>   uniprot_full_name = Transcriptional repressor CTCF, <br>   dbxrefs = P49711, <br>   organism = Homo sapiens. <br>   The limit parameter controls the page size and can not exceed 50. <br>   Pagination is 0-based.
 
@@ -4522,7 +4390,7 @@ Retrieve proteins.<br>   Protein IDs support the following formats: ENSP00000384
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.proteins_from_genes200_response_inner_protein_any_of import ProteinsFromGenes200ResponseInnerProteinAnyOf
+from igvf_catalog_client.models.protein import Protein
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -4572,7 +4440,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[ProteinsFromGenes200ResponseInnerProteinAnyOf]**](ProteinsFromGenes200ResponseInnerProteinAnyOf.md)
+[**List[Protein]**](Protein.md)
 
 ### Authorization
 
@@ -4593,7 +4461,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **proteins_from_complexes**
-> List[ComplexesFromProteins200ResponseInner] proteins_from_complexes(complex_id=complex_id, complex_name=complex_name, description=description, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[ComplexesFromProteins] proteins_from_complexes(complex_id=complex_id, complex_name=complex_name, description=description, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve protein participants for complexes. Each record includes complex and protein.<br>   Set verbose = true to retrieve full info on the complex and protein.<br>   Example: complex_id = CPX-9, <br>   complex_name = SMAD2, <br>   description = phosphorylation.<br>   The limit parameter controls the page size and can not exceed 50. <br>   Pagination is 0-based.
 
@@ -4602,7 +4470,7 @@ Retrieve protein participants for complexes. Each record includes complex and pr
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.complexes_from_proteins200_response_inner import ComplexesFromProteins200ResponseInner
+from igvf_catalog_client.models.complexes_from_proteins import ComplexesFromProteins
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -4650,7 +4518,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[ComplexesFromProteins200ResponseInner]**](ComplexesFromProteins200ResponseInner.md)
+[**List[ComplexesFromProteins]**](ComplexesFromProteins.md)
 
 ### Authorization
 
@@ -4671,7 +4539,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **proteins_from_genes**
-> List[ProteinsFromGenes200ResponseInner] proteins_from_genes(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[GenesFromProteins] proteins_from_genes(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve proteins from genes.<br>   Set verbose = true to retrieve full info on the proteins. <br>   At least one of these fields is required: gene_id, hgnc_id, gene_name, synonym. <br>   Example: gene_name = ATF3, <br>   synonym = CKLF, <br>   gene_id = ENSG00000170558 (Ensembl ID), <br>   hgnc_id = HGNC:13723. <br>   The limit parameter controls the page size and can not exceed 100. <br>   Pagination is 0-based.
 
@@ -4680,7 +4548,7 @@ Retrieve proteins from genes.<br>   Set verbose = true to retrieve full info on 
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.proteins_from_genes200_response_inner import ProteinsFromGenes200ResponseInner
+from igvf_catalog_client.models.genes_from_proteins import GenesFromProteins
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -4730,7 +4598,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[ProteinsFromGenes200ResponseInner]**](ProteinsFromGenes200ResponseInner.md)
+[**List[GenesFromProteins]**](GenesFromProteins.md)
 
 ### Authorization
 
@@ -4751,7 +4619,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **proteins_from_motifs**
-> List[MotifsFromProteins200ResponseInner] proteins_from_motifs(tf_name=tf_name, source=source, files_fileset=files_fileset, method=method, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[MotifsFromProteins] proteins_from_motifs(tf_name=tf_name, source=source, files_fileset=files_fileset, method=method, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve proteins and complexes for motifs.<br>     Set verbose = true to retrieve full info on the proteins and complexes.<br>     method can be either HOCOMOCO or SEMpl; if not provided, both methods are searched. <br>     The limit parameter controls the page size and can not exceed 1000. <br>     Pagination is 0-based. <br>     <div class="method-examples"> <strong>Examples by method</strong> <p class="method-example-description">These examples are grouped by method; use the <code>method</code> filter to return data from a specific method.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="hocomoco">HOCOMOCO</button> <button class="method-example-tab" data-method-example-tab="sempl">SEMpl</button> </div> <div class="method-example-panel is-active" data-method-example-panel="hocomoco"> <strong>HOCOMOCO:</strong> <div class="method-query-example"> <strong>query by tf_name</strong>  <ul> <li>tf_name = ATF1_HUMAN</li> <li>source = HOCOMOCOv11</li> <li>method = HOCOMOCO</li> </ul> </div> <div class="method-query-example"> <strong>query by files_fileset</strong> <p class="method-query-example-note">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI1626MMBD</li> <li>method = HOCOMOCO</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="sempl"> <strong>SEMpl:</strong> <div class="method-query-example"> <strong>query by tf_name</strong>  <ul> <li>tf_name = AHR</li> <li>method = SEMpl</li> </ul> </div> <div class="method-query-example"> <strong>query by files_fileset</strong> <p class="method-query-example-note">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI5279OTVZ</li> <li>method = SEMpl</li> </ul> </div> </div> </div>
 
@@ -4760,7 +4628,7 @@ Retrieve proteins and complexes for motifs.<br>     Set verbose = true to retrie
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.motifs_from_proteins200_response_inner import MotifsFromProteins200ResponseInner
+from igvf_catalog_client.models.motifs_from_proteins import MotifsFromProteins
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -4810,7 +4678,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[MotifsFromProteins200ResponseInner]**](MotifsFromProteins200ResponseInner.md)
+[**List[MotifsFromProteins]**](MotifsFromProteins.md)
 
 ### Authorization
 
@@ -4831,7 +4699,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **proteins_from_transcripts**
-> List[ProteinsFromTranscripts200ResponseInner] proteins_from_transcripts(transcript_id=transcript_id, region=region, transcript_type=transcript_type, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[ProteinsFromTranscripts] proteins_from_transcripts(transcript_id=transcript_id, region=region, transcript_type=transcript_type, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve proteins from transcripts.<br>     Set verbose = true to retrieve full info on the proteins.<br>     At least one of these fields is required: transcript_id, region or transcript_type. <br>     Example: transcript_id = ENST00000264010, <br>     region = chr16:67562500-67640000, <br>     transcript_type = protein_coding, <br>     organism = Homo sapiens, <br>     transcript_id = ENST00000401394 (Ensembl ID). <br>     The limit parameter controls the page size and can not exceed 100. <br>     Pagination is 0-based.
 
@@ -4840,7 +4708,7 @@ Retrieve proteins from transcripts.<br>     Set verbose = true to retrieve full 
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.proteins_from_transcripts200_response_inner import ProteinsFromTranscripts200ResponseInner
+from igvf_catalog_client.models.proteins_from_transcripts import ProteinsFromTranscripts
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -4888,7 +4756,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[ProteinsFromTranscripts200ResponseInner]**](ProteinsFromTranscripts200ResponseInner.md)
+[**List[ProteinsFromTranscripts]**](ProteinsFromTranscripts.md)
 
 ### Authorization
 
@@ -4909,7 +4777,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **proteins_from_variants**
-> List[ProteinsFromVariants200ResponseInner] proteins_from_variants(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region, label=label, source=source, method=method, files_fileset=files_fileset, name=name, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[ProteinsFromVariants] proteins_from_variants(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region, label=label, source=source, method=method, files_fileset=files_fileset, name=name, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve allele-specific transcription factor binding events from ADASTRA in cell type-specific context, <br>     allele-specific transcription factor binding events from GVATdb, pQTL from UKB by querying variants, and predicted allele specific binding from SEMpl.<br>     Set verbose = true to retrieve full info on the variant-transcription factor pairs, and ontology terms of the cell types.<br>     At least one of these fields is required: variant_id, spdi, hgvs, rsid, ca_id, region, method, or files_fileset. <br>     The limit parameter controls the page size and can not exceed 100. <br>     Pagination is 0-based. <br> <br>     <div class="method-examples"> <strong>Examples by method</strong> <p class="method-example-description">These examples are grouped by method; use the <code>method</code> filter to return data from a specific method.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="adastra">ADASTRA</button> <button class="method-example-tab" data-method-example-tab="gvatdb">GVATdb</button> <button class="method-example-tab" data-method-example-tab="semvar">SEMVAR</button> <button class="method-example-tab" data-method-example-tab="pqtl">pQTL</button> </div> <div class="method-example-panel is-active" data-method-example-panel="adastra"> <strong>ADASTRA:</strong> <div class="method-query-example"> <strong>query by variant identifier</strong>  <ul> <li>variant_id = NC_000005.10:59317579:G:T</li> <li>method = ADASTRA</li> </ul> </div> <div class="method-query-example"> <strong>query by region</strong>  <ul> <li>region = chr5:150575301-150575304</li> <li>method = ADASTRA</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="gvatdb"> <strong>GVATdb:</strong> <div class="method-query-example"> <strong>query by variant identifier</strong>  <ul> <li>variant_id = NC_000010.11:112626979:C:T</li> <li>method = GVATdb</li> </ul> </div> <div class="method-query-example"> <strong>query by region</strong>  <ul> <li>region = chr10:112626978-112626982</li> <li>method = GVATdb</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="semvar"> <strong>SEMVAR:</strong> <div class="method-query-example"> <strong>query by variant identifier</strong>  <ul> <li>spdi = NC_000001.11:100091094:A:C</li> <li>method = SEMVAR</li> </ul> </div> <div class="method-query-example"> <strong>query by region</strong>  <ul> <li>region = chr1:100091093-100091097</li> <li>method = SEMVAR</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="pqtl"> <strong>pQTL:</strong> <div class="method-query-example"> <strong>query by variant identifier</strong>  <ul> <li>spdi = NC_000002.12:27508072:T:C</li> <li>method = pQTL</li> </ul> </div> <div class="method-query-example"> <strong>query by region</strong>  <ul> <li>region = chr2:27508070-27508074</li> <li>method = pQTL</li> </ul> </div> </div> </div>
 
@@ -4918,7 +4786,7 @@ Retrieve allele-specific transcription factor binding events from ADASTRA in cel
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.proteins_from_variants200_response_inner import ProteinsFromVariants200ResponseInner
+from igvf_catalog_client.models.proteins_from_variants import ProteinsFromVariants
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -4982,7 +4850,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[ProteinsFromVariants200ResponseInner]**](ProteinsFromVariants200ResponseInner.md)
+[**List[ProteinsFromVariants]**](ProteinsFromVariants.md)
 
 ### Authorization
 
@@ -5003,7 +4871,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **proteins_proteins**
-> List[ProteinsProteins200ResponseInner] proteins_proteins(protein_id=protein_id, protein_name=protein_name, uniprot_name=uniprot_name, uniprot_full_name=uniprot_full_name, dbxrefs=dbxrefs, associated_protein_id=associated_protein_id, associated_protein_name=associated_protein_name, associated_uniprot_name=associated_uniprot_name, associated_uniprot_full_name=associated_uniprot_full_name, associated_dbxrefs=associated_dbxrefs, pmid=pmid, detection_method=detection_method, interaction_type=interaction_type, label=label, method=method, source=source, files_fileset=files_fileset, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[ProteinsProteins] proteins_proteins(protein_id=protein_id, protein_name=protein_name, uniprot_name=uniprot_name, uniprot_full_name=uniprot_full_name, dbxrefs=dbxrefs, associated_protein_id=associated_protein_id, associated_protein_name=associated_protein_name, associated_uniprot_name=associated_uniprot_name, associated_uniprot_full_name=associated_uniprot_full_name, associated_dbxrefs=associated_dbxrefs, pmid=pmid, detection_method=detection_method, interaction_type=interaction_type, label=label, method=method, source=source, files_fileset=files_fileset, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve protein-protein interactions.<br>   Set verbose = true to retrieve full info on the proteins. <br>   Protein IDs support the following formats: ENSP00000384707.1 or ENSP00000384707 (Ensembl IDs) or P49711-2 (Uniprot ids)<br>   Example: protein_id = ENSP00000384707.1, <br>   protein_name = CTCF, <br>   uniprot_name = CTCF_HUMAN, <br>   uniprot_full_name = Transcriptional repressor CTCF, <br>   dbxrefs = P49711, <br>   detection_method = affinity chromatography technology, <br>   interaction_type = physical association, <br>   pmid = 28514442, <br>   associated_protein_id = ENSP00000428899, <br>   associated_protein_name = TNPO1, <br>   associated_uniprot_name = TNPO1_HUMAN, <br>   associated_uniprot_full_name = Transportin-1, <br>   associated_dbxrefs = DIP-29335N, <br>   label = affinity chromatography technology, <br>   method = physical association, <br>   source = BioGRID, <br>   files_fileset = IGVFFI4317VDGK, <br>   organism = Homo sapiens. <br>   The limit parameter controls the page size and can not exceed 250. <br>   Pagination is 0-based.
 
@@ -5012,7 +4880,7 @@ Retrieve protein-protein interactions.<br>   Set verbose = true to retrieve full
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.proteins_proteins200_response_inner import ProteinsProteins200ResponseInner
+from igvf_catalog_client.models.proteins_proteins import ProteinsProteins
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -5088,7 +4956,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[ProteinsProteins200ResponseInner]**](ProteinsProteins200ResponseInner.md)
+[**List[ProteinsProteins]**](ProteinsProteins.md)
 
 ### Authorization
 
@@ -5109,7 +4977,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **qtl_summary_endpoint**
-> List[QtlSummaryEndpoint200ResponseInner] qtl_summary_endpoint(spdi=spdi, hgvs=hgvs, ca_id=ca_id, variant_id=variant_id, organism=organism, page=page, limit=limit, files_fileset=files_fileset)
+> List[QtlSummaryEndpoint] qtl_summary_endpoint(spdi=spdi, hgvs=hgvs, ca_id=ca_id, variant_id=variant_id, organism=organism, page=page, limit=limit, files_fileset=files_fileset)
 
 Retrieve a summary of associated genes from GTEx eQTLs & splice QTLs by internal variant ids.<br>     Example: <br>     variant_id = NC_000001.11:40242002:G:A,<br>     spdi = NC_000001.11:40242002:G:A,<br>     hgvs = NC_000001.11:g.40242003G>A,<br>     ca_id = CA16051554,<br>     files_fileset = IGVFFI9602ILPC.
 
@@ -5118,7 +4986,7 @@ Retrieve a summary of associated genes from GTEx eQTLs & splice QTLs by internal
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.qtl_summary_endpoint200_response_inner import QtlSummaryEndpoint200ResponseInner
+from igvf_catalog_client.models.qtl_summary_endpoint import QtlSummaryEndpoint
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -5168,7 +5036,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[QtlSummaryEndpoint200ResponseInner]**](QtlSummaryEndpoint200ResponseInner.md)
+[**List[QtlSummaryEndpoint]**](QtlSummaryEndpoint.md)
 
 ### Authorization
 
@@ -5189,7 +5057,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **qtls**
-> List[Qtls200ResponseInner] qtls(gene_id=gene_id, gene_name=gene_name, variant_id=variant_id, spdi=spdi, rsid=rsid, ca_id=ca_id, region=region, biological_context=biological_context, method=method, source=source, organism=organism, page=page, limit=limit)
+> List[Qtls] qtls(gene_id=gene_id, gene_name=gene_name, variant_id=variant_id, spdi=spdi, rsid=rsid, ca_id=ca_id, region=region, biological_context=biological_context, method=method, source=source, organism=organism, page=page, limit=limit)
 
 Retrieve QTLs from gene, variant, or region.<br>     Define exactly one query type: gene (gene_id or gene_name), variant (variant_id, spdi, rsid, or ca_id), or region.<br>     The limit parameter controls the page size and can not exceed 100. <br>     Pagination is 0-based. <br> <br>     <div class="method-examples"> <strong>Examples by method</strong> <p class="method-example-description">These examples are grouped by method; use the <code>method</code> filter to return data from a specific method.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="eqtl">eQTL</button> <button class="method-example-tab" data-method-example-tab="spliceqtl">spliceQTL</button> <button class="method-example-tab" data-method-example-tab="pqtl">pQTL</button> <button class="method-example-tab" data-method-example-tab="caqtl">caQTL</button> </div> <div class="method-example-panel is-active" data-method-example-panel="eqtl"> <strong>eQTL:</strong> <div class="method-query-example"> <strong>Single result</strong>  <ul> <li>spdi = NC_000001.11:40241653:TGAA:TGAAATTGAA</li> <li>method = eQTL</li> </ul> </div> <div class="method-query-example"> <strong>Group results</strong>  <ul> <li>gene_id = ENSG00000259943</li> <li>method = eQTL</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="spliceqtl"> <strong>spliceQTL:</strong> <div class="method-query-example"> <strong>query by variant identifier</strong>  <ul> <li>variant_id = NC_000001.11:898757:AAAAAA:AAAAAAA</li> <li>method = spliceQTL</li> </ul> </div> <div class="method-query-example"> <strong>query by gene identifier</strong>  <ul> <li>gene_id = ENSG00000131236</li> <li>method = spliceQTL</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="pqtl"> <strong>pQTL:</strong> <div class="method-query-example"> <strong>query by variant identifier</strong>  <ul> <li>variant_id = NC_000002.12:27508072:T:C</li> <li>method = pQTL</li> </ul> </div> <div class="method-query-example"> <strong>query by gene identifier</strong>  <ul> <li>gene_id = ENSG00000084734</li> <li>method = pQTL</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="caqtl"> <strong>caQTL:</strong> <div class="method-query-example"> <strong>Single result</strong>  <ul> <li>variant_id = NC_000001.11:40241653:TGAA:TGAAATTGAA</li> <li>method = caQTL</li> </ul> </div> <div class="method-query-example"> <strong>Group results</strong>  <ul> <li>region = chr1:40232650-40241654</li> <li>method = caQTL</li> </ul> </div> </div> </div>
 
@@ -5198,7 +5066,7 @@ Retrieve QTLs from gene, variant, or region.<br>     Define exactly one query ty
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.qtls200_response_inner import Qtls200ResponseInner
+from igvf_catalog_client.models.qtls import Qtls
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -5258,7 +5126,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[Qtls200ResponseInner]**](Qtls200ResponseInner.md)
+[**List[Qtls]**](Qtls.md)
 
 ### Authorization
 
@@ -5279,7 +5147,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **studies**
-> List[GenesFromVariants200ResponseInnerStudyAnyOf] studies(study_id=study_id, pmid=pmid, files_fileset=files_fileset, page=page)
+> List[Study] studies(study_id=study_id, pmid=pmid, files_fileset=files_fileset, page=page)
 
 Retrieve studies from GWAS. <br>   Example: study_id = GCST007798, <br>   pmid = 30929738, <br>   files_fileset = IGVFFI1309WDQG. <br>   Pagination is 0-based.
 
@@ -5288,7 +5156,7 @@ Retrieve studies from GWAS. <br>   Example: study_id = GCST007798, <br>   pmid =
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.genes_from_variants200_response_inner_study_any_of import GenesFromVariants200ResponseInnerStudyAnyOf
+from igvf_catalog_client.models.study import Study
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -5330,7 +5198,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[GenesFromVariants200ResponseInnerStudyAnyOf]**](GenesFromVariants200ResponseInnerStudyAnyOf.md)
+[**List[Study]**](Study.md)
 
 ### Authorization
 
@@ -5351,7 +5219,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **transcripts**
-> List[TranscriptsFromGenes200ResponseInnerTranscriptAnyOf] transcripts(transcript_id=transcript_id, region=region, transcript_type=transcript_type, organism=organism, page=page, limit=limit)
+> List[Transcript] transcripts(transcript_id=transcript_id, region=region, transcript_type=transcript_type, organism=organism, page=page, limit=limit)
 
 Retrieve transcripts. <br>   Example: region = chr20:9537369-9839076, <br>   transcript_type = protein_coding, <br>   transcript_id = ENST00000443707 (Ensembl ids), <br>   organism = Homo sapiens. <br>   The limit parameter controls the page size and can not exceed 500. <br>   Pagination is 0-based.
 
@@ -5360,7 +5228,7 @@ Retrieve transcripts. <br>   Example: region = chr20:9537369-9839076, <br>   tra
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.transcripts_from_genes200_response_inner_transcript_any_of import TranscriptsFromGenes200ResponseInnerTranscriptAnyOf
+from igvf_catalog_client.models.transcript import Transcript
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -5406,7 +5274,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[TranscriptsFromGenes200ResponseInnerTranscriptAnyOf]**](TranscriptsFromGenes200ResponseInnerTranscriptAnyOf.md)
+[**List[Transcript]**](Transcript.md)
 
 ### Authorization
 
@@ -5427,7 +5295,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **transcripts_from_genes**
-> List[TranscriptsFromGenes200ResponseInner] transcripts_from_genes(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[GenesFromTranscripts] transcripts_from_genes(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve transcripts from genes.<br>     Set verbose = true to retrieve full info on the transcripts.<br>     At least one of these fields is required: gene_id, hgnc_id, gene_name, synonym. <br>     Example: gene_name = ATF3, <br>     hgnc_id = HGNC:28208, <br>     synonym = CKLF, <br>     organism = Homo sapiens, <br>     gene_id = ENSG00000187642 (Ensembl ids). <br>     The limit parameter controls the page size and can not exceed 100. <br>     Pagination is 0-based.
 
@@ -5436,7 +5304,7 @@ Retrieve transcripts from genes.<br>     Set verbose = true to retrieve full inf
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.transcripts_from_genes200_response_inner import TranscriptsFromGenes200ResponseInner
+from igvf_catalog_client.models.genes_from_transcripts import GenesFromTranscripts
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -5486,7 +5354,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[TranscriptsFromGenes200ResponseInner]**](TranscriptsFromGenes200ResponseInner.md)
+[**List[GenesFromTranscripts]**](GenesFromTranscripts.md)
 
 ### Authorization
 
@@ -5507,7 +5375,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **transcripts_from_proteins**
-> List[ProteinsFromTranscripts200ResponseInner] transcripts_from_proteins(protein_id=protein_id, protein_name=protein_name, uniprot_name=uniprot_name, uniprot_full_name=uniprot_full_name, dbxrefs=dbxrefs, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[ProteinsFromTranscripts] transcripts_from_proteins(protein_id=protein_id, protein_name=protein_name, uniprot_name=uniprot_name, uniprot_full_name=uniprot_full_name, dbxrefs=dbxrefs, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve transcripts from proteins.<br>     Set verbose = true to retrieve full info on the transcripts.<br>     Protein IDs support the following formats: ENSP00000384707.1 or ENSP00000384707 (Ensembl IDs) or P49711-2 (Uniprot ids)<br>     Example: protein_name = CTCF, <br>     uniprot_name = CTCF_HUMAN, <br>     uniprot_full_name = Transcriptional repressor CTCF, <br>     dbxrefs = P49711, <br>     protein_id = ENSP00000384707, <br>     organism = Homo sapiens. <br>     The limit parameter controls the page size and can not exceed 100. <br>     Pagination is 0-based.
 
@@ -5516,7 +5384,7 @@ Retrieve transcripts from proteins.<br>     Set verbose = true to retrieve full 
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.proteins_from_transcripts200_response_inner import ProteinsFromTranscripts200ResponseInner
+from igvf_catalog_client.models.proteins_from_transcripts import ProteinsFromTranscripts
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -5568,7 +5436,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[ProteinsFromTranscripts200ResponseInner]**](ProteinsFromTranscripts200ResponseInner.md)
+[**List[ProteinsFromTranscripts]**](ProteinsFromTranscripts.md)
 
 ### Authorization
 
@@ -5589,7 +5457,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **variant_by_frequency_source**
-> List[Variants200ResponseInner] variant_by_frequency_source(source, spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, region=region, gencode_category=gencode_category, minimum_af=minimum_af, maximum_af=maximum_af, organism=organism, page=page, limit=limit)
+> List[SequenceVariant] variant_by_frequency_source(source, spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, region=region, gencode_category=gencode_category, minimum_af=minimum_af, maximum_af=maximum_af, organism=organism, page=page, limit=limit)
 
 Retrieve genetic variants within a genomic region by frequencies.<br>   Source is required. <br>    Example: region = chr3:186741137-186742238 (maximum length: 10kb), <br>    source = bravo_af, <br>    GENCODE_category = coding (or noncoding), <br>    spdi = NC_000003.12:186741142:G:A, <br>    hgvs = NC_000003.12:g.186741143G>A, <br>    rsid = rs1720801112, <br>    ca_id = CA739473472, <br>    minimum_af: 0, <br>    maximum_af:0.8. <br>    Pagination is 0-based.
 
@@ -5598,7 +5466,7 @@ Retrieve genetic variants within a genomic region by frequencies.<br>   Source i
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.variants200_response_inner import Variants200ResponseInner
+from igvf_catalog_client.models.sequence_variant import SequenceVariant
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -5656,7 +5524,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[Variants200ResponseInner]**](Variants200ResponseInner.md)
+[**List[SequenceVariant]**](SequenceVariant.md)
 
 ### Authorization
 
@@ -5677,7 +5545,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **variant_summary**
-> VariantSummary200Response variant_summary(spdi=spdi, hgvs=hgvs, ca_id=ca_id, variant_id=variant_id, organism=organism)
+> VariantSummary variant_summary(spdi=spdi, hgvs=hgvs, ca_id=ca_id, variant_id=variant_id, organism=organism)
 
 Retrieve genetic variants summary.<br>    Example: variant_id = NC_000020.11:3658947:A:G, <br>    spdi = NC_000020.11:3658947:A:G, <br>    hgvs = NC_000020.11:g.3658948A>G. <br>    ca_id = CA739473472
 
@@ -5686,7 +5554,7 @@ Retrieve genetic variants summary.<br>    Example: variant_id = NC_000020.11:365
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.variant_summary200_response import VariantSummary200Response
+from igvf_catalog_client.models.variant_summary import VariantSummary
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -5730,7 +5598,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VariantSummary200Response**](VariantSummary200Response.md)
+[**VariantSummary**](VariantSummary.md)
 
 ### Authorization
 
@@ -5751,7 +5619,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **variants**
-> List[Variants200ResponseInner] variants(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region, gencode_category=gencode_category, mouse_strain=mouse_strain, organism=organism, page=page, limit=limit)
+> List[SequenceVariant] variants(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region, gencode_category=gencode_category, mouse_strain=mouse_strain, organism=organism, page=page, limit=limit)
 
 Retrieve genetic variants.<br>   Example: organism = Homo sapiens or Mus musculus.<br>   mouse_strain = CAST_EiJ (only for mouse variants). <br>   The examples below are specific to Homo sapiens: <br>   region = chr1:1157520-1158189 (maximum length: 10kb), <br>   GENCODE_category = coding or noncoding (only for human variants), <br>   rsid = rs58658771,  <br>   spdi = NC_000020.11:3658947:A:G, <br>   hgvs = NC_000020.11:g.3658948A>G, <br>   ca_id = CA739473472, <br>   variant_id = NC_000020.11:3658947:A:G. <br>   The limit parameter controls the page size and can not exceed 500. <br>   Pagination is 0-based.
 
@@ -5760,7 +5628,7 @@ Retrieve genetic variants.<br>   Example: organism = Homo sapiens or Mus musculu
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.variants200_response_inner import Variants200ResponseInner
+from igvf_catalog_client.models.sequence_variant import SequenceVariant
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -5816,7 +5684,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[Variants200ResponseInner]**](Variants200ResponseInner.md)
+[**List[SequenceVariant]**](SequenceVariant.md)
 
 ### Authorization
 
@@ -5903,7 +5771,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **variants_from_biosamples**
-> List[BiosamplesFromVariants200ResponseInner] variants_from_biosamples(biosample_id=biosample_id, biosample_name=biosample_name, files_fileset=files_fileset, method=method, element_id=element_id, significant=significant, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[BiosamplesFromVariants] variants_from_biosamples(biosample_id=biosample_id, biosample_name=biosample_name, files_fileset=files_fileset, method=method, element_id=element_id, significant=significant, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve data from STARR-seq, BlueSTARR, and MPRA for a given biosample.<br>     At least one of these fields is required: biosample_id or biosample_name. <br>     The limit parameter controls the page size and can not exceed 100. <br>     Pagination is 0-based. <br> <br>     <div class="method-examples"> <strong>Examples by method</strong> <p class="method-example-description">These examples are grouped by method; use the <code>method</code> filter to return data from a specific method.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="mpra">MPRA</button> <button class="method-example-tab" data-method-example-tab="starr-seq">STARR-seq</button> <button class="method-example-tab" data-method-example-tab="bluestarr">BlueSTARR</button> </div> <div class="method-example-panel is-active" data-method-example-panel="mpra"> <strong>MPRA:</strong> <div class="method-query-example"> <strong>query by biosample identifier</strong>  <ul> <li>biosample_id = EFO_0001182</li> <li>method = MPRA</li> <li>element_id = MPRA_chr1_1000079_1000279_GRCh38_plus_IGVFFI7321WGMD</li> <li>significant = true</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="starr-seq"> <strong>STARR-seq:</strong> <div class="method-query-example"> <strong>query by biosample identifier</strong>  <ul> <li>biosample_id = EFO_0002067</li> <li>method = STARR-seq</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="bluestarr"> <strong>BlueSTARR:</strong> <div class="method-query-example"> <strong>query by biosample identifier</strong>  <ul> <li>biosample_id = EFO_0002067</li> <li>method = BlueSTARR</li> </ul> </div> </div> </div>
 
@@ -5912,7 +5780,7 @@ Retrieve data from STARR-seq, BlueSTARR, and MPRA for a given biosample.<br>    
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.biosamples_from_variants200_response_inner import BiosamplesFromVariants200ResponseInner
+from igvf_catalog_client.models.biosamples_from_variants import BiosamplesFromVariants
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -5966,7 +5834,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[BiosamplesFromVariants200ResponseInner]**](BiosamplesFromVariants200ResponseInner.md)
+[**List[BiosamplesFromVariants]**](BiosamplesFromVariants.md)
 
 ### Authorization
 
@@ -5987,7 +5855,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **variants_from_coding_variants**
-> List[VariantsFromCodingVariants200ResponseInner] variants_from_coding_variants(coding_variant_name=coding_variant_name, hgvsp=hgvsp, protein_id=protein_id, uniprot_name=uniprot_name, gene_name=gene_name, amino_acid_position=amino_acid_position, alt_amino_acid=alt_amino_acid, transcript_id=transcript_id, page=page, limit=limit)
+> List[VariantBasic] variants_from_coding_variants(coding_variant_name=coding_variant_name, hgvsp=hgvsp, protein_id=protein_id, uniprot_name=uniprot_name, gene_name=gene_name, amino_acid_position=amino_acid_position, alt_amino_acid=alt_amino_acid, transcript_id=transcript_id, page=page, limit=limit)
 
 Retrieve variants associated with a coding variant.<br>     alt_amino_acid filters by the alternate amino acid at the given position (single-letter code, use * for stop codon). <br>     Example: coding_variant_name = SAMD7_ENST00000335556_p.Gly253Asp_c.758_759delinsAC, <br>     hgvsp = p.Gly253Asp, <br>     gene_name = SAMD7, <br>     protein_id = ENSP00000334668, <br>     uniprot_name = SAMD7_HUMAN, <br>     transcript_id = ENST00000335556, <br>     amino_acid_position = 253, <br>     alt_amino_acid = D, <br>     The limit parameter controls the page size and can not exceed 500. <br>     Pagination is 0-based.
 
@@ -5996,7 +5864,7 @@ Retrieve variants associated with a coding variant.<br>     alt_amino_acid filte
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.variants_from_coding_variants200_response_inner import VariantsFromCodingVariants200ResponseInner
+from igvf_catalog_client.models.variant_basic import VariantBasic
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -6050,7 +5918,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[VariantsFromCodingVariants200ResponseInner]**](VariantsFromCodingVariants200ResponseInner.md)
+[**List[VariantBasic]**](VariantBasic.md)
 
 ### Authorization
 
@@ -6071,7 +5939,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **variants_from_diseases**
-> List[DiseaseFromVariants200ResponseInner] variants_from_diseases(disease_id=disease_id, disease_name=disease_name, assertion=assertion, pmid=pmid, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[DiseaseFromVariants] variants_from_diseases(disease_id=disease_id, disease_name=disease_name, assertion=assertion, pmid=pmid, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve variants and genes associated with the query disease from ClinGen. <br>   Either disease_id or disease_name is required. <br>   Example: disease_id = MONDO_0009861, <br>   disease_name = phenylketonuria, <br>   assertion = Pathogenic, <br>   pmid = 2574002. <br>   The limit parameter controls the page size and can not exceed 100. <br>   Pagination is 0-based.
 
@@ -6080,7 +5948,7 @@ Retrieve variants and genes associated with the query disease from ClinGen. <br>
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.disease_from_variants200_response_inner import DiseaseFromVariants200ResponseInner
+from igvf_catalog_client.models.disease_from_variants import DiseaseFromVariants
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -6130,7 +5998,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[DiseaseFromVariants200ResponseInner]**](DiseaseFromVariants200ResponseInner.md)
+[**List[DiseaseFromVariants]**](DiseaseFromVariants.md)
 
 ### Authorization
 
@@ -6151,7 +6019,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **variants_from_drugs**
-> List[VariantsFromDrugs200ResponseInner] variants_from_drugs(drug_id=drug_id, drug_name=drug_name, phenotype_categories=phenotype_categories, pmid=pmid, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[VariantsFromDrugs] variants_from_drugs(drug_id=drug_id, drug_name=drug_name, phenotype_categories=phenotype_categories, pmid=pmid, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve variants associated with the query drugs from pharmGKB.<br>   Set verbose = true to retrieve full info on the variants. <br>   Either drug_id or drug_name is required. <br>   Example: drug_id = PA448497, <br>   drug_name = aspirin, <br>   pmid = 20824505, <br>   phenotype_categories = Toxicity. <br>   The limit parameter controls the page size and can not exceed 100. <br>   Pagination is 0-based.
 
@@ -6160,7 +6028,7 @@ Retrieve variants associated with the query drugs from pharmGKB.<br>   Set verbo
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.variants_from_drugs200_response_inner import VariantsFromDrugs200ResponseInner
+from igvf_catalog_client.models.variants_from_drugs import VariantsFromDrugs
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -6210,7 +6078,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[VariantsFromDrugs200ResponseInner]**](VariantsFromDrugs200ResponseInner.md)
+[**List[VariantsFromDrugs]**](VariantsFromDrugs.md)
 
 ### Authorization
 
@@ -6231,7 +6099,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **variants_from_gene_proteins**
-> List[GenesProteinsFromVariants200ResponseInner] variants_from_gene_proteins(query, page=page, limit=limit)
+> List[GenesProteinsFromVariants] variants_from_gene_proteins(query, page=page, limit=limit)
 
 Retrieve variants associated with genes or proteins that match a query. <br>   Example: query = ATF1.<br>   The limit parameter controls the page size and can not exceed 100. <br>   Pagination is 0-based.
 
@@ -6240,7 +6108,7 @@ Retrieve variants associated with genes or proteins that match a query. <br>   E
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.genes_proteins_from_variants200_response_inner import GenesProteinsFromVariants200ResponseInner
+from igvf_catalog_client.models.genes_proteins_from_variants import GenesProteinsFromVariants
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -6280,7 +6148,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[GenesProteinsFromVariants200ResponseInner]**](GenesProteinsFromVariants200ResponseInner.md)
+[**List[GenesProteinsFromVariants]**](GenesProteinsFromVariants.md)
 
 ### Authorization
 
@@ -6301,7 +6169,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **variants_from_genes**
-> List[GenesFromVariants200ResponseInner] variants_from_genes(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, neg_log10_pvalue=neg_log10_pvalue, effect_size=effect_size, posterior_inclusion_probability=posterior_inclusion_probability, log2_fc=log2_fc, significant=significant, biosample_term=biosample_term, biological_context=biological_context, label=label, method=method, files_fileset=files_fileset, source=source, name=name, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[GenesFromVariants] variants_from_genes(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, neg_log10_pvalue=neg_log10_pvalue, effect_size=effect_size, posterior_inclusion_probability=posterior_inclusion_probability, log2_fc=log2_fc, significant=significant, biosample_term=biosample_term, biological_context=biological_context, label=label, method=method, files_fileset=files_fileset, source=source, name=name, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve variant-gene pairs including eQTLs & splice QTLs from AFGR and eQTL Catalogue, and CRISPR screen and Variant-EFFECTS from IGVF, by Ensembl gene ids.<br>     The following parameters can be used to set thresholds on -log10 p_value: gt (>), gte (>=), lt (<), lte (<=).<br>     Set verbose = true to retrieve full info on the corresponding variants and genes.<br>     At least one of these properties must be defined: gene_id, hgnc_id, gene_name, region, synonym, method, or files_fileset. <br>     The limit parameter controls the page size and can not exceed 500. <br>     Pagination is 0-based. <br> <br>     <div class="method-examples"> <strong>Examples by method</strong> <p class="method-example-description">These examples are grouped by method; use the <code>method</code> filter to return data from a specific method.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="eqtl">eQTL</button> <button class="method-example-tab" data-method-example-tab="spliceqtl">spliceQTL</button> <button class="method-example-tab" data-method-example-tab="variant-effects">Variant-EFFECTS</button> <button class="method-example-tab" data-method-example-tab="crispr-screen">CRISPR screen</button> </div> <div class="method-example-panel is-active" data-method-example-panel="eqtl"> <strong>eQTL:</strong> <div class="method-query-example"> <strong>Single result</strong>  <ul> <li>gene_id = ENSG00000187642</li> <li>neg_log10_pvalue = gte:24.5</li> <li>method = eQTL</li> </ul> </div> <div class="method-query-example"> <strong>Group results</strong>  <ul> <li>synonym = PERM1</li> <li>method = eQTL</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="spliceqtl"> <strong>spliceQTL:</strong> <div class="method-query-example"> <strong>Single result</strong>  <ul> <li>gene_id = ENSG00000188976</li> <li>neg_log10_pvalue = gt:45</li> <li>effect_size = gt:0.5</li> <li>method = spliceQTL</li> </ul> </div> <div class="method-query-example"> <strong>Group results</strong>  <ul> <li>synonym = NOC2L</li> <li>method = spliceQTL</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="variant-effects"> <strong>Variant-EFFECTS:</strong> <div class="method-query-example"> <strong>Single result</strong>  <ul> <li>gene_id = ENSG00000108179</li> <li>neg_log10_pvalue = gt:13.1</li> <li>method = Variant-EFFECTS</li> </ul> </div> <div class="method-query-example"> <strong>Group results</strong>  <ul> <li>synonym = PPIF</li> <li>method = Variant-EFFECTS</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="crispr-screen"> <strong>CRISPR screen:</strong> <div class="method-query-example"> <strong>query by gene identifier</strong>  <ul> <li>gene_id = ENSG00000177455</li> <li>method = CRISPR screen</li> </ul> </div> <div class="method-query-example"> <strong>query by gene name</strong>  <ul> <li>gene_name = CD19</li> <li>method = CRISPR screen</li> </ul> </div> </div> </div>
 
@@ -6310,7 +6178,7 @@ Retrieve variant-gene pairs including eQTLs & splice QTLs from AFGR and eQTL Cat
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.genes_from_variants200_response_inner import GenesFromVariants200ResponseInner
+from igvf_catalog_client.models.genes_from_variants import GenesFromVariants
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -6384,7 +6252,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[GenesFromVariants200ResponseInner]**](GenesFromVariants200ResponseInner.md)
+[**List[GenesFromVariants]**](GenesFromVariants.md)
 
 ### Authorization
 
@@ -6405,7 +6273,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **variants_from_genomic_elements**
-> List[GenomicElementsFromVariants200ResponseInner] variants_from_genomic_elements(region=region, region_type=region_type, biosample_term=biosample_term, biological_context=biological_context, method=method, files_fileset=files_fileset, page=page, limit=limit)
+> List[GenomicElementsFromVariants] variants_from_genomic_elements(region=region, region_type=region_type, biosample_term=biosample_term, biological_context=biological_context, method=method, files_fileset=files_fileset, page=page, limit=limit)
 
 Retrieve variants associated with genomic elements.<br>   Example: region = chr1:976210-976314, <br>   region_type = accessible dna elements, <br>   biosample_term = EFO_0002067, <br>   biological_context = K562, <br>   method = caQTL. <br>   The limit parameter controls the page size and can not exceed 300. <br>   Pagination is 0-based.
 
@@ -6414,7 +6282,7 @@ Retrieve variants associated with genomic elements.<br>   Example: region = chr1
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.genomic_elements_from_variants200_response_inner import GenomicElementsFromVariants200ResponseInner
+from igvf_catalog_client.models.genomic_elements_from_variants import GenomicElementsFromVariants
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -6464,7 +6332,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[GenomicElementsFromVariants200ResponseInner]**](GenomicElementsFromVariants200ResponseInner.md)
+[**List[GenomicElementsFromVariants]**](GenomicElementsFromVariants.md)
 
 ### Authorization
 
@@ -6573,7 +6441,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **variants_from_proteins**
-> List[ProteinsFromVariants200ResponseInner] variants_from_proteins(protein_id=protein_id, protein_name=protein_name, uniprot_name=uniprot_name, uniprot_full_name=uniprot_full_name, dbxrefs=dbxrefs, label=label, source=source, method=method, files_fileset=files_fileset, name=name, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[ProteinsFromVariants] variants_from_proteins(protein_id=protein_id, protein_name=protein_name, uniprot_name=uniprot_name, uniprot_full_name=uniprot_full_name, dbxrefs=dbxrefs, label=label, source=source, method=method, files_fileset=files_fileset, name=name, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve allele-specific transcription factor binding events from ADASTRA in cell type-specific context, <br>     allele-specific transcription factor binding events from GVATdb, pQTL from UKB by querying proteins, and predicted allele specific binding from SEMpl.<br>     Protein IDs support the following formats: ENSP00000384707.1 or ENSP00000384707 (Ensembl IDs) or P49711-2 (Uniprot ids).<br>     Set verbose = true to retrieve full info on the variant-transcription factor pairs, and the ontology terms of the cell types.<br>     At least one of these fields is required: protein_id, protein_name, uniprot_name, uniprot_full_name, dbxrefs, method, or files_fileset. <br>     The limit parameter controls the page size and can not exceed 100. <br>     Pagination is 0-based. <br> <br>     <div class="method-examples"> <strong>Examples by method</strong> <p class="method-example-description">These examples are grouped by method; use the <code>method</code> filter to return data from a specific method.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="adastra">ADASTRA</button> <button class="method-example-tab" data-method-example-tab="gvatdb">GVATdb</button> <button class="method-example-tab" data-method-example-tab="semvar">SEMVAR</button> <button class="method-example-tab" data-method-example-tab="pqtl">pQTL</button> </div> <div class="method-example-panel is-active" data-method-example-panel="adastra"> <strong>ADASTRA:</strong> <div class="method-query-example"> <strong>query by protein identifier</strong>  <ul> <li>protein_id = ENSP00000281043</li> <li>method = ADASTRA</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="gvatdb"> <strong>GVATdb:</strong> <div class="method-query-example"> <strong>query by protein identifier</strong>  <ul> <li>protein_id = ENSP00000315417</li> <li>method = GVATdb</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="semvar"> <strong>SEMVAR:</strong> <div class="method-query-example"> <strong>query by protein identifier</strong>  <ul> <li>protein_id = ENSP00000351458</li> <li>method = SEMVAR</li> </ul> </div> <div class="method-query-example"> <strong>query by files_fileset</strong> <p class="method-query-example-note">Each files_fileset maps to at most one method, so a <code>method</code> filter is usually not necessary.</p> <ul> <li>files_fileset = IGVFFI0005WRQP</li> <li>method = SEMVAR</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="pqtl"> <strong>pQTL:</strong> <div class="method-query-example"> <strong>query by protein identifier</strong>  <ul> <li>protein_id = ENSP00000263100</li> <li>method = pQTL</li> </ul> </div> </div> </div>
 
@@ -6582,7 +6450,7 @@ Retrieve allele-specific transcription factor binding events from ADASTRA in cel
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.proteins_from_variants200_response_inner import ProteinsFromVariants200ResponseInner
+from igvf_catalog_client.models.proteins_from_variants import ProteinsFromVariants
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -6644,7 +6512,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[ProteinsFromVariants200ResponseInner]**](ProteinsFromVariants200ResponseInner.md)
+[**List[ProteinsFromVariants]**](ProteinsFromVariants.md)
 
 ### Authorization
 
@@ -6665,7 +6533,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **variants_from_variant_id**
-> List[VariantsFromVariantID200ResponseInner] variants_from_variant_id(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region, r2=r2, d_prime=d_prime, ancestry=ancestry, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[VariantsFromVariantID] variants_from_variant_id(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region, r2=r2, d_prime=d_prime, ancestry=ancestry, organism=organism, verbose=verbose, page=page, limit=limit)
 
 Retrieve genetic variants in linkage disequilibrium (LD).<br>    The following parameters can be used to set thresholds on r2 and d_prime: gt (>), gte (>=), lt (<), lte (<=).<br>     Set verbose = true to retrieve full info on the variants.<br>      At least one of these fields is required: variant_id, spdi, hgvs, rsid, ca_id, or region.<br>     Example: variant_id = NC_000011.10:9083634:A:T,<br>     spdi = NC_000011.10:9083634:A:T, <br>     hgvs = NC_000011.10:g.9083635A>T, <br>     rsid = rs60960132, <br>     ca_id = CA217534780, <br>     region = chr17:7166090-7166095 (maximum length: 10kb), <br>     r2 = gte:0.8, <br>     d_prime = gt:0.9, <br>     ancestry = EUR. <br>     The limit parameter controls the page size and can not exceed 500. <br>     Pagination is 0-based.
 
@@ -6674,7 +6542,7 @@ Retrieve genetic variants in linkage disequilibrium (LD).<br>    The following p
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.variants_from_variant_id200_response_inner import VariantsFromVariantID200ResponseInner
+from igvf_catalog_client.models.variants_from_variant_id import VariantsFromVariantID
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -6734,7 +6602,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[VariantsFromVariantID200ResponseInner]**](VariantsFromVariantID200ResponseInner.md)
+[**List[VariantsFromVariantID]**](VariantsFromVariantID.md)
 
 ### Authorization
 
@@ -6755,7 +6623,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **variants_from_variant_id_summary**
-> List[VariantsFromVariantIDSummary200ResponseInner] variants_from_variant_id_summary(spdi=spdi, hgvs=hgvs, ca_id=ca_id, variant_id=variant_id, organism=organism, page=page, limit=limit)
+> List[VariantsFromVariantIDSummary] variants_from_variant_id_summary(spdi=spdi, hgvs=hgvs, ca_id=ca_id, variant_id=variant_id, organism=organism, page=page, limit=limit)
 
 Retrieve a summary of genetic variants in linkage disequilibrium (LD).<br>     Example: variant_id = NC_000001.11:954257:G:C,<br>     hgvs = NC_000011.10:g.9090011A>G,<br>     spdi = NC_000011.10:9090010:A:G,<br>     ca_id = CA10655063<br>     The limit parameter controls the page size and can not exceed 100. <br>     Pagination is 0-based.
 
@@ -6764,7 +6632,7 @@ Retrieve a summary of genetic variants in linkage disequilibrium (LD).<br>     E
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.variants_from_variant_id_summary200_response_inner import VariantsFromVariantIDSummary200ResponseInner
+from igvf_catalog_client.models.variants_from_variant_id_summary import VariantsFromVariantIDSummary
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -6812,7 +6680,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[VariantsFromVariantIDSummary200ResponseInner]**](VariantsFromVariantIDSummary200ResponseInner.md)
+[**List[VariantsFromVariantIDSummary]**](VariantsFromVariantIDSummary.md)
 
 ### Authorization
 
@@ -6833,7 +6701,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **variants_genomic_elements_genes**
-> List[VariantsGenomicElementsGenes200ResponseInner] variants_genomic_elements_genes(spdi=spdi, hgvs=hgvs, ca_id=ca_id, variant_id=variant_id, files_fileset=files_fileset, biosample_term=biosample_term, biological_context=biological_context, nearby_genes=nearby_genes, organism=organism, page=page, limit=limit)
+> List[VariantsGenomicElementsGenes] variants_genomic_elements_genes(spdi=spdi, hgvs=hgvs, ca_id=ca_id, variant_id=variant_id, files_fileset=files_fileset, biosample_term=biosample_term, biological_context=biological_context, nearby_genes=nearby_genes, organism=organism, page=page, limit=limit)
 
 Retrieve genes whose expression is modulated by perturbing genomic elements that overlap a variant.<br>     The query starts from a variant, finds overlapping Perturb-seq genomic elements, then returns element-gene associations.<br>     By default (nearby_genes = true), only nearby genes on the same chromosome as the variant are returned, and the overlapping genomic element must be within 2 Mb of the gene TSS; distance_to_tss is included in the response.<br>     Set nearby_genes = false to return all genes linked to the overlapping elements regardless of chromosome or distance.<br>     At least one variant identifier is required: variant_id, spdi, hgvs, or ca_id.<br>     Example: variant_id = NC_000001.11:109426297:G:C,<br>     spdi = NC_000001.11:109426297:G:C,<br>     nearby_genes = true,<br>     files_fileset = IGVFFI0206LUDV,<br>     biological_context = HCASMC-hTERT,<br>     biosample_term = EFO_0022614.<br>     The limit parameter controls the page size and can not exceed 100.<br>     Pagination is 0-based.
 
@@ -6842,7 +6710,7 @@ Retrieve genes whose expression is modulated by perturbing genomic elements that
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.variants_genomic_elements_genes200_response_inner import VariantsGenomicElementsGenes200ResponseInner
+from igvf_catalog_client.models.variants_genomic_elements_genes import VariantsGenomicElementsGenes
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -6898,7 +6766,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[VariantsGenomicElementsGenes200ResponseInner]**](VariantsGenomicElementsGenes200ResponseInner.md)
+[**List[VariantsGenomicElementsGenes]**](VariantsGenomicElementsGenes.md)
 
 ### Authorization
 
@@ -6919,7 +6787,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **variants_region_summary**
-> VariantsRegionSummary200Response variants_region_summary(region)
+> VariantsRegionSummary variants_region_summary(region)
 
 Retrieve a summary count of all methods reporting variants in a given region.<br>     Example: region = chr1:1157520-1158520 (maximum length: 10kb).
 
@@ -6928,7 +6796,7 @@ Retrieve a summary count of all methods reporting variants in a given region.<br
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.variants_region_summary200_response import VariantsRegionSummary200Response
+from igvf_catalog_client.models.variants_region_summary import VariantsRegionSummary
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -6964,7 +6832,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VariantsRegionSummary200Response**](VariantsRegionSummary200Response.md)
+[**VariantsRegionSummary**](VariantsRegionSummary.md)
 
 ### Authorization
 

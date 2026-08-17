@@ -41,7 +41,6 @@ setup(
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
-    license="MIT",
     long_description_content_type='text/markdown',
     long_description="""\
     IGVF Catalog OpenAPI compliant REST API built using tRPC with Express.  Our database uses 0-based, half-open coordinates for genomic coordinates in the GRCh38 (human) and GRCm39 (mouse) reference genomes.  Data is licensed under the &lt;a href&#x3D;https://creativecommons.org/licenses/by/4.0/ target&#x3D;\&quot;_blank\&quot;&gt;Creative Commons license&lt;/a&gt; and the software is licensed under the &lt;a href&#x3D;https://spdx.org/licenses/MIT.html target&#x3D;\&quot;_blank\&quot;&gt;MIT license&lt;/a&gt;.

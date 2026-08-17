@@ -19,25 +19,25 @@ import pprint
 import re  # noqa: F401
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Optional
-from igvf_catalog_client.models.go_terms_from_annotations200_response_inner_any_of import GoTermsFromAnnotations200ResponseInnerAnyOf
+from igvf_catalog_client.models.annotations_from_go_terms import AnnotationsFromGoTerms
 from typing import Union, Any, List, Set, TYPE_CHECKING, Optional, Dict
 from typing_extensions import Literal, Self
 from pydantic import Field
 
-GOTERMSFROMANNOTATIONS200RESPONSEINNER_ANY_OF_SCHEMAS = ["GoTermsFromAnnotations200ResponseInnerAnyOf"]
+GOTERMSFROMANNOTATIONS200RESPONSEINNER_ANY_OF_SCHEMAS = ["AnnotationsFromGoTerms"]
 
 class GoTermsFromAnnotations200ResponseInner(BaseModel):
     """
     GoTermsFromAnnotations200ResponseInner
     """
 
-    # data type: GoTermsFromAnnotations200ResponseInnerAnyOf
-    anyof_schema_1_validator: Optional[GoTermsFromAnnotations200ResponseInnerAnyOf] = None
+    # data type: AnnotationsFromGoTerms
+    anyof_schema_1_validator: Optional[AnnotationsFromGoTerms] = None
     if TYPE_CHECKING:
-        actual_instance: Optional[Union[GoTermsFromAnnotations200ResponseInnerAnyOf]] = None
+        actual_instance: Optional[Union[AnnotationsFromGoTerms]] = None
     else:
         actual_instance: Any = None
-    any_of_schemas: Set[str] = { "GoTermsFromAnnotations200ResponseInnerAnyOf" }
+    any_of_schemas: Set[str] = { "AnnotationsFromGoTerms" }
 
     model_config = {
         "validate_assignment": True,
@@ -61,15 +61,15 @@ class GoTermsFromAnnotations200ResponseInner(BaseModel):
 
         instance = GoTermsFromAnnotations200ResponseInner.model_construct()
         error_messages = []
-        # validate data type: GoTermsFromAnnotations200ResponseInnerAnyOf
-        if not isinstance(v, GoTermsFromAnnotations200ResponseInnerAnyOf):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `GoTermsFromAnnotations200ResponseInnerAnyOf`")
+        # validate data type: AnnotationsFromGoTerms
+        if not isinstance(v, AnnotationsFromGoTerms):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `AnnotationsFromGoTerms`")
         else:
             return v
 
         if error_messages:
             # no match
-            raise ValueError("No match found when setting the actual_instance in GoTermsFromAnnotations200ResponseInner with anyOf schemas: GoTermsFromAnnotations200ResponseInnerAnyOf. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting the actual_instance in GoTermsFromAnnotations200ResponseInner with anyOf schemas: AnnotationsFromGoTerms. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -85,16 +85,16 @@ class GoTermsFromAnnotations200ResponseInner(BaseModel):
             return instance
 
         error_messages = []
-        # anyof_schema_1_validator: Optional[GoTermsFromAnnotations200ResponseInnerAnyOf] = None
+        # anyof_schema_1_validator: Optional[AnnotationsFromGoTerms] = None
         try:
-            instance.actual_instance = GoTermsFromAnnotations200ResponseInnerAnyOf.from_json(json_str)
+            instance.actual_instance = AnnotationsFromGoTerms.from_json(json_str)
             return instance
         except (ValidationError, ValueError) as e:
              error_messages.append(str(e))
 
         if error_messages:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into GoTermsFromAnnotations200ResponseInner with anyOf schemas: GoTermsFromAnnotations200ResponseInnerAnyOf. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into GoTermsFromAnnotations200ResponseInner with anyOf schemas: AnnotationsFromGoTerms. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -108,7 +108,7 @@ class GoTermsFromAnnotations200ResponseInner(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], GoTermsFromAnnotations200ResponseInnerAnyOf]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], AnnotationsFromGoTerms]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

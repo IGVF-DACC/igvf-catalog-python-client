@@ -38,12 +38,6 @@ class TestIgvfApi(unittest.TestCase):
         """
         pass
 
-    def test_autocomplete(self) -> None:
-        """Test case for autocomplete
-
-        """
-        pass
-
     def test_biosamples_from_genomic_elements(self) -> None:
         """Test case for biosamples_from_genomic_elements
 
@@ -262,12 +256,6 @@ class TestIgvfApi(unittest.TestCase):
 
     def test_grn(self) -> None:
         """Test case for grn
-
-        """
-        pass
-
-    def test_health(self) -> None:
-        """Test case for health
 
         """
         pass

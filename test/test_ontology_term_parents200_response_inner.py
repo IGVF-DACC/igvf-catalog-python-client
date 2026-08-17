@@ -35,7 +35,7 @@ class TestOntologyTermParents200ResponseInner(unittest.TestCase):
         model = OntologyTermParents200ResponseInner()
         if include_optional:
             return OntologyTermParents200ResponseInner(
-                term = igvf_catalog_client.models.proteins_from_variants_200_response_inner_biosample_term_any_of.proteinsFromVariants_200_response_inner_biosample_term_anyOf(
+                term = igvf_catalog_client.models.ontology_term.OntologyTerm(
                     uri = '', 
                     term_id = '', 
                     name = '', 
@@ -53,7 +53,7 @@ class TestOntologyTermParents200ResponseInner(unittest.TestCase):
             )
         else:
             return OntologyTermParents200ResponseInner(
-                term = igvf_catalog_client.models.proteins_from_variants_200_response_inner_biosample_term_any_of.proteinsFromVariants_200_response_inner_biosample_term_anyOf(
+                term = igvf_catalog_client.models.ontology_term.OntologyTerm(
                     uri = '', 
                     term_id = '', 
                     name = '', 

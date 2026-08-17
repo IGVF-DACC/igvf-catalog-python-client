@@ -19,28 +19,28 @@ import pprint
 import re  # noqa: F401
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Optional
-from igvf_catalog_client.models.phenotypes_from_variants200_response_inner_any_of import PhenotypesFromVariants200ResponseInnerAnyOf
-from igvf_catalog_client.models.phenotypes_from_variants200_response_inner_any_of1 import PhenotypesFromVariants200ResponseInnerAnyOf1
+from igvf_catalog_client.models.phenotypes_from_variants import PhenotypesFromVariants
+from igvf_catalog_client.models.phenotypes_from_variants23 import PhenotypesFromVariants23
 from typing import Union, Any, List, Set, TYPE_CHECKING, Optional, Dict
 from typing_extensions import Literal, Self
 from pydantic import Field
 
-PHENOTYPESFROMVARIANTS200RESPONSEINNER_ANY_OF_SCHEMAS = ["PhenotypesFromVariants200ResponseInnerAnyOf", "PhenotypesFromVariants200ResponseInnerAnyOf1"]
+PHENOTYPESFROMVARIANTS200RESPONSEINNER_ANY_OF_SCHEMAS = ["PhenotypesFromVariants", "PhenotypesFromVariants23"]
 
 class PhenotypesFromVariants200ResponseInner(BaseModel):
     """
     PhenotypesFromVariants200ResponseInner
     """
 
-    # data type: PhenotypesFromVariants200ResponseInnerAnyOf
-    anyof_schema_1_validator: Optional[PhenotypesFromVariants200ResponseInnerAnyOf] = None
-    # data type: PhenotypesFromVariants200ResponseInnerAnyOf1
-    anyof_schema_2_validator: Optional[PhenotypesFromVariants200ResponseInnerAnyOf1] = None
+    # data type: PhenotypesFromVariants
+    anyof_schema_1_validator: Optional[PhenotypesFromVariants] = None
+    # data type: PhenotypesFromVariants23
+    anyof_schema_2_validator: Optional[PhenotypesFromVariants23] = None
     if TYPE_CHECKING:
-        actual_instance: Optional[Union[PhenotypesFromVariants200ResponseInnerAnyOf, PhenotypesFromVariants200ResponseInnerAnyOf1]] = None
+        actual_instance: Optional[Union[PhenotypesFromVariants, PhenotypesFromVariants23]] = None
     else:
         actual_instance: Any = None
-    any_of_schemas: Set[str] = { "PhenotypesFromVariants200ResponseInnerAnyOf", "PhenotypesFromVariants200ResponseInnerAnyOf1" }
+    any_of_schemas: Set[str] = { "PhenotypesFromVariants", "PhenotypesFromVariants23" }
 
     model_config = {
         "validate_assignment": True,
@@ -61,21 +61,21 @@ class PhenotypesFromVariants200ResponseInner(BaseModel):
     def actual_instance_must_validate_anyof(cls, v):
         instance = PhenotypesFromVariants200ResponseInner.model_construct()
         error_messages = []
-        # validate data type: PhenotypesFromVariants200ResponseInnerAnyOf
-        if not isinstance(v, PhenotypesFromVariants200ResponseInnerAnyOf):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `PhenotypesFromVariants200ResponseInnerAnyOf`")
+        # validate data type: PhenotypesFromVariants
+        if not isinstance(v, PhenotypesFromVariants):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `PhenotypesFromVariants`")
         else:
             return v
 
-        # validate data type: PhenotypesFromVariants200ResponseInnerAnyOf1
-        if not isinstance(v, PhenotypesFromVariants200ResponseInnerAnyOf1):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `PhenotypesFromVariants200ResponseInnerAnyOf1`")
+        # validate data type: PhenotypesFromVariants23
+        if not isinstance(v, PhenotypesFromVariants23):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `PhenotypesFromVariants23`")
         else:
             return v
 
         if error_messages:
             # no match
-            raise ValueError("No match found when setting the actual_instance in PhenotypesFromVariants200ResponseInner with anyOf schemas: PhenotypesFromVariants200ResponseInnerAnyOf, PhenotypesFromVariants200ResponseInnerAnyOf1. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting the actual_instance in PhenotypesFromVariants200ResponseInner with anyOf schemas: PhenotypesFromVariants, PhenotypesFromVariants23. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -88,22 +88,22 @@ class PhenotypesFromVariants200ResponseInner(BaseModel):
         """Returns the object represented by the json string"""
         instance = cls.model_construct()
         error_messages = []
-        # anyof_schema_1_validator: Optional[PhenotypesFromVariants200ResponseInnerAnyOf] = None
+        # anyof_schema_1_validator: Optional[PhenotypesFromVariants] = None
         try:
-            instance.actual_instance = PhenotypesFromVariants200ResponseInnerAnyOf.from_json(json_str)
+            instance.actual_instance = PhenotypesFromVariants.from_json(json_str)
             return instance
         except (ValidationError, ValueError) as e:
              error_messages.append(str(e))
-        # anyof_schema_2_validator: Optional[PhenotypesFromVariants200ResponseInnerAnyOf1] = None
+        # anyof_schema_2_validator: Optional[PhenotypesFromVariants23] = None
         try:
-            instance.actual_instance = PhenotypesFromVariants200ResponseInnerAnyOf1.from_json(json_str)
+            instance.actual_instance = PhenotypesFromVariants23.from_json(json_str)
             return instance
         except (ValidationError, ValueError) as e:
              error_messages.append(str(e))
 
         if error_messages:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into PhenotypesFromVariants200ResponseInner with anyOf schemas: PhenotypesFromVariants200ResponseInnerAnyOf, PhenotypesFromVariants200ResponseInnerAnyOf1. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into PhenotypesFromVariants200ResponseInner with anyOf schemas: PhenotypesFromVariants, PhenotypesFromVariants23. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -117,7 +117,7 @@ class PhenotypesFromVariants200ResponseInner(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], PhenotypesFromVariants200ResponseInnerAnyOf, PhenotypesFromVariants200ResponseInnerAnyOf1]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], PhenotypesFromVariants, PhenotypesFromVariants23]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

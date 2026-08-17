@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **rsid** | **List[str]** |  | [optional] 
 **phenotype_id** | **str** |  | 
 **phenotype_term** | **str** |  | 
-**study** | [**PhenotypesFromVariants200ResponseInnerAnyOfStudy**](PhenotypesFromVariants200ResponseInnerAnyOfStudy.md) |  | [optional] 
+**study** | [**PhenotypesFromVariantsStudy**](PhenotypesFromVariantsStudy.md) |  | [optional] 
 **neg_log10_pvalue** | **float** |  | [optional] 
 **p_value** | **float** |  | 
 **beta** | **float** |  | 
@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **label** | **str** |  | [optional] 
 **version** | **str** |  | [optional] [default to 'October 2022 (22.10)']
 **name** | **str** |  | 
-**variant** | [**ProteinsFromVariants200ResponseInnerSequenceVariant**](ProteinsFromVariants200ResponseInnerSequenceVariant.md) |  | 
+**variant** | [**PhenotypesFromVariantsVariant**](PhenotypesFromVariantsVariant.md) |  | 
 **files_filesets** | **str** |  | 
 **biological_context** | **str** |  | [optional] 
 **score** | **float** |  | [optional] 

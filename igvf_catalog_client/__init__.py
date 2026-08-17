@@ -18,7 +18,7 @@ __version__ = "1.2.0"
 
 # Define package exports
 __all__ = [
-    "IgvfCatalogApi",
+    "IgvfApi",
     "ApiResponse",
     "ApiClient",
     "Configuration",
@@ -29,163 +29,155 @@ __all__ = [
     "ApiAttributeError",
     "ApiException",
     "AllCodingVariantsFromGenes200ResponseInner",
-    "BiosamplesFromGenomicElements200ResponseInner",
-    "BiosamplesFromGenomicElements200ResponseInnerGenomicElement",
-    "BiosamplesFromVariants200ResponseInner",
-    "BiosamplesFromVariants200ResponseInnerGenomicElement",
-    "BiosamplesFromVariants200ResponseInnerGenomicElementAnyOf",
-    "BiosamplesFromVariants200ResponseInnerVariant",
-    "CodingVariantsFromGenes200ResponseInner",
-    "CodingVariantsFromGenes200ResponseInnerProteinChange",
-    "CodingVariantsFromGenes200ResponseInnerVariantsInner",
-    "CodingVariantsFromGenes200ResponseInnerVariantsInnerScoresInner",
-    "CodingVariantsFromVariants200ResponseInner",
-    "ComplexesFromProteins200ResponseInner",
-    "ComplexesFromProteins200ResponseInnerLinkedFeaturesInner",
-    "DeprecatedCodingVariantsSummary200ResponseInner",
-    "DiseaseFromVariants200ResponseInner",
-    "DiseaseFromVariants200ResponseInnerDisease",
-    "DiseaseFromVariants200ResponseInnerSequenceVariant",
-    "DiseaseFromVariants200ResponseInnerSequenceVariantAnyOf",
-    "DiseasesFromGenes200ResponseInner",
-    "DiseasesFromGenes200ResponseInnerVariantsInner",
-    "DrugsFromVariants200ResponseInner",
-    "DrugsFromVariants200ResponseInnerDrug",
-    "DrugsFromVariants200ResponseInnerDrugAnyOf",
-    "DrugsFromVariants200ResponseInnerStudyParametersInner",
-    "EnhancerGenePredictions200ResponseInner",
-    "EnhancerGenePredictions200ResponseInnerElements",
-    "EnhancerGenePredictions200ResponseInnerElementsAnyOfInner",
-    "FilesFilesets200ResponseInner",
-    "GenesFromVariants200ResponseInner",
-    "GenesFromVariants200ResponseInnerGene",
-    "GenesFromVariants200ResponseInnerGeneAnyOf",
-    "GenesFromVariants200ResponseInnerNegLog10Pvalue",
-    "GenesFromVariants200ResponseInnerSequenceVariant",
-    "GenesFromVariants200ResponseInnerStudy",
-    "GenesFromVariants200ResponseInnerStudyAnyOf",
-    "GenesGenes200ResponseInner",
-    "GenesGenes200ResponseInnerGene1",
-    "GenesGenes200ResponseInnerGene1AnyOfInner",
-    "GenesProteinsFromVariants200ResponseInner",
-    "GenesProteinsFromVariants200ResponseInnerRelatedInner",
-    "GenesProteinsFromVariants200ResponseInnerRelatedInnerGene",
-    "GenesProteinsFromVariants200ResponseInnerRelatedInnerGeneAnyOf",
-    "GenesProteinsFromVariants200ResponseInnerRelatedInnerProtein",
-    "GenesProteinsFromVariants200ResponseInnerRelatedInnerSources",
-    "GenesProteinsFromVariants200ResponseInnerRelatedInnerSourcesAnyOfInner",
-    "GenesProteinsFromVariants200ResponseInnerRelatedInnerSourcesAnyOfInner1",
-    "GenesProteinsFromVariants200ResponseInnerSequenceVariant",
-    "GenesProteinsGenesProteins200ResponseInner",
-    "GenesProteinsGenesProteins200ResponseInnerRelatedInner",
-    "GenesProteinsGenesProteins200ResponseInnerRelatedInnerAnyOf",
-    "GenesProteinsGenesProteins200ResponseInnerRelatedInnerAnyOf1",
-    "GenesStructure200ResponseInner",
-    "GenomicElements200ResponseInner",
-    "GenomicElementsFromGenes200ResponseInner",
-    "GenomicElementsFromGenes200ResponseInnerGene",
-    "GenomicElementsFromGenes200ResponseInnerGeneAnyOf",
-    "GenomicElementsFromGenes200ResponseInnerGenomicElement",
-    "GenomicElementsFromGenes200ResponseInnerGenomicElementAnyOf",
-    "GenomicElementsFromVariants200ResponseInner",
-    "GenomicElementsFromVariants200ResponseInnerGenomicElement",
-    "GenomicElementsPredictionsFromVariant200Response",
-    "GenomicElementsPredictionsFromVariant200ResponsePredictions",
-    "GenomicElementsPredictionsFromVariant200ResponsePredictionsGenesInner",
-    "GenomicElementsPredictionsFromVariant200ResponseSequenceVariant",
+    "AnnotationsFromGoTerms",
+    "BiosamplesFromGenomicElements",
+    "BiosamplesFromGenomicElementsBiosample",
+    "BiosamplesFromGenomicElementsGenomicElement",
+    "BiosamplesFromVariants",
+    "BiosamplesFromVariantsGenomicElement",
+    "BiosamplesFromVariantsVariant",
+    "CaddScores",
+    "CellTypes",
+    "CellTypes2",
+    "CodingVariant",
+    "CodingVariants",
+    "CodingVariantsFromGenes",
+    "CodingVariantsFromPhenotypes",
+    "CodingVariantsSummary",
+    "Complex",
+    "ComplexComplexAssembly",
+    "ComplexesFromProteins",
+    "ComplexesFromProteinsComplex",
+    "ComplexesFromProteinsProtein",
+    "DiseaseFromVariants",
+    "DiseaseFromVariantsSequenceVariant",
+    "DiseasesFromGenes",
+    "DiseasesFromGenesGene",
+    "Drug",
+    "DrugsFromVariants",
+    "DrugsFromVariantsDrug",
+    "Elements",
+    "EnhancerGenePredictions",
+    "EnhancerGenePredictionsElements",
+    "FilesFilesets",
+    "Gene",
+    "Gene4",
+    "Gene6",
+    "GeneCompact",
+    "GeneNoSynonyms",
+    "GeneRef",
+    "Genes",
+    "Genes2",
+    "GenesFromGenomicElements",
+    "GenesFromGenomicElementsGene",
+    "GenesFromGenomicElementsGenomicElement",
+    "GenesFromGenomicElementsPValue",
+    "GenesFromPathways",
+    "GenesFromPathwaysPathway",
+    "GenesFromProteins",
+    "GenesFromTranscripts",
+    "GenesFromTranscriptsTranscript",
+    "GenesFromVariants",
+    "GenesFromVariantsGene",
+    "GenesFromVariantsSequenceVariant",
+    "GenesFromVariantsStudy",
+    "GenesGenes",
+    "GenesGenesGene1",
+    "GenesProteinsFromVariants",
+    "GenesProteinsGenesProteins",
+    "GenesProteinsGenesProteinsRelatedInner",
+    "GenesStructure",
+    "GenomicElement",
+    "GenomicElement4",
+    "GenomicElement5",
+    "GenomicElement8",
+    "GenomicElement9",
+    "GenomicElementBasic",
+    "GenomicElementFull",
+    "GenomicElementsFromPhenotypes",
+    "GenomicElementsFromPhenotypesPhenotype",
+    "GenomicElementsFromVariants",
+    "GenomicElementsPredictionsFromVariant",
     "GoTermsFromAnnotations200ResponseInner",
-    "GoTermsFromAnnotations200ResponseInnerAnyOf",
-    "Grn200ResponseInner",
-    "Grn200ResponseInnerGenomicElement",
+    "Grn",
+    "IdName",
     "InlineObject",
     "InlineObjectIssuesInner",
-    "LlmQuery200Response",
-    "LlmQueryRequest",
-    "MotifsFromProteins200ResponseInner",
-    "MotifsFromProteins200ResponseInnerComplex",
-    "MotifsFromProteins200ResponseInnerMotif",
-    "MotifsFromProteins200ResponseInnerMotifAnyOf",
-    "MotifsFromProteins200ResponseInnerMotifAnyOfPwmInnerInner",
+    "LinkedFeature",
+    "MethodCount",
+    "Motif",
+    "MotifPwmInnerInner",
+    "MotifsFromProteins",
+    "MotifsFromProteinsMotif",
+    "NearestGene",
+    "NearestGenes",
+    "OntologyTerm",
+    "OntologyTermBasic",
+    "OntologyTermChildren",
     "OntologyTermParents200ResponseInner",
-    "OntologyTermParents200ResponseInnerAnyOf",
-    "OntologyTermTransitiveClosure200Response",
-    "OntologyTermTransitiveClosure200ResponsePathsInnerInner",
-    "OntologyTermTransitiveClosure200ResponseVerticesValue",
-    "PathwaysFromGenes200ResponseInner",
-    "PathwaysFromGenes200ResponseInnerPathway",
-    "PathwaysFromGenes200ResponseInnerPathwayAnyOf",
-    "PathwaysFromPathways200ResponseInner",
-    "PhenotypesFromCodingVariants200ResponseInner",
-    "PhenotypesFromCodingVariants200ResponseInnerCodingVariant",
-    "PhenotypesFromCodingVariants200ResponseInnerPhenotype",
-    "PhenotypesFromCodingVariants200ResponseInnerVariant",
-    "PhenotypesFromGenomicElements200ResponseInner",
-    "PhenotypesFromGenomicElements200ResponseInnerPhenotype",
-    "PhenotypesFromGenomicElements200ResponseInnerPhenotypeAnyOf",
+    "OntologyTermTransitiveClosure",
+    "Paths",
+    "Pathway",
+    "PathwaysFromPathways",
+    "Phenotype",
+    "PhenotypeRef",
+    "PhenotypesFromVariants",
     "PhenotypesFromVariants200ResponseInner",
-    "PhenotypesFromVariants200ResponseInnerAnyOf",
-    "PhenotypesFromVariants200ResponseInnerAnyOf1",
-    "PhenotypesFromVariants200ResponseInnerAnyOfStudy",
-    "PredictionsFromVariants200ResponseInner",
-    "PredictionsFromVariants200ResponseInnerTargetGene",
-    "ProteinsFromGenes200ResponseInner",
-    "ProteinsFromGenes200ResponseInnerGene",
-    "ProteinsFromGenes200ResponseInnerProtein",
-    "ProteinsFromGenes200ResponseInnerProteinAnyOf",
-    "ProteinsFromGenes200ResponseInnerProteinAnyOfDbxrefsInner",
-    "ProteinsFromTranscripts200ResponseInner",
-    "ProteinsFromTranscripts200ResponseInnerProtein",
-    "ProteinsFromVariants200ResponseInner",
-    "ProteinsFromVariants200ResponseInnerBiosampleTerm",
-    "ProteinsFromVariants200ResponseInnerBiosampleTermAnyOf",
-    "ProteinsFromVariants200ResponseInnerProteinComplex",
-    "ProteinsFromVariants200ResponseInnerProteinComplexAnyOf",
-    "ProteinsFromVariants200ResponseInnerProteinComplexAnyOf1",
-    "ProteinsFromVariants200ResponseInnerProteinComplexAnyOf1ComplexAssembly",
-    "ProteinsFromVariants200ResponseInnerProteinComplexAnyOfAnyOf",
-    "ProteinsFromVariants200ResponseInnerSequenceVariant",
-    "ProteinsFromVariants200ResponseInnerSequenceVariantAnyOf",
-    "ProteinsProteins200ResponseInner",
-    "ProteinsProteins200ResponseInnerProtein1",
-    "QtlSummaryEndpoint200ResponseInner",
-    "QtlSummaryEndpoint200ResponseInnerGene",
-    "Qtls200ResponseInner",
-    "Qtls200ResponseInnerGene",
-    "Qtls200ResponseInnerGenomicElement",
-    "Qtls200ResponseInnerStudy",
-    "Qtls200ResponseInnerVariant",
-    "TranscriptsFromGenes200ResponseInner",
-    "TranscriptsFromGenes200ResponseInnerTranscript",
-    "TranscriptsFromGenes200ResponseInnerTranscriptAnyOf",
-    "VariantSummary200Response",
-    "VariantSummary200ResponseCaddScores",
-    "VariantSummary200ResponseNearestGenes",
-    "VariantSummary200ResponseNearestGenesNearestCodingGene",
-    "VariantSummary200ResponseSummary",
-    "Variants200ResponseInner",
-    "Variants200ResponseInnerAnnotations",
+    "PhenotypesFromVariants23",
+    "PhenotypesFromVariantsStudy",
+    "PhenotypesFromVariantsVariant",
+    "Predictions",
+    "Predictions2",
+    "PredictionsFromVariants",
+    "Protein",
+    "ProteinBasic",
+    "ProteinChange",
+    "ProteinCompact",
+    "ProteinsFromTranscripts",
+    "ProteinsFromTranscriptsProtein",
+    "ProteinsFromVariants",
+    "ProteinsFromVariantsBiosampleTerm",
+    "ProteinsFromVariantsProteinComplex",
+    "ProteinsFromVariantsProteinComplexAnyOf",
+    "ProteinsProteins",
+    "ProteinsProteinsProtein1",
+    "QtlSummaryEndpoint",
+    "Qtls",
+    "Qtls3",
+    "Related",
+    "RelatedGene",
+    "RelatedSources",
+    "Scores",
+    "SequenceVariant",
+    "SequenceVariant9",
+    "Sources",
+    "Sources4",
+    "Study",
+    "Study2",
+    "StudyParameters",
+    "Summary",
+    "TargetGene",
+    "TfBinding",
+    "Transcript",
+    "Variant",
+    "VariantAnnotations",
+    "VariantBasic",
+    "VariantMinimal",
+    "VariantRef",
+    "VariantSummary",
+    "Variants",
     "VariantsAlleles200ResponseInnerInner",
     "VariantsAlleles200ResponseInnerInnerAnyOf",
-    "VariantsFromCodingVariants200ResponseInner",
-    "VariantsFromDrugs200ResponseInner",
-    "VariantsFromVariantID200ResponseInner",
-    "VariantsFromVariantID200ResponseInnerSequenceVariant",
-    "VariantsFromVariantIDSummary200ResponseInner",
-    "VariantsFromVariantIDSummary200ResponseInnerPredictions",
-    "VariantsFromVariantIDSummary200ResponseInnerPredictionsQtlsInner",
-    "VariantsFromVariantIDSummary200ResponseInnerPredictionsQtlsInnerCellTypesInner",
-    "VariantsFromVariantIDSummary200ResponseInnerPredictionsQtlsInnerGenesInner",
-    "VariantsFromVariantIDSummary200ResponseInnerPredictionsTfBindingInner",
-    "VariantsFromVariantIDSummary200ResponseInnerPredictionsTfBindingInnerCellTypesInner",
-    "VariantsGenomicElementsGenes200ResponseInner",
-    "VariantsGenomicElementsGenes200ResponseInnerGene",
-    "VariantsGenomicElementsGenes200ResponseInnerGenomicElement",
-    "VariantsRegionSummary200Response",
-    "VariantsRegionSummary200ResponseByMethodInner",
+    "VariantsFromDrugs",
+    "VariantsFromVariantID",
+    "VariantsFromVariantIDSequenceVariant",
+    "VariantsFromVariantIDSummary",
+    "VariantsGenomicElementsGenes",
+    "VariantsRegionSummary",
 ]
 
 # import apis into sdk package
-from igvf_catalog_client.api.igvf_catalog_api import IgvfCatalogApi as IgvfCatalogApi
+from igvf_catalog_client.api.igvf_api import IgvfApi as IgvfApi
 
 # import ApiClient
 from igvf_catalog_client.api_response import ApiResponse as ApiResponse
@@ -200,156 +192,148 @@ from igvf_catalog_client.exceptions import ApiException as ApiException
 
 # import models into sdk package
 from igvf_catalog_client.models.all_coding_variants_from_genes200_response_inner import AllCodingVariantsFromGenes200ResponseInner as AllCodingVariantsFromGenes200ResponseInner
-from igvf_catalog_client.models.biosamples_from_genomic_elements200_response_inner import BiosamplesFromGenomicElements200ResponseInner as BiosamplesFromGenomicElements200ResponseInner
-from igvf_catalog_client.models.biosamples_from_genomic_elements200_response_inner_genomic_element import BiosamplesFromGenomicElements200ResponseInnerGenomicElement as BiosamplesFromGenomicElements200ResponseInnerGenomicElement
-from igvf_catalog_client.models.biosamples_from_variants200_response_inner import BiosamplesFromVariants200ResponseInner as BiosamplesFromVariants200ResponseInner
-from igvf_catalog_client.models.biosamples_from_variants200_response_inner_genomic_element import BiosamplesFromVariants200ResponseInnerGenomicElement as BiosamplesFromVariants200ResponseInnerGenomicElement
-from igvf_catalog_client.models.biosamples_from_variants200_response_inner_genomic_element_any_of import BiosamplesFromVariants200ResponseInnerGenomicElementAnyOf as BiosamplesFromVariants200ResponseInnerGenomicElementAnyOf
-from igvf_catalog_client.models.biosamples_from_variants200_response_inner_variant import BiosamplesFromVariants200ResponseInnerVariant as BiosamplesFromVariants200ResponseInnerVariant
-from igvf_catalog_client.models.coding_variants_from_genes200_response_inner import CodingVariantsFromGenes200ResponseInner as CodingVariantsFromGenes200ResponseInner
-from igvf_catalog_client.models.coding_variants_from_genes200_response_inner_protein_change import CodingVariantsFromGenes200ResponseInnerProteinChange as CodingVariantsFromGenes200ResponseInnerProteinChange
-from igvf_catalog_client.models.coding_variants_from_genes200_response_inner_variants_inner import CodingVariantsFromGenes200ResponseInnerVariantsInner as CodingVariantsFromGenes200ResponseInnerVariantsInner
-from igvf_catalog_client.models.coding_variants_from_genes200_response_inner_variants_inner_scores_inner import CodingVariantsFromGenes200ResponseInnerVariantsInnerScoresInner as CodingVariantsFromGenes200ResponseInnerVariantsInnerScoresInner
-from igvf_catalog_client.models.coding_variants_from_variants200_response_inner import CodingVariantsFromVariants200ResponseInner as CodingVariantsFromVariants200ResponseInner
-from igvf_catalog_client.models.complexes_from_proteins200_response_inner import ComplexesFromProteins200ResponseInner as ComplexesFromProteins200ResponseInner
-from igvf_catalog_client.models.complexes_from_proteins200_response_inner_linked_features_inner import ComplexesFromProteins200ResponseInnerLinkedFeaturesInner as ComplexesFromProteins200ResponseInnerLinkedFeaturesInner
-from igvf_catalog_client.models.deprecated_coding_variants_summary200_response_inner import DeprecatedCodingVariantsSummary200ResponseInner as DeprecatedCodingVariantsSummary200ResponseInner
-from igvf_catalog_client.models.disease_from_variants200_response_inner import DiseaseFromVariants200ResponseInner as DiseaseFromVariants200ResponseInner
-from igvf_catalog_client.models.disease_from_variants200_response_inner_disease import DiseaseFromVariants200ResponseInnerDisease as DiseaseFromVariants200ResponseInnerDisease
-from igvf_catalog_client.models.disease_from_variants200_response_inner_sequence_variant import DiseaseFromVariants200ResponseInnerSequenceVariant as DiseaseFromVariants200ResponseInnerSequenceVariant
-from igvf_catalog_client.models.disease_from_variants200_response_inner_sequence_variant_any_of import DiseaseFromVariants200ResponseInnerSequenceVariantAnyOf as DiseaseFromVariants200ResponseInnerSequenceVariantAnyOf
-from igvf_catalog_client.models.diseases_from_genes200_response_inner import DiseasesFromGenes200ResponseInner as DiseasesFromGenes200ResponseInner
-from igvf_catalog_client.models.diseases_from_genes200_response_inner_variants_inner import DiseasesFromGenes200ResponseInnerVariantsInner as DiseasesFromGenes200ResponseInnerVariantsInner
-from igvf_catalog_client.models.drugs_from_variants200_response_inner import DrugsFromVariants200ResponseInner as DrugsFromVariants200ResponseInner
-from igvf_catalog_client.models.drugs_from_variants200_response_inner_drug import DrugsFromVariants200ResponseInnerDrug as DrugsFromVariants200ResponseInnerDrug
-from igvf_catalog_client.models.drugs_from_variants200_response_inner_drug_any_of import DrugsFromVariants200ResponseInnerDrugAnyOf as DrugsFromVariants200ResponseInnerDrugAnyOf
-from igvf_catalog_client.models.drugs_from_variants200_response_inner_study_parameters_inner import DrugsFromVariants200ResponseInnerStudyParametersInner as DrugsFromVariants200ResponseInnerStudyParametersInner
-from igvf_catalog_client.models.enhancer_gene_predictions200_response_inner import EnhancerGenePredictions200ResponseInner as EnhancerGenePredictions200ResponseInner
-from igvf_catalog_client.models.enhancer_gene_predictions200_response_inner_elements import EnhancerGenePredictions200ResponseInnerElements as EnhancerGenePredictions200ResponseInnerElements
-from igvf_catalog_client.models.enhancer_gene_predictions200_response_inner_elements_any_of_inner import EnhancerGenePredictions200ResponseInnerElementsAnyOfInner as EnhancerGenePredictions200ResponseInnerElementsAnyOfInner
-from igvf_catalog_client.models.files_filesets200_response_inner import FilesFilesets200ResponseInner as FilesFilesets200ResponseInner
-from igvf_catalog_client.models.genes_from_variants200_response_inner import GenesFromVariants200ResponseInner as GenesFromVariants200ResponseInner
-from igvf_catalog_client.models.genes_from_variants200_response_inner_gene import GenesFromVariants200ResponseInnerGene as GenesFromVariants200ResponseInnerGene
-from igvf_catalog_client.models.genes_from_variants200_response_inner_gene_any_of import GenesFromVariants200ResponseInnerGeneAnyOf as GenesFromVariants200ResponseInnerGeneAnyOf
-from igvf_catalog_client.models.genes_from_variants200_response_inner_neg_log10_pvalue import GenesFromVariants200ResponseInnerNegLog10Pvalue as GenesFromVariants200ResponseInnerNegLog10Pvalue
-from igvf_catalog_client.models.genes_from_variants200_response_inner_sequence_variant import GenesFromVariants200ResponseInnerSequenceVariant as GenesFromVariants200ResponseInnerSequenceVariant
-from igvf_catalog_client.models.genes_from_variants200_response_inner_study import GenesFromVariants200ResponseInnerStudy as GenesFromVariants200ResponseInnerStudy
-from igvf_catalog_client.models.genes_from_variants200_response_inner_study_any_of import GenesFromVariants200ResponseInnerStudyAnyOf as GenesFromVariants200ResponseInnerStudyAnyOf
-from igvf_catalog_client.models.genes_genes200_response_inner import GenesGenes200ResponseInner as GenesGenes200ResponseInner
-from igvf_catalog_client.models.genes_genes200_response_inner_gene1 import GenesGenes200ResponseInnerGene1 as GenesGenes200ResponseInnerGene1
-from igvf_catalog_client.models.genes_genes200_response_inner_gene1_any_of_inner import GenesGenes200ResponseInnerGene1AnyOfInner as GenesGenes200ResponseInnerGene1AnyOfInner
-from igvf_catalog_client.models.genes_proteins_from_variants200_response_inner import GenesProteinsFromVariants200ResponseInner as GenesProteinsFromVariants200ResponseInner
-from igvf_catalog_client.models.genes_proteins_from_variants200_response_inner_related_inner import GenesProteinsFromVariants200ResponseInnerRelatedInner as GenesProteinsFromVariants200ResponseInnerRelatedInner
-from igvf_catalog_client.models.genes_proteins_from_variants200_response_inner_related_inner_gene import GenesProteinsFromVariants200ResponseInnerRelatedInnerGene as GenesProteinsFromVariants200ResponseInnerRelatedInnerGene
-from igvf_catalog_client.models.genes_proteins_from_variants200_response_inner_related_inner_gene_any_of import GenesProteinsFromVariants200ResponseInnerRelatedInnerGeneAnyOf as GenesProteinsFromVariants200ResponseInnerRelatedInnerGeneAnyOf
-from igvf_catalog_client.models.genes_proteins_from_variants200_response_inner_related_inner_protein import GenesProteinsFromVariants200ResponseInnerRelatedInnerProtein as GenesProteinsFromVariants200ResponseInnerRelatedInnerProtein
-from igvf_catalog_client.models.genes_proteins_from_variants200_response_inner_related_inner_sources import GenesProteinsFromVariants200ResponseInnerRelatedInnerSources as GenesProteinsFromVariants200ResponseInnerRelatedInnerSources
-from igvf_catalog_client.models.genes_proteins_from_variants200_response_inner_related_inner_sources_any_of_inner import GenesProteinsFromVariants200ResponseInnerRelatedInnerSourcesAnyOfInner as GenesProteinsFromVariants200ResponseInnerRelatedInnerSourcesAnyOfInner
-from igvf_catalog_client.models.genes_proteins_from_variants200_response_inner_related_inner_sources_any_of_inner1 import GenesProteinsFromVariants200ResponseInnerRelatedInnerSourcesAnyOfInner1 as GenesProteinsFromVariants200ResponseInnerRelatedInnerSourcesAnyOfInner1
-from igvf_catalog_client.models.genes_proteins_from_variants200_response_inner_sequence_variant import GenesProteinsFromVariants200ResponseInnerSequenceVariant as GenesProteinsFromVariants200ResponseInnerSequenceVariant
-from igvf_catalog_client.models.genes_proteins_genes_proteins200_response_inner import GenesProteinsGenesProteins200ResponseInner as GenesProteinsGenesProteins200ResponseInner
-from igvf_catalog_client.models.genes_proteins_genes_proteins200_response_inner_related_inner import GenesProteinsGenesProteins200ResponseInnerRelatedInner as GenesProteinsGenesProteins200ResponseInnerRelatedInner
-from igvf_catalog_client.models.genes_proteins_genes_proteins200_response_inner_related_inner_any_of import GenesProteinsGenesProteins200ResponseInnerRelatedInnerAnyOf as GenesProteinsGenesProteins200ResponseInnerRelatedInnerAnyOf
-from igvf_catalog_client.models.genes_proteins_genes_proteins200_response_inner_related_inner_any_of1 import GenesProteinsGenesProteins200ResponseInnerRelatedInnerAnyOf1 as GenesProteinsGenesProteins200ResponseInnerRelatedInnerAnyOf1
-from igvf_catalog_client.models.genes_structure200_response_inner import GenesStructure200ResponseInner as GenesStructure200ResponseInner
-from igvf_catalog_client.models.genomic_elements200_response_inner import GenomicElements200ResponseInner as GenomicElements200ResponseInner
-from igvf_catalog_client.models.genomic_elements_from_genes200_response_inner import GenomicElementsFromGenes200ResponseInner as GenomicElementsFromGenes200ResponseInner
-from igvf_catalog_client.models.genomic_elements_from_genes200_response_inner_gene import GenomicElementsFromGenes200ResponseInnerGene as GenomicElementsFromGenes200ResponseInnerGene
-from igvf_catalog_client.models.genomic_elements_from_genes200_response_inner_gene_any_of import GenomicElementsFromGenes200ResponseInnerGeneAnyOf as GenomicElementsFromGenes200ResponseInnerGeneAnyOf
-from igvf_catalog_client.models.genomic_elements_from_genes200_response_inner_genomic_element import GenomicElementsFromGenes200ResponseInnerGenomicElement as GenomicElementsFromGenes200ResponseInnerGenomicElement
-from igvf_catalog_client.models.genomic_elements_from_genes200_response_inner_genomic_element_any_of import GenomicElementsFromGenes200ResponseInnerGenomicElementAnyOf as GenomicElementsFromGenes200ResponseInnerGenomicElementAnyOf
-from igvf_catalog_client.models.genomic_elements_from_variants200_response_inner import GenomicElementsFromVariants200ResponseInner as GenomicElementsFromVariants200ResponseInner
-from igvf_catalog_client.models.genomic_elements_from_variants200_response_inner_genomic_element import GenomicElementsFromVariants200ResponseInnerGenomicElement as GenomicElementsFromVariants200ResponseInnerGenomicElement
-from igvf_catalog_client.models.genomic_elements_predictions_from_variant200_response import GenomicElementsPredictionsFromVariant200Response as GenomicElementsPredictionsFromVariant200Response
-from igvf_catalog_client.models.genomic_elements_predictions_from_variant200_response_predictions import GenomicElementsPredictionsFromVariant200ResponsePredictions as GenomicElementsPredictionsFromVariant200ResponsePredictions
-from igvf_catalog_client.models.genomic_elements_predictions_from_variant200_response_predictions_genes_inner import GenomicElementsPredictionsFromVariant200ResponsePredictionsGenesInner as GenomicElementsPredictionsFromVariant200ResponsePredictionsGenesInner
-from igvf_catalog_client.models.genomic_elements_predictions_from_variant200_response_sequence_variant import GenomicElementsPredictionsFromVariant200ResponseSequenceVariant as GenomicElementsPredictionsFromVariant200ResponseSequenceVariant
+from igvf_catalog_client.models.annotations_from_go_terms import AnnotationsFromGoTerms as AnnotationsFromGoTerms
+from igvf_catalog_client.models.biosamples_from_genomic_elements import BiosamplesFromGenomicElements as BiosamplesFromGenomicElements
+from igvf_catalog_client.models.biosamples_from_genomic_elements_biosample import BiosamplesFromGenomicElementsBiosample as BiosamplesFromGenomicElementsBiosample
+from igvf_catalog_client.models.biosamples_from_genomic_elements_genomic_element import BiosamplesFromGenomicElementsGenomicElement as BiosamplesFromGenomicElementsGenomicElement
+from igvf_catalog_client.models.biosamples_from_variants import BiosamplesFromVariants as BiosamplesFromVariants
+from igvf_catalog_client.models.biosamples_from_variants_genomic_element import BiosamplesFromVariantsGenomicElement as BiosamplesFromVariantsGenomicElement
+from igvf_catalog_client.models.biosamples_from_variants_variant import BiosamplesFromVariantsVariant as BiosamplesFromVariantsVariant
+from igvf_catalog_client.models.cadd_scores import CaddScores as CaddScores
+from igvf_catalog_client.models.cell_types import CellTypes as CellTypes
+from igvf_catalog_client.models.cell_types2 import CellTypes2 as CellTypes2
+from igvf_catalog_client.models.coding_variant import CodingVariant as CodingVariant
+from igvf_catalog_client.models.coding_variants import CodingVariants as CodingVariants
+from igvf_catalog_client.models.coding_variants_from_genes import CodingVariantsFromGenes as CodingVariantsFromGenes
+from igvf_catalog_client.models.coding_variants_from_phenotypes import CodingVariantsFromPhenotypes as CodingVariantsFromPhenotypes
+from igvf_catalog_client.models.coding_variants_summary import CodingVariantsSummary as CodingVariantsSummary
+from igvf_catalog_client.models.complex import Complex as Complex
+from igvf_catalog_client.models.complex_complex_assembly import ComplexComplexAssembly as ComplexComplexAssembly
+from igvf_catalog_client.models.complexes_from_proteins import ComplexesFromProteins as ComplexesFromProteins
+from igvf_catalog_client.models.complexes_from_proteins_complex import ComplexesFromProteinsComplex as ComplexesFromProteinsComplex
+from igvf_catalog_client.models.complexes_from_proteins_protein import ComplexesFromProteinsProtein as ComplexesFromProteinsProtein
+from igvf_catalog_client.models.disease_from_variants import DiseaseFromVariants as DiseaseFromVariants
+from igvf_catalog_client.models.disease_from_variants_sequence_variant import DiseaseFromVariantsSequenceVariant as DiseaseFromVariantsSequenceVariant
+from igvf_catalog_client.models.diseases_from_genes import DiseasesFromGenes as DiseasesFromGenes
+from igvf_catalog_client.models.diseases_from_genes_gene import DiseasesFromGenesGene as DiseasesFromGenesGene
+from igvf_catalog_client.models.drug import Drug as Drug
+from igvf_catalog_client.models.drugs_from_variants import DrugsFromVariants as DrugsFromVariants
+from igvf_catalog_client.models.drugs_from_variants_drug import DrugsFromVariantsDrug as DrugsFromVariantsDrug
+from igvf_catalog_client.models.elements import Elements as Elements
+from igvf_catalog_client.models.enhancer_gene_predictions import EnhancerGenePredictions as EnhancerGenePredictions
+from igvf_catalog_client.models.enhancer_gene_predictions_elements import EnhancerGenePredictionsElements as EnhancerGenePredictionsElements
+from igvf_catalog_client.models.files_filesets import FilesFilesets as FilesFilesets
+from igvf_catalog_client.models.gene import Gene as Gene
+from igvf_catalog_client.models.gene4 import Gene4 as Gene4
+from igvf_catalog_client.models.gene6 import Gene6 as Gene6
+from igvf_catalog_client.models.gene_compact import GeneCompact as GeneCompact
+from igvf_catalog_client.models.gene_no_synonyms import GeneNoSynonyms as GeneNoSynonyms
+from igvf_catalog_client.models.gene_ref import GeneRef as GeneRef
+from igvf_catalog_client.models.genes import Genes as Genes
+from igvf_catalog_client.models.genes2 import Genes2 as Genes2
+from igvf_catalog_client.models.genes_from_genomic_elements import GenesFromGenomicElements as GenesFromGenomicElements
+from igvf_catalog_client.models.genes_from_genomic_elements_gene import GenesFromGenomicElementsGene as GenesFromGenomicElementsGene
+from igvf_catalog_client.models.genes_from_genomic_elements_genomic_element import GenesFromGenomicElementsGenomicElement as GenesFromGenomicElementsGenomicElement
+from igvf_catalog_client.models.genes_from_genomic_elements_p_value import GenesFromGenomicElementsPValue as GenesFromGenomicElementsPValue
+from igvf_catalog_client.models.genes_from_pathways import GenesFromPathways as GenesFromPathways
+from igvf_catalog_client.models.genes_from_pathways_pathway import GenesFromPathwaysPathway as GenesFromPathwaysPathway
+from igvf_catalog_client.models.genes_from_proteins import GenesFromProteins as GenesFromProteins
+from igvf_catalog_client.models.genes_from_transcripts import GenesFromTranscripts as GenesFromTranscripts
+from igvf_catalog_client.models.genes_from_transcripts_transcript import GenesFromTranscriptsTranscript as GenesFromTranscriptsTranscript
+from igvf_catalog_client.models.genes_from_variants import GenesFromVariants as GenesFromVariants
+from igvf_catalog_client.models.genes_from_variants_gene import GenesFromVariantsGene as GenesFromVariantsGene
+from igvf_catalog_client.models.genes_from_variants_sequence_variant import GenesFromVariantsSequenceVariant as GenesFromVariantsSequenceVariant
+from igvf_catalog_client.models.genes_from_variants_study import GenesFromVariantsStudy as GenesFromVariantsStudy
+from igvf_catalog_client.models.genes_genes import GenesGenes as GenesGenes
+from igvf_catalog_client.models.genes_genes_gene1 import GenesGenesGene1 as GenesGenesGene1
+from igvf_catalog_client.models.genes_proteins_from_variants import GenesProteinsFromVariants as GenesProteinsFromVariants
+from igvf_catalog_client.models.genes_proteins_genes_proteins import GenesProteinsGenesProteins as GenesProteinsGenesProteins
+from igvf_catalog_client.models.genes_proteins_genes_proteins_related_inner import GenesProteinsGenesProteinsRelatedInner as GenesProteinsGenesProteinsRelatedInner
+from igvf_catalog_client.models.genes_structure import GenesStructure as GenesStructure
+from igvf_catalog_client.models.genomic_element import GenomicElement as GenomicElement
+from igvf_catalog_client.models.genomic_element4 import GenomicElement4 as GenomicElement4
+from igvf_catalog_client.models.genomic_element5 import GenomicElement5 as GenomicElement5
+from igvf_catalog_client.models.genomic_element8 import GenomicElement8 as GenomicElement8
+from igvf_catalog_client.models.genomic_element9 import GenomicElement9 as GenomicElement9
+from igvf_catalog_client.models.genomic_element_basic import GenomicElementBasic as GenomicElementBasic
+from igvf_catalog_client.models.genomic_element_full import GenomicElementFull as GenomicElementFull
+from igvf_catalog_client.models.genomic_elements_from_phenotypes import GenomicElementsFromPhenotypes as GenomicElementsFromPhenotypes
+from igvf_catalog_client.models.genomic_elements_from_phenotypes_phenotype import GenomicElementsFromPhenotypesPhenotype as GenomicElementsFromPhenotypesPhenotype
+from igvf_catalog_client.models.genomic_elements_from_variants import GenomicElementsFromVariants as GenomicElementsFromVariants
+from igvf_catalog_client.models.genomic_elements_predictions_from_variant import GenomicElementsPredictionsFromVariant as GenomicElementsPredictionsFromVariant
 from igvf_catalog_client.models.go_terms_from_annotations200_response_inner import GoTermsFromAnnotations200ResponseInner as GoTermsFromAnnotations200ResponseInner
-from igvf_catalog_client.models.go_terms_from_annotations200_response_inner_any_of import GoTermsFromAnnotations200ResponseInnerAnyOf as GoTermsFromAnnotations200ResponseInnerAnyOf
-from igvf_catalog_client.models.grn200_response_inner import Grn200ResponseInner as Grn200ResponseInner
-from igvf_catalog_client.models.grn200_response_inner_genomic_element import Grn200ResponseInnerGenomicElement as Grn200ResponseInnerGenomicElement
+from igvf_catalog_client.models.grn import Grn as Grn
+from igvf_catalog_client.models.id_name import IdName as IdName
 from igvf_catalog_client.models.inline_object import InlineObject as InlineObject
 from igvf_catalog_client.models.inline_object_issues_inner import InlineObjectIssuesInner as InlineObjectIssuesInner
-from igvf_catalog_client.models.llm_query200_response import LlmQuery200Response as LlmQuery200Response
-from igvf_catalog_client.models.llm_query_request import LlmQueryRequest as LlmQueryRequest
-from igvf_catalog_client.models.motifs_from_proteins200_response_inner import MotifsFromProteins200ResponseInner as MotifsFromProteins200ResponseInner
-from igvf_catalog_client.models.motifs_from_proteins200_response_inner_complex import MotifsFromProteins200ResponseInnerComplex as MotifsFromProteins200ResponseInnerComplex
-from igvf_catalog_client.models.motifs_from_proteins200_response_inner_motif import MotifsFromProteins200ResponseInnerMotif as MotifsFromProteins200ResponseInnerMotif
-from igvf_catalog_client.models.motifs_from_proteins200_response_inner_motif_any_of import MotifsFromProteins200ResponseInnerMotifAnyOf as MotifsFromProteins200ResponseInnerMotifAnyOf
-from igvf_catalog_client.models.motifs_from_proteins200_response_inner_motif_any_of_pwm_inner_inner import MotifsFromProteins200ResponseInnerMotifAnyOfPwmInnerInner as MotifsFromProteins200ResponseInnerMotifAnyOfPwmInnerInner
+from igvf_catalog_client.models.linked_feature import LinkedFeature as LinkedFeature
+from igvf_catalog_client.models.method_count import MethodCount as MethodCount
+from igvf_catalog_client.models.motif import Motif as Motif
+from igvf_catalog_client.models.motif_pwm_inner_inner import MotifPwmInnerInner as MotifPwmInnerInner
+from igvf_catalog_client.models.motifs_from_proteins import MotifsFromProteins as MotifsFromProteins
+from igvf_catalog_client.models.motifs_from_proteins_motif import MotifsFromProteinsMotif as MotifsFromProteinsMotif
+from igvf_catalog_client.models.nearest_gene import NearestGene as NearestGene
+from igvf_catalog_client.models.nearest_genes import NearestGenes as NearestGenes
+from igvf_catalog_client.models.ontology_term import OntologyTerm as OntologyTerm
+from igvf_catalog_client.models.ontology_term_basic import OntologyTermBasic as OntologyTermBasic
+from igvf_catalog_client.models.ontology_term_children import OntologyTermChildren as OntologyTermChildren
 from igvf_catalog_client.models.ontology_term_parents200_response_inner import OntologyTermParents200ResponseInner as OntologyTermParents200ResponseInner
-from igvf_catalog_client.models.ontology_term_parents200_response_inner_any_of import OntologyTermParents200ResponseInnerAnyOf as OntologyTermParents200ResponseInnerAnyOf
-from igvf_catalog_client.models.ontology_term_transitive_closure200_response import OntologyTermTransitiveClosure200Response as OntologyTermTransitiveClosure200Response
-from igvf_catalog_client.models.ontology_term_transitive_closure200_response_paths_inner_inner import OntologyTermTransitiveClosure200ResponsePathsInnerInner as OntologyTermTransitiveClosure200ResponsePathsInnerInner
-from igvf_catalog_client.models.ontology_term_transitive_closure200_response_vertices_value import OntologyTermTransitiveClosure200ResponseVerticesValue as OntologyTermTransitiveClosure200ResponseVerticesValue
-from igvf_catalog_client.models.pathways_from_genes200_response_inner import PathwaysFromGenes200ResponseInner as PathwaysFromGenes200ResponseInner
-from igvf_catalog_client.models.pathways_from_genes200_response_inner_pathway import PathwaysFromGenes200ResponseInnerPathway as PathwaysFromGenes200ResponseInnerPathway
-from igvf_catalog_client.models.pathways_from_genes200_response_inner_pathway_any_of import PathwaysFromGenes200ResponseInnerPathwayAnyOf as PathwaysFromGenes200ResponseInnerPathwayAnyOf
-from igvf_catalog_client.models.pathways_from_pathways200_response_inner import PathwaysFromPathways200ResponseInner as PathwaysFromPathways200ResponseInner
-from igvf_catalog_client.models.phenotypes_from_coding_variants200_response_inner import PhenotypesFromCodingVariants200ResponseInner as PhenotypesFromCodingVariants200ResponseInner
-from igvf_catalog_client.models.phenotypes_from_coding_variants200_response_inner_coding_variant import PhenotypesFromCodingVariants200ResponseInnerCodingVariant as PhenotypesFromCodingVariants200ResponseInnerCodingVariant
-from igvf_catalog_client.models.phenotypes_from_coding_variants200_response_inner_phenotype import PhenotypesFromCodingVariants200ResponseInnerPhenotype as PhenotypesFromCodingVariants200ResponseInnerPhenotype
-from igvf_catalog_client.models.phenotypes_from_coding_variants200_response_inner_variant import PhenotypesFromCodingVariants200ResponseInnerVariant as PhenotypesFromCodingVariants200ResponseInnerVariant
-from igvf_catalog_client.models.phenotypes_from_genomic_elements200_response_inner import PhenotypesFromGenomicElements200ResponseInner as PhenotypesFromGenomicElements200ResponseInner
-from igvf_catalog_client.models.phenotypes_from_genomic_elements200_response_inner_phenotype import PhenotypesFromGenomicElements200ResponseInnerPhenotype as PhenotypesFromGenomicElements200ResponseInnerPhenotype
-from igvf_catalog_client.models.phenotypes_from_genomic_elements200_response_inner_phenotype_any_of import PhenotypesFromGenomicElements200ResponseInnerPhenotypeAnyOf as PhenotypesFromGenomicElements200ResponseInnerPhenotypeAnyOf
+from igvf_catalog_client.models.ontology_term_transitive_closure import OntologyTermTransitiveClosure as OntologyTermTransitiveClosure
+from igvf_catalog_client.models.paths import Paths as Paths
+from igvf_catalog_client.models.pathway import Pathway as Pathway
+from igvf_catalog_client.models.pathways_from_pathways import PathwaysFromPathways as PathwaysFromPathways
+from igvf_catalog_client.models.phenotype import Phenotype as Phenotype
+from igvf_catalog_client.models.phenotype_ref import PhenotypeRef as PhenotypeRef
+from igvf_catalog_client.models.phenotypes_from_variants import PhenotypesFromVariants as PhenotypesFromVariants
 from igvf_catalog_client.models.phenotypes_from_variants200_response_inner import PhenotypesFromVariants200ResponseInner as PhenotypesFromVariants200ResponseInner
-from igvf_catalog_client.models.phenotypes_from_variants200_response_inner_any_of import PhenotypesFromVariants200ResponseInnerAnyOf as PhenotypesFromVariants200ResponseInnerAnyOf
-from igvf_catalog_client.models.phenotypes_from_variants200_response_inner_any_of1 import PhenotypesFromVariants200ResponseInnerAnyOf1 as PhenotypesFromVariants200ResponseInnerAnyOf1
-from igvf_catalog_client.models.phenotypes_from_variants200_response_inner_any_of_study import PhenotypesFromVariants200ResponseInnerAnyOfStudy as PhenotypesFromVariants200ResponseInnerAnyOfStudy
-from igvf_catalog_client.models.predictions_from_variants200_response_inner import PredictionsFromVariants200ResponseInner as PredictionsFromVariants200ResponseInner
-from igvf_catalog_client.models.predictions_from_variants200_response_inner_target_gene import PredictionsFromVariants200ResponseInnerTargetGene as PredictionsFromVariants200ResponseInnerTargetGene
-from igvf_catalog_client.models.proteins_from_genes200_response_inner import ProteinsFromGenes200ResponseInner as ProteinsFromGenes200ResponseInner
-from igvf_catalog_client.models.proteins_from_genes200_response_inner_gene import ProteinsFromGenes200ResponseInnerGene as ProteinsFromGenes200ResponseInnerGene
-from igvf_catalog_client.models.proteins_from_genes200_response_inner_protein import ProteinsFromGenes200ResponseInnerProtein as ProteinsFromGenes200ResponseInnerProtein
-from igvf_catalog_client.models.proteins_from_genes200_response_inner_protein_any_of import ProteinsFromGenes200ResponseInnerProteinAnyOf as ProteinsFromGenes200ResponseInnerProteinAnyOf
-from igvf_catalog_client.models.proteins_from_genes200_response_inner_protein_any_of_dbxrefs_inner import ProteinsFromGenes200ResponseInnerProteinAnyOfDbxrefsInner as ProteinsFromGenes200ResponseInnerProteinAnyOfDbxrefsInner
-from igvf_catalog_client.models.proteins_from_transcripts200_response_inner import ProteinsFromTranscripts200ResponseInner as ProteinsFromTranscripts200ResponseInner
-from igvf_catalog_client.models.proteins_from_transcripts200_response_inner_protein import ProteinsFromTranscripts200ResponseInnerProtein as ProteinsFromTranscripts200ResponseInnerProtein
-from igvf_catalog_client.models.proteins_from_variants200_response_inner import ProteinsFromVariants200ResponseInner as ProteinsFromVariants200ResponseInner
-from igvf_catalog_client.models.proteins_from_variants200_response_inner_biosample_term import ProteinsFromVariants200ResponseInnerBiosampleTerm as ProteinsFromVariants200ResponseInnerBiosampleTerm
-from igvf_catalog_client.models.proteins_from_variants200_response_inner_biosample_term_any_of import ProteinsFromVariants200ResponseInnerBiosampleTermAnyOf as ProteinsFromVariants200ResponseInnerBiosampleTermAnyOf
-from igvf_catalog_client.models.proteins_from_variants200_response_inner_protein_complex import ProteinsFromVariants200ResponseInnerProteinComplex as ProteinsFromVariants200ResponseInnerProteinComplex
-from igvf_catalog_client.models.proteins_from_variants200_response_inner_protein_complex_any_of import ProteinsFromVariants200ResponseInnerProteinComplexAnyOf as ProteinsFromVariants200ResponseInnerProteinComplexAnyOf
-from igvf_catalog_client.models.proteins_from_variants200_response_inner_protein_complex_any_of1 import ProteinsFromVariants200ResponseInnerProteinComplexAnyOf1 as ProteinsFromVariants200ResponseInnerProteinComplexAnyOf1
-from igvf_catalog_client.models.proteins_from_variants200_response_inner_protein_complex_any_of1_complex_assembly import ProteinsFromVariants200ResponseInnerProteinComplexAnyOf1ComplexAssembly as ProteinsFromVariants200ResponseInnerProteinComplexAnyOf1ComplexAssembly
-from igvf_catalog_client.models.proteins_from_variants200_response_inner_protein_complex_any_of_any_of import ProteinsFromVariants200ResponseInnerProteinComplexAnyOfAnyOf as ProteinsFromVariants200ResponseInnerProteinComplexAnyOfAnyOf
-from igvf_catalog_client.models.proteins_from_variants200_response_inner_sequence_variant import ProteinsFromVariants200ResponseInnerSequenceVariant as ProteinsFromVariants200ResponseInnerSequenceVariant
-from igvf_catalog_client.models.proteins_from_variants200_response_inner_sequence_variant_any_of import ProteinsFromVariants200ResponseInnerSequenceVariantAnyOf as ProteinsFromVariants200ResponseInnerSequenceVariantAnyOf
-from igvf_catalog_client.models.proteins_proteins200_response_inner import ProteinsProteins200ResponseInner as ProteinsProteins200ResponseInner
-from igvf_catalog_client.models.proteins_proteins200_response_inner_protein1 import ProteinsProteins200ResponseInnerProtein1 as ProteinsProteins200ResponseInnerProtein1
-from igvf_catalog_client.models.qtl_summary_endpoint200_response_inner import QtlSummaryEndpoint200ResponseInner as QtlSummaryEndpoint200ResponseInner
-from igvf_catalog_client.models.qtl_summary_endpoint200_response_inner_gene import QtlSummaryEndpoint200ResponseInnerGene as QtlSummaryEndpoint200ResponseInnerGene
-from igvf_catalog_client.models.qtls200_response_inner import Qtls200ResponseInner as Qtls200ResponseInner
-from igvf_catalog_client.models.qtls200_response_inner_gene import Qtls200ResponseInnerGene as Qtls200ResponseInnerGene
-from igvf_catalog_client.models.qtls200_response_inner_genomic_element import Qtls200ResponseInnerGenomicElement as Qtls200ResponseInnerGenomicElement
-from igvf_catalog_client.models.qtls200_response_inner_study import Qtls200ResponseInnerStudy as Qtls200ResponseInnerStudy
-from igvf_catalog_client.models.qtls200_response_inner_variant import Qtls200ResponseInnerVariant as Qtls200ResponseInnerVariant
-from igvf_catalog_client.models.transcripts_from_genes200_response_inner import TranscriptsFromGenes200ResponseInner as TranscriptsFromGenes200ResponseInner
-from igvf_catalog_client.models.transcripts_from_genes200_response_inner_transcript import TranscriptsFromGenes200ResponseInnerTranscript as TranscriptsFromGenes200ResponseInnerTranscript
-from igvf_catalog_client.models.transcripts_from_genes200_response_inner_transcript_any_of import TranscriptsFromGenes200ResponseInnerTranscriptAnyOf as TranscriptsFromGenes200ResponseInnerTranscriptAnyOf
-from igvf_catalog_client.models.variant_summary200_response import VariantSummary200Response as VariantSummary200Response
-from igvf_catalog_client.models.variant_summary200_response_cadd_scores import VariantSummary200ResponseCaddScores as VariantSummary200ResponseCaddScores
-from igvf_catalog_client.models.variant_summary200_response_nearest_genes import VariantSummary200ResponseNearestGenes as VariantSummary200ResponseNearestGenes
-from igvf_catalog_client.models.variant_summary200_response_nearest_genes_nearest_coding_gene import VariantSummary200ResponseNearestGenesNearestCodingGene as VariantSummary200ResponseNearestGenesNearestCodingGene
-from igvf_catalog_client.models.variant_summary200_response_summary import VariantSummary200ResponseSummary as VariantSummary200ResponseSummary
-from igvf_catalog_client.models.variants200_response_inner import Variants200ResponseInner as Variants200ResponseInner
-from igvf_catalog_client.models.variants200_response_inner_annotations import Variants200ResponseInnerAnnotations as Variants200ResponseInnerAnnotations
+from igvf_catalog_client.models.phenotypes_from_variants23 import PhenotypesFromVariants23 as PhenotypesFromVariants23
+from igvf_catalog_client.models.phenotypes_from_variants_study import PhenotypesFromVariantsStudy as PhenotypesFromVariantsStudy
+from igvf_catalog_client.models.phenotypes_from_variants_variant import PhenotypesFromVariantsVariant as PhenotypesFromVariantsVariant
+from igvf_catalog_client.models.predictions import Predictions as Predictions
+from igvf_catalog_client.models.predictions2 import Predictions2 as Predictions2
+from igvf_catalog_client.models.predictions_from_variants import PredictionsFromVariants as PredictionsFromVariants
+from igvf_catalog_client.models.protein import Protein as Protein
+from igvf_catalog_client.models.protein_basic import ProteinBasic as ProteinBasic
+from igvf_catalog_client.models.protein_change import ProteinChange as ProteinChange
+from igvf_catalog_client.models.protein_compact import ProteinCompact as ProteinCompact
+from igvf_catalog_client.models.proteins_from_transcripts import ProteinsFromTranscripts as ProteinsFromTranscripts
+from igvf_catalog_client.models.proteins_from_transcripts_protein import ProteinsFromTranscriptsProtein as ProteinsFromTranscriptsProtein
+from igvf_catalog_client.models.proteins_from_variants import ProteinsFromVariants as ProteinsFromVariants
+from igvf_catalog_client.models.proteins_from_variants_biosample_term import ProteinsFromVariantsBiosampleTerm as ProteinsFromVariantsBiosampleTerm
+from igvf_catalog_client.models.proteins_from_variants_protein_complex import ProteinsFromVariantsProteinComplex as ProteinsFromVariantsProteinComplex
+from igvf_catalog_client.models.proteins_from_variants_protein_complex_any_of import ProteinsFromVariantsProteinComplexAnyOf as ProteinsFromVariantsProteinComplexAnyOf
+from igvf_catalog_client.models.proteins_proteins import ProteinsProteins as ProteinsProteins
+from igvf_catalog_client.models.proteins_proteins_protein1 import ProteinsProteinsProtein1 as ProteinsProteinsProtein1
+from igvf_catalog_client.models.qtl_summary_endpoint import QtlSummaryEndpoint as QtlSummaryEndpoint
+from igvf_catalog_client.models.qtls import Qtls as Qtls
+from igvf_catalog_client.models.qtls3 import Qtls3 as Qtls3
+from igvf_catalog_client.models.related import Related as Related
+from igvf_catalog_client.models.related_gene import RelatedGene as RelatedGene
+from igvf_catalog_client.models.related_sources import RelatedSources as RelatedSources
+from igvf_catalog_client.models.scores import Scores as Scores
+from igvf_catalog_client.models.sequence_variant import SequenceVariant as SequenceVariant
+from igvf_catalog_client.models.sequence_variant9 import SequenceVariant9 as SequenceVariant9
+from igvf_catalog_client.models.sources import Sources as Sources
+from igvf_catalog_client.models.sources4 import Sources4 as Sources4
+from igvf_catalog_client.models.study import Study as Study
+from igvf_catalog_client.models.study2 import Study2 as Study2
+from igvf_catalog_client.models.study_parameters import StudyParameters as StudyParameters
+from igvf_catalog_client.models.summary import Summary as Summary
+from igvf_catalog_client.models.target_gene import TargetGene as TargetGene
+from igvf_catalog_client.models.tf_binding import TfBinding as TfBinding
+from igvf_catalog_client.models.transcript import Transcript as Transcript
+from igvf_catalog_client.models.variant import Variant as Variant
+from igvf_catalog_client.models.variant_annotations import VariantAnnotations as VariantAnnotations
+from igvf_catalog_client.models.variant_basic import VariantBasic as VariantBasic
+from igvf_catalog_client.models.variant_minimal import VariantMinimal as VariantMinimal
+from igvf_catalog_client.models.variant_ref import VariantRef as VariantRef
+from igvf_catalog_client.models.variant_summary import VariantSummary as VariantSummary
+from igvf_catalog_client.models.variants import Variants as Variants
 from igvf_catalog_client.models.variants_alleles200_response_inner_inner import VariantsAlleles200ResponseInnerInner as VariantsAlleles200ResponseInnerInner
 from igvf_catalog_client.models.variants_alleles200_response_inner_inner_any_of import VariantsAlleles200ResponseInnerInnerAnyOf as VariantsAlleles200ResponseInnerInnerAnyOf
-from igvf_catalog_client.models.variants_from_coding_variants200_response_inner import VariantsFromCodingVariants200ResponseInner as VariantsFromCodingVariants200ResponseInner
-from igvf_catalog_client.models.variants_from_drugs200_response_inner import VariantsFromDrugs200ResponseInner as VariantsFromDrugs200ResponseInner
-from igvf_catalog_client.models.variants_from_variant_id200_response_inner import VariantsFromVariantID200ResponseInner as VariantsFromVariantID200ResponseInner
-from igvf_catalog_client.models.variants_from_variant_id200_response_inner_sequence_variant import VariantsFromVariantID200ResponseInnerSequenceVariant as VariantsFromVariantID200ResponseInnerSequenceVariant
-from igvf_catalog_client.models.variants_from_variant_id_summary200_response_inner import VariantsFromVariantIDSummary200ResponseInner as VariantsFromVariantIDSummary200ResponseInner
-from igvf_catalog_client.models.variants_from_variant_id_summary200_response_inner_predictions import VariantsFromVariantIDSummary200ResponseInnerPredictions as VariantsFromVariantIDSummary200ResponseInnerPredictions
-from igvf_catalog_client.models.variants_from_variant_id_summary200_response_inner_predictions_qtls_inner import VariantsFromVariantIDSummary200ResponseInnerPredictionsQtlsInner as VariantsFromVariantIDSummary200ResponseInnerPredictionsQtlsInner
-from igvf_catalog_client.models.variants_from_variant_id_summary200_response_inner_predictions_qtls_inner_cell_types_inner import VariantsFromVariantIDSummary200ResponseInnerPredictionsQtlsInnerCellTypesInner as VariantsFromVariantIDSummary200ResponseInnerPredictionsQtlsInnerCellTypesInner
-from igvf_catalog_client.models.variants_from_variant_id_summary200_response_inner_predictions_qtls_inner_genes_inner import VariantsFromVariantIDSummary200ResponseInnerPredictionsQtlsInnerGenesInner as VariantsFromVariantIDSummary200ResponseInnerPredictionsQtlsInnerGenesInner
-from igvf_catalog_client.models.variants_from_variant_id_summary200_response_inner_predictions_tf_binding_inner import VariantsFromVariantIDSummary200ResponseInnerPredictionsTfBindingInner as VariantsFromVariantIDSummary200ResponseInnerPredictionsTfBindingInner
-from igvf_catalog_client.models.variants_from_variant_id_summary200_response_inner_predictions_tf_binding_inner_cell_types_inner import VariantsFromVariantIDSummary200ResponseInnerPredictionsTfBindingInnerCellTypesInner as VariantsFromVariantIDSummary200ResponseInnerPredictionsTfBindingInnerCellTypesInner
-from igvf_catalog_client.models.variants_genomic_elements_genes200_response_inner import VariantsGenomicElementsGenes200ResponseInner as VariantsGenomicElementsGenes200ResponseInner
-from igvf_catalog_client.models.variants_genomic_elements_genes200_response_inner_gene import VariantsGenomicElementsGenes200ResponseInnerGene as VariantsGenomicElementsGenes200ResponseInnerGene
-from igvf_catalog_client.models.variants_genomic_elements_genes200_response_inner_genomic_element import VariantsGenomicElementsGenes200ResponseInnerGenomicElement as VariantsGenomicElementsGenes200ResponseInnerGenomicElement
-from igvf_catalog_client.models.variants_region_summary200_response import VariantsRegionSummary200Response as VariantsRegionSummary200Response
-from igvf_catalog_client.models.variants_region_summary200_response_by_method_inner import VariantsRegionSummary200ResponseByMethodInner as VariantsRegionSummary200ResponseByMethodInner
+from igvf_catalog_client.models.variants_from_drugs import VariantsFromDrugs as VariantsFromDrugs
+from igvf_catalog_client.models.variants_from_variant_id import VariantsFromVariantID as VariantsFromVariantID
+from igvf_catalog_client.models.variants_from_variant_id_sequence_variant import VariantsFromVariantIDSequenceVariant as VariantsFromVariantIDSequenceVariant
+from igvf_catalog_client.models.variants_from_variant_id_summary import VariantsFromVariantIDSummary as VariantsFromVariantIDSummary
+from igvf_catalog_client.models.variants_genomic_elements_genes import VariantsGenomicElementsGenes as VariantsGenomicElementsGenes
+from igvf_catalog_client.models.variants_region_summary import VariantsRegionSummary as VariantsRegionSummary

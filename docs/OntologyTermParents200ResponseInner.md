@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**term** | [**ProteinsFromVariants200ResponseInnerBiosampleTermAnyOf**](ProteinsFromVariants200ResponseInnerBiosampleTermAnyOf.md) |  | 
+**term** | [**OntologyTerm**](OntologyTerm.md) |  | 
 **relationship_type** | **str** |  | 
 
 ## Example
