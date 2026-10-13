@@ -1,0 +1,29 @@
+name: Publish to PyPI
+
+# Releases are created by IGVF-DACC/igvf-catalog-client-openapi-spec after the
+# generated client passed its smoke tests. Publishing uses PyPI trusted
+# publishing (environment "pypi"), so no API token is stored here.
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  publish-to-pypi:
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/project/igvf-catalog-client/
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Build
+        run: |
+          python -m pip install --upgrade pip build
+          python -m build
+      - uses: pypa/gh-action-pypi-publish@release/v1

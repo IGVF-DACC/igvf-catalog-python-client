@@ -1,0 +1,77 @@
+# {{{projectName}}}
+
+{{#asyncio}}Asyncio{{/asyncio}}{{^asyncio}}Python{{/asyncio}} client for the [IGVF Catalog API](https://api.catalogkg.igvf.org/){{#asyncio}}, built on `aiohttp`{{/asyncio}}.
+
+{{#appDescriptionWithNewLines}}
+{{{.}}}
+{{/appDescriptionWithNewLines}}
+
+- API version: {{appVersion}}
+- Package version: {{packageVersion}}
+- Generator version: {{generatorVersion}}
+
+This package is generated with [OpenAPI Generator](https://openapi-generator.tech) by
+[igvf-catalog-client-openapi-spec](https://github.com/IGVF-DACC/igvf-catalog-client-openapi-spec)
+whenever the IGVF Catalog changes. Don't edit generated files by hand; change
+`templates/` here or the pipeline in that repo instead.
+
+## Requirements
+
+Python {{{generatorLanguageVersion}}}
+
+## Installation
+
+Releases follow IGVF Catalog releases and are published to PyPI:
+
+```sh
+pip install {{{projectName}}}
+```
+
+Development builds track the catalog's `dev` branch and are installed from this repo's `dev` branch:
+
+```sh
+pip install "git+https://{{gitHost}}/{{{gitUserId}}}/{{{gitRepoId}}}.git@dev"
+```
+
+The default host is the API the package was generated against: releases use
+`https://api.catalogkg.igvf.org/api` and dev builds use
+`https://catalog-api-dev.demo.igvf.org/api`. Pass `Configuration(host=...)` to use another.
+
+## Quick start
+
+```python
+{{^asyncio}}
+import {{{packageName}}}
+
+configuration = {{{packageName}}}.Configuration(host="https://api.catalogkg.igvf.org/api")
+
+with {{{packageName}}}.ApiClient(configuration) as api_client:
+    api = {{{packageName}}}.IgvfCatalogApi(api_client)
+    genes = api.genes(name="ATF3")
+    print(genes[0].to_dict())
+{{/asyncio}}
+{{#asyncio}}
+import asyncio
+
+import {{{packageName}}}
+
+configuration = {{{packageName}}}.Configuration(host="https://api.catalogkg.igvf.org/api")
+
+
+async def main():
+    async with {{{packageName}}}.ApiClient(configuration) as api_client:
+        api = {{{packageName}}}.AsyncIgvfCatalogApi(api_client)
+        genes = await api.genes(name="ATF3")
+        print(genes[0].to_dict())
+
+
+asyncio.run(main())
+{{/asyncio}}
+```
+
+Every endpoint is a method on `{{#asyncio}}Async{{/asyncio}}IgvfCatalogApi`, listed below. The interactive API documentation is at
+[api.catalogkg.igvf.org](https://api.catalogkg.igvf.org/).
+
+## Getting Started
+
+{{> common_README }}
