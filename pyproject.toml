@@ -1,6 +1,6 @@
 [project]
 name = "igvf_catalog_client"
-version = "1.3.1.dev20261013000000"
+version = "1.3.1.dev20261013205657"
 description = "IGVF Catalog"
 authors = [
   {name = "IGVF DACC",email = "encode-help@lists.stanford.edu"},
