@@ -37,6 +37,9 @@ Name | Type | Description | Notes
 **ref_score** | **float** |  | [optional] 
 **relative_binding_affinity** | **float** |  | [optional] 
 **effect_on_binding** | **str** |  | [optional] 
+**pbs** | **float** |  | [optional] 
+**ref_auc** | **float** |  | [optional] 
+**alt_auc** | **float** |  | [optional] 
 
 ## Example
 
