@@ -56,11 +56,13 @@ docs/GenesFromVariantsSequenceVariant.md
 docs/GenesFromVariantsStudy.md
 docs/GenesGenes.md
 docs/GenesGenesGene1.md
+docs/GenesGenomicElementsScoreSummary.md
 docs/GenesProteinsFromVariants.md
 docs/GenesProteinsGenesProteins.md
 docs/GenesStructure.md
 docs/GenesTranscriptsGenes.md
 docs/GenesTranscriptsGenesTranscript.md
+docs/GenesVariantsScoreSummary.md
 docs/GenomicElement.md
 docs/GenomicElement2.md
 docs/GenomicElement4.md
@@ -75,6 +77,8 @@ docs/GenomicElementsFromPhenotypesPhenotype.md
 docs/GenomicElementsFromVariants.md
 docs/GenomicElementsPredictionsFromVariant.md
 docs/Grn.md
+docs/Groups.md
+docs/Groups13.md
 docs/IdName.md
 docs/IgvfCatalogApi.md
 docs/InlineObject.md
@@ -216,11 +220,13 @@ igvf_catalog_client/models/genes_from_variants_sequence_variant.py
 igvf_catalog_client/models/genes_from_variants_study.py
 igvf_catalog_client/models/genes_genes.py
 igvf_catalog_client/models/genes_genes_gene1.py
+igvf_catalog_client/models/genes_genomic_elements_score_summary.py
 igvf_catalog_client/models/genes_proteins_from_variants.py
 igvf_catalog_client/models/genes_proteins_genes_proteins.py
 igvf_catalog_client/models/genes_structure.py
 igvf_catalog_client/models/genes_transcripts_genes.py
 igvf_catalog_client/models/genes_transcripts_genes_transcript.py
+igvf_catalog_client/models/genes_variants_score_summary.py
 igvf_catalog_client/models/genomic_element.py
 igvf_catalog_client/models/genomic_element2.py
 igvf_catalog_client/models/genomic_element4.py
@@ -235,6 +241,8 @@ igvf_catalog_client/models/genomic_elements_from_phenotypes_phenotype.py
 igvf_catalog_client/models/genomic_elements_from_variants.py
 igvf_catalog_client/models/genomic_elements_predictions_from_variant.py
 igvf_catalog_client/models/grn.py
+igvf_catalog_client/models/groups.py
+igvf_catalog_client/models/groups13.py
 igvf_catalog_client/models/id_name.py
 igvf_catalog_client/models/inline_object.py
 igvf_catalog_client/models/inline_object_issues_inner.py

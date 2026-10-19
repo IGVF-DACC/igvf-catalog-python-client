@@ -8,8 +8,8 @@ Our database uses 0-based, half-open coordinates for genomic coordinates in the 
 
 Data is licensed under the <a href=https://creativecommons.org/licenses/by/4.0/ target=\"_blank\">Creative Commons license</a> and the software is licensed under the <a href=https://spdx.org/licenses/MIT.html target=\"_blank\">MIT license</a>.
 
-- API version: 1.3.1.dev20261015220434
-- Package version: 1.3.1.dev20261015220434
+- API version: 1.3.1.dev20261019194131
+- Package version: 1.3.1.dev20261019194131
 - Generator version: 7.14.0
 
 This package is generated with [OpenAPI Generator](https://openapi-generator.tech) by
@@ -181,6 +181,8 @@ Class | Method | HTTP request | Description
 *IgvfCatalogApi* | [**variants_from_drugs**](docs/IgvfCatalogApi.md#variants_from_drugs) | **GET** /drugs/variants | 
 *IgvfCatalogApi* | [**files_filesets**](docs/IgvfCatalogApi.md#files_filesets) | **GET** /files-filesets | 
 *IgvfCatalogApi* | [**llm_query**](docs/IgvfCatalogApi.md#llm_query) | **POST** /llm-query | 
+*IgvfCatalogApi* | [**genes_genomic_elements_score_summary**](docs/IgvfCatalogApi.md#genes_genomic_elements_score_summary) | **GET** /genes/genomic-elements/score-summary | 
+*IgvfCatalogApi* | [**genes_variants_score_summary**](docs/IgvfCatalogApi.md#genes_variants_score_summary) | **GET** /genes/variants/score-summary | 
 
 ## Documentation For Models
 
@@ -241,11 +243,13 @@ Class | Method | HTTP request | Description
  - [GenesFromVariantsStudy](docs/GenesFromVariantsStudy.md)
  - [GenesGenes](docs/GenesGenes.md)
  - [GenesGenesGene1](docs/GenesGenesGene1.md)
+ - [GenesGenomicElementsScoreSummary](docs/GenesGenomicElementsScoreSummary.md)
  - [GenesProteinsFromVariants](docs/GenesProteinsFromVariants.md)
  - [GenesProteinsGenesProteins](docs/GenesProteinsGenesProteins.md)
  - [GenesStructure](docs/GenesStructure.md)
  - [GenesTranscriptsGenes](docs/GenesTranscriptsGenes.md)
  - [GenesTranscriptsGenesTranscript](docs/GenesTranscriptsGenesTranscript.md)
+ - [GenesVariantsScoreSummary](docs/GenesVariantsScoreSummary.md)
  - [GenomicElement](docs/GenomicElement.md)
  - [GenomicElement2](docs/GenomicElement2.md)
  - [GenomicElement4](docs/GenomicElement4.md)
@@ -260,6 +264,8 @@ Class | Method | HTTP request | Description
  - [GenomicElementsFromVariants](docs/GenomicElementsFromVariants.md)
  - [GenomicElementsPredictionsFromVariant](docs/GenomicElementsPredictionsFromVariant.md)
  - [Grn](docs/Grn.md)
+ - [Groups](docs/Groups.md)
+ - [Groups13](docs/Groups13.md)
  - [IdName](docs/IdName.md)
  - [InlineObject](docs/InlineObject.md)
  - [InlineObjectIssuesInner](docs/InlineObjectIssuesInner.md)

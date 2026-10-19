@@ -31,10 +31,12 @@ Method | HTTP request | Description
 [**genes_from_transcripts**](IgvfCatalogApi.md#genes_from_transcripts) | **GET** /transcripts/genes | 
 [**genes_from_variants**](IgvfCatalogApi.md#genes_from_variants) | **GET** /variants/genes | 
 [**genes_genes**](IgvfCatalogApi.md#genes_genes) | **GET** /genes/genes | 
+[**genes_genomic_elements_score_summary**](IgvfCatalogApi.md#genes_genomic_elements_score_summary) | **GET** /genes/genomic-elements/score-summary | 
 [**genes_proteins_from_variants**](IgvfCatalogApi.md#genes_proteins_from_variants) | **GET** /variants/genes-proteins | 
 [**genes_proteins_genes_proteins**](IgvfCatalogApi.md#genes_proteins_genes_proteins) | **GET** /genes-proteins/genes-proteins | 
 [**genes_structure**](IgvfCatalogApi.md#genes_structure) | **GET** /genes-structure | 
 [**genes_transcripts_genes**](IgvfCatalogApi.md#genes_transcripts_genes) | **GET** /genes/transcripts/genes | 
+[**genes_variants_score_summary**](IgvfCatalogApi.md#genes_variants_score_summary) | **GET** /genes/variants/score-summary | 
 [**genomic_elements**](IgvfCatalogApi.md#genomic_elements) | **GET** /genomic-elements | 
 [**genomic_elements_from_biosamples**](IgvfCatalogApi.md#genomic_elements_from_biosamples) | **GET** /biosamples/genomic-elements | 
 [**genomic_elements_from_genes**](IgvfCatalogApi.md#genomic_elements_from_genes) | **GET** /genes/genomic-elements | 
@@ -2327,6 +2329,92 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **genes_genomic_elements_score_summary**
+> GenesGenomicElementsScoreSummary genes_genomic_elements_score_summary(gene_id, score_field, method=method, files_fileset=files_fileset, source=source, biosample_term=biosample_term, biological_context=biological_context, cell_annotation=cell_annotation, cell_annotation_term=cell_annotation_term, page=page, limit=limit)
+
+Observed min/max and counts for a score field across every genomic-element-to-gene edge for one gene - without paginating through the edges themselves.<br>     Optional filters are combined with and matched exactly.<br>     Results are grouped by every distinct combination of those fields plus crispr_modality, so     measurements from incompatible sources are never pooled. Groups with no numeric scores are omitted, and total_edge_count     only counts edges with a numeric score.<br>     Default page size is 25, maximum 500; pagination is     0-based.<br><br><div class="method-examples"> <strong>Examples by method</strong> <p class="method-example-description">These examples are grouped by method; use the <code>method</code> filter to return data from a specific method.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="crispr-screen">CRISPR screen</button> <button class="method-example-tab" data-method-example-tab="perturb-seq">Perturb-seq</button> <button class="method-example-tab" data-method-example-tab="encode-re2g">ENCODE-rE2G</button> <button class="method-example-tab" data-method-example-tab="sce2g">scE2G</button> </div> <div class="method-example-panel is-active" data-method-example-panel="crispr-screen"> <strong>CRISPR screen:</strong> <div class="method-query-example"> <strong>Element effect sizes on a CRISPR screen target gene</strong>  <ul> <li>gene_id = ENSG00000102145</li> <li>score_field = effect_size</li> <li>method = CRISPR screen</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="perturb-seq"> <strong>Perturb-seq:</strong> <div class="method-query-example"> <strong>Perturb-seq significance distribution for a gene</strong>  <ul> <li>gene_id = ENSG00000108179</li> <li>score_field = neg_log10_pvalue</li> <li>method = Perturb-seq</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="encode-re2g"> <strong>ENCODE-rE2G:</strong> <div class="method-query-example"> <strong>ENCODE-rE2G prediction scores for a gene</strong>  <ul> <li>gene_id = ENSG00000108179</li> <li>score_field = score</li> <li>method = ENCODE-rE2G</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="sce2g"> <strong>scE2G:</strong> <div class="method-query-example"> <strong>scE2G prediction scores for a gene</strong>  <ul> <li>gene_id = ENSG00000108179</li> <li>score_field = score</li> <li>method = scE2G</li> </ul> </div> </div> </div>
+
+### Example
+
+
+```python
+import igvf_catalog_client
+from igvf_catalog_client.models.genes_genomic_elements_score_summary import GenesGenomicElementsScoreSummary
+from igvf_catalog_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://catalog-api-dev.demo.igvf.org/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = igvf_catalog_client.Configuration(
+    host = "https://catalog-api-dev.demo.igvf.org/api"
+)
+
+
+# Enter a context with an instance of the API client
+with igvf_catalog_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = igvf_catalog_client.IgvfCatalogApi(api_client)
+    gene_id = 'gene_id_example' # str | 
+    score_field = 'score_field_example' # str | 
+    method = 'method_example' # str |  (optional)
+    files_fileset = 'files_fileset_example' # str |  (optional)
+    source = 'source_example' # str |  (optional)
+    biosample_term = 'biosample_term_example' # str |  (optional)
+    biological_context = 'biological_context_example' # str |  (optional)
+    cell_annotation = 'cell_annotation_example' # str |  (optional)
+    cell_annotation_term = 'cell_annotation_term_example' # str |  (optional)
+    page = 0 # float |  (optional) (default to 0)
+    limit = 3.4 # float |  (optional)
+
+    try:
+        api_response = api_instance.genes_genomic_elements_score_summary(gene_id, score_field, method=method, files_fileset=files_fileset, source=source, biosample_term=biosample_term, biological_context=biological_context, cell_annotation=cell_annotation, cell_annotation_term=cell_annotation_term, page=page, limit=limit)
+        print("The response of IgvfCatalogApi->genes_genomic_elements_score_summary:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IgvfCatalogApi->genes_genomic_elements_score_summary: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **gene_id** | **str**|  | 
+ **score_field** | **str**|  | 
+ **method** | **str**|  | [optional] 
+ **files_fileset** | **str**|  | [optional] 
+ **source** | **str**|  | [optional] 
+ **biosample_term** | **str**|  | [optional] 
+ **biological_context** | **str**|  | [optional] 
+ **cell_annotation** | **str**|  | [optional] 
+ **cell_annotation_term** | **str**|  | [optional] 
+ **page** | **float**|  | [optional] [default to 0]
+ **limit** | **float**|  | [optional] 
+
+### Return type
+
+[**GenesGenomicElementsScoreSummary**](GenesGenomicElementsScoreSummary.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **genes_proteins_from_variants**
 > List[GenesProteinsFromVariants] genes_proteins_from_variants(variant_id, page=page, limit=limit)
 
@@ -2638,6 +2726,88 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List[GenesTranscriptsGenes]**](GenesTranscriptsGenes.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **genes_variants_score_summary**
+> GenesVariantsScoreSummary genes_variants_score_summary(gene_id, score_field, files_fileset=files_fileset, source=source, biosample_term=biosample_term, biological_context=biological_context, perturbation=perturbation, page=page, limit=limit)
+
+Observed min/max and counts for a score field across every IGVF CRISPR screen variant-to-gene edge for one gene - without paginating through the edges themselves. Always restricted to method = "CRISPR screen" and label = "variant effect on gene expression", so QTL records sharing the variants_genes collection (AFGR eQTL/spliceQTL, EBI eQTL Catalog) are excluded.<br>     Optional filters are     combined with and matched exactly. Perturbation filters the stored crispr_modality field.<br>     Results are grouped by every distinct combination of those fields, so measurements from     incompatible sources are never pooled.     Groups with no numeric scores are omitted, and total_edge_count only counts edges with a     numeric score.<br>     Default page size is 25, maximum 500; pagination is     0-based.<br><br><div class="method-examples"> <strong>Examples by perturbation</strong> <p class="method-example-description">These examples are grouped by CRISPR perturbation type; use the <code>perturbation</code> filter to return data from a specific modality.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="prime-editing">Prime editing</button> <button class="method-example-tab" data-method-example-tab="base-editing">Base editing</button> </div> <div class="method-example-panel is-active" data-method-example-panel="prime-editing"> <strong>Prime editing:</strong> <div class="method-query-example"> <strong>Effect size distribution for a prime-edited gene</strong>  <ul> <li>gene_id = ENSG00000108179</li> <li>score_field = effect_size</li> <li>perturbation = prime editing</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="base-editing"> <strong>Base editing:</strong> <div class="method-query-example"> <strong>Effect size distribution for a base-edited gene</strong>  <ul> <li>gene_id = ENSG00000177455</li> <li>score_field = effect_size</li> <li>perturbation = base editing</li> </ul> </div> </div> </div>
+
+### Example
+
+
+```python
+import igvf_catalog_client
+from igvf_catalog_client.models.genes_variants_score_summary import GenesVariantsScoreSummary
+from igvf_catalog_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://catalog-api-dev.demo.igvf.org/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = igvf_catalog_client.Configuration(
+    host = "https://catalog-api-dev.demo.igvf.org/api"
+)
+
+
+# Enter a context with an instance of the API client
+with igvf_catalog_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = igvf_catalog_client.IgvfCatalogApi(api_client)
+    gene_id = 'gene_id_example' # str | 
+    score_field = 'score_field_example' # str | 
+    files_fileset = 'files_fileset_example' # str |  (optional)
+    source = 'source_example' # str |  (optional)
+    biosample_term = 'biosample_term_example' # str |  (optional)
+    biological_context = 'biological_context_example' # str |  (optional)
+    perturbation = 'perturbation_example' # str |  (optional)
+    page = 0 # float |  (optional) (default to 0)
+    limit = 3.4 # float |  (optional)
+
+    try:
+        api_response = api_instance.genes_variants_score_summary(gene_id, score_field, files_fileset=files_fileset, source=source, biosample_term=biosample_term, biological_context=biological_context, perturbation=perturbation, page=page, limit=limit)
+        print("The response of IgvfCatalogApi->genes_variants_score_summary:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IgvfCatalogApi->genes_variants_score_summary: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **gene_id** | **str**|  | 
+ **score_field** | **str**|  | 
+ **files_fileset** | **str**|  | [optional] 
+ **source** | **str**|  | [optional] 
+ **biosample_term** | **str**|  | [optional] 
+ **biological_context** | **str**|  | [optional] 
+ **perturbation** | **str**|  | [optional] 
+ **page** | **float**|  | [optional] [default to 0]
+ **limit** | **float**|  | [optional] 
+
+### Return type
+
+[**GenesVariantsScoreSummary**](GenesVariantsScoreSummary.md)
 
 ### Authorization
 
