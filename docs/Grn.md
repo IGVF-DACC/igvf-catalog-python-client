@@ -6,8 +6,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **response_gene** | **str** |  | 
-**genomic_element** | [**GenomicElement4**](GenomicElement4.md) |  | 
-**crispr_modality** | **str** |  | [optional] 
+**genomic_element** | [**GenomicElement4**](GenomicElement4.md) |  | [optional] 
+**regulator_gene** | **str** |  | [optional] 
+**transcript** | [**GenesTranscriptsGenesTranscript**](GenesTranscriptsGenesTranscript.md) |  | [optional] 
+**perturbation** | **str** |  | [optional] 
 **var_class** | **str** |  | 
 **method** | **str** |  | 
 **source** | **str** |  | 
@@ -17,6 +19,8 @@ Name | Type | Description | Notes
 **neg_log10_pvalue** | [**GenesFromGenomicElementsPValue**](GenesFromGenomicElementsPValue.md) |  | [optional] 
 **neg_log10_pvalue_adj** | [**GenesFromGenomicElementsPValue**](GenesFromGenomicElementsPValue.md) |  | [optional] 
 **significant** | **bool** |  | [optional] 
+**p_value** | [**GenesFromGenomicElementsPValue**](GenesFromGenomicElementsPValue.md) |  | [optional] 
+**p_value_adj** | [**GenesFromGenomicElementsPValue**](GenesFromGenomicElementsPValue.md) |  | [optional] 
 **perturbation_efficiency_log2_fc** | **float** |  | [optional] 
 **perturbation_efficiency_neg_log10_pvalue** | [**GenesFromGenomicElementsPValue**](GenesFromGenomicElementsPValue.md) |  | [optional] 
 **perturbation_efficiency_neg_log10_pvalue_adj** | [**GenesFromGenomicElementsPValue**](GenesFromGenomicElementsPValue.md) |  | [optional] 

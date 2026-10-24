@@ -5,19 +5,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
-**transcript_type** | **str** |  | 
-**chr** | **str** |  | 
-**start** | **float** |  | 
-**end** | **float** |  | 
-**strand** | **str** |  | 
-**name** | **str** |  | 
-**gene_name** | **str** |  | 
+**id** | **str** |  | [optional] 
+**transcript_type** | **str** |  | [optional] 
+**chr** | **str** |  | [optional] 
+**start** | **float** |  | [optional] 
+**end** | **float** |  | [optional] 
+**strand** | **str** |  | [optional] 
+**name** | **str** |  | [optional] 
+**gene_name** | **str** |  | [optional] 
 **refseq_transcript_ids** | **List[str]** |  | [optional] 
 **mane_select** | **bool** |  | [optional] 
-**source** | **str** |  | 
-**version** | **str** |  | 
-**source_url** | **str** |  | 
+**source** | **str** |  | [optional] 
+**version** | **str** |  | [optional] 
+**source_url** | **str** |  | [optional] 
 
 ## Example
 

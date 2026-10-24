@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **biological_context** | **str** |  | 
 **cell_annotation** | **str** |  | 
 **cell_annotation_term** | **str** |  | 
-**crispr_modality** | **str** |  | 
+**perturbation** | **str** |  | 
 **min** | **float** |  | 
 **max** | **float** |  | 
 **edge_count** | **float** |  | 

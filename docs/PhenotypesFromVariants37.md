@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **effect_size_ci95_upper** | **float** |  | [optional] 
 **p_value_adj** | **float** |  | [optional] 
 **neg_log10_pvalue_adj** | **float** |  | [optional] 
-**crispr_modality** | **str** |  | [optional] 
+**perturbation** | **str** |  | [optional] 
 **protein_id** | **str** |  | [optional] 
 **exon** | **str** |  | [optional] 
 **target** | **str** |  | [optional] 

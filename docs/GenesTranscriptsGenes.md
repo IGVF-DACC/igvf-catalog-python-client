@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **label** | **str** |  | 
 **var_class** | **str** |  | 
 **method** | **str** |  | 
+**perturbation** | **str** |  | 
 **source** | **str** |  | 
 **source_url** | **str** |  | 
 **files_filesets** | **str** |  | 

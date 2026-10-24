@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **biological_context** | **str** |  | 
 **biosample_term** | **str** |  | 
 **files_filesets** | **str** |  | 
-**crispr_modality** | **str** |  | [optional] 
+**perturbation** | **str** |  | [optional] 
 **z_score** | **float** |  | [optional] 
 **p_value** | **float** |  | [optional] 
 **neg_log10_pvalue** | **float** |  | [optional] 

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **cell_annotation** | **str** |  | [optional] 
 **cell_annotation_term** | **str** |  | [optional] 
 **genome_browser_link** | **str** |  | [optional] 
-**crispr_modality** | **str** |  | [optional] 
+**perturbation** | **str** |  | [optional] 
 
 ## Example
 

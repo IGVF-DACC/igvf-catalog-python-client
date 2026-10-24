@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **z_score** | **float** |  | [optional] 
 **credible_set_min_r2** | **float** |  | [optional] 
 **method** | **str** |  | [optional] 
-**crispr_modality** | **str** |  | [optional] 
+**perturbation** | **str** |  | [optional] 
 **source** | **str** |  | 
 **source_url** | **str** |  | 
 **label** | **str** |  | 
