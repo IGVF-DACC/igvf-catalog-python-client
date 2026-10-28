@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **coding_variant** | [**CodingVariant**](CodingVariant.md) |  | [optional] 
 **phenotype** | [**PhenotypeRef**](PhenotypeRef.md) |  | [optional] 
 **score** | **float** |  | 
+**property_scores** | [**List[PropertyScores]**](PropertyScores.md) |  | [optional] 
 **method** | **str** |  | [optional] 
 **var_class** | **str** |  | [optional] 
 **label** | **str** |  | [optional] 

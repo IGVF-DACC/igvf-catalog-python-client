@@ -109,6 +109,7 @@ docs/PhenotypesFromVariantsVariant.md
 docs/Predictions.md
 docs/Predictions2.md
 docs/PredictionsFromVariants.md
+docs/PropertyScores.md
 docs/Protein.md
 docs/ProteinBasic.md
 docs/ProteinChange.md
@@ -272,6 +273,7 @@ igvf_catalog_client/models/phenotypes_from_variants_variant.py
 igvf_catalog_client/models/predictions.py
 igvf_catalog_client/models/predictions2.py
 igvf_catalog_client/models/predictions_from_variants.py
+igvf_catalog_client/models/property_scores.py
 igvf_catalog_client/models/protein.py
 igvf_catalog_client/models/protein_basic.py
 igvf_catalog_client/models/protein_change.py
