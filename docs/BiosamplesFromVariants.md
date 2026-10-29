@@ -21,6 +21,10 @@ Name | Type | Description | Notes
 **significant** | **bool** |  | [optional] 
 **neg_log10_pvalue** | **float** |  | [optional] 
 **neg_log10_pvalue_adj** | **float** |  | [optional] 
+**phenotype** | **str** |  | [optional] 
+**vcp** | **float** |  | [optional] 
+**gene** | **str** |  | [optional] 
+**phenotype_name** | **str** |  | [optional] 
 **label** | **str** |  | 
 **method** | **str** |  | 
 **var_class** | **str** |  | [optional] 
