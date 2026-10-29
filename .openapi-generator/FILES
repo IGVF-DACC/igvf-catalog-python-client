@@ -1,5 +1,6 @@
 README.md
 docs/AccessibleGenomicElement.md
+docs/AccessibleGenomicElement11.md
 docs/AccessibleGenomicElementPromoterOf.md
 docs/Annotations.md
 docs/AnnotationsFromGoTerms.md
@@ -62,6 +63,8 @@ docs/GenesProteinsGenesProteins.md
 docs/GenesStructure.md
 docs/GenesTranscriptsGenes.md
 docs/GenesTranscriptsGenesTranscript.md
+docs/GenesTranscriptsGenomicElements.md
+docs/GenesTranscriptsGenomicElementsAccessibleGenomicElement.md
 docs/GenesVariantsScoreSummary.md
 docs/GenomicElement.md
 docs/GenomicElement2.md
@@ -165,6 +168,7 @@ igvf_catalog_client/configuration.py
 igvf_catalog_client/exceptions.py
 igvf_catalog_client/models/__init__.py
 igvf_catalog_client/models/accessible_genomic_element.py
+igvf_catalog_client/models/accessible_genomic_element11.py
 igvf_catalog_client/models/accessible_genomic_element_promoter_of.py
 igvf_catalog_client/models/annotations.py
 igvf_catalog_client/models/annotations_from_go_terms.py
@@ -227,6 +231,8 @@ igvf_catalog_client/models/genes_proteins_genes_proteins.py
 igvf_catalog_client/models/genes_structure.py
 igvf_catalog_client/models/genes_transcripts_genes.py
 igvf_catalog_client/models/genes_transcripts_genes_transcript.py
+igvf_catalog_client/models/genes_transcripts_genomic_elements.py
+igvf_catalog_client/models/genes_transcripts_genomic_elements_accessible_genomic_element.py
 igvf_catalog_client/models/genes_variants_score_summary.py
 igvf_catalog_client/models/genomic_element.py
 igvf_catalog_client/models/genomic_element2.py

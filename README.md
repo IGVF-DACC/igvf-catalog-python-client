@@ -8,8 +8,8 @@ Our database uses 0-based, half-open coordinates for genomic coordinates in the 
 
 Data is licensed under the <a href=https://creativecommons.org/licenses/by/4.0/ target=\"_blank\">Creative Commons license</a> and the software is licensed under the <a href=https://spdx.org/licenses/MIT.html target=\"_blank\">MIT license</a>.
 
-- API version: 1.3.1.dev20261029003053
-- Package version: 1.3.1.dev20261029003053
+- API version: 1.3.1.dev20261029063500
+- Package version: 1.3.1.dev20261029063500
 - Generator version: 7.14.0
 
 This package is generated with [OpenAPI Generator](https://openapi-generator.tech) by
@@ -182,12 +182,14 @@ Class | Method | HTTP request | Description
 *IgvfCatalogApi* | [**files_filesets**](docs/IgvfCatalogApi.md#files_filesets) | **GET** /files-filesets | 
 *IgvfCatalogApi* | [**llm_query**](docs/IgvfCatalogApi.md#llm_query) | **POST** /llm-query | 
 *IgvfCatalogApi* | [**genes_genomic_elements_score_summary**](docs/IgvfCatalogApi.md#genes_genomic_elements_score_summary) | **GET** /genes/genomic-elements/score-summary | 
+*IgvfCatalogApi* | [**genes_transcripts_genomic_elements**](docs/IgvfCatalogApi.md#genes_transcripts_genomic_elements) | **GET** /genes/transcripts/genomic-elements | 
 *IgvfCatalogApi* | [**genes_variants_score_summary**](docs/IgvfCatalogApi.md#genes_variants_score_summary) | **GET** /genes/variants/score-summary | 
 *IgvfCatalogApi* | [**nearest_genes**](docs/IgvfCatalogApi.md#nearest_genes) | **GET** /nearest-genes | 
 
 ## Documentation For Models
 
  - [AccessibleGenomicElement](docs/AccessibleGenomicElement.md)
+ - [AccessibleGenomicElement11](docs/AccessibleGenomicElement11.md)
  - [AccessibleGenomicElementPromoterOf](docs/AccessibleGenomicElementPromoterOf.md)
  - [Annotations](docs/Annotations.md)
  - [AnnotationsFromGoTerms](docs/AnnotationsFromGoTerms.md)
@@ -250,6 +252,8 @@ Class | Method | HTTP request | Description
  - [GenesStructure](docs/GenesStructure.md)
  - [GenesTranscriptsGenes](docs/GenesTranscriptsGenes.md)
  - [GenesTranscriptsGenesTranscript](docs/GenesTranscriptsGenesTranscript.md)
+ - [GenesTranscriptsGenomicElements](docs/GenesTranscriptsGenomicElements.md)
+ - [GenesTranscriptsGenomicElementsAccessibleGenomicElement](docs/GenesTranscriptsGenomicElementsAccessibleGenomicElement.md)
  - [GenesVariantsScoreSummary](docs/GenesVariantsScoreSummary.md)
  - [GenomicElement](docs/GenomicElement.md)
  - [GenomicElement2](docs/GenomicElement2.md)

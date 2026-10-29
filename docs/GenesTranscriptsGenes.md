@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **transcript_mapping_method** | **str** |  | 
 **log2_fc** | **float** |  | 
 **standard_error** | **float** |  | [optional] 
+**stat** | **float** |  | [optional] 
 **base_mean** | **float** |  | [optional] 
 **p_value** | **float** |  | [optional] 
 **p_value_adj** | **float** |  | [optional] 

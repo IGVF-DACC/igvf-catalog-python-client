@@ -37,6 +37,7 @@ Method | HTTP request | Description
 [**genes_proteins_genes_proteins**](IgvfCatalogApi.md#genes_proteins_genes_proteins) | **GET** /genes-proteins/genes-proteins | 
 [**genes_structure**](IgvfCatalogApi.md#genes_structure) | **GET** /genes-structure | 
 [**genes_transcripts_genes**](IgvfCatalogApi.md#genes_transcripts_genes) | **GET** /genes/transcripts/genes | 
+[**genes_transcripts_genomic_elements**](IgvfCatalogApi.md#genes_transcripts_genomic_elements) | **GET** /genes/transcripts/genomic-elements | 
 [**genes_variants_score_summary**](IgvfCatalogApi.md#genes_variants_score_summary) | **GET** /genes/variants/score-summary | 
 [**genomic_elements**](IgvfCatalogApi.md#genomic_elements) | **GET** /genomic-elements | 
 [**genomic_elements_from_biosamples**](IgvfCatalogApi.md#genomic_elements_from_biosamples) | **GET** /biosamples/genomic-elements | 
@@ -2805,6 +2806,114 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List[GenesTranscriptsGenes]**](GenesTranscriptsGenes.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **genes_transcripts_genomic_elements**
+> List[GenesTranscriptsGenomicElements] genes_transcripts_genomic_elements(gene_id=gene_id, gene_name=gene_name, transcript_id=transcript_id, genomic_element_id=genomic_element_id, accessible_region=accessible_region, files_fileset=files_fileset, method=method, perturbation=perturbation, source=source, significant=significant, biological_context=biological_context, biosample_term=biosample_term, base_mean=base_mean, log2_fc=log2_fc, p_value=p_value, p_value_adj=p_value_adj, neg_log10_pvalue=neg_log10_pvalue, neg_log10_pvalue_adj=neg_log10_pvalue_adj, organism=organism, verbose=verbose, page=page, limit=limit)
+
+Retrieve gene overexpression effects on chromatin accessibility through the source gene–transcript relationship.<br> Source gene_id and transcript_id identify the overexpressed construct; genomic_element_id or accessible_region identifies the readout peaks. Filter by a source gene, transcript, peak, region, files_fileset, or method. Set verbose=true to expand gene, transcript, and genomic element nodes. Pagination is 0-based; maximum page size is 500.<br><br><div class="method-examples"> <strong>Examples by method</strong> <p class="method-example-description">These examples are grouped by method; use the <code>method</code> filter to return data from a specific method.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="overexpression-atac">ATAC-seq</button> </div> <div class="method-example-panel is-active" data-method-example-panel="overexpression-atac"> <strong>ATAC-seq:</strong> <div class="method-query-example"> <strong>BATF3 transcript overexpression effects on accessibility</strong>  <ul> <li>gene_id = ENSG00000123685</li> <li>transcript_id = ENST00000243440</li> <li>files_fileset = IGVFFI0911IUZS</li> <li>significant = true</li> </ul> </div> <div class="method-query-example"> <strong>Differential accessibility in the second BATF3 analysis</strong>  <ul> <li>files_fileset = IGVFFI2320OTYL</li> <li>p_value_adj = lt:0.05</li> <li>verbose = true</li> </ul> </div> </div> </div>
+
+### Example
+
+
+```python
+import igvf_catalog_client
+from igvf_catalog_client.models.genes_transcripts_genomic_elements import GenesTranscriptsGenomicElements
+from igvf_catalog_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://catalog-api-dev.demo.igvf.org/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = igvf_catalog_client.Configuration(
+    host = "https://catalog-api-dev.demo.igvf.org/api"
+)
+
+
+# Enter a context with an instance of the API client
+with igvf_catalog_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = igvf_catalog_client.IgvfCatalogApi(api_client)
+    gene_id = 'gene_id_example' # str |  (optional)
+    gene_name = 'gene_name_example' # str |  (optional)
+    transcript_id = 'transcript_id_example' # str |  (optional)
+    genomic_element_id = 'genomic_element_id_example' # str |  (optional)
+    accessible_region = 'accessible_region_example' # str |  (optional)
+    files_fileset = 'files_fileset_example' # str |  (optional)
+    method = 'method_example' # str |  (optional)
+    perturbation = 'perturbation_example' # str |  (optional)
+    source = 'source_example' # str |  (optional)
+    significant = 'significant_example' # str |  (optional)
+    biological_context = 'biological_context_example' # str |  (optional)
+    biosample_term = 'biosample_term_example' # str |  (optional)
+    base_mean = 'base_mean_example' # str |  (optional)
+    log2_fc = 'log2_fc_example' # str |  (optional)
+    p_value = 'p_value_example' # str |  (optional)
+    p_value_adj = 'p_value_adj_example' # str |  (optional)
+    neg_log10_pvalue = 'neg_log10_pvalue_example' # str |  (optional)
+    neg_log10_pvalue_adj = 'neg_log10_pvalue_adj_example' # str |  (optional)
+    organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
+    verbose = false # str |  (optional) (default to false)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
+
+    try:
+        api_response = api_instance.genes_transcripts_genomic_elements(gene_id=gene_id, gene_name=gene_name, transcript_id=transcript_id, genomic_element_id=genomic_element_id, accessible_region=accessible_region, files_fileset=files_fileset, method=method, perturbation=perturbation, source=source, significant=significant, biological_context=biological_context, biosample_term=biosample_term, base_mean=base_mean, log2_fc=log2_fc, p_value=p_value, p_value_adj=p_value_adj, neg_log10_pvalue=neg_log10_pvalue, neg_log10_pvalue_adj=neg_log10_pvalue_adj, organism=organism, verbose=verbose, page=page, limit=limit)
+        print("The response of IgvfCatalogApi->genes_transcripts_genomic_elements:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IgvfCatalogApi->genes_transcripts_genomic_elements: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **gene_id** | **str**|  | [optional] 
+ **gene_name** | **str**|  | [optional] 
+ **transcript_id** | **str**|  | [optional] 
+ **genomic_element_id** | **str**|  | [optional] 
+ **accessible_region** | **str**|  | [optional] 
+ **files_fileset** | **str**|  | [optional] 
+ **method** | **str**|  | [optional] 
+ **perturbation** | **str**|  | [optional] 
+ **source** | **str**|  | [optional] 
+ **significant** | **str**|  | [optional] 
+ **biological_context** | **str**|  | [optional] 
+ **biosample_term** | **str**|  | [optional] 
+ **base_mean** | **str**|  | [optional] 
+ **log2_fc** | **str**|  | [optional] 
+ **p_value** | **str**|  | [optional] 
+ **p_value_adj** | **str**|  | [optional] 
+ **neg_log10_pvalue** | **str**|  | [optional] 
+ **neg_log10_pvalue_adj** | **str**|  | [optional] 
+ **organism** | **str**|  | [optional] [default to Homo sapiens]
+ **verbose** | **str**|  | [optional] [default to false]
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
+
+### Return type
+
+[**List[GenesTranscriptsGenomicElements]**](GenesTranscriptsGenomicElements.md)
 
 ### Authorization
 
