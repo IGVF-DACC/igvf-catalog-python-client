@@ -8,8 +8,8 @@ Our database uses 0-based, half-open coordinates for genomic coordinates in the 
 
 Data is licensed under the <a href=https://creativecommons.org/licenses/by/4.0/ target=\"_blank\">Creative Commons license</a> and the software is licensed under the <a href=https://spdx.org/licenses/MIT.html target=\"_blank\">MIT license</a>.
 
-- API version: 1.3.1.dev20261029002350
-- Package version: 1.3.1.dev20261029002350
+- API version: 1.3.1.dev20261029003053
+- Package version: 1.3.1.dev20261029003053
 - Generator version: 7.14.0
 
 This package is generated with [OpenAPI Generator](https://openapi-generator.tech) by
@@ -139,7 +139,7 @@ Class | Method | HTTP request | Description
 *IgvfCatalogApi* | [**genomic_elements_from_variants_count**](docs/IgvfCatalogApi.md#genomic_elements_from_variants_count) | **GET** /variants/predictions-count | 
 *IgvfCatalogApi* | [**predictions_from_variants**](docs/IgvfCatalogApi.md#predictions_from_variants) | **GET** /variants/predictions | 
 *IgvfCatalogApi* | [**deprecated_coding_variants_summary**](docs/IgvfCatalogApi.md#deprecated_coding_variants_summary) | **GET** /variants/phenotypes/score-summary | 
-*IgvfCatalogApi* | [**nearest_genes**](docs/IgvfCatalogApi.md#nearest_genes) | **GET** /variants/nearest-genes | 
+*IgvfCatalogApi* | [**deprecated_nearest_genes**](docs/IgvfCatalogApi.md#deprecated_nearest_genes) | **GET** /variants/nearest-genes | 
 *IgvfCatalogApi* | [**variants_alleles**](docs/IgvfCatalogApi.md#variants_alleles) | **GET** /variants/gnomad-alleles | 
 *IgvfCatalogApi* | [**variants_genomic_elements_genes**](docs/IgvfCatalogApi.md#variants_genomic_elements_genes) | **GET** /variants/genomic-elements/genes | 
 *IgvfCatalogApi* | [**genomic_elements_predictions_from_variant**](docs/IgvfCatalogApi.md#genomic_elements_predictions_from_variant) | **GET** /variants/genomic-elements/cell-gene-predictions | 
@@ -183,6 +183,7 @@ Class | Method | HTTP request | Description
 *IgvfCatalogApi* | [**llm_query**](docs/IgvfCatalogApi.md#llm_query) | **POST** /llm-query | 
 *IgvfCatalogApi* | [**genes_genomic_elements_score_summary**](docs/IgvfCatalogApi.md#genes_genomic_elements_score_summary) | **GET** /genes/genomic-elements/score-summary | 
 *IgvfCatalogApi* | [**genes_variants_score_summary**](docs/IgvfCatalogApi.md#genes_variants_score_summary) | **GET** /genes/variants/score-summary | 
+*IgvfCatalogApi* | [**nearest_genes**](docs/IgvfCatalogApi.md#nearest_genes) | **GET** /nearest-genes | 
 
 ## Documentation For Models
 

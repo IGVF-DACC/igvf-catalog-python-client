@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**complexes**](IgvfCatalogApi.md#complexes) | **GET** /complexes | 
 [**complexes_from_proteins**](IgvfCatalogApi.md#complexes_from_proteins) | **GET** /proteins/complexes | 
 [**deprecated_coding_variants_summary**](IgvfCatalogApi.md#deprecated_coding_variants_summary) | **GET** /variants/phenotypes/score-summary | 
+[**deprecated_nearest_genes**](IgvfCatalogApi.md#deprecated_nearest_genes) | **GET** /variants/nearest-genes | 
 [**disease_from_variants**](IgvfCatalogApi.md#disease_from_variants) | **GET** /variants/diseases | 
 [**diseases_from_genes**](IgvfCatalogApi.md#diseases_from_genes) | **GET** /genes/diseases | 
 [**drugs**](IgvfCatalogApi.md#drugs) | **GET** /drugs | 
@@ -50,7 +51,7 @@ Method | HTTP request | Description
 [**llm_query**](IgvfCatalogApi.md#llm_query) | **POST** /llm-query | 
 [**motifs**](IgvfCatalogApi.md#motifs) | **GET** /motifs | 
 [**motifs_from_proteins**](IgvfCatalogApi.md#motifs_from_proteins) | **GET** /proteins/motifs | 
-[**nearest_genes**](IgvfCatalogApi.md#nearest_genes) | **GET** /variants/nearest-genes | 
+[**nearest_genes**](IgvfCatalogApi.md#nearest_genes) | **GET** /nearest-genes | 
 [**ontology_term**](IgvfCatalogApi.md#ontology_term) | **GET** /ontology-terms | 
 [**ontology_term_children**](IgvfCatalogApi.md#ontology_term_children) | **GET** /ontology-terms/{ontology_term_id}/children | 
 [**ontology_term_parents**](IgvfCatalogApi.md#ontology_term_parents) | **GET** /ontology-terms/{ontology_term_id}/parents | 
@@ -1082,6 +1083,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List[CodingVariantsSummary]**](CodingVariantsSummary.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deprecated_nearest_genes**
+> List[Gene] deprecated_nearest_genes(region)
+
+DEPRECATED. Please use /nearest-genes. <br>   Retrieve a list of human genes if region is in a coding variant. Otherwise, it returns the single nearest human gene. <br>   Example: region = chr1:1157520-1158189 (maximum length: 10kb).
+
+### Example
+
+
+```python
+import igvf_catalog_client
+from igvf_catalog_client.models.gene import Gene
+from igvf_catalog_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://catalog-api-dev.demo.igvf.org/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = igvf_catalog_client.Configuration(
+    host = "https://catalog-api-dev.demo.igvf.org/api"
+)
+
+
+# Enter a context with an instance of the API client
+with igvf_catalog_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = igvf_catalog_client.IgvfCatalogApi(api_client)
+    region = 'region_example' # str | 
+
+    try:
+        api_response = api_instance.deprecated_nearest_genes(region)
+        print("The response of IgvfCatalogApi->deprecated_nearest_genes:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IgvfCatalogApi->deprecated_nearest_genes: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **region** | **str**|  | 
+
+### Return type
+
+[**List[Gene]**](Gene.md)
 
 ### Authorization
 
@@ -3942,7 +4009,7 @@ No authorization required
 # **nearest_genes**
 > List[Gene] nearest_genes(region)
 
-Retrieve a list of human genes if region is in a coding variant. Otherwise, it returns the nearest human genes on each side. <br>   Example: region = chr1:1157520-1158189 (maximum length: 10kb).
+Retrieve a list of human genes if region is in a coding variant. Otherwise, it returns the single nearest human gene. <br>   Example: region = chr1:1157520-1158189 (maximum length: 10kb).
 
 ### Example
 
