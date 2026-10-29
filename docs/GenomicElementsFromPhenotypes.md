@@ -16,8 +16,11 @@ Name | Type | Description | Notes
 **files_filesets** | **str** |  | 
 **perturbation** | **str** |  | [optional] 
 **z_score** | **float** |  | [optional] 
+**log2_fc** | **float** |  | [optional] 
 **p_value** | **float** |  | [optional] 
+**p_value_adj** | **float** |  | [optional] 
 **neg_log10_pvalue** | **float** |  | [optional] 
+**neg_log10_pvalue_adj** | **float** |  | [optional] 
 **significant** | **bool** |  | [optional] 
 **num_guides** | **float** |  | [optional] 
 **num_guides_hit** | **float** |  | [optional] 
