@@ -1,6 +1,6 @@
 README.md
 docs/AccessibleGenomicElement.md
-docs/AccessibleGenomicElement11.md
+docs/AccessibleGenomicElement12.md
 docs/AccessibleGenomicElementPromoterOf.md
 docs/Annotations.md
 docs/AnnotationsFromGoTerms.md
@@ -67,12 +67,12 @@ docs/GenesTranscriptsGenomicElements.md
 docs/GenesTranscriptsGenomicElementsAccessibleGenomicElement.md
 docs/GenesVariantsScoreSummary.md
 docs/GenomicElement.md
-docs/GenomicElement2.md
+docs/GenomicElement10.md
+docs/GenomicElement11.md
 docs/GenomicElement4.md
 docs/GenomicElement5.md
 docs/GenomicElement7.md
 docs/GenomicElement9.md
-docs/GenomicElementFull.md
 docs/GenomicElementsFromGenomicElements.md
 docs/GenomicElementsFromGenomicElementsPerturbedGenomicElement.md
 docs/GenomicElementsFromPhenotypes.md
@@ -168,7 +168,7 @@ igvf_catalog_client/configuration.py
 igvf_catalog_client/exceptions.py
 igvf_catalog_client/models/__init__.py
 igvf_catalog_client/models/accessible_genomic_element.py
-igvf_catalog_client/models/accessible_genomic_element11.py
+igvf_catalog_client/models/accessible_genomic_element12.py
 igvf_catalog_client/models/accessible_genomic_element_promoter_of.py
 igvf_catalog_client/models/annotations.py
 igvf_catalog_client/models/annotations_from_go_terms.py
@@ -235,12 +235,12 @@ igvf_catalog_client/models/genes_transcripts_genomic_elements.py
 igvf_catalog_client/models/genes_transcripts_genomic_elements_accessible_genomic_element.py
 igvf_catalog_client/models/genes_variants_score_summary.py
 igvf_catalog_client/models/genomic_element.py
-igvf_catalog_client/models/genomic_element2.py
+igvf_catalog_client/models/genomic_element10.py
+igvf_catalog_client/models/genomic_element11.py
 igvf_catalog_client/models/genomic_element4.py
 igvf_catalog_client/models/genomic_element5.py
 igvf_catalog_client/models/genomic_element7.py
 igvf_catalog_client/models/genomic_element9.py
-igvf_catalog_client/models/genomic_element_full.py
 igvf_catalog_client/models/genomic_elements_from_genomic_elements.py
 igvf_catalog_client/models/genomic_elements_from_genomic_elements_perturbed_genomic_element.py
 igvf_catalog_client/models/genomic_elements_from_phenotypes.py

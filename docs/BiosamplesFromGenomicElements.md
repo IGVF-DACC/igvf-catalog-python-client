@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **strand** | **str** |  | 
 **neg_log10_pvalue** | **float** |  | 
 **neg_log10_pvalue_adj** | **float** |  | 
-**dna_count** | **float** |  | [optional] 
-**rna_count** | **float** |  | [optional] 
+**input_count** | **float** |  | [optional] 
+**output_count** | **float** |  | [optional] 
 **significant** | **bool** |  | [optional] 
 **source** | **str** |  | [optional] 
 **source_url** | **str** |  | [optional] 

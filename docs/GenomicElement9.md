@@ -10,10 +10,10 @@ Name | Type | Description | Notes
 **chr** | **str** |  | 
 **start** | **float** |  | 
 **end** | **float** |  | 
-**type** | **str** |  | 
+**type** | **str** |  | [optional] 
+**source** | **str** |  | [optional] 
+**source_url** | **str** |  | [optional] 
 **source_annotation** | **str** |  | [optional] 
-**source** | **str** |  | 
-**source_url** | **str** |  | 
 
 ## Example
 

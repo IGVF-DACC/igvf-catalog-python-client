@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
 **name** | **str** |  | [optional] 
+**aliases** | **List[str]** |  | [optional] 
 **chr** | **str** |  | [optional] 
 **start** | **float** |  | [optional] 
 **end** | **float** |  | [optional] 

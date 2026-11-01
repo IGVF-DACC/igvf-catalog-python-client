@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **end** | **float** |  | 
 **strand** | **str** |  | [optional] 
 **name** | **str** |  | 
+**aliases** | **List[str]** |  | [optional] 
 **method** | **str** |  | [optional] 
 **source_annotation** | **str** |  | 
 **type** | **str** |  | 

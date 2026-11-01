@@ -6,14 +6,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
-**name** | **str** |  | [optional] 
-**chr** | **str** |  | [optional] 
-**start** | **float** |  | [optional] 
-**end** | **float** |  | [optional] 
-**type** | **str** |  | [optional] 
-**source** | **str** |  | [optional] 
-**source_url** | **str** |  | [optional] 
+**name** | **str** |  | 
+**chr** | **str** |  | 
+**start** | **float** |  | 
+**end** | **float** |  | 
+**type** | **str** |  | 
 **source_annotation** | **str** |  | [optional] 
+**source** | **str** |  | 
+**source_url** | **str** |  | 
 
 ## Example
 

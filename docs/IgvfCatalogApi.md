@@ -3016,7 +3016,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **genomic_elements**
-> List[GenomicElementFull] genomic_elements(region=region, source_annotation=source_annotation, type=type, method=method, source=source, organism=organism, page=page, limit=limit, files_fileset=files_fileset)
+> List[GenomicElement11] genomic_elements(region=region, source_annotation=source_annotation, type=type, method=method, source=source, organism=organism, page=page, limit=limit, files_fileset=files_fileset)
 
 Retrieve genomic elements.<br>   Example: region = chr1:1157520-1158189, <br>   source_annotation = dELS: distal Enhancer-like signal, <br>   type = candidate cis regulatory element, <br>   files_fileset = IGVFFI5749WPVK, <br>   source = ENCODE. <br>   The limit parameter controls the page size and can not exceed 1000. <br>   Pagination is 0-based.
 
@@ -3025,7 +3025,7 @@ Retrieve genomic elements.<br>   Example: region = chr1:1157520-1158189, <br>   
 
 ```python
 import igvf_catalog_client
-from igvf_catalog_client.models.genomic_element_full import GenomicElementFull
+from igvf_catalog_client.models.genomic_element11 import GenomicElement11
 from igvf_catalog_client.rest import ApiException
 from pprint import pprint
 
@@ -3077,7 +3077,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[GenomicElementFull]**](GenomicElementFull.md)
+[**List[GenomicElement11]**](GenomicElement11.md)
 
 ### Authorization
 

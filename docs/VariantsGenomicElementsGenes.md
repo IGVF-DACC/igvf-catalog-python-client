@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **variant** | [**VariantBasic**](VariantBasic.md) |  | 
 **distance_to_tss** | **float** |  | [optional] 
-**genomic_element** | [**GenomicElement2**](GenomicElement2.md) |  | 
+**genomic_element** | [**GenomicElement9**](GenomicElement9.md) |  | 
 **gene** | [**Gene6**](Gene6.md) |  | 
 **name** | **str** |  | 
 **label** | **str** |  | 
