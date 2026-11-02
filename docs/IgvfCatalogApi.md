@@ -240,9 +240,9 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **biosamples_from_genomic_elements**
-> List[BiosamplesFromGenomicElements] biosamples_from_genomic_elements(region=region, region_type=region_type, source=source, method=method, files_fileset=files_fileset, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[BiosamplesFromGenomicElements] biosamples_from_genomic_elements(region=region, source=source, method=method, files_fileset=files_fileset, organism=organism, verbose=verbose, page=page, limit=limit)
 
-Retrieve MPRA experiments by querying positions of genomic elements. Set organism = Mus musculus for mouse MPRA sequences (GRCm39); the default is Homo sapiens (GRCh38). <br>   Set verbose = true to retrieve full info on the cell ontology terms. <br>   Human MPRA example: organism = Homo sapiens, <br>   region_type = tested elements, <br>   region = chr10:100038743-100038963. <br>   files_fileset = ENCFF475FKV,<br>   method = MPRA,<br>   source = IGVF. <br>   Mouse MPRA example: organism = Mus musculus, <br>   region = chr11:55319627-55319927, <br>   files_fileset = IGVFFI0975AQKF, <br>   method = MPRA, verbose = true. <br>   The limit parameter controls the page size and can not exceed 50. <br>   Pagination is 0-based.
+Retrieve MPRA experiments by querying positions of genomic elements. Set organism = Mus musculus for mouse MPRA sequences (GRCm39); the default is Homo sapiens (GRCh38). <br>     Set verbose = true to retrieve full info on the cell ontology terms. <br>     The limit parameter controls the page size and can not exceed 50. <br>     Pagination is 0-based. <br> <br>     <div class="method-examples"> <strong>Examples by method</strong> <p class="method-example-description">These examples are grouped by method; use the <code>method</code> filter to return data from a specific method.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="mpra">MPRA</button> </div> <div class="method-example-panel is-active" data-method-example-panel="mpra"> <strong>MPRA:</strong> <div class="method-query-example"> <strong>human IGVF MPRA by region (cardiac muscle cells)</strong>  <ul> <li>organism = Homo sapiens</li> <li>region = chr1:1000216-1000485</li> <li>files_fileset = IGVFFI0625ESRH</li> <li>method = MPRA</li> <li>source = IGVF</li> <li>verbose = true</li> </ul> </div> <div class="method-query-example"> <strong>mouse IGVF MPRA by region (PYS-2 cells)</strong>  <ul> <li>organism = Mus musculus</li> <li>region = chr11:55319627-55319927</li> <li>files_fileset = IGVFFI0975AQKF</li> <li>method = MPRA</li> <li>source = IGVF</li> <li>verbose = true</li> </ul> </div> </div> </div>
 
 ### Example
 
@@ -265,7 +265,6 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = igvf_catalog_client.IgvfCatalogApi(api_client)
     region = 'region_example' # str |  (optional)
-    region_type = 'region_type_example' # str |  (optional)
     source = 'source_example' # str |  (optional)
     method = 'method_example' # str |  (optional)
     files_fileset = 'files_fileset_example' # str |  (optional)
@@ -275,7 +274,7 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     limit = 3.4 # float |  (optional)
 
     try:
-        api_response = api_instance.biosamples_from_genomic_elements(region=region, region_type=region_type, source=source, method=method, files_fileset=files_fileset, organism=organism, verbose=verbose, page=page, limit=limit)
+        api_response = api_instance.biosamples_from_genomic_elements(region=region, source=source, method=method, files_fileset=files_fileset, organism=organism, verbose=verbose, page=page, limit=limit)
         print("The response of IgvfCatalogApi->biosamples_from_genomic_elements:\n")
         pprint(api_response)
     except Exception as e:
@@ -290,7 +289,6 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **region** | **str**|  | [optional] 
- **region_type** | **str**|  | [optional] 
  **source** | **str**|  | [optional] 
  **method** | **str**|  | [optional] 
  **files_fileset** | **str**|  | [optional] 
