@@ -40,6 +40,10 @@ docs/Gene4.md
 docs/Gene6.md
 docs/GeneCompact.md
 docs/GeneNoSynonyms.md
+docs/GeneProgram.md
+docs/GeneProgramsFromGenes.md
+docs/GeneProgramsFromGenesGeneProgram.md
+docs/GeneProgramsGenePrograms.md
 docs/GeneRef.md
 docs/Genes.md
 docs/Genes2.md
@@ -208,6 +212,10 @@ igvf_catalog_client/models/gene4.py
 igvf_catalog_client/models/gene6.py
 igvf_catalog_client/models/gene_compact.py
 igvf_catalog_client/models/gene_no_synonyms.py
+igvf_catalog_client/models/gene_program.py
+igvf_catalog_client/models/gene_programs_from_genes.py
+igvf_catalog_client/models/gene_programs_from_genes_gene_program.py
+igvf_catalog_client/models/gene_programs_gene_programs.py
 igvf_catalog_client/models/gene_ref.py
 igvf_catalog_client/models/genes.py
 igvf_catalog_client/models/genes2.py

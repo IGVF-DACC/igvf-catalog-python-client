@@ -8,8 +8,8 @@ Our database uses 0-based, half-open coordinates for genomic coordinates in the 
 
 Data is licensed under the <a href=https://creativecommons.org/licenses/by/4.0/ target=\"_blank\">Creative Commons license</a> and the software is licensed under the <a href=https://spdx.org/licenses/MIT.html target=\"_blank\">MIT license</a>.
 
-- API version: 1.3.1.dev20261106195012
-- Package version: 1.3.1.dev20261106195012
+- API version: 1.3.1.dev20261107033540
+- Package version: 1.3.1.dev20261107033540
 - Generator version: 7.14.0
 
 This package is generated with [OpenAPI Generator](https://openapi-generator.tech) by
@@ -181,6 +181,10 @@ Class | Method | HTTP request | Description
 *IgvfCatalogApi* | [**variants_from_drugs**](docs/IgvfCatalogApi.md#variants_from_drugs) | **GET** /drugs/variants | 
 *IgvfCatalogApi* | [**files_filesets**](docs/IgvfCatalogApi.md#files_filesets) | **GET** /files-filesets | 
 *IgvfCatalogApi* | [**llm_query**](docs/IgvfCatalogApi.md#llm_query) | **POST** /llm-query | 
+*IgvfCatalogApi* | [**gene_programs**](docs/IgvfCatalogApi.md#gene_programs) | **GET** /gene-programs | 
+*IgvfCatalogApi* | [**gene_programs_gene_programs**](docs/IgvfCatalogApi.md#gene_programs_gene_programs) | **GET** /gene-programs/gene-programs | 
+*IgvfCatalogApi* | [**genes_from_gene_programs**](docs/IgvfCatalogApi.md#genes_from_gene_programs) | **GET** /gene-programs/genes | 
+*IgvfCatalogApi* | [**gene_programs_from_genes**](docs/IgvfCatalogApi.md#gene_programs_from_genes) | **GET** /genes/gene-programs | 
 *IgvfCatalogApi* | [**genes_genomic_elements_score_summary**](docs/IgvfCatalogApi.md#genes_genomic_elements_score_summary) | **GET** /genes/genomic-elements/score-summary | 
 *IgvfCatalogApi* | [**genes_transcripts_genomic_elements**](docs/IgvfCatalogApi.md#genes_transcripts_genomic_elements) | **GET** /genes/transcripts/genomic-elements | 
 *IgvfCatalogApi* | [**genes_variants_score_summary**](docs/IgvfCatalogApi.md#genes_variants_score_summary) | **GET** /genes/variants/score-summary | 
@@ -229,6 +233,10 @@ Class | Method | HTTP request | Description
  - [Gene6](docs/Gene6.md)
  - [GeneCompact](docs/GeneCompact.md)
  - [GeneNoSynonyms](docs/GeneNoSynonyms.md)
+ - [GeneProgram](docs/GeneProgram.md)
+ - [GeneProgramsFromGenes](docs/GeneProgramsFromGenes.md)
+ - [GeneProgramsFromGenesGeneProgram](docs/GeneProgramsFromGenesGeneProgram.md)
+ - [GeneProgramsGenePrograms](docs/GeneProgramsGenePrograms.md)
  - [GeneRef](docs/GeneRef.md)
  - [Genes](docs/Genes.md)
  - [Genes2](docs/Genes2.md)

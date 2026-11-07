@@ -8,6 +8,14 @@ Name | Type | Description | Notes
 **id** | **str** |  | 
 **gene_1** | [**GenesGenesGene1**](GenesGenesGene1.md) |  | 
 **gene_2** | [**GenesGenesGene1**](GenesGenesGene1.md) |  | 
+**pearson_correlation** | **float** |  | [optional] 
+**genomic_elements_from** | **List[str]** |  | [optional] 
+**genomic_elements_to** | **List[str]** |  | [optional] 
+**biosample_term** | **str** |  | [optional] 
+**biological_context** | **str** |  | [optional] 
+**treatments_term_ids** | **List[str]** |  | [optional] 
+**perturbation** | **str** |  | [optional] 
+**inverse_name** | **str** |  | [optional] 
 **z_score** | **float** |  | [optional] 
 **associated_process** | **str** |  | [optional] 
 **detection_method** | **str** |  | [optional] 

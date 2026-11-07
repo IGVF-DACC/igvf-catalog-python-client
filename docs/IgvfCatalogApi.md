@@ -24,8 +24,12 @@ Method | HTTP request | Description
 [**drugs_from_variants**](IgvfCatalogApi.md#drugs_from_variants) | **GET** /variants/drugs | 
 [**enhancer_gene_predictions**](IgvfCatalogApi.md#enhancer_gene_predictions) | **GET** /enhancer-gene-predictions | 
 [**files_filesets**](IgvfCatalogApi.md#files_filesets) | **GET** /files-filesets | 
+[**gene_programs**](IgvfCatalogApi.md#gene_programs) | **GET** /gene-programs | 
+[**gene_programs_from_genes**](IgvfCatalogApi.md#gene_programs_from_genes) | **GET** /genes/gene-programs | 
+[**gene_programs_gene_programs**](IgvfCatalogApi.md#gene_programs_gene_programs) | **GET** /gene-programs/gene-programs | 
 [**genes**](IgvfCatalogApi.md#genes) | **GET** /genes | 
 [**genes_from_diseases**](IgvfCatalogApi.md#genes_from_diseases) | **GET** /diseases/genes | 
+[**genes_from_gene_programs**](IgvfCatalogApi.md#genes_from_gene_programs) | **GET** /gene-programs/genes | 
 [**genes_from_genomic_elements**](IgvfCatalogApi.md#genes_from_genomic_elements) | **GET** /genomic-elements/genes | 
 [**genes_from_pathways**](IgvfCatalogApi.md#genes_from_pathways) | **GET** /pathways/genes | 
 [**genes_from_proteins**](IgvfCatalogApi.md#genes_from_proteins) | **GET** /proteins/genes | 
@@ -1679,6 +1683,270 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **gene_programs**
+> List[GeneProgram] gene_programs(files_fileset=files_fileset, biosample_term=biosample_term, biological_context=biological_context, treatment_term_id=treatment_term_id, page=page, limit=limit, id=id, program_id=program_id, name=name)
+
+Retrieve gene program definitions. Program identifiers are local to the defining file; catalog IDs include that file accession. Pagination is 0-based, with at most 100 results per page.<br><br><div class="method-examples"> <strong>Examples by method</strong> <p class="method-example-description">Perturb-seq examples from the HCASMC-hTERT gene-program dataset. Membership uses the definition file; regulation and correlation use their respective result files.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="gene-programs-perturb-seq">Perturb-seq</button> </div> <div class="method-example-panel is-active" data-method-example-panel="gene-programs-perturb-seq"> <strong>Perturb-seq:</strong> <div class="method-query-example"> <strong>Program definition</strong>  <ul> <li>id = IGVFFI9532OEFJ_GP_1</li> </ul> </div> <div class="method-query-example"> <strong>File-local program identifier</strong>  <ul> <li>program_id = GP_1</li> <li>files_fileset = IGVFFI9532OEFJ</li> </ul> </div> </div> </div>
+
+### Example
+
+
+```python
+import igvf_catalog_client
+from igvf_catalog_client.models.gene_program import GeneProgram
+from igvf_catalog_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://catalog-api-dev.demo.igvf.org/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = igvf_catalog_client.Configuration(
+    host = "https://catalog-api-dev.demo.igvf.org/api"
+)
+
+
+# Enter a context with an instance of the API client
+with igvf_catalog_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = igvf_catalog_client.IgvfCatalogApi(api_client)
+    files_fileset = 'files_fileset_example' # str |  (optional)
+    biosample_term = 'biosample_term_example' # str |  (optional)
+    biological_context = 'biological_context_example' # str |  (optional)
+    treatment_term_id = 'treatment_term_id_example' # str |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 25 # int |  (optional) (default to 25)
+    id = 'id_example' # str |  (optional)
+    program_id = 'program_id_example' # str |  (optional)
+    name = 'name_example' # str |  (optional)
+
+    try:
+        api_response = api_instance.gene_programs(files_fileset=files_fileset, biosample_term=biosample_term, biological_context=biological_context, treatment_term_id=treatment_term_id, page=page, limit=limit, id=id, program_id=program_id, name=name)
+        print("The response of IgvfCatalogApi->gene_programs:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IgvfCatalogApi->gene_programs: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **files_fileset** | **str**|  | [optional] 
+ **biosample_term** | **str**|  | [optional] 
+ **biological_context** | **str**|  | [optional] 
+ **treatment_term_id** | **str**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] [default to 25]
+ **id** | **str**|  | [optional] 
+ **program_id** | **str**|  | [optional] 
+ **name** | **str**|  | [optional] 
+
+### Return type
+
+[**List[GeneProgram]**](GeneProgram.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **gene_programs_from_genes**
+> List[GeneProgramsFromGenes] gene_programs_from_genes(files_fileset=files_fileset, biosample_term=biosample_term, biological_context=biological_context, treatment_term_id=treatment_term_id, page=page, limit=limit, gene_id=gene_id, gene_name=gene_name, hgnc_id=hgnc_id, synonym=synonym, gene_program_id=gene_program_id, label=label, score=score, log2_fc=log2_fc, neg_log10_pvalue_adj=neg_log10_pvalue_adj, significant=significant, verbose=verbose)
+
+Retrieve gene program membership weights and regulator effects for a gene. Filter label to distinguish membership from regulation. Numeric filters accept gt:, gte:, lt:, lte:. Pagination is 0-based; maximum page size is 100.<br><br><div class="method-examples"> <strong>Examples by method</strong> <p class="method-example-description">Perturb-seq examples from the HCASMC-hTERT gene-program dataset. Membership uses the definition file; regulation and correlation use their respective result files.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="genes-gene-programs-perturb-seq">Perturb-seq</button> </div> <div class="method-example-panel is-active" data-method-example-panel="genes-gene-programs-perturb-seq"> <strong>Perturb-seq:</strong> <div class="method-query-example"> <strong>Programs containing ACTB</strong>  <ul> <li>gene_id = ENSG00000075624</li> <li>label = gene program membership</li> <li>files_fileset = IGVFFI9532OEFJ</li> </ul> </div> <div class="method-query-example"> <strong>Programs regulated by AAGAB</strong>  <ul> <li>gene_id = ENSG00000103591</li> <li>label = gene program regulation</li> <li>files_fileset = IGVFFI7611VVSS</li> </ul> </div> </div> </div>
+
+### Example
+
+
+```python
+import igvf_catalog_client
+from igvf_catalog_client.models.gene_programs_from_genes import GeneProgramsFromGenes
+from igvf_catalog_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://catalog-api-dev.demo.igvf.org/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = igvf_catalog_client.Configuration(
+    host = "https://catalog-api-dev.demo.igvf.org/api"
+)
+
+
+# Enter a context with an instance of the API client
+with igvf_catalog_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = igvf_catalog_client.IgvfCatalogApi(api_client)
+    files_fileset = 'files_fileset_example' # str |  (optional)
+    biosample_term = 'biosample_term_example' # str |  (optional)
+    biological_context = 'biological_context_example' # str |  (optional)
+    treatment_term_id = 'treatment_term_id_example' # str |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 25 # int |  (optional) (default to 25)
+    gene_id = 'gene_id_example' # str |  (optional)
+    gene_name = 'gene_name_example' # str |  (optional)
+    hgnc_id = 'hgnc_id_example' # str |  (optional)
+    synonym = 'synonym_example' # str |  (optional)
+    gene_program_id = 'gene_program_id_example' # str |  (optional)
+    label = 'label_example' # str |  (optional)
+    score = 'score_example' # str |  (optional)
+    log2_fc = 'log2_fc_example' # str |  (optional)
+    neg_log10_pvalue_adj = 'neg_log10_pvalue_adj_example' # str |  (optional)
+    significant = 'significant_example' # str |  (optional)
+    verbose = false # str |  (optional) (default to false)
+
+    try:
+        api_response = api_instance.gene_programs_from_genes(files_fileset=files_fileset, biosample_term=biosample_term, biological_context=biological_context, treatment_term_id=treatment_term_id, page=page, limit=limit, gene_id=gene_id, gene_name=gene_name, hgnc_id=hgnc_id, synonym=synonym, gene_program_id=gene_program_id, label=label, score=score, log2_fc=log2_fc, neg_log10_pvalue_adj=neg_log10_pvalue_adj, significant=significant, verbose=verbose)
+        print("The response of IgvfCatalogApi->gene_programs_from_genes:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IgvfCatalogApi->gene_programs_from_genes: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **files_fileset** | **str**|  | [optional] 
+ **biosample_term** | **str**|  | [optional] 
+ **biological_context** | **str**|  | [optional] 
+ **treatment_term_id** | **str**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] [default to 25]
+ **gene_id** | **str**|  | [optional] 
+ **gene_name** | **str**|  | [optional] 
+ **hgnc_id** | **str**|  | [optional] 
+ **synonym** | **str**|  | [optional] 
+ **gene_program_id** | **str**|  | [optional] 
+ **label** | **str**|  | [optional] 
+ **score** | **str**|  | [optional] 
+ **log2_fc** | **str**|  | [optional] 
+ **neg_log10_pvalue_adj** | **str**|  | [optional] 
+ **significant** | **str**|  | [optional] 
+ **verbose** | **str**|  | [optional] [default to false]
+
+### Return type
+
+[**List[GeneProgramsFromGenes]**](GeneProgramsFromGenes.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **gene_programs_gene_programs**
+> List[GeneProgramsGenePrograms] gene_programs_gene_programs(gene_program_id, files_fileset=files_fileset, biosample_term=biosample_term, biological_context=biological_context, treatment_term_id=treatment_term_id, page=page, limit=limit, associated_gene_program_id=associated_gene_program_id, pearson_correlation=pearson_correlation, verbose=verbose)
+
+Retrieve program-program correlations in perturbation log2FC. Matches either endpoint; optional associated_gene_program_id restricts the pair. Pearson filters accept gt:, gte:, lt:, lte: and exclude missing coefficients. Pagination is 0-based; maximum page size is 100.<br><br><div class="method-examples"> <strong>Examples by method</strong> <p class="method-example-description">Perturb-seq examples from the HCASMC-hTERT gene-program dataset. Membership uses the definition file; regulation and correlation use their respective result files.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="gene-programs-gene-programs-perturb-seq">Perturb-seq</button> </div> <div class="method-example-panel is-active" data-method-example-panel="gene-programs-gene-programs-perturb-seq"> <strong>Perturb-seq:</strong> <div class="method-query-example"> <strong>Correlations for GP_1</strong>  <ul> <li>gene_program_id = IGVFFI9532OEFJ_GP_1</li> <li>files_fileset = IGVFFI9407YNQA</li> </ul> </div> <div class="method-query-example"> <strong>Correlation between GP_1 and GP_2</strong>  <ul> <li>gene_program_id = IGVFFI9532OEFJ_GP_1</li> <li>associated_gene_program_id = IGVFFI9532OEFJ_GP_2</li> <li>files_fileset = IGVFFI9407YNQA</li> <li>pearson_correlation = lt:0</li> </ul> </div> </div> </div>
+
+### Example
+
+
+```python
+import igvf_catalog_client
+from igvf_catalog_client.models.gene_programs_gene_programs import GeneProgramsGenePrograms
+from igvf_catalog_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://catalog-api-dev.demo.igvf.org/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = igvf_catalog_client.Configuration(
+    host = "https://catalog-api-dev.demo.igvf.org/api"
+)
+
+
+# Enter a context with an instance of the API client
+with igvf_catalog_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = igvf_catalog_client.IgvfCatalogApi(api_client)
+    gene_program_id = 'gene_program_id_example' # str | Catalog program key including defining file accession, or document ID.
+    files_fileset = 'files_fileset_example' # str |  (optional)
+    biosample_term = 'biosample_term_example' # str |  (optional)
+    biological_context = 'biological_context_example' # str |  (optional)
+    treatment_term_id = 'treatment_term_id_example' # str |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 25 # int |  (optional) (default to 25)
+    associated_gene_program_id = 'associated_gene_program_id_example' # str |  (optional)
+    pearson_correlation = 'pearson_correlation_example' # str |  (optional)
+    verbose = false # str |  (optional) (default to false)
+
+    try:
+        api_response = api_instance.gene_programs_gene_programs(gene_program_id, files_fileset=files_fileset, biosample_term=biosample_term, biological_context=biological_context, treatment_term_id=treatment_term_id, page=page, limit=limit, associated_gene_program_id=associated_gene_program_id, pearson_correlation=pearson_correlation, verbose=verbose)
+        print("The response of IgvfCatalogApi->gene_programs_gene_programs:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IgvfCatalogApi->gene_programs_gene_programs: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **gene_program_id** | **str**| Catalog program key including defining file accession, or document ID. | 
+ **files_fileset** | **str**|  | [optional] 
+ **biosample_term** | **str**|  | [optional] 
+ **biological_context** | **str**|  | [optional] 
+ **treatment_term_id** | **str**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] [default to 25]
+ **associated_gene_program_id** | **str**|  | [optional] 
+ **pearson_correlation** | **str**|  | [optional] 
+ **verbose** | **str**|  | [optional] [default to false]
+
+### Return type
+
+[**List[GeneProgramsGenePrograms]**](GeneProgramsGenePrograms.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **genes**
 > List[Gene] genes(gene_id=gene_id, hgnc_id=hgnc_id, entrez=entrez, name=name, region=region, synonym=synonym, collection=collection, study_set=study_set, gene_type=gene_type, organism=organism, page=page, limit=limit)
 
@@ -1826,6 +2094,104 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List[DiseasesFromGenes]**](DiseasesFromGenes.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **genes_from_gene_programs**
+> List[GeneProgramsFromGenes] genes_from_gene_programs(files_fileset=files_fileset, biosample_term=biosample_term, biological_context=biological_context, treatment_term_id=treatment_term_id, page=page, limit=limit, gene_id=gene_id, gene_name=gene_name, hgnc_id=hgnc_id, synonym=synonym, gene_program_id=gene_program_id, label=label, score=score, log2_fc=log2_fc, neg_log10_pvalue_adj=neg_log10_pvalue_adj, significant=significant, verbose=verbose)
+
+Retrieve member genes or regulators for a catalog gene_program_id. Filter label to distinguish membership from regulation. Numeric filters accept gt:, gte:, lt:, lte:. Pagination is 0-based; maximum page size is 100.<br><br><div class="method-examples"> <strong>Examples by method</strong> <p class="method-example-description">Perturb-seq examples from the HCASMC-hTERT gene-program dataset. Membership uses the definition file; regulation and correlation use their respective result files.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="gene-programs-genes-perturb-seq">Perturb-seq</button> </div> <div class="method-example-panel is-active" data-method-example-panel="gene-programs-genes-perturb-seq"> <strong>Perturb-seq:</strong> <div class="method-query-example"> <strong>Members of GP_1</strong>  <ul> <li>gene_program_id = IGVFFI9532OEFJ_GP_1</li> <li>label = gene program membership</li> <li>files_fileset = IGVFFI9532OEFJ</li> </ul> </div> <div class="method-query-example"> <strong>Regulators of GP_1</strong>  <ul> <li>gene_program_id = IGVFFI9532OEFJ_GP_1</li> <li>label = gene program regulation</li> <li>files_fileset = IGVFFI7611VVSS</li> </ul> </div> </div> </div>
+
+### Example
+
+
+```python
+import igvf_catalog_client
+from igvf_catalog_client.models.gene_programs_from_genes import GeneProgramsFromGenes
+from igvf_catalog_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://catalog-api-dev.demo.igvf.org/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = igvf_catalog_client.Configuration(
+    host = "https://catalog-api-dev.demo.igvf.org/api"
+)
+
+
+# Enter a context with an instance of the API client
+with igvf_catalog_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = igvf_catalog_client.IgvfCatalogApi(api_client)
+    files_fileset = 'files_fileset_example' # str |  (optional)
+    biosample_term = 'biosample_term_example' # str |  (optional)
+    biological_context = 'biological_context_example' # str |  (optional)
+    treatment_term_id = 'treatment_term_id_example' # str |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 25 # int |  (optional) (default to 25)
+    gene_id = 'gene_id_example' # str |  (optional)
+    gene_name = 'gene_name_example' # str |  (optional)
+    hgnc_id = 'hgnc_id_example' # str |  (optional)
+    synonym = 'synonym_example' # str |  (optional)
+    gene_program_id = 'gene_program_id_example' # str |  (optional)
+    label = 'label_example' # str |  (optional)
+    score = 'score_example' # str |  (optional)
+    log2_fc = 'log2_fc_example' # str |  (optional)
+    neg_log10_pvalue_adj = 'neg_log10_pvalue_adj_example' # str |  (optional)
+    significant = 'significant_example' # str |  (optional)
+    verbose = false # str |  (optional) (default to false)
+
+    try:
+        api_response = api_instance.genes_from_gene_programs(files_fileset=files_fileset, biosample_term=biosample_term, biological_context=biological_context, treatment_term_id=treatment_term_id, page=page, limit=limit, gene_id=gene_id, gene_name=gene_name, hgnc_id=hgnc_id, synonym=synonym, gene_program_id=gene_program_id, label=label, score=score, log2_fc=log2_fc, neg_log10_pvalue_adj=neg_log10_pvalue_adj, significant=significant, verbose=verbose)
+        print("The response of IgvfCatalogApi->genes_from_gene_programs:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IgvfCatalogApi->genes_from_gene_programs: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **files_fileset** | **str**|  | [optional] 
+ **biosample_term** | **str**|  | [optional] 
+ **biological_context** | **str**|  | [optional] 
+ **treatment_term_id** | **str**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] [default to 25]
+ **gene_id** | **str**|  | [optional] 
+ **gene_name** | **str**|  | [optional] 
+ **hgnc_id** | **str**|  | [optional] 
+ **synonym** | **str**|  | [optional] 
+ **gene_program_id** | **str**|  | [optional] 
+ **label** | **str**|  | [optional] 
+ **score** | **str**|  | [optional] 
+ **log2_fc** | **str**|  | [optional] 
+ **neg_log10_pvalue_adj** | **str**|  | [optional] 
+ **significant** | **str**|  | [optional] 
+ **verbose** | **str**|  | [optional] [default to false]
+
+### Return type
+
+[**List[GeneProgramsFromGenes]**](GeneProgramsFromGenes.md)
 
 ### Authorization
 
@@ -2302,9 +2668,9 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **genes_genes**
-> List[GenesGenes] genes_genes(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, region=region, associated_gene_id=associated_gene_id, associated_hgnc_id=associated_hgnc_id, associated_gene_name=associated_gene_name, associated_synonym=associated_synonym, z_score=z_score, interaction_type=interaction_type, label=label, method=method, source=source, name=name, files_fileset=files_fileset, organism=organism, verbose=verbose, page=page, limit=limit)
+> List[GenesGenes] genes_genes(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, region=region, associated_gene_id=associated_gene_id, associated_hgnc_id=associated_hgnc_id, associated_gene_name=associated_gene_name, associated_synonym=associated_synonym, z_score=z_score, interaction_type=interaction_type, label=label, method=method, pearson_correlation=pearson_correlation, source=source, name=name, files_fileset=files_fileset, organism=organism, verbose=verbose, page=page, limit=limit, biosample_term=biosample_term, biological_context=biological_context, treatment_term_id=treatment_term_id)
 
-Retrieve coexpressed gene pairs from CoXPresdb and genetic interactions from BioGRID. <br>     The following parameters can be used to set thresholds on z_score: gt (>), gte (>=), lt (<), lte (<=). z_score only exists on CoXPresdb edges; BioGRID edges do not have this field at all.<br>     At least one of these fields is required: gene_id, hgnc_id, gene_name, synonym. <br>     The limit parameter controls the page size and can not exceed 100. <br>     Pagination is 0-based. <br> <br>     <div class="method-examples"> <strong>Examples by source</strong> <p class="method-example-description">These examples are grouped by source; use the <code>source</code> filter to return data from a specific source.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="biogrid">BioGRID</button> <button class="method-example-tab" data-method-example-tab="coxpresdb">COXPRESdb</button> </div> <div class="method-example-panel is-active" data-method-example-panel="biogrid"> <strong>BioGRID:</strong> <div class="method-query-example"> <strong>Single result</strong>  <ul> <li>gene_id = ENSG00000112592</li> <li>associated_gene_id = ENSG00000163132</li> <li>source = BioGRID</li> <li>files_fileset = IGVFFI4317VDGK</li> </ul> </div> <div class="method-query-example"> <strong>Group results</strong>  <ul> <li>gene_id = ENSG00000112592</li> <li>source = BioGRID</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="coxpresdb"> <strong>COXPRESdb:</strong> <div class="method-query-example"> <strong>Single result</strong>  <ul> <li>gene_id = ENSG00000153048</li> <li>associated_gene_id = ENSG00000233369</li> <li>source = COXPRESdb</li> </ul> </div> <div class="method-query-example"> <strong>Group results</strong>  <ul> <li>gene_id = ENSG00000153048</li> <li>source = COXPRESdb</li> </ul> </div> </div> </div>
+Retrieve coexpressed gene pairs from CoXPresdb, genetic interactions from BioGRID, and IGVF regulator-regulator correlations across gene programs. Filter label and files_fileset to select a relationship and experiment. pearson_correlation accepts gt:, gte:, lt:, lte: and excludes missing coefficients. <br>     The following parameters can be used to set thresholds on z_score: gt (>), gte (>=), lt (<), lte (<=). z_score only exists on CoXPresdb edges; BioGRID edges do not have this field at all.<br>     At least one of these fields is required: gene_id, hgnc_id, gene_name, synonym. <br>     The limit parameter controls the page size and can not exceed 100. <br>     Pagination is 0-based. <br> <br>     <div class="method-examples"> <strong>Examples by source</strong> <p class="method-example-description">These examples are grouped by source; use the <code>source</code> filter to return data from a specific source.</p> <div class="method-example-tabs"> <button class="method-example-tab is-active" data-method-example-tab="igvf-perturb-seq">Perturb-seq</button> <button class="method-example-tab" data-method-example-tab="biogrid">BioGRID</button> <button class="method-example-tab" data-method-example-tab="coxpresdb">COXPRESdb</button> </div> <div class="method-example-panel is-active" data-method-example-panel="igvf-perturb-seq"> <strong>Perturb-seq:</strong> <div class="method-query-example"> <strong>Single regulator pair in IL-1 beta-treated TeloHAEC cells</strong>  <ul> <li>gene_id = ENSG00000000003</li> <li>associated_gene_id = ENSG00000000005</li> <li>label = regulator-regulator correlation</li> <li>files_fileset = IGVFFI6502THLB</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="biogrid"> <strong>BioGRID:</strong> <div class="method-query-example"> <strong>Single result</strong>  <ul> <li>gene_id = ENSG00000112592</li> <li>associated_gene_id = ENSG00000163132</li> <li>source = BioGRID</li> <li>files_fileset = IGVFFI4317VDGK</li> </ul> </div> <div class="method-query-example"> <strong>Group results</strong>  <ul> <li>gene_id = ENSG00000112592</li> <li>source = BioGRID</li> </ul> </div> </div> <div class="method-example-panel" data-method-example-panel="coxpresdb"> <strong>COXPRESdb:</strong> <div class="method-query-example"> <strong>Single result</strong>  <ul> <li>gene_id = ENSG00000153048</li> <li>associated_gene_id = ENSG00000233369</li> <li>source = COXPRESdb</li> </ul> </div> <div class="method-query-example"> <strong>Group results</strong>  <ul> <li>gene_id = ENSG00000153048</li> <li>source = COXPRESdb</li> </ul> </div> </div> </div>
 
 ### Example
 
@@ -2339,16 +2705,20 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     interaction_type = 'interaction_type_example' # str |  (optional)
     label = 'label_example' # str |  (optional)
     method = 'method_example' # str |  (optional)
+    pearson_correlation = 'pearson_correlation_example' # str |  (optional)
     source = 'source_example' # str |  (optional)
     name = 'name_example' # str |  (optional)
     files_fileset = 'files_fileset_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
+    biosample_term = 'biosample_term_example' # str |  (optional)
+    biological_context = 'biological_context_example' # str |  (optional)
+    treatment_term_id = 'treatment_term_id_example' # str |  (optional)
 
     try:
-        api_response = api_instance.genes_genes(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, region=region, associated_gene_id=associated_gene_id, associated_hgnc_id=associated_hgnc_id, associated_gene_name=associated_gene_name, associated_synonym=associated_synonym, z_score=z_score, interaction_type=interaction_type, label=label, method=method, source=source, name=name, files_fileset=files_fileset, organism=organism, verbose=verbose, page=page, limit=limit)
+        api_response = api_instance.genes_genes(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, region=region, associated_gene_id=associated_gene_id, associated_hgnc_id=associated_hgnc_id, associated_gene_name=associated_gene_name, associated_synonym=associated_synonym, z_score=z_score, interaction_type=interaction_type, label=label, method=method, pearson_correlation=pearson_correlation, source=source, name=name, files_fileset=files_fileset, organism=organism, verbose=verbose, page=page, limit=limit, biosample_term=biosample_term, biological_context=biological_context, treatment_term_id=treatment_term_id)
         print("The response of IgvfCatalogApi->genes_genes:\n")
         pprint(api_response)
     except Exception as e:
@@ -2375,13 +2745,17 @@ Name | Type | Description  | Notes
  **interaction_type** | **str**|  | [optional] 
  **label** | **str**|  | [optional] 
  **method** | **str**|  | [optional] 
+ **pearson_correlation** | **str**|  | [optional] 
  **source** | **str**|  | [optional] 
  **name** | **str**|  | [optional] 
  **files_fileset** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
+ **biosample_term** | **str**|  | [optional] 
+ **biological_context** | **str**|  | [optional] 
+ **treatment_term_id** | **str**|  | [optional] 
 
 ### Return type
 
