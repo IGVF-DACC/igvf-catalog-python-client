@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **name** | **str** |  | 
 **variant** | [**PhenotypesFromVariantsVariant**](PhenotypesFromVariantsVariant.md) |  | 
 **files_filesets** | **str** |  | [optional] 
+**preferred_assay_titles** | **List[str]** |  | [optional] 
 
 ## Example
 

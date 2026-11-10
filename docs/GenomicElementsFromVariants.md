@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **neg_log10_pvalue** | **float** |  | [optional] 
 **beta** | **float** |  | [optional] 
 **files_filesets** | **str** |  | [optional] 
+**preferred_assay_titles** | **List[str]** |  | [optional] 
 **biological_context** | **str** |  | [optional] 
 **biosample_term** | **str** |  | [optional] 
 **source** | **str** |  | [optional] 

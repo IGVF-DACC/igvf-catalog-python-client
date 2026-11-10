@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **biological_context** | **str** |  | 
 **name** | **str** |  | 
 **files_filesets** | **str** |  | [optional] 
+**preferred_assay_titles** | **List[str]** |  | [optional] 
 
 ## Example
 

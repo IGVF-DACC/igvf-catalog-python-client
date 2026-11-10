@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **name** | **str** |  | 
 **variant** | [**PhenotypesFromVariantsVariant**](PhenotypesFromVariantsVariant.md) |  | 
 **files_filesets** | **str** |  | 
+**preferred_assay_titles** | **List[str]** |  | [optional] 
 **biological_context** | **str** |  | [optional] 
 **score** | **float** |  | [optional] 
 **effect_size** | **float** |  | [optional] 

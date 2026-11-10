@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **pmids** | **List[str]** |  | 
 **name** | **str** |  | 
 **files_filesets** | **str** |  | [optional] 
+**preferred_assay_titles** | **List[str]** |  | [optional] 
 
 ## Example
 

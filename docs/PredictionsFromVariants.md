@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **name** | **str** |  | 
 **method** | **str** |  | [optional] 
 **files_filesets** | **str** |  | [optional] 
+**preferred_assay_titles** | **List[str]** |  | [optional] 
 
 ## Example
 

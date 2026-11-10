@@ -1,4 +1,4 @@
-# PhenotypesFromVariants37
+# PhenotypesFromVariants38
 
 
 ## Properties
@@ -38,6 +38,7 @@ Name | Type | Description | Notes
 **var_class** | **str** |  | [optional] 
 **label** | **str** |  | [optional] 
 **files_filesets** | **str** |  | 
+**preferred_assay_titles** | **List[str]** |  | [optional] 
 **biosample_term** | **str** |  | [optional] 
 **phenotype_term** | **str** |  | 
 **variant** | [**PhenotypesFromVariantsVariant**](PhenotypesFromVariantsVariant.md) |  | 
@@ -46,19 +47,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from igvf_catalog_client.models.phenotypes_from_variants37 import PhenotypesFromVariants37
+from igvf_catalog_client.models.phenotypes_from_variants38 import PhenotypesFromVariants38
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of PhenotypesFromVariants37 from a JSON string
-phenotypes_from_variants37_instance = PhenotypesFromVariants37.from_json(json)
+# create an instance of PhenotypesFromVariants38 from a JSON string
+phenotypes_from_variants38_instance = PhenotypesFromVariants38.from_json(json)
 # print the JSON string representation of the object
-print(PhenotypesFromVariants37.to_json())
+print(PhenotypesFromVariants38.to_json())
 
 # convert the object into a dict
-phenotypes_from_variants37_dict = phenotypes_from_variants37_instance.to_dict()
-# create an instance of PhenotypesFromVariants37 from a dict
-phenotypes_from_variants37_from_dict = PhenotypesFromVariants37.from_dict(phenotypes_from_variants37_dict)
+phenotypes_from_variants38_dict = phenotypes_from_variants38_instance.to_dict()
+# create an instance of PhenotypesFromVariants38 from a dict
+phenotypes_from_variants38_from_dict = PhenotypesFromVariants38.from_dict(phenotypes_from_variants38_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

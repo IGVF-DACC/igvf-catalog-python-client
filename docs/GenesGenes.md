@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **source_url** | **str** |  | [optional] 
 **name** | **str** |  | 
 **files_filesets** | **str** |  | [optional] 
+**preferred_assay_titles** | **List[str]** |  | [optional] 
 
 ## Example
 

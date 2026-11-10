@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **biological_context** | **str** |  | 
 **biosample_term** | **str** |  | 
 **files_filesets** | **str** |  | 
+**preferred_assay_titles** | **List[str]** |  | [optional] 
 **perturbation** | **str** |  | [optional] 
 **z_score** | **float** |  | [optional] 
 **log2_fc** | **float** |  | [optional] 

@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **source** | **str** |  | 
 **source_url** | **str** |  | 
 **files_filesets** | **str** |  | 
+**preferred_assay_titles** | **List[str]** |  | [optional] 
 **biological_context** | **str** |  | 
 **biosample_term** | **str** |  | 
 **treatments_term_ids** | **List[str]** |  | [optional] 

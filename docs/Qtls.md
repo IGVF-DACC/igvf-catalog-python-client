@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **intron_end** | **float** |  | [optional] 
 **study** | [**Study2**](Study2.md) |  | [optional] 
 **files_filesets** | **str** |  | [optional] 
+**preferred_assay_titles** | **List[str]** |  | [optional] 
 
 ## Example
 

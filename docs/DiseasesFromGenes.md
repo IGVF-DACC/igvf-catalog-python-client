@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **method** | **str** |  | [optional] 
 **label** | **str** |  | [optional] 
 **files_filesets** | **str** |  | [optional] 
+**preferred_assay_titles** | **List[str]** |  | [optional] 
 **source** | **str** |  | [optional] 
 **source_url** | **str** |  | [optional] 
 **gene** | [**DiseasesFromGenesGene**](DiseasesFromGenesGene.md) |  | [optional] 

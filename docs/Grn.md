@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **source** | **str** |  | 
 **biological_context** | **str** |  | 
 **files_filesets** | **str** |  | 
+**preferred_assay_titles** | **List[str]** |  | [optional] 
 **log2_fc** | **float** |  | [optional] 
 **neg_log10_pvalue** | [**GenesFromGenomicElementsPValue**](GenesFromGenomicElementsPValue.md) |  | [optional] 
 **neg_log10_pvalue_adj** | [**GenesFromGenomicElementsPValue**](GenesFromGenomicElementsPValue.md) |  | [optional] 

@@ -34,6 +34,7 @@ Name | Type | Description | Notes
 **name** | **str** |  | [optional] 
 **var_class** | **str** |  | [optional] 
 **files_filesets** | **str** |  | [optional] 
+**preferred_assay_titles** | **List[str]** |  | [optional] 
 
 ## Example
 

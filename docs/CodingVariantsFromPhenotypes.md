@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **var_class** | **str** |  | [optional] 
 **label** | **str** |  | [optional] 
 **files_filesets** | **str** |  | [optional] 
+**preferred_assay_titles** | **List[str]** |  | [optional] 
 **source** | **str** |  | 
 **source_url** | **str** |  | 
 **variant** | [**VariantBasic**](VariantBasic.md) |  | [optional] 

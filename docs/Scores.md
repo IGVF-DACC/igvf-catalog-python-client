@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **score** | **float** |  | [optional] 
 **source_url** | **str** |  | [optional] 
 **files_filesets** | **str** |  | [optional] 
+**preferred_assay_titles** | **List[str]** |  | [optional] 
 
 ## Example
 

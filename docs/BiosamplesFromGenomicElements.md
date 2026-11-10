@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **var_class** | **str** |  | [optional] 
 **method** | **str** |  | [optional] 
 **files_filesets** | **str** |  | [optional] 
+**preferred_assay_titles** | **List[str]** |  | [optional] 
 
 ## Example
 
