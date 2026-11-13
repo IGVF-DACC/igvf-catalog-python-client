@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **var_class** | **str** |  | [optional] 
 **method** | **str** |  | [optional] 
 **label** | **str** |  | [optional] 
-**version** | **str** |  | [optional] [default to 'October 2022 (22.10)']
+**version** | **str** |  | [default to 'October 2022 (22.10)']
 **name** | **str** |  | 
 **variant** | [**PhenotypesFromVariantsVariant**](PhenotypesFromVariantsVariant.md) |  | 
 **files_filesets** | **str** |  | [optional] 

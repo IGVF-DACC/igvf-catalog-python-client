@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **pmids** | **List[str]** |  | [optional] 
 **term_name** | **str** |  | [optional] 
 **gene_name** | **str** |  | [optional] 
-**association_type** | **str** |  | [optional] 
 **association_status** | **str** |  | [optional] 
 **sgc_id** | **str** |  | [optional] 
 **hgnc** | **str** |  | [optional] 
@@ -25,9 +24,10 @@ Name | Type | Description | Notes
 **source_url** | **str** |  | [optional] 
 **gene** | [**DiseasesFromGenesGene**](DiseasesFromGenesGene.md) |  | [optional] 
 **disease** | [**BiosamplesFromGenomicElementsBiosample**](BiosamplesFromGenomicElementsBiosample.md) |  | [optional] 
-**inheritance_mode** | **str** |  | [optional] 
 **variants** | [**List[VariantMinimal]**](VariantMinimal.md) |  | [optional] 
 **name** | **str** |  | 
+**orphanet_association_type** | **str** |  | [optional] 
+**clin_gen_inheritance_mode** | **str** |  | [optional] 
 
 ## Example
 

@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **summary** | [**Summary**](Summary.md) |  | 
-**allele_frequencies_gnomad** | **object** |  | [optional] 
+**allele_frequencies_gnomad** | **object** |  | 
 **cadd_scores** | [**CaddScores**](CaddScores.md) |  | [optional] 
 **nearest_genes** | [**NearestGenes**](NearestGenes.md) |  | 
 **annotations** | [**Annotations**](Annotations.md) |  | 

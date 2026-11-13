@@ -34,6 +34,12 @@ docs/DrugsFromVariantsDrug.md
 docs/Elements.md
 docs/EnhancerGenePredictions.md
 docs/EnhancerGenePredictionsElements.md
+docs/ErrorBadRequest.md
+docs/ErrorForbidden.md
+docs/ErrorInternalServerError.md
+docs/ErrorIssue.md
+docs/ErrorNotFound.md
+docs/ErrorUnauthorized.md
 docs/FilesFilesets.md
 docs/Gene.md
 docs/Gene4.md
@@ -88,8 +94,6 @@ docs/Groups.md
 docs/Groups13.md
 docs/IdName.md
 docs/IgvfCatalogApi.md
-docs/InlineObject.md
-docs/InlineObjectIssuesInner.md
 docs/LinkedFeature.md
 docs/LlmQuery.md
 docs/LlmQueryRequest.md
@@ -155,7 +159,7 @@ docs/VariantMinimal.md
 docs/VariantRef.md
 docs/VariantSummary.md
 docs/Variants.md
-docs/VariantsAllelesValue.md
+docs/VariantsAllelesElement.md
 docs/VariantsFromDrugs.md
 docs/VariantsFromPhenotypesItem.md
 docs/VariantsFromVariantID.md
@@ -206,6 +210,12 @@ igvf_catalog_client/models/drugs_from_variants_drug.py
 igvf_catalog_client/models/elements.py
 igvf_catalog_client/models/enhancer_gene_predictions.py
 igvf_catalog_client/models/enhancer_gene_predictions_elements.py
+igvf_catalog_client/models/error_bad_request.py
+igvf_catalog_client/models/error_forbidden.py
+igvf_catalog_client/models/error_internal_server_error.py
+igvf_catalog_client/models/error_issue.py
+igvf_catalog_client/models/error_not_found.py
+igvf_catalog_client/models/error_unauthorized.py
 igvf_catalog_client/models/files_filesets.py
 igvf_catalog_client/models/gene.py
 igvf_catalog_client/models/gene4.py
@@ -259,8 +269,6 @@ igvf_catalog_client/models/grn.py
 igvf_catalog_client/models/groups.py
 igvf_catalog_client/models/groups13.py
 igvf_catalog_client/models/id_name.py
-igvf_catalog_client/models/inline_object.py
-igvf_catalog_client/models/inline_object_issues_inner.py
 igvf_catalog_client/models/linked_feature.py
 igvf_catalog_client/models/llm_query.py
 igvf_catalog_client/models/llm_query_request.py
@@ -326,7 +334,7 @@ igvf_catalog_client/models/variant_minimal.py
 igvf_catalog_client/models/variant_ref.py
 igvf_catalog_client/models/variant_summary.py
 igvf_catalog_client/models/variants.py
-igvf_catalog_client/models/variants_alleles_value.py
+igvf_catalog_client/models/variants_alleles_element.py
 igvf_catalog_client/models/variants_from_drugs.py
 igvf_catalog_client/models/variants_from_phenotypes_item.py
 igvf_catalog_client/models/variants_from_variant_id.py
