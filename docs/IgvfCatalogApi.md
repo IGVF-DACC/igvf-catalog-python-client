@@ -126,8 +126,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     api_instance = igvf_catalog_client.IgvfCatalogApi(api_client)
     gene_id = 'gene_id_example' # str | 
     dataset = 'dataset_example' # str | 
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.all_coding_variants_from_genes(gene_id, dataset, page=page, limit=limit)
@@ -146,8 +146,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gene_id** | **str**|  | 
  **dataset** | **str**|  | 
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -202,8 +202,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     api_instance = igvf_catalog_client.IgvfCatalogApi(api_client)
     go_term_id = 'go_term_id_example' # str | 
     name = 'name_example' # str |  (optional)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.annotations_from_go_terms(go_term_id, name=name, page=page, limit=limit)
@@ -222,8 +222,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **go_term_id** | **str**|  | 
  **name** | **str**|  | [optional] 
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -282,8 +282,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     files_fileset = 'files_fileset_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.biosamples_from_genomic_elements(region=region, source=source, method=method, files_fileset=files_fileset, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -306,8 +306,8 @@ Name | Type | Description  | Notes
  **files_fileset** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -376,8 +376,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     phenotype_name = 'phenotype_name_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.biosamples_from_variants(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region, files_fileset=files_fileset, method=method, element_id=element_id, significant=significant, gene_id=gene_id, gene_name=gene_name, phenotype_id=phenotype_id, phenotype_name=phenotype_name, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -410,8 +410,8 @@ Name | Type | Description  | Notes
  **phenotype_name** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -473,8 +473,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     amino_acid_position = 'amino_acid_position_example' # str |  (optional)
     alt_amino_acid = 'alt_amino_acid_example' # str |  (optional)
     transcript_id = 'transcript_id_example' # str |  (optional)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.coding_variants(id=id, name=name, hgvsp=hgvsp, protein_id=protein_id, uniprot_name=uniprot_name, gene_name=gene_name, amino_acid_position=amino_acid_position, alt_amino_acid=alt_amino_acid, transcript_id=transcript_id, page=page, limit=limit)
@@ -500,8 +500,8 @@ Name | Type | Description  | Notes
  **amino_acid_position** | **str**|  | [optional] 
  **alt_amino_acid** | **str**|  | [optional] 
  **transcript_id** | **str**|  | [optional] 
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -633,8 +633,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     region = 'region_example' # str |  (optional)
     method = 'method_example' # str |  (optional)
     files_fileset = 'files_fileset_example' # str |  (optional)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.coding_variants_from_genes(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, region=region, method=method, files_fileset=files_fileset, page=page, limit=limit)
@@ -658,8 +658,8 @@ Name | Type | Description  | Notes
  **region** | **str**|  | [optional] 
  **method** | **str**|  | [optional] 
  **files_fileset** | **str**|  | [optional] 
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -716,8 +716,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     phenotype_name = 'phenotype_name_example' # str |  (optional)
     method = 'method_example' # str |  (optional)
     files_fileset = 'files_fileset_example' # str |  (optional)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.coding_variants_from_phenotypes(phenotype_id=phenotype_id, phenotype_name=phenotype_name, method=method, files_fileset=files_fileset, page=page, limit=limit)
@@ -738,8 +738,8 @@ Name | Type | Description  | Notes
  **phenotype_name** | **str**|  | [optional] 
  **method** | **str**|  | [optional] 
  **files_fileset** | **str**|  | [optional] 
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -796,8 +796,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     hgvs = 'hgvs_example' # str |  (optional)
     ca_id = 'ca_id_example' # str |  (optional)
     variant_id = 'variant_id_example' # str |  (optional)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.coding_variants_from_variants(spdi=spdi, hgvs=hgvs, ca_id=ca_id, variant_id=variant_id, page=page, limit=limit)
@@ -818,8 +818,8 @@ Name | Type | Description  | Notes
  **hgvs** | **str**|  | [optional] 
  **ca_id** | **str**|  | [optional] 
  **variant_id** | **str**|  | [optional] 
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -949,7 +949,7 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     complex_id = 'complex_id_example' # str |  (optional)
     name = 'name_example' # str |  (optional)
     description = 'description_example' # str |  (optional)
-    page = 0 # float |  (optional) (default to 0)
+    page = 0 # int |  (optional) (default to 0)
 
     try:
         api_response = api_instance.complexes(complex_id=complex_id, name=name, description=description, page=page)
@@ -969,7 +969,7 @@ Name | Type | Description  | Notes
  **complex_id** | **str**|  | [optional] 
  **name** | **str**|  | [optional] 
  **description** | **str**|  | [optional] 
- **page** | **float**|  | [optional] [default to 0]
+ **page** | **int**|  | [optional] [default to 0]
 
 ### Return type
 
@@ -1029,8 +1029,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     dbxrefs = 'dbxrefs_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.complexes_from_proteins(protein_id=protein_id, protein_name=protein_name, uniprot_name=uniprot_name, uniprot_full_name=uniprot_full_name, dbxrefs=dbxrefs, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -1054,8 +1054,8 @@ Name | Type | Description  | Notes
  **dbxrefs** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -1262,8 +1262,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     pmid = 'pmid_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.disease_from_variants(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region, assertion=assertion, pmid=pmid, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -1290,8 +1290,8 @@ Name | Type | Description  | Notes
  **pmid** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -1352,8 +1352,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     source = 'source_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.diseases_from_genes(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, region=region, source=source, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -1378,8 +1378,8 @@ Name | Type | Description  | Notes
  **source** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -1434,8 +1434,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     api_instance = igvf_catalog_client.IgvfCatalogApi(api_client)
     drug_id = 'drug_id_example' # str |  (optional)
     name = 'name_example' # str |  (optional)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.drugs(drug_id=drug_id, name=name, page=page, limit=limit)
@@ -1454,8 +1454,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **drug_id** | **str**|  | [optional] 
  **name** | **str**|  | [optional] 
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -1518,8 +1518,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     pmid = 'pmid_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.drugs_from_variants(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region, phenotype_categories=phenotype_categories, pmid=pmid, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -1546,8 +1546,8 @@ Name | Type | Description  | Notes
  **pmid** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -1607,8 +1607,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     region = 'region_example' # str |  (optional)
     method = 'method_example' # str |  (optional)
     files_fileset = 'files_fileset_example' # str |  (optional)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.enhancer_gene_predictions(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, region=region, method=method, files_fileset=files_fileset, page=page, limit=limit)
@@ -1632,8 +1632,8 @@ Name | Type | Description  | Notes
  **region** | **str**|  | [optional] 
  **method** | **str**|  | [optional] 
  **files_fileset** | **str**|  | [optional] 
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -1701,8 +1701,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     has_genome_browser_link = 'has_genome_browser_link_example' # str |  (optional)
     source = 'source_example' # str |  (optional)
     var_class = 'var_class_example' # str |  (optional)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.files_filesets(file_fileset_id=file_fileset_id, fileset_id=fileset_id, lab=lab, preferred_assay_title=preferred_assay_title, method=method, perturbation=perturbation, donor_id=donor_id, sample_term=sample_term, sample_summary=sample_summary, software=software, cell_annotation=cell_annotation, cell_annotation_term=cell_annotation_term, has_genome_browser_link=has_genome_browser_link, source=source, var_class=var_class, page=page, limit=limit)
@@ -1734,8 +1734,8 @@ Name | Type | Description  | Notes
  **has_genome_browser_link** | **str**|  | [optional] 
  **source** | **str**|  | [optional] 
  **var_class** | **str**|  | [optional] 
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -2074,8 +2074,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     study_set = 'study_set_example' # str |  (optional)
     gene_type = 'gene_type_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.genes(gene_id=gene_id, hgnc_id=hgnc_id, entrez=entrez, name=name, region=region, synonym=synonym, collection=collection, study_set=study_set, gene_type=gene_type, organism=organism, page=page, limit=limit)
@@ -2102,8 +2102,8 @@ Name | Type | Description  | Notes
  **study_set** | **str**|  | [optional] 
  **gene_type** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -2161,8 +2161,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     source = 'source_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.genes_from_diseases(disease_id=disease_id, disease_name=disease_name, source=source, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -2184,8 +2184,8 @@ Name | Type | Description  | Notes
  **source** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -2359,8 +2359,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     idr = 'idr_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.genes_from_genomic_elements(region=region, source_annotation=source_annotation, region_type=region_type, method=method, files_fileset=files_fileset, biosample_term=biosample_term, biological_context=biological_context, cell_annotation=cell_annotation, cell_annotation_term=cell_annotation_term, source=source, score=score, effect_size=effect_size, log2_fc=log2_fc, neg_log10_pvalue=neg_log10_pvalue, neg_log10_pvalue_adj=neg_log10_pvalue_adj, z_score=z_score, idr=idr, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -2396,8 +2396,8 @@ Name | Type | Description  | Notes
  **idr** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -2457,8 +2457,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     biological_process = 'biological_process_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.genes_from_pathways(pathway_id=pathway_id, pathway_name=pathway_name, name_aliases=name_aliases, disease_ontology_terms=disease_ontology_terms, biological_process=biological_process, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -2482,8 +2482,8 @@ Name | Type | Description  | Notes
  **biological_process** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -2543,8 +2543,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     dbxrefs = 'dbxrefs_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.genes_from_proteins(protein_id=protein_id, protein_name=protein_name, uniprot_name=uniprot_name, uniprot_full_name=uniprot_full_name, dbxrefs=dbxrefs, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -2568,8 +2568,8 @@ Name | Type | Description  | Notes
  **dbxrefs** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -2627,8 +2627,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     transcript_type = 'transcript_type_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.genes_from_transcripts(transcript_id=transcript_id, region=region, transcript_type=transcript_type, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -2650,8 +2650,8 @@ Name | Type | Description  | Notes
  **transcript_type** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -2724,8 +2724,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     name = 'name_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.genes_from_variants(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region, neg_log10_pvalue=neg_log10_pvalue, effect_size=effect_size, posterior_inclusion_probability=posterior_inclusion_probability, log2_fc=log2_fc, significant=significant, biosample_term=biosample_term, biological_context=biological_context, label=label, method=method, files_fileset=files_fileset, source=source, name=name, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -2762,8 +2762,8 @@ Name | Type | Description  | Notes
  **name** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -2941,8 +2941,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     biological_context = 'biological_context_example' # str |  (optional)
     cell_annotation = 'cell_annotation_example' # str |  (optional)
     cell_annotation_term = 'cell_annotation_term_example' # str |  (optional)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.genes_genomic_elements_score_summary(gene_id, score_field, method=method, files_fileset=files_fileset, source=source, biosample_term=biosample_term, biological_context=biological_context, cell_annotation=cell_annotation, cell_annotation_term=cell_annotation_term, page=page, limit=limit)
@@ -2968,8 +2968,8 @@ Name | Type | Description  | Notes
  **biological_context** | **str**|  | [optional] 
  **cell_annotation** | **str**|  | [optional] 
  **cell_annotation_term** | **str**|  | [optional] 
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -3023,8 +3023,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = igvf_catalog_client.IgvfCatalogApi(api_client)
     variant_id = 'variant_id_example' # str | 
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.genes_proteins_from_variants(variant_id, page=page, limit=limit)
@@ -3042,8 +3042,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variant_id** | **str**|  | 
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -3097,8 +3097,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = igvf_catalog_client.IgvfCatalogApi(api_client)
     query = 'query_example' # str | 
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.genes_proteins_genes_proteins(query, page=page, limit=limit)
@@ -3116,8 +3116,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **str**|  | 
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -3179,8 +3179,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     region = 'region_example' # str |  (optional)
     type = 'type_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.genes_structure(gene_id=gene_id, gene_name=gene_name, transcript_id=transcript_id, transcript_name=transcript_name, protein_id=protein_id, protein_name=protein_name, region=region, type=type, organism=organism, page=page, limit=limit)
@@ -3206,8 +3206,8 @@ Name | Type | Description  | Notes
  **region** | **str**|  | [optional] 
  **type** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -3279,8 +3279,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     neg_log10_pvalue_adj = 'neg_log10_pvalue_adj_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.genes_transcripts_genes(gene_id=gene_id, gene_name=gene_name, transcript_id=transcript_id, readout_gene_id=readout_gene_id, readout_gene_name=readout_gene_name, morf_id=morf_id, files_fileset=files_fileset, method=method, perturbation=perturbation, significant=significant, biological_context=biological_context, biosample_term=biosample_term, log2_fc=log2_fc, p_value=p_value, p_value_adj=p_value_adj, neg_log10_pvalue=neg_log10_pvalue, neg_log10_pvalue_adj=neg_log10_pvalue_adj, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -3316,8 +3316,8 @@ Name | Type | Description  | Notes
  **neg_log10_pvalue_adj** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -3489,8 +3489,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     biosample_term = 'biosample_term_example' # str |  (optional)
     biological_context = 'biological_context_example' # str |  (optional)
     perturbation = 'perturbation_example' # str |  (optional)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.genes_variants_score_summary(gene_id, score_field, files_fileset=files_fileset, source=source, biosample_term=biosample_term, biological_context=biological_context, perturbation=perturbation, page=page, limit=limit)
@@ -3514,8 +3514,8 @@ Name | Type | Description  | Notes
  **biosample_term** | **str**|  | [optional] 
  **biological_context** | **str**|  | [optional] 
  **perturbation** | **str**|  | [optional] 
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -3574,8 +3574,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     method = 'method_example' # str |  (optional)
     source = 'source_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
     files_fileset = 'files_fileset_example' # str |  (optional)
 
     try:
@@ -3599,8 +3599,8 @@ Name | Type | Description  | Notes
  **method** | **str**|  | [optional] 
  **source** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
  **files_fileset** | **str**|  | [optional] 
 
 ### Return type
@@ -3660,8 +3660,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     files_fileset = 'files_fileset_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.genomic_elements_from_biosamples(biosample_name=biosample_name, method=method, source=source, files_fileset=files_fileset, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -3684,8 +3684,8 @@ Name | Type | Description  | Notes
  **files_fileset** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -3759,8 +3759,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     idr = 'idr_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.genomic_elements_from_genes(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, region=region, method=method, files_fileset=files_fileset, biosample_term=biosample_term, biological_context=biological_context, cell_annotation=cell_annotation, cell_annotation_term=cell_annotation_term, source=source, score=score, effect_size=effect_size, log2_fc=log2_fc, neg_log10_pvalue=neg_log10_pvalue, neg_log10_pvalue_adj=neg_log10_pvalue_adj, z_score=z_score, idr=idr, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -3798,8 +3798,8 @@ Name | Type | Description  | Notes
  **idr** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -4056,8 +4056,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     biological_context = 'biological_context_example' # str |  (optional)
     method = 'method_example' # str |  (optional)
     files_fileset = 'files_fileset_example' # str |  (optional)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.genomic_elements_from_variants(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region, biosample_term=biosample_term, biological_context=biological_context, method=method, files_fileset=files_fileset, page=page, limit=limit)
@@ -4084,8 +4084,8 @@ Name | Type | Description  | Notes
  **biological_context** | **str**|  | [optional] 
  **method** | **str**|  | [optional] 
  **files_fileset** | **str**|  | [optional] 
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -4299,8 +4299,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     api_instance = igvf_catalog_client.IgvfCatalogApi(api_client)
     query = 'query_example' # str | 
     name = 'name_example' # str |  (optional)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.go_terms_from_annotations(query, name=name, page=page, limit=limit)
@@ -4319,8 +4319,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **str**|  | 
  **name** | **str**|  | [optional] 
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -4389,8 +4389,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     perturbation = 'perturbation_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.grn(regulator_gene_id=regulator_gene_id, regulator_hgnc_id=regulator_hgnc_id, regulator_gene_name=regulator_gene_name, regulator_synonym=regulator_synonym, response_gene_id=response_gene_id, response_hgnc_id=response_hgnc_id, response_gene_name=response_gene_name, response_synonym=response_synonym, neg_log10_pvalue=neg_log10_pvalue, neg_log10_pvalue_adj=neg_log10_pvalue_adj, method=method, files_fileset=files_fileset, significant=significant, perturbation=perturbation, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -4423,8 +4423,8 @@ Name | Type | Description  | Notes
  **perturbation** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -4552,8 +4552,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     files_fileset = 'files_fileset_example' # str |  (optional)
     method = 'method_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.motifs(tf_name=tf_name, source=source, files_fileset=files_fileset, method=method, organism=organism, page=page, limit=limit)
@@ -4575,8 +4575,8 @@ Name | Type | Description  | Notes
  **files_fileset** | **str**|  | [optional] 
  **method** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -4638,8 +4638,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     method = 'method_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.motifs_from_proteins(protein_id=protein_id, protein_name=protein_name, uniprot_name=uniprot_name, uniprot_full_name=uniprot_full_name, dbxrefs=dbxrefs, files_fileset=files_fileset, method=method, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -4665,8 +4665,8 @@ Name | Type | Description  | Notes
  **method** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -4795,8 +4795,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     source = 'source_example' # str |  (optional)
     subontology = 'subontology_example' # str |  (optional)
     files_fileset = 'files_fileset_example' # str |  (optional)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.ontology_term(term_id=term_id, name=name, synonyms=synonyms, source=source, subontology=subontology, files_fileset=files_fileset, page=page, limit=limit)
@@ -4819,8 +4819,8 @@ Name | Type | Description  | Notes
  **source** | **str**|  | [optional] 
  **subontology** | **str**|  | [optional] 
  **files_fileset** | **str**|  | [optional] 
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -4874,8 +4874,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = igvf_catalog_client.IgvfCatalogApi(api_client)
     ontology_term_id = 'ontology_term_id_example' # str | 
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.ontology_term_children(ontology_term_id, page=page, limit=limit)
@@ -4893,8 +4893,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ontology_term_id** | **str**|  | 
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -4948,8 +4948,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = igvf_catalog_client.IgvfCatalogApi(api_client)
     ontology_term_id = 'ontology_term_id_example' # str | 
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.ontology_term_parents(ontology_term_id, page=page, limit=limit)
@@ -4967,8 +4967,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ontology_term_id** | **str**|  | 
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -5101,8 +5101,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     disease_ontology_terms = 'disease_ontology_terms_example' # str |  (optional)
     biological_process = 'biological_process_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.pathways(id=id, name=name, is_in_disease=is_in_disease, name_aliases=name_aliases, is_top_level_pathway=is_top_level_pathway, disease_ontology_terms=disease_ontology_terms, biological_process=biological_process, organism=organism, page=page, limit=limit)
@@ -5127,8 +5127,8 @@ Name | Type | Description  | Notes
  **disease_ontology_terms** | **str**|  | [optional] 
  **biological_process** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -5188,8 +5188,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     region = 'region_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.pathways_from_genes(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, region=region, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -5213,8 +5213,8 @@ Name | Type | Description  | Notes
  **region** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -5274,8 +5274,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     biological_process = 'biological_process_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.pathways_from_pathways(pathway_id=pathway_id, pathway_name=pathway_name, name_aliases=name_aliases, disease_ontology_terms=disease_ontology_terms, biological_process=biological_process, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -5299,8 +5299,8 @@ Name | Type | Description  | Notes
  **biological_process** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -5361,8 +5361,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     transcript_id = 'transcript_id_example' # str |  (optional)
     method = 'method_example' # str |  (optional)
     files_fileset = 'files_fileset_example' # str |  (optional)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.phenotypes_from_coding_variants(coding_variant_name=coding_variant_name, hgvsp=hgvsp, uniprot_name=uniprot_name, gene_name=gene_name, amino_acid_position=amino_acid_position, transcript_id=transcript_id, method=method, files_fileset=files_fileset, page=page, limit=limit)
@@ -5387,8 +5387,8 @@ Name | Type | Description  | Notes
  **transcript_id** | **str**|  | [optional] 
  **method** | **str**|  | [optional] 
  **files_fileset** | **str**|  | [optional] 
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -5542,8 +5542,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     var_class = 'var_class_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
     files_fileset = 'files_fileset_example' # str |  (optional)
 
     try:
@@ -5574,8 +5574,8 @@ Name | Type | Description  | Notes
  **var_class** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
  **files_fileset** | **str**|  | [optional] 
 
 ### Return type
@@ -5636,8 +5636,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     files_fileset = 'files_fileset_example' # str |  (optional)
     method = 'method_example' # str |  (optional)
-    limit = 3.4 # float |  (optional)
-    page = 0 # float |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
+    page = 0 # int |  (optional) (default to 0)
 
     try:
         api_response = api_instance.predictions_from_variants(spdi=spdi, hgvs=hgvs, ca_id=ca_id, variant_id=variant_id, organism=organism, files_fileset=files_fileset, method=method, limit=limit, page=page)
@@ -5661,8 +5661,8 @@ Name | Type | Description  | Notes
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **files_fileset** | **str**|  | [optional] 
  **method** | **str**|  | [optional] 
- **limit** | **float**|  | [optional] 
- **page** | **float**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
 
 ### Return type
 
@@ -5721,8 +5721,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     uniprot_full_name = 'uniprot_full_name_example' # str |  (optional)
     dbxrefs = 'dbxrefs_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.proteins(protein_id=protein_id, name=name, uniprot_name=uniprot_name, uniprot_full_name=uniprot_full_name, dbxrefs=dbxrefs, organism=organism, page=page, limit=limit)
@@ -5745,8 +5745,8 @@ Name | Type | Description  | Notes
  **uniprot_full_name** | **str**|  | [optional] 
  **dbxrefs** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -5804,8 +5804,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     description = 'description_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.proteins_from_complexes(complex_id=complex_id, complex_name=complex_name, description=description, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -5827,8 +5827,8 @@ Name | Type | Description  | Notes
  **description** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -5888,8 +5888,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     region = 'region_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.proteins_from_genes(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, region=region, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -5913,8 +5913,8 @@ Name | Type | Description  | Notes
  **region** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -5973,8 +5973,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     method = 'method_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.proteins_from_motifs(tf_name=tf_name, source=source, files_fileset=files_fileset, method=method, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -5997,8 +5997,8 @@ Name | Type | Description  | Notes
  **method** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -6056,8 +6056,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     transcript_type = 'transcript_type_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.proteins_from_transcripts(transcript_id=transcript_id, region=region, transcript_type=transcript_type, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -6079,8 +6079,8 @@ Name | Type | Description  | Notes
  **transcript_type** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -6146,8 +6146,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     name = 'name_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.proteins_from_variants(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region, label=label, source=source, method=method, files_fileset=files_fileset, name=name, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -6177,8 +6177,8 @@ Name | Type | Description  | Notes
  **name** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -6250,8 +6250,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     files_fileset = 'files_fileset_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.proteins_proteins(protein_id=protein_id, protein_name=protein_name, uniprot_name=uniprot_name, uniprot_full_name=uniprot_full_name, dbxrefs=dbxrefs, associated_protein_id=associated_protein_id, associated_protein_name=associated_protein_name, associated_uniprot_name=associated_uniprot_name, associated_uniprot_full_name=associated_uniprot_full_name, associated_dbxrefs=associated_dbxrefs, pmid=pmid, detection_method=detection_method, interaction_type=interaction_type, label=label, method=method, source=source, files_fileset=files_fileset, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -6287,8 +6287,8 @@ Name | Type | Description  | Notes
  **files_fileset** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -6346,8 +6346,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     ca_id = 'ca_id_example' # str |  (optional)
     variant_id = 'variant_id_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
     files_fileset = 'files_fileset_example' # str |  (optional)
 
     try:
@@ -6370,8 +6370,8 @@ Name | Type | Description  | Notes
  **ca_id** | **str**|  | [optional] 
  **variant_id** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
  **files_fileset** | **str**|  | [optional] 
 
 ### Return type
@@ -6436,8 +6436,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     method = 'method_example' # str |  (optional)
     source = 'source_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.qtls(gene_id=gene_id, gene_name=gene_name, variant_id=variant_id, spdi=spdi, rsid=rsid, ca_id=ca_id, region=region, biological_context=biological_context, method=method, source=source, organism=organism, page=page, limit=limit)
@@ -6465,8 +6465,8 @@ Name | Type | Description  | Notes
  **method** | **str**|  | [optional] 
  **source** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -6522,7 +6522,7 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     study_id = 'study_id_example' # str |  (optional)
     pmid = 'pmid_example' # str |  (optional)
     files_fileset = 'files_fileset_example' # str |  (optional)
-    page = 0 # float |  (optional) (default to 0)
+    page = 0 # int |  (optional) (default to 0)
 
     try:
         api_response = api_instance.studies(study_id=study_id, pmid=pmid, files_fileset=files_fileset, page=page)
@@ -6542,7 +6542,7 @@ Name | Type | Description  | Notes
  **study_id** | **str**|  | [optional] 
  **pmid** | **str**|  | [optional] 
  **files_fileset** | **str**|  | [optional] 
- **page** | **float**|  | [optional] [default to 0]
+ **page** | **int**|  | [optional] [default to 0]
 
 ### Return type
 
@@ -6599,8 +6599,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     region = 'region_example' # str |  (optional)
     transcript_type = 'transcript_type_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
     refseq_transcript_id = 'refseq_transcript_id_example' # str |  (optional)
 
     try:
@@ -6622,8 +6622,8 @@ Name | Type | Description  | Notes
  **region** | **str**|  | [optional] 
  **transcript_type** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
  **refseq_transcript_id** | **str**|  | [optional] 
 
 ### Return type
@@ -6684,8 +6684,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     region = 'region_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.transcripts_from_genes(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, region=region, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -6709,8 +6709,8 @@ Name | Type | Description  | Notes
  **region** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -6770,8 +6770,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     dbxrefs = 'dbxrefs_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.transcripts_from_proteins(protein_id=protein_id, protein_name=protein_name, uniprot_name=uniprot_name, uniprot_full_name=uniprot_full_name, dbxrefs=dbxrefs, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -6795,8 +6795,8 @@ Name | Type | Description  | Notes
  **dbxrefs** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -6859,8 +6859,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     minimum_af = 0 # float |  (optional) (default to 0)
     maximum_af = 1 # float |  (optional) (default to 1)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.variant_by_frequency_source(source, spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, region=region, gencode_category=gencode_category, minimum_af=minimum_af, maximum_af=maximum_af, organism=organism, page=page, limit=limit)
@@ -6887,8 +6887,8 @@ Name | Type | Description  | Notes
  **minimum_af** | **float**|  | [optional] [default to 0]
  **maximum_af** | **float**|  | [optional] [default to 1]
  **organism** | **str**|  | [optional] [default to Homo sapiens]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -7030,8 +7030,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     gencode_category = 'gencode_category_example' # str |  (optional)
     mouse_strain = 'mouse_strain_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.variants(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region, gencode_category=gencode_category, mouse_strain=mouse_strain, organism=organism, page=page, limit=limit)
@@ -7057,8 +7057,8 @@ Name | Type | Description  | Notes
  **gencode_category** | **str**|  | [optional] 
  **mouse_strain** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -7193,8 +7193,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     phenotype_name = 'phenotype_name_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.variants_from_biosamples(biosample_id=biosample_id, biosample_name=biosample_name, files_fileset=files_fileset, method=method, element_id=element_id, significant=significant, gene_id=gene_id, gene_name=gene_name, phenotype_id=phenotype_id, phenotype_name=phenotype_name, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -7223,8 +7223,8 @@ Name | Type | Description  | Notes
  **phenotype_name** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -7285,8 +7285,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     amino_acid_position = 'amino_acid_position_example' # str |  (optional)
     alt_amino_acid = 'alt_amino_acid_example' # str |  (optional)
     transcript_id = 'transcript_id_example' # str |  (optional)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.variants_from_coding_variants(coding_variant_name=coding_variant_name, hgvsp=hgvsp, protein_id=protein_id, uniprot_name=uniprot_name, gene_name=gene_name, amino_acid_position=amino_acid_position, alt_amino_acid=alt_amino_acid, transcript_id=transcript_id, page=page, limit=limit)
@@ -7311,8 +7311,8 @@ Name | Type | Description  | Notes
  **amino_acid_position** | **str**|  | [optional] 
  **alt_amino_acid** | **str**|  | [optional] 
  **transcript_id** | **str**|  | [optional] 
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -7371,8 +7371,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     pmid = 'pmid_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.variants_from_diseases(disease_id=disease_id, disease_name=disease_name, assertion=assertion, pmid=pmid, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -7395,8 +7395,8 @@ Name | Type | Description  | Notes
  **pmid** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -7455,8 +7455,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     pmid = 'pmid_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.variants_from_drugs(drug_id=drug_id, drug_name=drug_name, phenotype_categories=phenotype_categories, pmid=pmid, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -7479,8 +7479,8 @@ Name | Type | Description  | Notes
  **pmid** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -7534,8 +7534,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = igvf_catalog_client.IgvfCatalogApi(api_client)
     query = 'query_example' # str | 
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.variants_from_gene_proteins(query, page=page, limit=limit)
@@ -7553,8 +7553,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **str**|  | 
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -7626,8 +7626,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     name = 'name_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.variants_from_genes(gene_id=gene_id, hgnc_id=hgnc_id, gene_name=gene_name, synonym=synonym, region=region, neg_log10_pvalue=neg_log10_pvalue, effect_size=effect_size, posterior_inclusion_probability=posterior_inclusion_probability, log2_fc=log2_fc, significant=significant, biosample_term=biosample_term, biological_context=biological_context, label=label, method=method, files_fileset=files_fileset, source=source, name=name, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -7663,8 +7663,8 @@ Name | Type | Description  | Notes
  **name** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -7723,8 +7723,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     biological_context = 'biological_context_example' # str |  (optional)
     method = 'method_example' # str |  (optional)
     files_fileset = 'files_fileset_example' # str |  (optional)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.variants_from_genomic_elements(region=region, region_type=region_type, biosample_term=biosample_term, biological_context=biological_context, method=method, files_fileset=files_fileset, page=page, limit=limit)
@@ -7747,8 +7747,8 @@ Name | Type | Description  | Notes
  **biological_context** | **str**|  | [optional] 
  **method** | **str**|  | [optional] 
  **files_fileset** | **str**|  | [optional] 
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -7811,8 +7811,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     source = 'source_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.variants_from_phenotypes(phenotype_id=phenotype_id, phenotype_name=phenotype_name, neg_log10_pvalue=neg_log10_pvalue, method=method, label=label, var_class=var_class, files_fileset=files_fileset, source=source, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -7839,8 +7839,8 @@ Name | Type | Description  | Notes
  **source** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -7905,8 +7905,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     name = 'name_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.variants_from_proteins(protein_id=protein_id, protein_name=protein_name, uniprot_name=uniprot_name, uniprot_full_name=uniprot_full_name, dbxrefs=dbxrefs, label=label, source=source, method=method, files_fileset=files_fileset, name=name, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -7935,8 +7935,8 @@ Name | Type | Description  | Notes
  **name** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -8000,8 +8000,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     ancestry = 'ancestry_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
     verbose = false # str |  (optional) (default to false)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.variants_from_variant_id(spdi=spdi, hgvs=hgvs, rsid=rsid, ca_id=ca_id, variant_id=variant_id, region=region, r2=r2, d_prime=d_prime, ancestry=ancestry, organism=organism, verbose=verbose, page=page, limit=limit)
@@ -8029,8 +8029,8 @@ Name | Type | Description  | Notes
  **ancestry** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
  **verbose** | **str**|  | [optional] [default to false]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -8088,8 +8088,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     ca_id = 'ca_id_example' # str |  (optional)
     variant_id = 'variant_id_example' # str |  (optional)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.variants_from_variant_id_summary(spdi=spdi, hgvs=hgvs, ca_id=ca_id, variant_id=variant_id, organism=organism, page=page, limit=limit)
@@ -8111,8 +8111,8 @@ Name | Type | Description  | Notes
  **ca_id** | **str**|  | [optional] 
  **variant_id** | **str**|  | [optional] 
  **organism** | **str**|  | [optional] [default to Homo sapiens]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -8174,8 +8174,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     biological_context = 'biological_context_example' # str |  (optional)
     nearby_genes = true # str |  (optional) (default to true)
     organism = Homo sapiens # str |  (optional) (default to Homo sapiens)
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.variants_genomic_elements_genes(spdi=spdi, hgvs=hgvs, ca_id=ca_id, variant_id=variant_id, files_fileset=files_fileset, biosample_term=biosample_term, biological_context=biological_context, nearby_genes=nearby_genes, organism=organism, page=page, limit=limit)
@@ -8201,8 +8201,8 @@ Name | Type | Description  | Notes
  **biological_context** | **str**|  | [optional] 
  **nearby_genes** | **str**|  | [optional] [default to true]
  **organism** | **str**|  | [optional] [default to Homo sapiens]
- **page** | **float**|  | [optional] [default to 0]
- **limit** | **float**|  | [optional] 
+ **page** | **int**|  | [optional] [default to 0]
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 

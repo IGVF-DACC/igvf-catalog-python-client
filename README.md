@@ -8,8 +8,8 @@ Our database uses 0-based, half-open coordinates for genomic coordinates in the 
 
 Data is licensed under the <a href=https://creativecommons.org/licenses/by/4.0/ target=\"_blank\">Creative Commons license</a> and the software is licensed under the <a href=https://spdx.org/licenses/MIT.html target=\"_blank\">MIT license</a>.
 
-- API version: 1.3.1.dev20261113221203
-- Package version: 1.3.1.dev20261113221203
+- API version: 1.3.1.dev20261116230925
+- Package version: 1.3.1.dev20261116230925
 - Generator version: 7.14.0
 
 This package is generated with [OpenAPI Generator](https://openapi-generator.tech) by
@@ -77,8 +77,8 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
     api_instance = igvf_catalog_client.IgvfCatalogApi(api_client)
     gene_id = 'gene_id_example' # str | 
     dataset = 'dataset_example' # str | 
-    page = 0 # float |  (optional) (default to 0)
-    limit = 3.4 # float |  (optional)
+    page = 0 # int |  (optional) (default to 0)
+    limit = 56 # int |  (optional)
 
     try:
         api_response = api_instance.all_coding_variants_from_genes(gene_id, dataset, page=page, limit=limit)
