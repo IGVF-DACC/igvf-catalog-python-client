@@ -22,8 +22,8 @@ from setuptools import setup, find_packages  # noqa: H301
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 NAME = "igvf-catalog-client"
-VERSION = "1.3.0"
-PYTHON_REQUIRES = ">= 3.9"
+VERSION = "1.3.0.post1"
+PYTHON_REQUIRES = ">= 3.11"
 REQUIRES = [
     "urllib3 >= 2.1.0, < 3.0.0",
     "python-dateutil >= 2.8.2",
@@ -47,5 +47,5 @@ setup(
     long_description="""\
     IGVF Catalog OpenAPI compliant REST API built using tRPC with Express.  Our database uses 0-based, half-open coordinates for genomic coordinates in the GRCh38 (human) and GRCm39 (mouse) reference genomes.  Data is licensed under the &lt;a href&#x3D;https://creativecommons.org/licenses/by/4.0/ target&#x3D;\&quot;_blank\&quot;&gt;Creative Commons license&lt;/a&gt; and the software is licensed under the &lt;a href&#x3D;https://spdx.org/licenses/MIT.html target&#x3D;\&quot;_blank\&quot;&gt;MIT license&lt;/a&gt;.
     """,  # noqa: E501
-    package_data={"igvf_catalog_client": ["py.typed"]},
+    package_data={"igvf_catalog_client": ["py.typed", "openapi_spec_processed.json"]},
 )
