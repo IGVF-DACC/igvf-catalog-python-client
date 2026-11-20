@@ -8,8 +8,8 @@ Our database uses 0-based, half-open coordinates for genomic coordinates in the 
 
 Data is licensed under the <a href=https://creativecommons.org/licenses/by/4.0/ target=\"_blank\">Creative Commons license</a> and the software is licensed under the <a href=https://spdx.org/licenses/MIT.html target=\"_blank\">MIT license</a>.
 
-- API version: 1.3.1.dev20261116230925
-- Package version: 1.3.1.dev20261116230925
+- API version: 1.3.1.dev20261120231234
+- Package version: 1.3.1.dev20261120231234
 - Generator version: 7.14.0
 
 This package is generated with [OpenAPI Generator](https://openapi-generator.tech) by
@@ -54,6 +54,24 @@ with igvf_catalog_client.ApiClient(configuration) as api_client:
 
 Every endpoint is a method on `IgvfCatalogApi`, listed below. The interactive API documentation is at
 [api.catalogkg.igvf.org](https://api.catalogkg.igvf.org/).
+
+## OpenAPI spec
+
+The package includes the processed OpenAPI spec it was generated from, as
+`igvf_catalog_client/openapi_spec_processed.json`. It has what the generated code doesn't
+keep, such as the allowed values of enum query parameters and each endpoint's maximum
+page size. Load it with:
+
+```python
+import json
+from importlib.resources import files
+
+spec = json.loads(files("igvf_catalog_client").joinpath("openapi_spec_processed.json").read_text())
+```
+
+`spec["info"]["version"]` is the IGVF Catalog API version. It equals the package version
+without any `.postN` suffix: a post-release such as `1.3.0.post1` repackages the `1.3.0`
+API unchanged, and a dev build's spec carries the full dev version.
 
 ## Getting Started
 
